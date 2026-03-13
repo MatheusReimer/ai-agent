@@ -1,0 +1,804 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frodo's Investment Committee Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000000;
+            color: #FCFCFC;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 255, 221, 0.2);
+        }
+        h1, h2, h3, h4 {
+            color: #00FFDD;
+            border-bottom: 2px solid #53277D;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        h1 { font-size: 2.5em; color: #FFB300; border-color: #FFB300; }
+        h2 { font-size: 2em; }
+        h3 { font-size: 1.5em; color: #FCFCFC; border-color: #53277D; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #2a2a2a;
+        }
+        th, td {
+            border: 1px solid #53277D;
+            padding: 12px;
+            text-align: left;
+            color: #FCFCFC;
+        }
+        th {
+            background-color: #53277D;
+            font-weight: bold;
+            color: #FCFCFC;
+        }
+        tr:nth-child(even) {
+            background-color: #3a3a3a;
+        }
+        .sentiment-score {
+            font-weight: bold;
+        }
+        .sentiment-bullish { color: #00FFDD; }
+        .sentiment-neutral { color: #FCFCFC; }
+        .sentiment-bearish { color: #FFB300; }
+        .controversy-rating {
+            font-weight: bold;
+        }
+        .persona-name {
+            color: #00FFDD;
+            font-weight: bold;
+        }
+        .persona-quote {
+            background-color: #333333;
+            border-left: 4px solid #53277D;
+            margin: 10px 0;
+            padding: 10px 15px;
+            font-style: italic;
+        }
+        .callout {
+            background-color: #53277D;
+            color: #FCFCFC;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .win-rate-safe { color: #00FFDD; }
+        .win-rate-value { color: #FFB300; }
+        .win-rate-quant { color: #FFB300; }
+        .chairman-decision {
+            border: 2px solid #FFB300;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #2a2a2a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Frodo's Investment Committee Report</h1>
+
+        <div class="callout">
+            <h3>Bot Performance Context</h3>
+            <p>Total bets: 14 | Resolved: 9 | Pending: 5</p>
+            <p>Wins: 5 | Losses: 4 | Win Rate: 55.6%</p>
+            <p>Total wagered: $38.66 | Net profit: $-8.73</p>
+            <h3>Persona Leaderboard:</h3>
+            <ul>
+                <li><span class="persona-name win-rate-safe">Safe Hands</span>: 4W 0L (100%) | net $+2.35 (EXTRA WEIGHT)</li>
+                <li><span class="persona-name win-rate-value">Value</span>: 1W 3L (25%) | net $-6.97 (Under Review - needs 2 other personas backing)</li>
+                <li><span class="persona-name win-rate-quant">Quant</span>: 0W 1L (0%) | net $-4.11 (Under Review - needs 2 other personas backing)</li>
+            </ul>
+        </div>
+
+        <h2>SECTION 1: Esports Markets</h2>
+
+        <h3>League of Legends</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Resolves</th>
+                    <th>Match</th>
+                    <th>Category</th>
+                    <th>Volume</th>
+                    <th>Implied Odds</th>
+                    <th>RSI Score</th>
+                    <th>Sentiment Score</th>
+                    <th>Controversy Rating</th>
+                    <th>Team Stats</th>
+                    <th>Analysis</th>
+                    <th>Prediction</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mar 10 22:00 UTC</td>
+                    <td>LoL: Arctic Pandas vs Colossal Gaming (BO3) - EMEA Masters Group 3<br/>Question: Game 1: Both Teams Slay a Dragon?</td>
+                    <td>league-of-legends</td>
+                    <td>58.69</td>
+                    <td>Yes: 51.5%, No: 48.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-neutral">50 (Neutral)</span></td>
+                    <td>5 (Moderate)</td>
+                    <td>N/A for this prop bet.</td>
+                    <td>A prop bet on dragon slaying. Odds are very close, indicating a toss-up.</td>
+                    <td>No (0.485)</td>
+                </tr>
+                <tr>
+                    <td>Mar 10 23:55 UTC</td>
+                    <td>LoL: Baam Esports vs Witchcraft (BO3) - EMEA Masters Group 4</td>
+                    <td>league-of-legends</td>
+                    <td>12001.75</td>
+                    <td>Baam Esports: 15.5%, Witchcraft: 84.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">80 (Bullish for Witchcraft)</span></td>
+                    <td>2 (Low)</td>
+                    <td>Witchcraft is a strong market favorite.</td>
+                    <td>Witchcraft is the overwhelming market favorite in this match.</td>
+                    <td>Witchcraft (0.845)</td>
+                </tr>
+                <tr>
+                    <td>Mar 10 23:55 UTC</td>
+                    <td>LoL: Galions vs Vantex Esports (BO3) - EMEA Masters Group 2<br/>Question: Game 1: Both Teams Destroy Inhibitors?</td>
+                    <td>league-of-legends</td>
+                    <td>23196.05</td>
+                    <td>Yes: 48.5%, No: 51.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-neutral">50 (Neutral)</span></td>
+                    <td>5 (Moderate)</td>
+                    <td>N/A for this prop bet.</td>
+                    <td>Another prop bet with very close odds, indicating a high degree of uncertainty.</td>
+                    <td>No (0.515)</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 00:10 UTC</td>
+                    <td>LoL: G2 NORD vs Lupus Esports (BO3) - EMEA Masters Group 4</td>
+                    <td>league-of-legends</td>
+                    <td>6092.09</td>
+                    <td>G2 NORD: 90.5%, Lupus Esports: 9.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">95 (Very Bullish for G2 NORD)</span></td>
+                    <td>1 (Very Low)</td>
+                    <td>G2 NORD has a 100% win rate in the last month (5 matches) and won the Comedy Central Winter Snowdown.</td>
+                    <td>G2 NORD shows dominant recent form and is a clear market favorite.</td>
+                    <td>G2 NORD (0.905)</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 00:10 UTC</td>
+                    <td>LoL: NightBirds vs Los Heretics (BO3) - EMEA Masters Group 3</td>
+                    <td>league-of-legends</td>
+                    <td>43827.08</td>
+                    <td>NightBirds: 17.5%, Los Heretics: 82.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">85 (Bullish for Los Heretics)</span></td>
+                    <td>2 (Low)</td>
+                    <td>NightBirds has a 100% win rate in the last 30 days and a 6-match win streak, but Los Heretics is the strong market favorite.</td>
+                    <td>Despite NightBirds' strong recent form, the market heavily favors Los Heretics, suggesting a higher tier of competition or unseen factors.</td>
+                    <td>Los Heretics (0.825)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Valorant</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Resolves</th>
+                    <th>Match</th>
+                    <th>Category</th>
+                    <th>Volume</th>
+                    <th>Implied Odds</th>
+                    <th>RSI Score</th>
+                    <th>Sentiment Score</th>
+                    <th>Controversy Rating</th>
+                    <th>Team Stats</th>
+                    <th>Analysis</th>
+                    <th>Prediction</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mar 11 00:00 UTC</td>
+                    <td>Valorant: G2 Esports vs BBL Esports (BO3) - VCT Masters Santiago Playoffs</td>
+                    <td>valorant</td>
+                    <td>145062.26</td>
+                    <td>G2 Esports: 74.5%, BBL Esports: 25.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">75 (Bullish for BBL Esports recent form)</span></td>
+                    <td>7 (High)</td>
+                    <td>G2 Esports recently lost to Paper Rex. BBL Esports has a 70% win rate in their last 10 matches and 73% in the last 3 months.</td>
+                    <td>Market favors G2 Esports, but BBL Esports shows strong recent momentum. This presents a potential value opportunity.</td>
+                    <td>G2 Esports (0.745)</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 02:00 UTC</td>
+                    <td>Valorant: Blue Otter vs ROSE (BO3) - VCL North America: Stage 1 Relegation Group Stage</td>
+                    <td>valorant</td>
+                    <td>138.56</td>
+                    <td>Blue Otter: 37%, ROSE: 63%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">65 (Slightly Bullish for ROSE)</span></td>
+                    <td>5 (Moderate)</td>
+                    <td>Market slightly favors ROSE.</td>
+                    <td>ROSE is a slight market favorite.</td>
+                    <td>ROSE (0.63)</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 03:00 UTC</td>
+                    <td>Valorant: Paper Rex vs All Gamers (BO3) - VCT Masters Santiago Playoffs</td>
+                    <td>valorant</td>
+                    <td>54027.57</td>
+                    <td>Paper Rex: 81.5%, All Gamers: 18.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">95 (Very Bullish for Paper Rex)</span></td>
+                    <td>1 (Very Low)</td>
+                    <td>Paper Rex is ranked #2 globally with an 88% win rate in the last 30 days and recent wins against strong opponents like NRG and G2 Esports.</td>
+                    <td>Paper Rex is a top-tier team with overwhelming statistics and market confidence.</td>
+                    <td>Paper Rex (0.815)</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 12:00 UTC</td>
+                    <td>Valorant: Oasis Gaming vs 4 shurima (BO3) - VCL Southeast Asia: Group D</td>
+                    <td>valorant</td>
+                    <td>1152.56</td>
+                    <td>Oasis Gaming: 90.5%, 4 shurima: 9.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">80 (Bullish for Oasis Gaming)</span></td>
+                    <td>2 (Low)</td>
+                    <td>Oasis Gaming is a strong market favorite.</td>
+                    <td>Oasis Gaming is heavily favored by the market.</td>
+                    <td>Oasis Gaming (0.905)</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 14:00 UTC</td>
+                    <td>Valorant: ARETE vs T1 Academy (BO3) - VCL Korea: Regular Season</td>
+                    <td>valorant</td>
+                    <td>3295.26</td>
+                    <td>ARETE: 9.5%, T1 Academy: 90.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">90 (Very Bullish for T1 Academy)</span></td>
+                    <td>1 (Very Low)</td>
+                    <td>T1 Academy has a 5-match win streak and a 74% overall win rate, securing 3rd place in VCT 2025 Challengers League Korea: Stage 2.</td>
+                    <td>T1 Academy exhibits strong performance and is a clear market favorite.</td>
+                    <td>T1 Academy (0.905)</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 14:00 UTC</td>
+                    <td>Valorant: Alter Ego vs TrinitY (BO3) - VCL Southeast Asia: Group B<br/>Question: Map Handicap: AE (-1.5) vs TrinitY (+1.5)</td>
+                    <td>valorant</td>
+                    <td>357.76</td>
+                    <td>Alter Ego: 32.5%, TrinitY: 67.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">60 (Slightly Bullish for TrinitY +1.5)</span></td>
+                    <td>5 (Moderate)</td>
+                    <td>Market favors TrinitY with the map handicap.</td>
+                    <td>The market suggests TrinitY is expected to perform well enough to cover the +1.5 map handicap.</td>
+                    <td>TrinitY (0.675)</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 16:00 UTC</td>
+                    <td>Valorant: BOOM Esports vs Rival Esports (BO3) - VCL Southeast Asia: Group A</td>
+                    <td>valorant</td>
+                    <td>398.67</td>
+                    <td>BOOM Esports: 91.5%, Rival Esports: 8.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">80 (Bullish for BOOM Esports)</span></td>
+                    <td>2 (Low)</td>
+                    <td>BOOM Esports is a strong market favorite.</td>
+                    <td>BOOM Esports is heavily favored by the market.</td>
+                    <td>BOOM Esports (0.915)</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 16:00 UTC</td>
+                    <td>Valorant: Mir Gaming vs Dplus (BO3) - VCL Korea: Regular Season</td>
+                    <td>valorant</td>
+                    <td>2516.98</td>
+                    <td>Mir Gaming: 20.5%, Dplus: 79.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">80 (Bullish for Dplus)</span></td>
+                    <td>2 (Low)</td>
+                    <td>Dplus is a strong market favorite.</td>
+                    <td>Dplus is heavily favored by the market.</td>
+                    <td>Dplus (0.795)</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 01:00 UTC</td>
+                    <td>Valorant: Aura vs Leviatán Academy (BO3) - VCL Latin America South Group Stage</td>
+                    <td>valorant</td>
+                    <td>23.13</td>
+                    <td>Aura: 36.5%, Leviatán Academy: 63.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">65 (Slightly Bullish for Leviatán Academy)</span></td>
+                    <td>5 (Moderate)</td>
+                    <td>Market slightly favors Leviatán Academy.</td>
+                    <td>Leviatán Academy is a slight market favorite.</td>
+                    <td>Leviatán Academy (0.635)</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 02:00 UTC</td>
+                    <td>Valorant: 2GAME Esports vs HOLY (BO3) - VCL Brazil: Group A</td>
+                    <td>valorant</td>
+                    <td>87.27</td>
+                    <td>2GAME Esports: 88.5%, HOLY: 11.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">80 (Bullish for 2GAME Esports)</span></td>
+                    <td>2 (Low)</td>
+                    <td>2GAME Esports is a strong market favorite.</td>
+                    <td>2GAME Esports is heavily favored by the market.</td>
+                    <td>2GAME Esports (0.885)</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 02:00 UTC</td>
+                    <td>Valorant: Equipe Caos vs MIBR Academy (BO3) - VCL Brazil: Group A<br/>Question: Map Handicap: MIBR.A (-1.5) vs Equipe Caos (+1.5)</td>
+                    <td>valorant</td>
+                    <td>77.96</td>
+                    <td>MIBR Academy: 38%, Equipe Caos: 62%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">60 (Slightly Bullish for Equipe Caos +1.5)</span></td>
+                    <td>5 (Moderate)</td>
+                    <td>Market favors Equipe Caos with the map handicap.</td>
+                    <td>The market suggests Equipe Caos is expected to cover the +1.5 map handicap.</td>
+                    <td>Equipe Caos (0.62)</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 02:00 UTC</td>
+                    <td>Valorant: Winthrop University vs Blue Otter (BO3) - VCL North America: Stage 1 Relegation Group Stage</td>
+                    <td>valorant</td>
+                    <td>N/A</td>
+                    <td>Winthrop University: 58.5%, Blue Otter: 41.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">60 (Slightly Bullish for Winthrop University)</span></td>
+                    <td>5 (Moderate)</td>
+                    <td>Market slightly favors Winthrop University.</td>
+                    <td>Winthrop University is a slight market favorite.</td>
+                    <td>Winthrop University (0.585)</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 04:00 UTC</td>
+                    <td>Valorant: KRÜ Spark vs ShindeN (BO3) - VCL Latin America South Group Stage</td>
+                    <td>valorant</td>
+                    <td>9.76</td>
+                    <td>KRÜ Spark: 14%, ShindeN: 86%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">80 (Bullish for ShindeN)</span></td>
+                    <td>2 (Low)</td>
+                    <td>ShindeN is a strong market favorite.</td>
+                    <td>ShindeN is heavily favored by the market.</td>
+                    <td>ShindeN (0.86)</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 04:00 UTC</td>
+                    <td>Valorant: Tezcat Gaming vs LAZER (BO3) - VCL Latin America North Group Stage</td>
+                    <td>valorant</td>
+                    <td>N/A</td>
+                    <td>Tezcat Gaming: 56%, LAZER: 44%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">60 (Slightly Bullish for Tezcat Gaming)</span></td>
+                    <td>5 (Moderate)</td>
+                    <td>Market slightly favors Tezcat Gaming.</td>
+                    <td>Tezcat Gaming is a slight market favorite.</td>
+                    <td>Tezcat Gaming (0.56)</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 07:00 UTC</td>
+                    <td>Valorant: Contra vs LYON (BO3) - VCL Latin America North Group Stage<br/>Question: Valorant: Contra vs LYON - Map 1 Winner</td>
+                    <td>valorant</td>
+                    <td>118.45</td>
+                    <td>Contra: 40%, LYON: 60%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">60 (Slightly Bullish for LYON)</span></td>
+                    <td>5 (Moderate)</td>
+                    <td>Market slightly favors LYON for Map 1.</td>
+                    <td>LYON is a slight market favorite for the first map.</td>
+                    <td>LYON (0.60)</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 14:00 UTC</td>
+                    <td>Valorant: Gen.G Global Academy vs DRX Academy (BO3) - VCL Korea: Regular Season<br/>Question: Map Handicap: GEN.A (-1.5) vs DRX Academy (+1.5)</td>
+                    <td>valorant</td>
+                    <td>44.74</td>
+                    <td>Gen.G Global Academy: 28.5%, DRX Academy: 71.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">65 (Slightly Bullish for DRX Academy +1.5)</span></td>
+                    <td>5 (Moderate)</td>
+                    <td>Market favors DRX Academy with the map handicap.</td>
+                    <td>The market implies DRX Academy is expected to keep the match close or win maps.</td>
+                    <td>DRX Academy (0.715)</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 16:00 UTC</td>
+                    <td>Valorant: FearX vs ONSIDE GAMING (BO3) - VCL Korea: Regular Season</td>
+                    <td>valorant</td>
+                    <td>29.96</td>
+                    <td>FearX: 36%, ONSIDE GAMING: 64%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">65 (Slightly Bullish for ONSIDE GAMING)</span></td>
+                    <td>5 (Moderate)</td>
+                    <td>Market slightly favors ONSIDE GAMING.</td>
+                    <td>ONSIDE GAMING is a slight market favorite.</td>
+                    <td>ONSIDE GAMING (0.64)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Counter-Strike 2</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Resolves</th>
+                    <th>Match</th>
+                    <th>Category</th>
+                    <th>Volume</th>
+                    <th>Implied Odds</th>
+                    <th>RSI Score</th>
+                    <th>Sentiment Score</th>
+                    <th>Controversy Rating</th>
+                    <th>Team Stats</th>
+                    <th>Analysis</th>
+                    <th>Prediction</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mar 10 21:15 UTC</td>
+                    <td>Counter-Strike: ex-Zero Tenacity vs HEROIC Academy (BO3) - BC Game Masters Group Stage</td>
+                    <td>cs2</td>
+                    <td>22085.47</td>
+                    <td>ex-Zero Tenacity: 49.5%, HEROIC Academy: 50.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-neutral">50 (Neutral)</span></td>
+                    <td>7 (High)</td>
+                    <td>HEROIC Academy has mixed recent form (54% win rate last month, 45% overall) and a 3-match losing streak.</td>
+                    <td>Very tight market odds despite HEROIC Academy's recent struggles, suggesting either ex-Zero Tenacity is underrated or HEROIC Academy has underlying strength.</td>
+                    <td>HEROIC Academy (0.505)</td>
+                </tr>
+                <tr>
+                    <td>Mar 10 21:25 UTC</td>
+                    <td>Counter-Strike: KOLESIE vs Leo Team (BO3) - CCT Europe Series #17 Playoffs<br/>Question: Map Handicap: Leo (-1.5) vs KOLESIE (+1.5)</td>
+                    <td>cs2</td>
+                    <td>279.44</td>
+                    <td>Leo Team: 0.5%, KOLESIE: 99.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">99 (Overwhelmingly Bullish for Leo Team -1.5)</span></td>
+                    <td>0 (No Controversy)</td>
+                    <td>Odds are extremely skewed, indicating a highly dominant performance expected from Leo Team.</td>
+                    <td>Leo Team is an absolute favorite to win 2-0.</td>
+                    <td>Leo Team (-1.5) (0.005)</td>
+                </tr>
+                <tr>
+                    <td>Mar 10 21:45 UTC</td>
+                    <td>Counter-Strike: Sangal vs Bebop (BO3) - CCT Europe Series #18 Group Stage</td>
+                    <td>cs2</td>
+                    <td>13809.69</td>
+                    <td>Sangal: 49.5%, Bebop: 50.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-neutral">50 (Neutral)</span></td>
+                    <td>8 (Very High)</td>
+                    <td>No prominent differentiating stats found.</td>
+                    <td>Very close market odds, indicating a near toss-up with no clear favorite.</td>
+                    <td>Bebop (0.505)</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 00:00 UTC</td>
+                    <td>Counter-Strike: Supernova vs EC BANGA (BO3) - NODWIN Clutch Series Play-In Group B<br/>Question: Map Handicap: Supernova (-1.5) vs EC BANGA (+1.5)</td>
+                    <td>cs2</td>
+                    <td>16426.02</td>
+                    <td>Supernova: 50%, EC BANGA: 50%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-neutral">50 (Neutral)</span></td>
+                    <td>10 (Highest)</td>
+                    <td>No prominent differentiating stats found.</td>
+                    <td>A perfect 50/50 market, indicating a complete toss-up for the map handicap.</td>
+                    <td>Supernova (0.50)</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 00:00 UTC</td>
+                    <td>Counter-Strike: OlyBet SB vs los kogutos (BO3) - CCT Europe Series #18 Group Stage<br/>Question: Map Handicap: LK (-1.5) vs OlyBet SB (+1.5)</td>
+                    <td>cs2</td>
+                    <td>4.08</td>
+                    <td>los kogutos: 51%, OlyBet SB: 49%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bearish">15 (Very Bearish for OlyBet SB)</span></td>
+                    <td>9 (Very High)</td>
+                    <td>OlyBet SB has an 18% win rate in the last 30 days and an 8-match losing streak.</td>
+                    <td>Despite OlyBet SB's abysmal recent performance, the market for the handicap is very close, suggesting a significant mispricing or a strong belief that los kogutos may struggle to win 2-0.</td>
+                    <td>los kogutos (-1.5) (0.51)</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 00:10 UTC</td>
+                    <td>Counter-Strike: SPARTA vs 5Actors (BO3) - CIS LAN Championship Group D<br/>Question: Map Handicap: 5Actors (-1.5) vs SPARTA (+1.5)</td>
+                    <td>cs2</td>
+                    <td>6352.19</td>
+                    <td>5Actors: 50%, SPARTA: 50%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-neutral">50 (Neutral)</span></td>
+                    <td>10 (Highest)</td>
+                    <td>No prominent differentiating stats found.</td>
+                    <td>A perfect 50/50 market for the map handicap, a complete toss-up.</td>
+                    <td>5Actors (0.50)</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 00:10 UTC</td>
+                    <td>Counter-Strike: Nemiga vs ARCRED (BO3) - CIS LAN Championship Group D<br/>Question: Map Handicap: ARC (-1.5) vs Nemiga (+1.5)</td>
+                    <td>cs2</td>
+                    <td>N/A</td>
+                    <td>ARCRED: 50%, Nemiga: 50%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-neutral">50 (Neutral)</span></td>
+                    <td>10 (Highest)</td>
+                    <td>No prominent differentiating stats found.</td>
+                    <td>Another perfect 50/50 market for the map handicap.</td>
+                    <td>ARCRED (0.50)</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 00:15 UTC</td>
+                    <td>Counter-Strike: K27 vs Metizport (BO3) - CCT Europe Series #17 Playoffs</td>
+                    <td>cs2</td>
+                    <td>11443.09</td>
+                    <td>K27: 67.5%, Metizport: 32.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">70 (Bullish for K27)</span></td>
+                    <td>4 (Low)</td>
+                    <td>Market favors K27.</td>
+                    <td>K27 is the clear market favorite.</td>
+                    <td>K27 (0.675)</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 00:40 UTC</td>
+                    <td>Counter-Strike: Astralis vs FURIA (BO3) - ESL Pro League Stage 2</td>
+                    <td>cs2</td>
+                    <td>255581.02</td>
+                    <td>Astralis: 33.5%, FURIA: 66.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">90 (Very Bullish for FURIA)</span></td>
+                    <td>2 (Low)</td>
+                    <td>FURIA has a dominant 8-5 head-to-head record against Astralis, including 4 wins and 0 losses in the last 12 months (8:1 map score). Astralis shows recent inconsistency.</td>
+                    <td>FURIA has consistently outperformed Astralis, especially in recent history, and is a strong favorite.</td>
+                    <td>FURIA (0.665)</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 01:00 UTC</td>
+                    <td>Counter-Strike: eLITenergy vs ENRAGE (BO3) - ESEA Advanced Europe Playoffs</td>
+                    <td>cs2</td>
+                    <td>273.88</td>
+                    <td>eLITenergy: 72.5%, ENRAGE: 27.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">75 (Bullish for eLITenergy)</span></td>
+                    <td>3 (Low)</td>
+                    <td>eLITenergy is a strong market favorite.</td>
+                    <td>eLITenergy is clearly favored by the market.</td>
+                    <td>eLITenergy (0.725)</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 01:00 UTC</td>
+                    <td>Counter-Strike: Procyon Gaming vs Hacha Esports (BO1) - Aorus League LATAM Group B<br/>Question: Map 1: Odd/Even Total Kills?</td>
+                    <td>cs2</td>
+                    <td>538.81</td>
+                    <td>Odd: 53%, Even: 47%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-neutral">50 (Neutral)</span></td>
+                    <td>5 (Moderate)</td>
+                    <td>N/A for this prop bet.</td>
+                    <td>A prop bet on total kills, with a slight market lean towards Odd.</td>
+                    <td>Odd (0.53)</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 02:00 UTC</td>
+                    <td>Counter-Strike: UNO MILLE vs Procyon Gaming (BO3) - BetBoom Storm Playoffs</td>
+                    <td>cs2</td>
+                    <td>949.89</td>
+                    <td>UNO MILLE: 47.5%, Procyon Gaming: 52.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">55 (Slightly Bullish for Procyon Gaming)</span></td>
+                    <td>6 (High)</td>
+                    <td>Market slightly favors Procyon Gaming.</td>
+                    <td>Procyon Gaming is a slight market favorite.</td>
+                    <td>Procyon Gaming (0.525)</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 02:00 UTC</td>
+                    <td>Counter-Strike: c0kistas vs R2 Esports Club (BO1) - Aorus League LATAM Group A<br/>Question: Map 1: Odd/Even Total Rounds?</td>
+                    <td>cs2</td>
+                    <td>N/A</td>
+                    <td>Odd: 52%, Even: 48%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-neutral">50 (Neutral)</span></td>
+                    <td>5 (Moderate)</td>
+                    <td>N/A for this prop bet.</td>
+                    <td>A prop bet on total rounds, with a slight market lean towards Odd.</td>
+                    <td>Odd (0.52)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Dota 2</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Resolves</th>
+                    <th>Match</th>
+                    <th>Category</th>
+                    <th>Volume</th>
+                    <th>Implied Odds</th>
+                    <th>RSI Score</th>
+                    <th>Sentiment Score</th>
+                    <th>Controversy Rating</th>
+                    <th>Team Stats</th>
+                    <th>Analysis</th>
+                    <th>Prediction</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mar 12 15:00 UTC</td>
+                    <td>Dota 2: L1ga Team vs Spirit Academy (BO3) - CCT Group A<br/>Question: Game 2: Both Teams Destroy Barracks?</td>
+                    <td>dota-2</td>
+                    <td>53.29</td>
+                    <td>Yes: 51%, No: 49%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">60 (Slightly Bullish for Yes)</span></td>
+                    <td>6 (High)</td>
+                    <td>L1ga Team has a dominant 3-0 head-to-head record and a 6-0 map score against Spirit Academy.</td>
+                    <td>Given L1ga Team's dominance, they are likely to push objectives, making barracks destruction probable in Game 2.</td>
+                    <td>Yes (0.51)</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 18:00 UTC</td>
+                    <td>Dota 2: AVULUS vs NAVI Junior (BO3) - CCT Group A<br/>Question: Dota 2: AVULUS vs NAVI Junior - Game 2 Winner</td>
+                    <td>dota-2</td>
+                    <td>N/A</td>
+                    <td>AVULUS: 52%, NAVI Junior: 48%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-neutral">50 (Neutral)</span></td>
+                    <td>6 (High)</td>
+                    <td>AVULUS has an inconsistent recent form (42% win rate last 30 days) and a 1-match losing streak.</td>
+                    <td>The market is very close for Game 2, and AVULUS's recent inconsistency adds to the uncertainty.</td>
+                    <td>AVULUS (0.52)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>SECTION 3: The Roundtable Discussion (Simulated)</h2>
+
+        <h3>Meeting Minutes: Investment Committee</h3>
+        <p><strong>Frodo (Chairman):</strong> Welcome, esteemed committee members. We have a diverse set of esports markets before us. Let's discuss potential allocations. Safe Hands, your insights are particularly valued today.</p>
+
+        <p><span class="persona-name">Safe Hands (Gimliwise Gamgee):</span> "Thank you, Chairman. My preference is always for high certainty. I see two clear opportunities with very high odds and strong underlying data: <span class="highlight">G2 NORD (LoL) at 90.5%</span> and <span class="highlight">T1 Academy (Valorant) at 90.5%</span>. Also, <span class="highlight">Paper Rex (Valorant) at 81.5%</span> is exceptionally strong. These meet my >75% odds criteria and have minimal volatility. The market for Leo Team (-1.5) in CS2 at 0.5% for the outcome is also extremely tempting due to its overwhelming market consensus and implied dominance, but it's a map handicap."</p>
+
+        <p><span class="persona-name">YOLO (Peregrin Took):</span> "Hold on, Gimliwise, where's the fun in that? I'm looking at <span class="highlight">Los Heretics (LoL) at 82.5%</span>. The market has them as a strong favorite, even though NightBirds boasts a 100% recent win rate. This smells like a juicy upset opportunity if the market is overestimating Heretics, or conversely, a strong, high-multiplier bet if NightBirds is overrated. For a real long shot, <span class="highlight">Baam Esports (LoL) at 15.5%</span> is calling my name! The multiplier would be enormous!"</p>
+
+        <p><span class="persona-name">Value (Aragorn):</span> "Peregrin, while I appreciate the spirit, Baam Esports is too speculative without more data. My eyes are on the <span class="highlight">G2 Esports vs BBL Esports (Valorant)</span> match. G2 is at 74.5%, but BBL Esports has a fantastic 70-73% win rate in their last 10 matches and 3 months. This 'Controversy Rating' of 7 suggests a potential mispricing. I believe BBL Esports could be undervalued here."</p>
+
+        <p><span class="persona-name">Trend (Legolas):</span> "The data shows all RSIs are 50, which is neutral, so there are no clear 'uptrends' or 'downtrends' to follow in the technical data. However, in terms of recent performance, <span class="highlight">G2 NORD (LoL)</span> and <span class="highlight">Paper Rex (Valorant)</span> clearly show strong winning momentum from their recent match histories. I'd lean towards following that demonstrable momentum."</p>
+
+        <p><span class="persona-name">Skeptic (Gimli):</span> "Value, you've piqued my interest with <span class="highlight">BBL Esports (Valorant)</span>. The market is leaning G2 heavily, but BBL's recent performance is strong. This smells like a crowd going 'dumb' by over-relying on G2's brand name. I'd consider betting against the market on this one, for BBL Esports. Also, for the <span class="highlight">OlyBet SB vs los kogutos (-1.5)</span> CS2 match, OlyBet SB is on an 8-match losing streak with an 18% win rate, yet the market has the handicap at almost 50/50. This feels like a gross overestimation of OlyBet SB. I would bet on <span class="highlight">los kogutos (-1.5)</span>."</p>
+
+        <p><span class="persona-name">Quant (Gandalf):</span> "Given all RSI scores are 50 and volatility is 0, my models indicate no significant technical edge in any market. The only quantifiable insights are the implied probabilities. Therefore, for a statistically sound approach, one should ideally favor the outcomes with the highest implied probability and lowest volatility, which aligns with Safe Hands' picks like G2 NORD and T1 Academy."</p>
+
+        <p><span class="persona-name">Insider (Boromir):</span> "I've scoured recent news and leaks. No significant roster changes or external disruptions have been reported for the top favorites like <span class="highlight">Paper Rex</span>, <span class="highlight">G2 NORD</span>, or <span class="highlight">T1 Academy</span> that would undermine their strong positions. The consistency of these teams, as highlighted by Safe Hands and Trend, seems to be holding strong. I haven't found any whispers of issues for <span class="highlight">Los Heretics</span> either, supporting the market's conviction despite NightBirds' recent win streak."</p>
+
+        <p><span class="persona-name">Macro (Elrond):</span> "No major game-wide patch notes or regulatory changes have been announced that would drastically shift the meta for these specific games or matches. The current competitive landscape for LoL and Valorant appears stable. Therefore, we should rely heavily on team-specific form and head-to-head records where available. <span class="highlight">FURIA (CS2)</span> against Astralis stands out with a very strong head-to-head record recently."</p>
+
+        <div class="chairman-decision">
+            <h3>Frodo (Chairman):</h3>
+            <p>"Excellent discussion, committee. I see a strong consensus forming around a few key markets, particularly from Safe Hands, Trend, Insider, and Quant on the high-probability favorites. Value and Skeptic have raised a compelling point about BBL Esports against G2 Esports, suggesting potential mispricing due to BBL's recent strong form and G2's recent loss to Paper Rex. Skeptic also made a strong case for los kogutos (-1.5) against OlyBet SB given OlyBet's terrible form.</p>
+            <p>For the allocation, we will prioritize high-confidence bets. <span class="persona-name">G2 NORD (LoL)</span> and <span class="persona-name">T1 Academy (Valorant)</span> are almost unanimous. <span class="persona-name">Paper Rex (Valorant)</span> is also a very strong candidate. <span class="persona-name">FURIA (CS2)</span> is also highly convincing due to its historical dominance over Astralis.</p>
+            <p>The <span class="persona-name">G2 Esports vs BBL Esports</span> market is interesting. While BBL has recent momentum, G2 Esports remains the overall stronger team and market favorite. The high controversy suggests a risk, but G2 is still the favored outcome. For the sake of balanced aggression and respecting the `min_bets`, we will focus on the most solid picks and the compelling value bets.</p>
+            <p>I will side with Safe Hands, Trend, Insider, and Quant for the strong favorites. I acknowledge Value's argument for BBL, but given G2's market odds and overall standing, and BBL's overall win rate being 55% despite recent spikes, I won't directly back BBL for an upset with our fund, especially given the `min_bets` constraint on G2 being quite high. However, I will strongly consider Skeptic's argument for <span class="persona-name">los kogutos (-1.5)</span> against OlyBet SB, as OlyBet's form is genuinely terrible.</p>
+            <p>My decision: We will back <span class="highlight">G2 NORD (LoL)</span>, <span class="highlight">T1 Academy (Valorant)</span>, <span class="highlight">Paper Rex (Valorant)</span>, and <span class="highlight">FURIA (CS2)</span> as strong favorites. I will also approve a bet on <span class="highlight">los kogutos (-1.5) (CS2)</span> given OlyBet SB's poor form, as identified by Skeptic.</p>
+        </div>
+
+        <h2>SECTION 3.5: Deep Research & Counter-Arguments (Devil's Advocate)</h2>
+
+        <h3>Top 2 Potential Bets for Counter-Argument Research:</h3>
+        <ol>
+            <li><strong>LoL: G2 NORD vs Lupus Esports (BO3) - G2 NORD to win (Price: 0.905)</strong>
+                <ul>
+                    <li><strong>Counter-Argument Search Query:</strong> "Why G2 NORD will lose to Lupus Esports LoL", "Lupus Esports LoL upset potential G2 NORD", "G2 NORD recent performance decline rumors"</li>
+                    <li><strong>Strongest Counter-Argument Found:</strong> Despite G2 NORD's recent dominance, their overall Tips.gg ranking (582) is lower than some of their 30-day win rate might imply, and their recent viewership peaked in a winter snowdown, which might not be the highest tier of competition. A strong underdog performance from Lupus Esports, potentially exploiting a G2 NORD overconfidence or specific draft weakness, could lead to an upset. No specific leaks or internal issues for G2 NORD were found, however, relying solely on recent wins against potentially weaker opponents could be a pitfall in higher-stakes tournaments. This isn't strong enough to discard the bet, given the strong market odds and recent form, but it notes a potential risk if the competition level for G2 NORD's recent wins was lower than EMEA Masters.</li>
+                </ul>
+            </li>
+            <li><strong>Counter-Strike: Astralis vs FURIA (BO3) - FURIA to win (Price: 0.665)</strong>
+                <ul>
+                    <li><strong>Counter-Argument Search Query:</strong> "Why FURIA will lose to Astralis CS2", "Astralis upset potential FURIA CS2", "FURIA recent CS2 performance issues"</li>
+                    <li><strong>Strongest Counter-Argument Found:</strong> While FURIA has a strong head-to-head record against Astralis, particularly recently, Astralis is a historically strong team with a world #1 ranking and high earnings over the last half-year, indicating top-tier stability. Their recent month's win rate dropped and they've had 3 losses in 5 matches, but they are still a formidable opponent. FURIA also has poor records on Mirage and Dust2 (30% and 25% win rates respectively), which are common decider maps, making them vulnerable. This could be an area Astralis exploits, forcing FURIA onto weaker maps. This counter-argument highlights tactical vulnerabilities for FURIA and Astralis's underlying strength, but doesn't completely negate FURIA's strong recent performance against Astralis. The bet remains viable.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2>SECTION 4: Final Consensus Portfolio ($5.37 Fund)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Market</th>
+                    <th>Resolves</th>
+                    <th>Allocation</th>
+                    <th>Primary Backer (Persona)</th>
+                    <th>Rationale</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>LoL: G2 NORD vs Lupus Esports (BO3) - EMEA Masters Group 4</td>
+                    <td>Mar 11 00:10 UTC</td>
+                    <td>$4.53</td>
+                    <td>Safe Hands</td>
+                    <td>G2 NORD exhibits dominant recent form (100% win rate last month) and strong market confidence (90.5% implied odds), aligning with a low-risk, high-probability strategy. It also meets the min_bets requirement.</td>
+                </tr>
+                <tr>
+                    <td>Counter-Strike: Astralis vs FURIA (BO3) - ESL Pro League Stage 2</td>
+                    <td>Mar 11 00:40 UTC</td>
+                    <td>$0.47</td>
+                    <td>Macro</td>
+                    <td>FURIA has a strong recent head-to-head record against Astralis (4-0 in last 12 months, 8-1 map score), indicating clear dominance in recent encounters. This provides a clear macro trend to follow. It meets the minimum bet requirement for Astralis, so we will bet against Astralis which aligns with FURIA winning.</td>
+                </tr>
+                <tr>
+                    <td>Counter-Strike: OlyBet SB vs los kogutos (BO3) - CCT Europe Series #18 Group Stage - Map Handicap: LK (-1.5) vs OlyBet SB (+1.5)</td>
+                    <td>Mar 11 00:00 UTC</td>
+                    <td>$0.37</td>
+                    <td>Skeptic</td>
+                    <td>OlyBet SB has an abysmal recent performance with an 18% win rate and an 8-match losing streak, yet the market has the handicap odds almost even. This strongly suggests a mispricing against OlyBet SB and favors los kogutos (-1.5) to secure a dominant victory, potentially 2-0. We are betting against OlyBet SB with a small, but confident, allocation to los kogutos. This allocation meets the minimum bet requirement for OlyBet SB, so we will bet against it.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>SECTION 5: Projected Returns (The "Aftermath")</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Market</th>
+                    <th>Outcome</th>
+                    <th>Resolves</th>
+                    <th>Investment</th>
+                    <th>Potential Payout</th>
+                    <th>Net Profit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>LoL: G2 NORD vs Lupus Esports (BO3) - EMEA Masters Group 4</td>
+                    <td>G2 NORD</td>
+                    <td>Mar 11 00:10 UTC</td>
+                    <td>$4.53</td>
+                    <td>$4.53 / 0.905 = $5.00</td>
+                    <td>$0.47</td>
+                </tr>
+                <tr>
+                    <td>Counter-Strike: Astralis vs FURIA (BO3) - ESL Pro League Stage 2</td>
+                    <td>FURIA</td>
+                    <td>Mar 11 00:40 UTC</td>
+                    <td>$0.47</td>
+                    <td>$0.47 / 0.665 = $0.71</td>
+                    <td>$0.24</td>
+                </tr>
+                <tr>
+                    <td>Counter-Strike: OlyBet SB vs los kogutos (BO3) - CCT Europe Series #18 Group Stage - Map Handicap: LK (-1.5) vs OlyBet SB (+1.5)</td>
+                    <td>los kogutos</td>
+                    <td>Mar 11 00:00 UTC</td>
+                    <td>$0.37</td>
+                    <td>$0.37 / 0.51 = $0.73</td>
+                    <td>$0.36</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Best Case Scenario:</h3>
+        <p>If all predictions are correct, the total value of the portfolio would be: $5.00 + $0.71 + $0.73 = $6.44</p>
+        <h3>ROI Analysis:</h3>
+        <p>Expected to turn $5.37 into $6.44, representing a potential Return on Investment (ROI) of approximately 19.9%.</p>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frodo's Investment Committee Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000000;
+            color: #FCFCFC;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background-color: #1a1a1a; /* Slightly lighter black for content */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 255, 221, 0.2);
+        }
+        h1, h2, h3, h4 {
+            color: #00FFDD;
+            border-bottom: 2px solid #53277D;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        h1 { font-size: 2.5em; color: #FFB300; border-color: #00FFDD; }
+        h2 { font-size: 2em; }
+        h3 { font-size: 1.7em; color: #FCFCFC; border-color: #53277D; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #2a2a2a;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #53277D;
+        }
+        th {
+            background-color: #53277D;
+            color: #FCFCFC;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        tr:nth-child(even) {
+            background-color: #1f1f1f;
+        }
+        .persona-name {
+            color: #FFB300;
+            font-weight: bold;
+        }
+        .persona-quote {
+            font-style: italic;
+            color: #00FFDD;
+        }
+        .alert-box {
+            background-color: #53277D;
+            color: #FCFCFC;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 5px solid #FFB300;
+            border-radius: 4px;
+        }
+        .conclusion {
+            background-color: #1f1f1f;
+            padding: 20px;
+            border: 1px solid #00FFDD;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        .highlight {
+            color: #FFB300;
+            font-weight: bold;
+        }
+        .sentiment-bullish { color: #00FFDD; }
+        .sentiment-bearish { color: #FFB300; }
+        .controversy-high { color: #FFB300; }
+        .controversy-low { color: #00FFDD; }
+        .positive { color: #00FFDD; }
+        .negative { color: #FFB300; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Frodo's Investment Committee Report</h1>
+
+        <div class="alert-box">
+            <h2>Committee Performance Context</h2>
+            <p>Total bets: 20 | Resolved: 17 | Pending: 3</p>
+            <p>Wins: 10 | Losses: 7 | Win Rate: 58.8%</p>
+            <p>Total wagered: $67.36 | Net profit: <span class="negative">$-8.47</span></p>
+            <h3>Persona Leaderboard (ranked by win rate):</h3>
+            <ul>
+                <li><span class="persona-name">Safe Hands</span> | 7W 0L (100%) | net <span class="positive">$+4.28</span></li>
+                <li><span class="persona-name">Chairman</span> | 1W 0L (100%) | net <span class="positive">$+3.22</span></li>
+                <li><span class="persona-name">Value</span> | 2W 3L (40%) | net <span class="negative">$-5.84</span></li>
+                <li><span class="persona-name">YOLO</span> | 0W 1L (0%) | net <span class="negative">$-0.50</span> <span class="highlight">(Under Review)</span></li>
+                <li><span class="persona-name">Skeptic</span> | 0W 1L (0%) | net <span class="negative">$-2.20</span></li>
+                <li><span class="persona-name">Quant</span> | 0W 1L (0%) | net <span class="negative">$-4.11</span></li>
+                <li><span class="persona-name">Macro</span> | 0W 1L (0%) | net <span class="negative">$-3.33</span></li>
+            </ul>
+            <p><strong>Persona Weighting:</strong> Safe Hands and Chairman have EXTRA WEIGHT. YOLO is 'under review' and requires backing from at least 2 other personas.</p>
+        </div>
+
+        <h2>SECTION 1: Esports Markets</h2>
+
+        <h3>Valorant Markets</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Resolves</th>
+                    <th>Match</th>
+                    <th>Category</th>
+                    <th>Volume</th>
+                    <th>Implied Odds</th>
+                    <th>RSI Score</th>
+                    <th>Sentiment Score</th>
+                    <th>Controversy Rating</th>
+                    <th>Team Stats</th>
+                    <th>Analysis</th>
+                    <th>Prediction</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mar 11 12:00 UTC</td>
+                    <td>Valorant: Oasis Gaming vs 4 shurima (BO3) - VCL Southeast Asia: Group D</td>
+                    <td>valorant</td>
+                    <td>$1250.85</td>
+                    <td>Oasis Gaming: 90.5%, 4 shurima: 9.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">70 (Bullish for Oasis Gaming)</span></td>
+                    <td><span class="controversy-low">2 (Low)</span></td>
+                    <td>Oasis Gaming won Predator League 2026 Philippines. Has a 65% total win rate, 33% win rate over last 30 days. 4 shurima has "0% 30 d. winrate".</td>
+                    <td>Oasis Gaming is historically stronger and favored by current odds. 4 shurima shows very poor recent performance.</td>
+                    <td>Oasis Gaming to win.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 14:00 UTC</td>
+                    <td>Map Handicap: AE (-1.5) vs TrinitY (+1.5)</td>
+                    <td>valorant</td>
+                    <td>$709.38</td>
+                    <td>Alter Ego: 39.5%, TrinitY: 60.5%</td>
+                    <td>50</td>
+                    <td>50 (Neutral)</td>
+                    <td>3 (Low)</td>
+                    <td>No specific search data for this specific handicap match, general team stats not deeply available.</td>
+                    <td>Without specific team performance context for this handicap, it's difficult to assess. Market favors TrinitY +1.5.</td>
+                    <td>TrinitY (+1.5) to cover.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 14:00 UTC</td>
+                    <td>Valorant: ARETE vs T1 Academy (BO3) - VCL Korea: Regular Season</td>
+                    <td>valorant</td>
+                    <td>$3906.80</td>
+                    <td>ARETE: 9.5%, T1 Academy: 90.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">85 (Very Bullish for T1 Academy)</span></td>
+                    <td><span class="controversy-low">1 (Very Low)</span></td>
+                    <td>T1 Academy shows wins in recent matches (e.g., 2-0 vs FearX). Bookmakers heavily favor T1 Academy with odds around 1.10-1.13. ARETE has 0% 30-day winrate.</td>
+                    <td>T1 Academy is a clear favorite with strong recent form and analyst backing. ARETE appears to be struggling.</td>
+                    <td>T1 Academy to win.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 16:00 UTC</td>
+                    <td>Valorant: BOOM Esports vs Rival Esports (BO3) - VCL Southeast Asia: Group A</td>
+                    <td>valorant</td>
+                    <td>$460.91</td>
+                    <td>BOOM Esports: 90.5%, Rival Esports: 9.5%</td>
+                    <td>50</td>
+                    <td>70 (Bullish for BOOM Esports)</td>
+                    <td>2 (Low)</td>
+                    <td>General knowledge indicates BOOM Esports is a strong regional contender, while Rival Esports is less prominent. Market odds reflect this.</td>
+                    <td>BOOM Esports is likely the dominant team in this matchup.</td>
+                    <td>BOOM Esports to win.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 16:00 UTC</td>
+                    <td>Valorant: Mir Gaming vs Dplus (BO3) - VCL Korea: Regular Season</td>
+                    <td>valorant</td>
+                    <td>$2837.77</td>
+                    <td>Mir Gaming: 21.5%, Dplus: 78.5%</td>
+                    <td>50</td>
+                    <td>65 (Bullish for Dplus)</td>
+                    <td>3 (Low)</td>
+                    <td>Dplus is generally a well-regarded team in VCL Korea. Market strongly favors Dplus.</td>
+                    <td>Dplus is expected to win based on implied odds and general standing.</td>
+                    <td>Dplus to win.</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 01:00 UTC</td>
+                    <td>Valorant: Aura vs Leviatán Academy (BO3) - VCL Latin America South Group Stage</td>
+                    <td>valorant</td>
+                    <td>$211.32</td>
+                    <td>Aura: 34.5%, Leviatán Academy: 65.5%</td>
+                    <td>50</td>
+                    <td>60 (Bullish for Leviatán Academy)</td>
+                    <td>3 (Low)</td>
+                    <td>Leviatán Academy is often a strong performer in the LATAM South region. Market favors them.</td>
+                    <td>Leviatán Academy is the favored team.</td>
+                    <td>Leviatán Academy to win.</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 02:00 UTC</td>
+                    <td>Map Handicap: MIBR.A (-1.5) vs Equipe Caos (+1.5)</td>
+                    <td>valorant</td>
+                    <td>$144.74</td>
+                    <td>MIBR Academy: 37.5%, Equipe Caos: 62.5%</td>
+                    <td>50</td>
+                    <td>50 (Neutral)</td>
+                    <td>3 (Low)</td>
+                    <td>Handicap matches require specific insights, which are not readily available. Market favors Equipe Caos +1.5.</td>
+                    <td>Without further data, the market's favoring of Equipe Caos to cover the handicap is noted.</td>
+                    <td>Equipe Caos (+1.5) to cover.</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 02:00 UTC</td>
+                    <td>Valorant: 2GAME Esports vs HOLY (BO3) - VCL Brazil: Group A</td>
+                    <td>valorant</td>
+                    <td>$284.52</td>
+                    <td>2GAME Esports: 88.5%, HOLY: 11.5%</td>
+                    <td>50</td>
+                    <td>70 (Bullish for 2GAME Esports)</td>
+                    <td>2 (Low)</td>
+                    <td>Implied odds indicate 2GAME Esports is heavily favored.</td>
+                    <td>2GAME Esports is expected to win convincingly.</td>
+                    <td>2GAME Esports to win.</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 02:00 UTC</td>
+                    <td>Valorant: Winthrop University vs Blue Otter (BO3) - VCL North America: Stage 1 Relegation Group Stage</td>
+                    <td>valorant</td>
+                    <td>$989.94</td>
+                    <td>Winthrop University: 54.5%, Blue Otter: 45.5%</td>
+                    <td>50</td>
+                    <td>50 (Neutral)</td>
+                    <td>4 (Moderate)</td>
+                    <td>No specific external data found. Odds are close, indicating a competitive match.</td>
+                    <td>A very close match based on implied odds.</td>
+                    <td>Too close to call without more specific data.</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 04:00 UTC</td>
+                    <td>Valorant: KRÜ Spark vs ShindeN (BO3) - VCL Latin America South Group Stage</td>
+                    <td>valorant</td>
+                    <td>$70.36</td>
+                    <td>KRÜ Spark: 14.5%, ShindeN: 85.5%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">90 (Very Bullish for ShindeN)</span></td>
+                    <td><span class="controversy-low">1 (Very Low)</span></td>
+                    <td>ShindeN has a 12-0 group stage record, 100% 30-day winrate, with multiple 2-0 wins in Feb 2026. KRÜ Spark has a 3-11 group stage record and 17% 30-day winrate.</td>
+                    <td>ShindeN is overwhelmingly favored and has demonstrated superior performance in the league.</td>
+                    <td>ShindeN to win.</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 04:00 UTC</td>
+                    <td>Valorant: Tezcat Gaming vs LAZER (BO3) - VCL Latin America North Group Stage</td>
+                    <td>valorant</td>
+                    <td>N/A</td>
+                    <td>Tezcat Gaming: 57.0%, LAZER: 43.0%</td>
+                    <td>50</td>
+                    <td>50 (Neutral)</td>
+                    <td>4 (Moderate)</td>
+                    <td>No external data. Odds are relatively close.</td>
+                    <td>A fairly balanced match based on implied odds.</td>
+                    <td>Difficult to predict without external data.</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 07:00 UTC</td>
+                    <td>Valorant: Contra vs LYON - Map 1 Winner</td>
+                    <td>valorant</td>
+                    <td>$214.67</td>
+                    <td>Contra: 22.0%, LYON: 78.0%</td>
+                    <td>50</td>
+                    <td>65 (Bullish for LYON)</td>
+                    <td>3 (Low)</td>
+                    <td>Market heavily favors LYON for Map 1.</td>
+                    <td>LYON is expected to take Map 1.</td>
+                    <td>LYON to win Map 1.</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 14:00 UTC</td>
+                    <td>Map Handicap: GEN.A (-1.5) vs DRX Academy (+1.5)</td>
+                    <td>valorant</td>
+                    <td>N/A</td>
+                    <td>Gen.G Global Academy: 25.5%, DRX Academy: 74.5%</td>
+                    <td>50</td>
+                    <td>50 (Neutral)</td>
+                    <td>3 (Low)</td>
+                    <td>No external data. Market favors DRX Academy +1.5.</td>
+                    <td>The market suggests DRX Academy will cover the handicap.</td>
+                    <td>DRX Academy (+1.5) to cover.</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 16:00 UTC</td>
+                    <td>Valorant: FearX vs ONSIDE GAMING (BO3) - VCL Korea: Regular Season</td>
+                    <td>valorant</td>
+                    <td>N/A</td>
+                    <td>FearX: 35.5%, ONSIDE GAMING: 64.5%</td>
+                    <td>50</td>
+                    <td>60 (Bullish for ONSIDE GAMING)</td>
+                    <td>3 (Low)</td>
+                    <td>Market favors ONSIDE GAMING.</td>
+                    <td>ONSIDE GAMING is the favored team.</td>
+                    <td>ONSIDE GAMING to win.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Counter-Strike Markets</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Resolves</th>
+                    <th>Match</th>
+                    <th>Category</th>
+                    <th>Volume</th>
+                    <th>Implied Odds</th>
+                    <th>RSI Score</th>
+                    <th>Sentiment Score</th>
+                    <th>Controversy Rating</th>
+                    <th>Team Stats</th>
+                    <th>Analysis</th>
+                    <th>Prediction</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mar 11 02:00 UTC</td>
+                    <td>Map 1: Odd/Even Total Rounds?</td>
+                    <td>cs2</td>
+                    <td>$7250.99</td>
+                    <td>Odd: 50.0%, Even: 50.0%</td>
+                    <td>50</td>
+                    <td>50 (Neutral)</td>
+                    <td>3 (Low)</td>
+                    <td>Random outcome, no specific team stats apply.</td>
+                    <td>Purely statistical/random event.</td>
+                    <td>No strong prediction.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 03:00 UTC</td>
+                    <td>Map 1: Odd/Even Total Kills?</td>
+                    <td>cs2</td>
+                    <td>$35.00</td>
+                    <td>Odd: 90.0%, Even: 10.0%</td>
+                    <td>50</td>
+                    <td>50 (Neutral)</td>
+                    <td>3 (Low)</td>
+                    <td>Random outcome, no specific team stats apply. Odd/Even kills are generally 50/50, so market heavily favoring Odd is unusual.</td>
+                    <td>Market bias for Odd, but fundamentally a random event.</td>
+                    <td>No strong prediction.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 03:05 UTC</td>
+                    <td>Map 3: Odd/Even Total Rounds?</td>
+                    <td>cs2</td>
+                    <td>$20571.47</td>
+                    <td>Odd: 50.5%, Even: 49.5%</td>
+                    <td>50</td>
+                    <td>50 (Neutral)</td>
+                    <td>3 (Low)</td>
+                    <td>Random outcome, no specific team stats apply.</td>
+                    <td>Purely statistical/random event.</td>
+                    <td>No strong prediction.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 05:10 UTC</td>
+                    <td>Counter-Strike: c0kistas vs ShindeN (BO1) - Aorus League LATAM Group A</td>
+                    <td>cs2</td>
+                    <td>$70.09</td>
+                    <td>c0kistas: 47.0%, ShindeN: 53.0%</td>
+                    <td>50</td>
+                    <td>50 (Neutral)</td>
+                    <td>4 (Moderate)</td>
+                    <td>No detailed data found for these specific CS2 teams. Odds are close.</td>
+                    <td>A competitive match based on implied odds.</td>
+                    <td>Difficult to predict without external data.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 05:45 UTC</td>
+                    <td>Counter-Strike: Bounty Hunters Esports vs FOLHA AMARELA (BO3) - BetBoom Storm Playoffs</td>
+                    <td>cs2</td>
+                    <td>$3548.82</td>
+                    <td>Bounty Hunters Esports: 59.5%, FOLHA AMARELA: 40.5%</td>
+                    <td>50</td>
+                    <td>55 (Bullish for Bounty Hunters Esports)</td>
+                    <td>3 (Low)</td>
+                    <td>Market favors Bounty Hunters Esports.</td>
+                    <td>Bounty Hunters Esports is the favored team.</td>
+                    <td>Bounty Hunters Esports to win.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 06:00 UTC</td>
+                    <td>Counter-Strike: Procyon Gaming vs Isurus (BO1) - Aorus League LATAM Group B</td>
+                    <td>cs2</td>
+                    <td>$3.72</td>
+                    <td>Procyon Gaming: 52.5%, Isurus: 47.5%</td>
+                    <td>50</td>
+                    <td>50 (Neutral)</td>
+                    <td>4 (Moderate)</td>
+                    <td>Very low volume, no specific external data found. Odds are very close.</td>
+                    <td>Extremely low volume suggests illiquidity, making this market unreliable.</td>
+                    <td>Avoid.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 09:00 UTC</td>
+                    <td>Counter-Strike: FlyQuest vs FengDa Gaming (BO3) - Asia Championships Closed Qualifier Playoffs</td>
+                    <td>cs2</td>
+                    <td>$7.15</td>
+                    <td>FlyQuest: 94.0%, FengDa Gaming: 6.0%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">95 (Very Bullish for FlyQuest)</span></td>
+                    <td><span class="controversy-low">1 (Very Low)</span></td>
+                    <td>FlyQuest has a 53-60% overall win rate, 2 lose streak currently, but significant achievements like 1st at ESL Challenger at DreamHack Atlanta 2024. Ranked #23 worldwide. No significant data for FengDa Gaming.</td>
+                    <td>FlyQuest is a strong, established team, while FengDa Gaming appears to be a heavy underdog with no available data to suggest otherwise.</td>
+                    <td>FlyQuest to win.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 09:00 UTC</td>
+                    <td>Counter-Strike: Rare Atom vs DEPO (BO3) - Asia Championships Closed Qualifier Playoffs</td>
+                    <td>cs2</td>
+                    <td>$6.91</td>
+                    <td>Rare Atom: 78.5%, DEPO: 21.5%</td>
+                    <td>50</td>
+                    <td>65 (Bullish for Rare Atom)</td>
+                    <td>3 (Low)</td>
+                    <td>Rare Atom is a more recognized name in Asian CS2. Market favors them.</td>
+                    <td>Rare Atom is expected to win.</td>
+                    <td>Rare Atom to win.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 12:00 UTC</td>
+                    <td>Map 1: Odd/Even Total Kills?</td>
+                    <td>cs2</td>
+                    <td>$90.47</td>
+                    <td>Odd: 51.5%, Even: 48.5%</td>
+                    <td>50</td>
+                    <td>50 (Neutral)</td>
+                    <td>3 (Low)</td>
+                    <td>Random outcome.</td>
+                    <td>Purely statistical/random event.</td>
+                    <td>No strong prediction.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 12:00 UTC</td>
+                    <td>Counter-Strike: Chinggis Warriors vs Alter Ego (BO3) - Asia Championships Closed Qualifier Playoffs</td>
+                    <td>cs2</td>
+                    <td>N/A</td>
+                    <td>Chinggis Warriors: 36.0%, Alter Ego: 64.0%</td>
+                    <td>50</td>
+                    <td>60 (Bullish for Alter Ego)</td>
+                    <td>3 (Low)</td>
+                    <td>Market favors Alter Ego.</td>
+                    <td>Alter Ego is the favored team.</td>
+                    <td>Alter Ego to win.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 15:00 UTC</td>
+                    <td>Map 1: Odd/Even Total Rounds?</td>
+                    <td>cs2</td>
+                    <td>$9.16</td>
+                    <td>Odd: 51.5%, Even: 48.5%</td>
+                    <td>50</td>
+                    <td>50 (Neutral)</td>
+                    <td>3 (Low)</td>
+                    <td>Random outcome.</td>
+                    <td>Purely statistical/random event.</td>
+                    <td>No strong prediction.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 15:00 UTC</td>
+                    <td>Counter-Strike: CYBERSHOKE Esports vs Phantom (BO3) - CCT Europe Series #17 Playoffs</td>
+                    <td>cs2</td>
+                    <td>$13219.72</td>
+                    <td>CYBERSHOKE Esports: 63.0%, Phantom: 37.0%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">55 (Slightly Bullish for CYBERSHOKE Esports)</span></td>
+                    <td><span class="controversy-high">5 (Moderate)</span></td>
+                    <td>CYBERSHOKE has 33% win rate in last 30 days, 2-match lose streak, but 67% Dust2 winrate. Phantom has 46% winrate last month and is a reliable Nuke specialist.</td>
+                    <td>CYBERSHOKE is favored by market odds, but Phantom shows improving recent form and map strengths, creating some conflict.</td>
+                    <td>CYBERSHOKE Esports to win.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 15:00 UTC</td>
+                    <td>Map 1: Odd/Even Total Kills?</td>
+                    <td>cs2</td>
+                    <td>N/A</td>
+                    <td>Odd: 51.5%, Even: 48.5%</td>
+                    <td>50</td>
+                    <td>50 (Neutral)</td>
+                    <td>3 (Low)</td>
+                    <td>Random outcome.</td>
+                    <td>Purely statistical/random event.</td>
+                    <td>No strong prediction.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 15:00 UTC</td>
+                    <td>Map Handicap: G2.A (-1.5) vs Inner Circle Academy (+1.5)</td>
+                    <td>cs2</td>
+                    <td>$901.32</td>
+                    <td>G2 Ares: 47.0%, Inner Circle Academy: 53.0%</td>
+                    <td>50</td>
+                    <td>50 (Neutral)</td>
+                    <td>4 (Moderate)</td>
+                    <td>No external data. Odds are close.</td>
+                    <td>Close match, with market slightly favoring Inner Circle Academy (+1.5).</td>
+                    <td>Inner Circle Academy (+1.5) to cover.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 15:00 UTC</td>
+                    <td>Map 3: Odd/Even Total Kills?</td>
+                    <td>cs2</td>
+                    <td>$3674.74</td>
+                    <td>Odd: 52.5%, Even: 47.5%</td>
+                    <td>50</td>
+                    <td>50 (Neutral)</td>
+                    <td>3 (Low)</td>
+                    <td>Random outcome.</td>
+                    <td>Purely statistical/random event.</td>
+                    <td>No strong prediction.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 17:30 UTC</td>
+                    <td>Counter-Strike: Misa Esports vs New Project (BO3) - United21 Group B</td>
+                    <td>cs2</td>
+                    <td>N/A</td>
+                    <td>Misa Esports: 46.0%, New Project: 54.0%</td>
+                    <td>50</td>
+                    <td>50 (Neutral)</td>
+                    <td>4 (Moderate)</td>
+                    <td>No external data. Odds are close.</td>
+                    <td>New Project is slightly favored by the market.</td>
+                    <td>New Project to win.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 18:00 UTC</td>
+                    <td>Counter-Strike: HOTU vs ex-Zero Tenacity - Map 1 Winner</td>
+                    <td>cs2</td>
+                    <td>N/A</td>
+                    <td>HOTU: 42.0%, ex-Zero Tenacity: 58.0%</td>
+                    <td>50</td>
+                    <td>55 (Bullish for ex-Zero Tenacity)</td>
+                    <td>3 (Low)</td>
+                    <td>Market favors ex-Zero Tenacity.</td>
+                    <td>ex-Zero Tenacity is the favored team for Map 1.</td>
+                    <td>ex-Zero Tenacity to win Map 1.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 18:00 UTC</td>
+                    <td>Counter-Strike: Favbet vs Eternal Fire (BO3) - CCT Europe Series #18 Group Stage</td>
+                    <td>cs2</td>
+                    <td>$486.68</td>
+                    <td>Favbet: 45.0%, Eternal Fire: 55.0%</td>
+                    <td>50</td>
+                    <td>55 (Bullish for Eternal Fire)</td>
+                    <td>3 (Low)</td>
+                    <td>Market favors Eternal Fire.</td>
+                    <td>Eternal Fire is the favored team.</td>
+                    <td>Eternal Fire to win.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Dota 2 Markets</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Resolves</th>
+                    <th>Match</th>
+                    <th>Category</th>
+                    <th>Volume</th>
+                    <th>Implied Odds</th>
+                    <th>RSI Score</th>
+                    <th>Sentiment Score</th>
+                    <th>Controversy Rating</th>
+                    <th>Team Stats</th>
+                    <th>Analysis</th>
+                    <th>Prediction</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mar 11 14:00 UTC</td>
+                    <td>Dota 2: Xtreme Gaming vs Vici Gaming (BO3) - PGL Wallachia Group Stage</td>
+                    <td>dota-2</td>
+                    <td>$17258.12</td>
+                    <td>Xtreme Gaming: 67.0%, Vici Gaming: 33.0%</td>
+                    <td>50</td>
+                    <td><span class="sentiment-bullish">90 (Very Bullish for Xtreme Gaming)</span></td>
+                    <td><span class="controversy-low">2 (Low)</span></td>
+                    <td>Xtreme Gaming has 80% win rate in last 5 matches, 65% in last 3 months. Ranked #7-11. Achieved 2nd at TI 2025. Dominant 6-1 H2H against Vici Gaming. Vici Gaming has 20% win rate in last 5 matches, 58% in last 3 months. Ranked #15.</td>
+                    <td>Xtreme Gaming is in excellent recent form, has a higher ranking, and a strong head-to-head advantage over Vici Gaming.</td>
+                    <td>Xtreme Gaming to win.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 17:00 UTC</td>
+                    <td>Dota 2: Natus Vincere vs BetBoom Team (BO3) - PGL Wallachia Group Stage</td>
+                    <td>dota-2</td>
+                    <td>$3156.50</td>
+                    <td>Natus Vincere: 39.5%, BetBoom Team: 60.5%</td>
+                    <td>50</td>
+                    <td>55 (Slightly Bullish for BetBoom Team)</td>
+                    <td>4 (Moderate)</td>
+                    <td>Both teams have faced losses in PGL Wallachia Season 7 to other strong teams. Market favors BetBoom Team.</td>
+                    <td>BetBoom Team is slightly favored by the market.</td>
+                    <td>BetBoom Team to win.</td>
+                </tr>
+                <tr>
+                    <td>Mar 11 20:00 UTC</td>
+                    <td>Game 1: Any Player Rampage?</td>
+                    <td>dota-2</td>
+                    <td>$4109.32</td>
+                    <td>Yes: 51.5%, No: 48.5%</td>
+                    <td>50</td>
+                    <td>50 (Neutral)</td>
+                    <td>3 (Low)</td>
+                    <td>Random outcome, influenced by game state but inherently rare.</td>
+                    <td>A low probability event, often priced close to 50/50.</td>
+                    <td>No strong prediction.</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 15:00 UTC</td>
+                    <td>Game 2: Both Teams Destroy Barracks?</td>
+                    <td>dota-2</td>
+                    <td>$54.57</td>
+                    <td>Yes: 51.5%, No: 48.5%</td>
+                    <td>50</td>
+                    <td>50 (Neutral)</td>
+                    <td>3 (Low)</td>
+                    <td>Random outcome, depends on game length and team performance.</td>
+                    <td>A common event in longer games, but not guaranteed.</td>
+                    <td>No strong prediction.</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 18:00 UTC</td>
+                    <td>Dota 2: AVULUS vs NAVI Junior - Game 2 Winner</td>
+                    <td>dota-2</td>
+                    <td>N/A</td>
+                    <td>AVULUS: 51.5%, NAVI Junior: 48.5%</td>
+                    <td>50</td>
+                    <td>50 (Neutral)</td>
+                    <td>4 (Moderate)</td>
+                    <td>No external data. Odds are extremely close.</td>
+                    <td>A highly competitive match for Game 2 winner.</td>
+                    <td>Difficult to predict without external data.</td>
+                </tr>
+                <tr>
+                    <td>Mar 12 21:00 UTC</td>
+                    <td>Dota 2: Inner Circle vs Team Shpilit (BO3) - CCT Group B</td>
+                    <td>dota-2</td>
+                    <td>$16.28</td>
+                    <td>Inner Circle: 74.0%, Team Shpilit: 26.0%</td>
+                    <td>50</td>
+                    <td>65 (Bullish for Inner Circle)</td>
+                    <td>3 (Low)</td>
+                    <td>Market favors Inner Circle.</td>
+                    <td>Inner Circle is the favored team.</td>
+                    <td>Inner Circle to win.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>SECTION 3.5: Deep Research & Counter-Arguments (Devil's Advocate)</h2>
+
+        <h3>Top Potential Bet 1: Valorant: ShindeN to win vs KRÜ Spark</h3>
+        <p><strong>Initial Thesis:</strong> ShindeN is an overwhelming favorite with a 12-0 group stage record and 100% 30-day winrate. KRÜ Spark is 3-11.</p>
+        <p><strong>Google Search for Counter-Arguments:</strong> "Why ShindeN will lose to KRÜ Spark Valorant", "ShindeN Valorant underperformance", "KRÜ Spark Valorant upset potential"</p>
+        <p><strong>Counter-Argument Found:</strong> While ShindeN's record is dominant, "Valorant is prone to upsets" or "any given day" scenarios. No specific significant weaknesses or internal team issues for ShindeN were found. KRÜ Spark, despite their poor record, might have been "sandbagging" or have a specific map pick that is a strong counter. However, such specific counter-arguments are not readily available or strong enough to overturn ShindeN's clear dominance based on statistics. The betting odds for KRÜ Spark are very high (6.30), indicating very low market confidence in an upset. This is not a strong enough counter-argument to discard the bet.</p>
+
+        <h3>Top Potential Bet 2: Dota 2: Xtreme Gaming to win vs Vici Gaming</h3>
+        <p><strong>Initial Thesis:</strong> Xtreme Gaming is in excellent form with an 80% recent win rate, higher ranking, and a 6-1 H2H advantage against Vici Gaming.</p>
+        <p><strong>Google Search for Counter-Arguments:</strong> "Why Xtreme Gaming will lose to Vici Gaming Dota 2", "Xtreme Gaming recent struggles", "Vici Gaming upset potential PGL Wallachia"</p>
+        <p><strong>Counter-Argument Found:</strong> Vici Gaming has a long history in Dota 2 and has "veteran experience" that gives them tools to be competitive, potentially allowing for an upset despite recent performance. Xtreme Gaming lost to Team Spirit recently, suggesting they are not invincible. However, Vici Gaming also lost to OG recently, and their recent win rate is only 20% in the last 5 matches. The historical data overwhelmingly favors Xtreme Gaming. The counter-argument of veteran experience is noted but not strong enough to discard this bet, as current form and H2H are more compelling.</p>
+
+        <h2>SECTION 4: Final Consensus Portfolio ($4.56 Fund)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Market</th>
+                    <th>Resolves</th>
+                    <th>Allocation</th>
+                    <th>Primary Backer (Persona)</th>
+                    <th>Rationale</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Valorant: KRÜ Spark vs ShindeN (BO3) - VCL Latin America South Group Stage</td>
+                    <td>Mar 12 04:00 UTC</td>
+                    <td>$4.28</td>
+                    <td>Chairman</td>
+                    <td>Overwhelming statistical dominance by ShindeN (12-0 group stage, 100% 30-day winrate) and strong consensus from multiple personas, aligning with high-probability strategy. Meets minimum bet requirement.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>SECTION 5: Projected Returns (The "Aftermath")</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Market</th>
+                    <th>Outcome</th>
+                    <th>Resolves</th>
+                    <th>Investment</th>
+                    <th>Potential Payout</th>
+                    <th>Net Profit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Valorant: KRÜ Spark vs ShindeN (BO3) - VCL Latin America South Group Stage</td>
+                    <td>ShindeN</td>
+                    <td>Mar 12 04:00 UTC</td>
+                    <td>$4.28</td>
+                    <td>$5.00</td>
+                    <td>$0.72</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>Best Case Scenario:</strong> If all predictions are correct, the total value of the portfolio would be: <span class="positive">$5.00</span></p>
+        <p><strong>ROI Analysis:</strong> Expected to turn $4.56 into $5.00, representing an ROI of approximately 9.65%. This portfolio focuses on a single, high-confidence bet to maximize potential returns within the allocated fund, emphasizing safety with a lean towards strong favorites.</p>
+    </div>
+</body>
+</html>
