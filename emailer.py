@@ -30,8 +30,23 @@ def send_report(html_content: str, performance_summary: str, bets_placed: list):
     lines += ["", "=== PERFORMANCE SUMMARY ===", performance_summary]
     text_body = "\n".join(lines)
 
+    # Override dark theme for email clients with a light-theme wrapper
+    light_override = """
+<style>
+  body, html { background: #ffffff !important; color: #111111 !important; }
+  * { color: #111111 !important; background-color: transparent !important; }
+  table { background: #f5f5f5 !important; }
+  th { background: #4a4a8a !important; color: #ffffff !important; }
+  h1, h2, h3 { color: #53277D !important; }
+  a { color: #53277D !important; }
+</style>
+"""
+    email_html = html_content.replace("<head>", f"<head>{light_override}", 1)
+    if "<head>" not in html_content:
+        email_html = light_override + html_content
+
     msg.attach(MIMEText(text_body, "plain"))
-    msg.attach(MIMEText(html_content, "html"))
+    msg.attach(MIMEText(email_html, "html"))
 
     try:
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
