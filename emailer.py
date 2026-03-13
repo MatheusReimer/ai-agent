@@ -33,11 +33,14 @@ def send_report(html_content: str, performance_summary: str, bets_placed: list):
     # Override dark theme for email clients with a light-theme wrapper
     light_override = """
 <style>
-  body, html { background: #ffffff !important; color: #111111 !important; }
-  * { color: #111111 !important; background-color: transparent !important; }
-  table { background: #f5f5f5 !important; }
-  th { background: #4a4a8a !important; color: #ffffff !important; }
-  h1, h2, h3 { color: #53277D !important; }
+  body, html { background-color: #ffffff !important; color: #111111 !important; }
+  * { color: #111111 !important; }
+  body, div, section, article, main, header, footer, p, span, li, td, tr, tbody, thead, tfoot {
+    background-color: #ffffff !important;
+  }
+  table { background-color: #f0f0f0 !important; }
+  th { background-color: #4a4a8a !important; color: #ffffff !important; }
+  h1, h2, h3, h4, h5, h6 { color: #53277D !important; }
   a { color: #53277D !important; }
 </style>
 """
