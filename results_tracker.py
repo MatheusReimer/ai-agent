@@ -70,6 +70,8 @@ def record_bets(portfolio, markets):
             "timestamp":       timestamp,
             "market_question": bet.get("market_question"),
             "market_id":       market_id,
+            "condition_id":    bet.get("condition_id"),
+            "outcome_index":   bet.get("outcome_index"),
             "outcome_bet":     bet.get("outcome"),
             "amount":          bet.get("amount"),
             "price_at_bet":    price,
@@ -79,6 +81,7 @@ def record_bets(portfolio, markets):
             "won":             None,
             "payout":          None,
             "net_profit":      None,
+            "redeemed":        False,
         })
 
     _save(history)

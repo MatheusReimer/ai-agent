@@ -185,6 +185,8 @@ def execute_portfolio(portfolio, market_data_map, balance=None):
             if isinstance(raw_prices, str):
                 raw_prices = _json.loads(raw_prices)
             price = float(raw_prices[outcome_index])
+            bet["condition_id"]  = primary.get("conditionId")
+            bet["outcome_index"] = outcome_index
             print(f"  -> Found Token ID: {token_id} (Outcome: {outcome}, Price: {price:.3f})")
         except (StopIteration, IndexError, KeyError):
             print(f"  -> Error: Could not determine Token ID for outcome '{outcome}'. Available: {outcomes}")
