@@ -386,10 +386,10 @@
     "price_at_bet": 0.805,
     "primary_backer": "Safe Hands",
     "rationale": "High implied odds, strong team performance, backed by multiple personas.",
-    "resolved": false,
-    "won": null,
-    "payout": null,
-    "net_profit": null
+    "resolved": true,
+    "won": true,
+    "payout": 5.2547,
+    "net_profit": 1.0247
   },
   {
     "timestamp": "2026-03-13T08:34:59",
