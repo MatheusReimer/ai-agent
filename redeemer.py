@@ -10,7 +10,11 @@ except ImportError:
     Web3 = None
 
 HISTORY_FILE = "bet_history.json"
-POLYGON_RPC  = "https://polygon-rpc.com"
+POLYGON_RPCS = [
+    "https://rpc.ankr.com/polygon",
+    "https://polygon-rpc.com",
+    "https://polygon-bor-rpc.publicnode.com",
+]
 CTF_ADDRESS  = "0x4D97DCd97eC945f40cF65F87097ACe5EA0476045"
 USDC_ADDRESS = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
 
@@ -72,9 +76,18 @@ def redeem_winnings():
 
     print(f"\n--- REDEEMING {len(redeemable)} WINNING POSITION(S) ---")
 
-    w3 = Web3(Web3.HTTPProvider(POLYGON_RPC))
-    if not w3.is_connected():
-        print("⚠️  Cannot connect to Polygon RPC — skipping redemption.")
+    w3 = None
+    for rpc in POLYGON_RPCS:
+        try:
+            candidate = Web3(Web3.HTTPProvider(rpc, request_kwargs={"timeout": 10}))
+            candidate.eth.block_number  # test call
+            w3 = candidate
+            break
+        except Exception:
+            continue
+
+    if w3 is None:
+        print("⚠️  Cannot connect to any Polygon RPC — skipping redemption.")
         return
 
     account  = w3.eth.account.from_key(PRIVATE_KEY)
