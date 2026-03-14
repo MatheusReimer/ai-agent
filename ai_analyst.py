@@ -209,7 +209,29 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
             except Exception:
                 raw_text = ""
         if not raw_text:
-            print("Error: Gemini returned an empty response.")
+            for retry in range(2, 4):
+                print(f"⚠️ Gemini returned empty response. Retrying ({retry}/3)...")
+                time.sleep(5)
+                try:
+                    response = client.models.generate_content(
+                        model='gemini-2.5-flash',
+                        contents=prompt,
+                        config=generate_config
+                    )
+                    raw_text = response.text
+                    if not raw_text:
+                        try:
+                            parts = response.candidates[0].content.parts
+                            raw_text = "".join(p.text for p in parts if hasattr(p, "text") and p.text)
+                        except Exception:
+                            raw_text = ""
+                    if raw_text:
+                        break
+                except Exception as e:
+                    print(f"  Retry error: {e}")
+
+        if not raw_text:
+            print("Error: Gemini returned an empty response after 3 attempts.")
             return [], ""
 
         # Extract JSON from raw response BEFORE any cleanup
