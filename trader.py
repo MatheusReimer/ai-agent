@@ -72,6 +72,8 @@ def validate_portfolio(portfolio, market_data_map):
 
                     if price <= 0.001 or price >= 0.999:
                         reason = f"price {price:.3f} — market resolved or invalid"
+                    elif price >= 0.90:
+                        reason = f"price {price:.3f} — odds too short (max return {(1/price - 1)*100:.0f}%, not worth the risk)"
                     elif amount < min_amount:
                         # Auto-bump to minimum instead of skipping
                         print(f"  ⚠️  BUMP  ${amount:.2f} → ${min_amount:.2f} on {outcome} | {question[:50]} (min for {MIN_SHARES} shares at fill {fill_price:.4f})")
