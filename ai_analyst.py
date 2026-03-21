@@ -50,6 +50,11 @@ def analyze_with_gemini(market_data, history_summary="", balance=4.0):
                 skipped_resolved += 1
                 continue
 
+            # Skip markets where all bettable outcomes are heavy favorites (>90%) — no value
+            if all(p >= 0.90 or p <= 0.10 for p in float_prices):
+                skipped_resolved += 1
+                continue
+
             # Use fill_price (5% above market, capped at 0.97) to match actual execution cost
             min_bets = {o: round(MIN_SHARES * min(float(p) * 1.05, 0.97), 2) for o, p in zip(outcomes, prices)}
         except Exception:
@@ -147,19 +152,20 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
     (Include the endDate formatted as "Mar 09 18:00 UTC" in the Resolves column. Use the endDate field from the market data.)
     (Ensure sum is exactly ${balance:.2f})
     
-    ### SECTION 6: JSON DATA (Machine Readable)
-    **CRITICAL FINAL STEP**: After the closing </html> tag, output ONLY the raw JSON below.
-    Do NOT wrap it in HTML. Do NOT skip this step. The trading engine will fail without it.
+    ### SECTION 6: JSON DATA (Machine Readable) — OUTPUT THIS FIRST, BEFORE THE HTML
+    **CRITICAL FIRST STEP**: Before writing any HTML, output the raw JSON trade list between the tags below.
+    This must appear at the very beginning of your response. The trading engine depends on it.
     The "primary_backer" must be EXACTLY one of: Safe Hands, YOLO, Value, Trend, Skeptic, Quant, Insider, Macro, Chairman.
     The "outcome" must be the EXACT outcome string as it appears in the market data (e.g. "Yes", "No", "Over", "T1", "Cloud9").
 
-    </html>
     <JSON_DATA>
     [
       {{"market_question": "exact market question from data", "outcome": "exact outcome string", "amount": 0.40, "rationale": "reason", "primary_backer": "Quant"}},
       {{"market_question": "exact market question from data", "outcome": "exact outcome string", "amount": 0.10, "rationale": "reason", "primary_backer": "Trend"}}
     ]
     </JSON_DATA>
+
+    After outputting the JSON, write the full HTML report starting with <!DOCTYPE html>.
     
     ### SECTION 5: Projected Returns (The "Aftermath")
     Calculate the expected outcome of your portfolio based on the odds in the data.
@@ -180,7 +186,10 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
         
         # Configure the Google Search Tool using the new types
         search_tool = types.Tool(google_search=types.GoogleSearch())
-        generate_config = types.GenerateContentConfig(tools=[search_tool])
+        generate_config = types.GenerateContentConfig(
+            tools=[search_tool],
+            max_output_tokens=16000,
+        )
 
         for attempt in range(1, 4):
             try:
