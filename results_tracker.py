@@ -206,16 +206,26 @@ def get_performance_summary():
         for name, s in ranked:
             total = s["wins"] + s["losses"]
             rate  = s["wins"] / total * 100 if total else 0
+            if total < 3:
+                multiplier = "1.0x (insufficient data)"
+            elif rate >= 60:
+                multiplier = "1.0x (trusted)"
+            elif rate >= 40:
+                multiplier = "0.75x (caution)"
+            else:
+                multiplier = "0.5x (struggling)"
             lines.append(
-                f"  {name:12s} | {s['wins']}W {s['losses']}L ({rate:.0f}%) | net ${s['net_profit']:+.2f}"
+                f"  {name:12s} | {s['wins']}W {s['losses']}L ({rate:.0f}%) | net ${s['net_profit']:+.2f} | budget multiplier: {multiplier}"
             )
         lines += [
             "",
-            "PERSONA WEIGHTING INSTRUCTIONS:",
-            "- The TOP 2 personas by win rate should be given EXTRA WEIGHT in the Roundtable.",
-            "  Their arguments should be harder to override. They have earned it.",
-            "- The BOTTOM persona (if win rate < 40%) should be noted as 'under review'.",
-            "  Their bets require backing from at least 2 other personas to proceed.",
+            "PERSONA BET-SIZING INSTRUCTIONS:",
+            "- Each persona has a budget multiplier based on their track record.",
+            "- When sizing a bet championed by a persona, scale the Kelly allocation by their multiplier.",
+            "  Example: Kelly suggests $2.00, persona multiplier is 0.5x → cap at $1.00.",
+            "- TOP personas (1.0x trusted) can lead bets with full Kelly weight.",
+            "- Struggling personas (0.5x) still participate but with halved allocation.",
+            "  Do NOT exclude them — just reduce their stake. Small diversified bets are better than zero.",
         ]
 
     # Recent bets
