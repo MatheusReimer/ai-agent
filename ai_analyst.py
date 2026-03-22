@@ -139,13 +139,14 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
     
     ### SECTION 4: Final Consensus Portfolio (${balance:.2f} Fund)
     Based on the Roundtable's agreement, allocate exactly ${balance:.2f}.
-    **Strategy**: Diversified Fractional Kelly.
-    0. **Avoid Heavy Favorites**: NEVER bet on an outcome priced above 0.90 (90%). The maximum return would be under 11% — the risk/reward is not worth it. Skip any market where your chosen outcome is priced above 0.90.
-    1. **Spread Across Markets**: Target 5–10 bets across DIFFERENT matches and categories. Never put more than 30% of the fund into a single bet. More independent bets = lower variance = law of large numbers works in our favor.
-    2. **Fractional Kelly**: Use 25–40% of the full Kelly-suggested size per bet. Full Kelly risks ruin on a bad day. Fractional Kelly preserves the bankroll long-term.
-    3. **Persona Multiplier**: Each persona in the leaderboard has a budget multiplier (1.0x trusted, 0.75x caution, 0.5x struggling). Apply their multiplier to the Kelly allocation. Struggling personas still bet — just smaller. Do NOT skip their picks entirely; small diversified bets are better than zero exposure.
-    4. **Consensus**: Only invest if at least 2 personas agreed (or Chairman overruled).
-    5. **CRITICAL — MINIMUM BET**: Each market in the data has a "min_bets" field showing the EXACT minimum dollar amount per outcome (e.g. {{"Misa Esports": 3.88, "BIG": 2.12}}). You MUST allocate AT LEAST that amount for the chosen outcome, or skip the bet entirely. Never allocate less than the min_bets value for your chosen outcome.
+    **Strategy**: Maximum Diversification — Many Small Bets.
+    0. **Avoid Heavy Favorites**: NEVER bet on an outcome priced above 0.90 (90%). Under 11% return — not worth the risk. Skip it.
+    1. **Spread Wide**: Target 10–15 bets across as many DIFFERENT matches and categories as possible. Each bet should be roughly equal in size (fund / number of bets). No single bet may exceed 15% of the fund. If you cannot find 10 good picks, find at least 8.
+    2. **Small Allocations**: Divide the fund as evenly as possible. With a ${balance:.2f} fund and 10 bets, each bet is ~${balance/10:.2f}. With 12 bets, ~${balance/12:.2f}. Keep individual allocations small.
+    3. **Fractional Kelly**: Use 25–35% of the full Kelly-suggested size. Full Kelly risks ruin. Small fractional Kelly across many markets is the optimal long-run strategy.
+    4. **Persona Multiplier**: Each persona has a budget multiplier (1.0x trusted, 0.75x caution, 0.5x struggling). Apply to their allocation. Struggling personas still bet — just smaller. Many small bets from all personas beats a few large ones.
+    5. **Consensus**: Only invest if at least 2 personas agreed (or Chairman overruled).
+    6. **CRITICAL — MINIMUM BET**: Each market has a "min_bets" field with the EXACT minimum per outcome. You MUST allocate AT LEAST that amount, or skip the bet. Never allocate less than min_bets.
 
     Output as a table:
     | Market | Resolves | Allocation | Primary Backer (Persona) | Rationale |
