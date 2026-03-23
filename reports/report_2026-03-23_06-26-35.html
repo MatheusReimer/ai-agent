@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frodo's Prediction Market Investment Committee Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000000; /* Background */
+            color: #FCFCFC; /* Text */
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background-color: #1a1a1a; /* Slightly lighter than black for content contrast */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 255, 221, 0.2); /* Accent shadow */
+        }
+        h1, h2, h3 {
+            color: #FFB300; /* Highlight */
+            border-bottom: 2px solid #53277D; /* Primary */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #53277D; /* Primary */
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #2a0c44; /* Darker Primary */
+            color: #FCFCFC;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #0d0d0d; /* Slightly different row background */
+        }
+        .persona-discussion {
+            background-color: #0d0d0d;
+            border: 1px solid #53277D;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .persona-name {
+            font-weight: bold;
+        }
+        .chairman-decision {
+            color: #00FFDD; /* Accent */
+            font-weight: bold;
+        }
+        .highlight-text {
+            color: #00FFDD; /* Accent */
+            font-weight: bold;
+        }
+        .emoji {
+            font-size: 1.2em;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Frodo's Prediction Market Investment Committee Report</h1>
+
+        <!-- SECTION 1: Esports Markets -->
+        <h2>SECTION 1: Esports Markets</h2>
+
+        <?php
+        $market_data = [
+            // ... (market data as provided)
+            // PHP is used here just to embed the data. In a pure HTML scenario,
+            // this data would be processed by a script (e.g., JavaScript) on load,
+            // or pre-rendered. For this exercise, I'll simulate pre-rendering.
+            // The JSON data will be used directly below.
+            // Due to length, omitting the full JSON here but the script processes it.
+            // Placeholder:
+            // "title": "LoL: French Flair vs G2 NORD (BO3) - EMEA Masters Playoffs",
+            // ...
+        ];
+
+        $market_data = [
+  {
+    "title": "LoL: French Flair vs G2 NORD (BO3) - EMEA Masters Playoffs",
+    "category": "league-of-legends",
+    "endDate": "2026-03-23T22:00:00Z",
+    "question": "First Blood in Game 2?",
+    "outcomes": [
+      "French Flair",
+      "G2 NORD"
+    ],
+    "prices": [
+      0.465,
+      0.535
+    ],
+    "volume": 44030.37890999998,
+    "rsi": 50,
+    "volatility": 0,
+    "min_bets": {
+      "French Flair": 2.44,
+      "G2 NORD": 2.81
+    }
+  },
+  {
+    "title": "LoL: Team Heretics Academy vs Unicorns Of Love Sexy Edition (BO3) - EMEA Masters Playoffs",
+    "category": "league-of-legends",
+    "endDate": "2026-03-23T22:00:00Z",
+    "question": "First Blood in Game 1?",
+    "outcomes": [
+      "Team Heretics Academy",
+      "Unicorns Of Love Sexy Edition"
+    ],
+    "prices": [
+      0.515,
+      0.485
+    ],
+    "volume": 28656.573343000004,
+    "rsi": 50,
+    "volatility": 0,
+    "min_bets": {
+      "Team Heretics Academy": 2.7,
+      "Unicorns Of Love Sexy Edition": 2.55
+    }
+  },
+  {
+    "title": "LoL: Berlin International Gaming vs Karmine Corp Blue (BO3) - EMEA Masters Playoffs",
+    "category": "league-of-legends",
+    "endDate": "2026-03-24T01:00:00Z",
+    "question": "First Blood in Game 2?",
+    "outcomes": [
+      "BIG",
+      "Karmine Corp Blue"
+    ],
+    "prices": [
+      0.285,
+      0.715
+    ],
+    "volume": 89494.95225999998,
+    "rsi": 50,
+    "volatility": 0,
+    "min_bets": {
+      "BIG": 1.5,
+      "Karmine Corp Blue": 3.75
+    }
+  },
+  {
+    "title": "LoL: Eintracht Spandau vs Galions (BO3) - EMEA Masters Playoffs",
+    "category": "league-of-legends",
+    "endDate": "2026-03-24T01:00:00Z",
+    "question": "First Blood in Game 1?",
+    "outcomes": [
+      "Eintracht Spandau",
+      "Galions"
+    ],
+    "prices": [
+      0.28,
+      0.72
+    ],
+    "volume": 4071.6162189999973,
+    "rsi": 50,
+    "volatility": 0,
+    "min_bets": {
+      "Eintracht Spandau": 1.47,
+      "Galions": 3.78
+    }
+  },
+  {
+    "title": "Valorant: S2G Esports vs GnG Amazigh (BO3) - VCL EMEA: Group D",
+    "category": "valorant",
+    "endDate": "2026-03-23T22:00:00Z",
+    "question": "Valorant: S2G Esports vs GnG Amazigh (BO3) - VCL EMEA: Group D",
+    "outcomes": [
+      "S2G Esports",
+      "GnG Amazigh"
+    ],
+    "prices": [
+      0.855,
+      0.145
+    ],
+    "volume": "923.884335",
+    "rsi": 50,
+    "volatility": 0,
+    "min_bets": {
+      "S2G Esports": 4.49,
+      "GnG Amazigh": 0.76
+    }
+  },
+  {
+    "title": "Valorant: TBK Esports vs 2GAME Esports (BO3) - VCL Brazil: Playoffs",
+    "category": "valorant",
+    "endDate": "2026-03-24T02:00:00Z",
+    "question": "Valorant: TBK Esports vs 2GAME Esports (BO3) - VCL Brazil: Playoffs",
+    "outcomes": [
+      "TBK Esports",
+      "2GAME Esports"
+    ],
+    "prices": [
+      0.365,
+      0.635
+    ],
+    "volume": "1.470587",
+    "rsi": 50,
+    "volatility": 0,
+    "min_bets": {
+      "TBK Esports": 1.92,
+      "2GAME Esports": 3.33
+    }
+  },
+  {
+    "title": "Valorant: M80 vs Pigeons (BO3) - VCL North America: Stage 2 Swiss Stage Group Stage",
+    "category": "valorant",
+    "endDate": "2026-03-24T02:00:00Z",
+    "question": "Valorant: M80 vs Pigeons (BO3) - VCL North America: Stage 2 Swiss Stage Group Stage",
+    "outcomes": [
+      "M80",
+      "Pigeons"
+    ],
+    "prices": [
+      0.745,
+      0.255
+    ],
+    "volume": "1.149423",
+    "rsi": 50,
+    "volatility": 0,
+    "min_bets": {
+      "M80": 3.91,
+      "Pigeons": 1.34
+    }
+  },
+  {
+    "title": "Valorant: Shopify Rebellion Black vs ROSE (BO3) - VCL North America: Stage 2 Swiss Stage Group Stage",
+    "category": "valorant",
+    "endDate": "2026-03-24T02:00:00Z",
+    "question": "Valorant: Shopify Rebellion Black vs ROSE (BO3) - VCL North America: Stage 2 Swiss Stage Group Stage",
+    "outcomes": [
+      "Shopify Rebellion Black",
+      "ROSE"
+    ],
+    "prices": [
+      0.865,
+      0.135
+    ],
+    "volume": "4440.726908000001",
+    "rsi": 50,
+    "volatility": 0,
+    "min_bets": {
+      "Shopify Rebellion Black": 4.54,
+      "ROSE": 0.71
+    }
+  },
+  {
+    "title": "Valorant: KR\u00dc Blaze vs Looking For Laburo (BO3) - VCT Game Changers Latin America South Group Stage",
+    "category": "valorant",
+    "endDate": "2026-03-24T04:00:00Z",
+    "question": "Valorant: KR\u00dc Blaze vs Looking For Laburo - Map 2 Winner",
+    "outcomes": [
+      "KR\u00dc Blaze",
+      "Looking For Laburo"
+    ],
+    "prices": [
+      0.5,
+      0.5
+    ],
+    "volume": 11637.839510999998,
+    "rsi": 50,
+    "volatility": 0,
+    "min_bets": {
+      "KR\u00dc Blaze": 2.62,
+      "Looking For Laburo": 2.62
+    }
+  },
+  {
+    "title": "Valorant: MIBR Academy vs INTZ (BO3) - VCL Brazil: Playoffs",
+    "category": "valorant",
+    "endDate": "2026-03-24T05:00:00Z",
+    "question": "Map Handicap: INTZ (-1.5) vs MIBR Academy (+1.5)",
+    "outcomes": [
+      "INTZ",
+      "MIBR Academy"
+    ],
+    "prices": [
+      0.52,
+      0.48
+    ],
+    "volume": 132.754383,
+    "rsi": 50,
+    "volatility": 0,
+    "min_bets": {
+      "INTZ": 2.73,
+      "MIBR Academy": 2.52
+    }
+  },
+  {
+    "title": "Valorant: sleepers vs Nightblood Gaming (BO3) - VCL North America: Stage 2 Swiss Stage Group Stage",
+    "category": "valorant",
+    "endDate": "2026-03-24T05:00:00Z",
+    "question": "Valorant: sleepers vs Nightblood Gaming (BO3) - VCL North America: Stage 2 Swiss Stage Group Stage",
+    "outcomes": [
+      "sleepers",
+      "Nightblood Gaming"
+    ],
+    "prices": [
+      0.65,
+      0.35
+    ],
+    "volume": "2.631577",
+    "rsi": 50,
+    "volatility": 0,
+    "min_bets": {
+      "sleepers": 3.41,
+      "Nightblood Gaming": 1.84
+    }
+  },
+  {
+    "title": "Valorant: Akave Esports Black vs Contra GC (BO3) - VCT Game Changers Latin America North Group Stage",
+    "category": "valorant",
+    "endDate": "2026-03-24T07:00:00Z",
+    "question": "Valorant: Akave Esports Black vs Contra GC - Map 1 Winner",
+    "outcomes": [
+      "Akave Esports Black",
+      "Contra GC"
+    ],
+    "prices": [
+      0.5,
+      0.5
+    ],
+    "volume": 24889.822384000006,
+    "rsi": 50,
+    "volatility": 0,
+    "min_bets": {
+      "Akave Esports Black": 2.62,
+      "Contra GC": 2.62
+    }
+  },
+  {
+    "title": "Counter-Strike: ASTRAL vs Leo Team (BO3) - NODWIN Clutch Series Group Stage",
+    "category": "cs2",
+    "endDate": "2026-03-23T15:00:00Z",
+    "question": "Counter-Strike: ASTRAL vs Leo Team (BO3) - NODWIN Clutch Series Group Stage",
+    "outcomes": [
+      "ASTRAL",
+      "Leo Team"
+    ],
+    "prices": [
+      0.39,
+      0.61
+    ],
+    "volume": "21399.315571999992",
+    "rsi": 50,
+    "volatility": 0,
+    "min_bets": {
+      "ASTRAL": 2.05,
+      "Leo Team": 3.2
+    }
+  },
+  {
+    "title": "Counter-Strike: OlyBet SB vs Ursa (BO3) - CCT Europe Series #19 Group Stage",
+    "category": "cs2",
+    "endDate": "2026-03-23T15:00:00Z",
+    "question": "Counter-Strike: OlyBet SB vs Ursa (BO3) - CCT Europe Series #19 Group Stage",
+    "outcomes": [
+      "OlyBet SB",
+      "Ursa"
+    ],
+    "prices": [
+      0.105,
+      0.895
+    ],
+    "volume": "9768.46248500001",
+    "rsi": 50,
+    "volatility": 0,
+    "min_bets": {
+      "OlyBet SB": 0.55,
+      "Ursa": 4.7
+    }
+  },
+  {
+    "title": "Counter-Strike: FOKUS vs FOKUS REALITY (BO1) - Urban Riga Open #3 Group A",
+    "category": "cs2",
+    "endDate": "2026-03-23T15:20:00Z",
+    "question": "Counter-Strike: FOKUS vs FOKUS REALITY (BO1) - Urban Riga Open #3 Group A",
+    "outcomes": [
+      "FOKUS",
+      "FOKUS REALITY"
+    ],
+    "prices": [
+      0.51,
+      0.49
+    ],
+    "volume": "3898.5619340000007",
+    "rsi": 50,
+    "volatility": 0,
+    "min_bets": {
+      "FOKUS": 2.68,
+      "FOKUS REALITY": 2.57
+    }
+  },
+  {
+    "title": "Counter-Strike: FOKUS REALITY vs GAMEHARMONY (BO1) - Urban Riga Open #3 Group A",
+    "category": "cs2",
+    "endDate": "2026-03-23T16:00:00Z",
+    "question": "Counter-Strike: FOKUS REALITY vs GAMEHARMONY (BO1) - Urban Riga Open #3 Group A",
+    "outcomes": [
+      "FOKUS REALITY",
+      "GAMEHARMONY"
+    ],
+    "prices": [
+      0.745,
+      0.255
+    ],
+    "volume": "3533.222589",
+    "rsi": 50,
+    "volatility": 0,
+    "min_bets": {
+      "FOKUS REALITY": 3.91,
+      "GAMEHARMONY": 1.34
+    }
+  },
+  {
+    "title": "Counter-Strike: 3DMAX vs FOKUS (BO1) - Urban Riga Open #3 Group A",
+    "category": "cs2",
+    "endDate": "2026-03-23T16:00:00Z",
+    "question": "Counter-Strike: 3DMAX vs FOKUS (BO1) - Urban Riga Open #3 Group A",
+    "outcomes": [
+      "3DMAX",
+      "FOKUS"
+    ],
+    "prices": [
+      0.705,
+      0.295
+    ],
+    "volume": "898.224369",
+    "rsi": 50,
+    "volatility": 0,
+    "min_bets": {
+      "3DMAX": 3.7,
+      "FOKUS": 1.55
+    }
+  },
+  {
+    "title": "Counter-Strike: Ground Zero vs Mindfreak (BO3) - ESL Challenger League Oceania Cup #2 Playoffs",
+    "category": "cs2",
+    "endDate": "2026-03-23T16:00:00Z",
+    "question": "Counter-Strike: Ground Zero vs Mindfreak (BO3) - ESL Challenger League Oceania Cup #2 Playoffs",
+    "outcomes": [
+      "Ground Zero",
+      "Mindfreak"
+    ],
+    "prices": [
+      0.545,
+      0.455
+    ],
+    "volume": "4774.028635",
+    "rsi": 50,
+    "volatility": 0,
+    "min_bets": {
+      "Ground Zero": 2.86,
+      "Mindfreak": 2.39
+    }
+  },
+  {
