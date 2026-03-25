@@ -138,20 +138,32 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
     - List the strongest counter-argument found. If the counter-argument is too strong, DISCARD the bet.
     
     ### SECTION 4: Final Consensus Portfolio (${balance:.2f} Fund)
-    Based on the Roundtable's agreement, allocate exactly ${balance:.2f}.
-    **Strategy**: Maximum Diversification — Many Small Bets.
-    0. **Avoid Heavy Favorites**: NEVER bet on an outcome priced above 0.90 (90%). Under 11% return — not worth the risk. Skip it.
-    1. **Spread Wide**: Target 10–15 bets across as many DIFFERENT matches and categories as possible. Each bet should be roughly equal in size (fund / number of bets). No single bet may exceed 15% of the fund. If you cannot find 10 good picks, find at least 8.
-    2. **Small Allocations**: Divide the fund as evenly as possible. With a ${balance:.2f} fund and 10 bets, each bet is ~${balance/10:.2f}. With 12 bets, ~${balance/12:.2f}. Keep individual allocations small.
-    3. **Fractional Kelly**: Use 25–35% of the full Kelly-suggested size. Full Kelly risks ruin. Small fractional Kelly across many markets is the optimal long-run strategy.
-    4. **Persona Multiplier**: Each persona has a budget multiplier (1.0x trusted, 0.75x caution, 0.5x struggling). Apply to their allocation. Struggling personas still bet — just smaller. Many small bets from all personas beats a few large ones.
-    5. **Consensus**: Only invest if at least 2 personas agreed (or Chairman overruled).
-    6. **CRITICAL — MINIMUM BET**: Each market has a "min_bets" field with the EXACT minimum per outcome. You MUST allocate AT LEAST that amount, or skip the bet. Never allocate less than min_bets.
+    Based on the Roundtable's agreement, allocate exactly ${balance:.2f} using a Core/Satellite strategy.
 
-    Output as a table:
-    | Market | Resolves | Allocation | Primary Backer (Persona) | Rationale |
-    (Include the endDate formatted as "Mar 09 18:00 UTC" in the Resolves column. Use the endDate field from the market data.)
-    (Ensure sum is exactly ${balance:.2f})
+    **BUCKET A — CORE (85% = ${balance * 0.85:.2f}): Safe, high-probability bets**
+    - Price range: 0.55–0.89 (meaningful edge, not a heavy favorite, not a coin flip)
+    - Personas: Safe Hands, Value, Quant, Trend, Chairman
+    - Target 7–10 bets, each roughly equal: ~${balance * 0.85 / 8:.2f} per bet
+    - No single Core bet may exceed 12% of the total fund (${balance * 0.12:.2f})
+    - Consensus required: at least 2 Core personas agree
+
+    **BUCKET B — SATELLITE (15% = ${balance * 0.15:.2f}): High-risk, high-reward longshots**
+    - Price range: 0.10–0.40 (underdog picks with 2.5x–10x upside)
+    - Personas: YOLO, Insider, Skeptic (contrarian), Macro (big upset calls)
+    - Target 2–3 bets, each roughly equal: ~${balance * 0.15 / 2:.2f} per bet
+    - These can lose — that's expected. One hit pays for many misses.
+
+    **RULES FOR BOTH BUCKETS:**
+    0. **Avoid Heavy Favorites**: NEVER bet any outcome priced above 0.89. Skip it regardless of bucket.
+    1. **Spread Wide**: Bets must span DIFFERENT matches. No two bets on the same match.
+    2. **Fractional Kelly**: Use 25–35% of full Kelly size. Full Kelly risks ruin.
+    3. **Persona Multiplier**: Apply each persona's budget multiplier (1.0x / 0.75x / 0.5x) to their allocation.
+    4. **CRITICAL — MINIMUM BET**: Each market has a "min_bets" field. Never allocate less than min_bets for the chosen outcome.
+
+    Output as a table with a "Bucket" column (Core or Satellite):
+    | Bucket | Market | Resolves | Allocation | Primary Backer | Rationale |
+    (Include the endDate formatted as "Mar 09 18:00 UTC" in the Resolves column.)
+    (Ensure Core allocations sum to ~${balance * 0.85:.2f} and Satellite to ~${balance * 0.15:.2f}, total exactly ${balance:.2f})
     
     ### SECTION 6: JSON DATA (Machine Readable) — OUTPUT THIS FIRST, BEFORE THE HTML
     **CRITICAL FIRST STEP**: Before writing any HTML, output the raw JSON trade list between the tags below.
