@@ -1,7 +1,6 @@
 import os
 import sys
 import json
-import webbrowser
 import re
 import warnings
 import time
@@ -167,42 +166,7 @@ def analyze_with_gemini(market_data, history_summary="", balance=4.0):
     {json.dumps(optimized_data, indent=2)}
     """
 
-    # ── PROMPT 2: HTML report (uses trade decisions from call 1) ────────────────
-    def build_html_prompt(trades, data):
-        trades_summary = json.dumps(trades, indent=2) if trades else "[]"
-        return f"""
-    You are generating an esports prediction market analysis report in HTML.
-    Color palette: Background #000000 | Accent #53277D | Secondary #00FFDD | Highlight #FFB300 | Text #FCFCFC
-    Return ONLY valid HTML starting with <!DOCTYPE html>. No markdown.
-
-    The trading engine already made these decisions (DO NOT change them):
-    {trades_summary}
-
-    Generate a report with these sections:
-
-    ### Section 1 — Market Overview
-    Table per category (cs2 / valorant / league-of-legends):
-    | Resolves | Match | Volume | Market Price | RSI | Sentiment (0-100) | Controversy (0-10) | Key Finding |
-    Use the data below. Format Resolves as "Mar 09 18:00 UTC".
-
-    ### Section 2 — Edge Analysis
-    For each market, show: True Prob (from trades if bet, otherwise your estimate) | Market Price | Edge | Evidence | Decision (BET/SKIP) | Reason
-
-    ### Section 3 — Final Portfolio
-    Table of all bets from the trades above:
-    | Bucket | Match | Outcome | Strategy | Resolves | True Prob | Market Price | Edge | Stake |
-    Core total | Satellite total | Grand total
-
-    ### Section 4 — Projected Returns
-    | Match | Outcome | Stake | Payout if Win | Net Profit | Win Prob | Expected Value |
-    EV = (true_prob × net_profit) − ((1 − true_prob) × stake)
-    Show: Best Case | EV-Weighted Return | Total EV
-
-    Market data:
-    {json.dumps(data, indent=2)}
-    """
-
-    def _call_gemini(client, prompt_text, config, label):
+def _call_gemini(client, prompt_text, config, label):
         """Helper: call Gemini with retries, return raw text or empty string."""
         response = None
         for attempt in range(1, 4):
@@ -264,7 +228,7 @@ def analyze_with_gemini(market_data, history_summary="", balance=4.0):
             tools=[search_tool],
             max_output_tokens=12000,
         )
-        print("\n[1/2] Researching markets and selecting trades...")
+        print("\nResearching markets and selecting trades...")
         trades_raw = _call_gemini(client, prompt_trades, trades_config, "trades")
 
         if not trades_raw:
@@ -296,26 +260,8 @@ def analyze_with_gemini(market_data, history_summary="", balance=4.0):
             for b in portfolio_data:
                 print(f"    {b.get('outcome','?'):15s} | edge={b.get('edge','?')} | ev={b.get('evidence_quality','?')} | ${b.get('amount','?')} | {b.get('market_question','')[:45]}")
 
-        # ── CALL 2: HTML report (large token budget, no research needed) ────────
-        html_config = types.GenerateContentConfig(
-            max_output_tokens=32000,
-        )
-        print("\n[2/2] Generating HTML report...")
-        html_raw = _call_gemini(client, build_html_prompt(portfolio_data, optimized_data), html_config, "html")
-
-        html_content = html_raw.replace("```html", "").replace("```", "") if html_raw else "<html><body><p>Report generation failed.</p></body></html>"
-
         print("\n--- AI ANALYSIS COMPLETE ---\n")
-
-        # Write the latest report for browser preview (not archived yet)
-        with open(HTML_FILENAME, "w", encoding="utf-8") as f:
-            f.write(html_content)
-
-        print(f"Report preview saved to {HTML_FILENAME}.")
-        if sys.stdout.isatty():  # only open browser in interactive sessions
-            webbrowser.open("file://" + os.path.abspath(HTML_FILENAME))
-
-        return portfolio_data, html_content
+        return portfolio_data, ""
 
     except Exception as e:
         print(f"\nError communicating with Gemini: {e}")

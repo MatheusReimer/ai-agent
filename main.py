@@ -1,14 +1,10 @@
-import os
 import sys
-import shutil
-from datetime import datetime
 from polymarket_api import get_markets
 from ai_analyst import analyze_with_gemini
 from trader import execute_portfolio, validate_portfolio
 from check_balance import check_usdc_balance
 from results_tracker import get_performance_summary, record_bets
 from redeemer import redeem_winnings
-from emailer import send_report
 from eth_account import Account
 from config import PRIVATE_KEY, PURCHASE_PASSKEY, POLYMARKET_PROXY_ADDRESS
 
@@ -109,14 +105,5 @@ if __name__ == "__main__":
                 placed = execute_portfolio(portfolio, markets, balance=balance)
                 if placed:
                     record_bets(placed, markets)
-                # Archive report
-                reports_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "reports")
-                os.makedirs(reports_dir, exist_ok=True)
-                ts = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-                archived = os.path.join(reports_dir, f"report_{ts}.html")
-                shutil.copy2("esports_analysis.html", archived)
-                print(f"📁 Report archived to {archived}")
-                # Send email
-                send_report(html_content, history_summary, placed or [])
             elif not AUTO_MODE:
                 print("Trading skipped.")
