@@ -67,6 +67,13 @@ if __name__ == "__main__":
             print("\n--- SPORTSBOOK ARB SCAN ---")
             sharp_odds = get_sharp_odds(list(ACTIVE_SPORTS.keys()))
             if sharp_odds:
+                # Debug: show what sports are in each dataset
+                pm_categories = set(m.get("category", "unknown") for m in markets)
+                sb_sports = set(e["sport"] for e in sharp_odds)
+                print(f"  Polymarket categories: {pm_categories}")
+                print(f"  Sportsbook sports:     {sb_sports}")
+                print(f"  → Overlap possible only if categories match (e.g. both have MLB)")
+
                 arb_markets, markets = match_markets(markets, sharp_odds)
                 # Filter arb candidates: must have at least one outcome with edge >= 0.08
                 arb_markets = [
