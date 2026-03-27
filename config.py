@@ -20,9 +20,9 @@ POLYMARKET_PROXY_ADDRESS = os.getenv("POLYMARKET_PROXY_ADDRESS")
 # Define categories and their specific filtering rules.
 # Use series_id (from Polymarket /sports endpoint "series" field) — more reliable than tag_id.
 CATEGORIES = [
-    {"slug": "cs2",               "series_id": 10310, "filter_match": True, "limit": 15},
-    {"slug": "valorant",          "series_id": 10369, "filter_match": True, "limit": 10},
-    {"slug": "league-of-legends", "series_id": 10311, "filter_match": True, "limit": 10},
+    {"slug": "cs2",               "series_id": 10310, "filter_match": True, "limit": 30},
+    {"slug": "valorant",          "series_id": 10369, "filter_match": True, "limit": 20},
+    {"slug": "league-of-legends", "series_id": 10311, "filter_match": True, "limit": 20},
 ]
 
 HTML_FILENAME = "esports_analysis.html"
