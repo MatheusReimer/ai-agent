@@ -106,21 +106,36 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
 ---
 """ if history_summary else ""
 
-    prompt = f"""
-    {history_block}You are an elite Prediction Market Analyst specializing in esports and sports markets.
-    You are an edge-detection engine. Your only tool is research — you use Google Search to find
-    the true probability of each outcome, then compare it to Polymarket's price to find mispricing.
+    # ── PROMPT 1: trades only (no HTML, no fluff) ──────────────────────────────
+    prompt_trades = f"""
+    {history_block}You are an elite Prediction Market Analyst specializing in esports markets (CS2, LoL, Valorant).
+    You are an edge-detection engine. Use Google Search to research each match and estimate the TRUE
+    probability of each outcome, then compare to the Polymarket price to find mispricing.
     RSI > 70 = Overbought. RSI < 30 = Oversold.
 
-    **CORE RULE**: A bet only exists when research shows the market price is wrong by >= 15%.
-    No edge = no bet. Preserving capital on uncertain days beats forcing bad trades.
-
-    **STYLING**: Background #000000 | Accent #53277D | Secondary #00FFDD | Highlight #FFB300 | Text #FCFCFC
-    Dark-themed CSS. Return ONLY valid HTML — no markdown code blocks.
+    **CORE RULE**: Only bet when research shows the market price is wrong by >= 10%.
+    No edge = no bet. Return an empty array if nothing qualifies — that is a valid answer.
 
     ---
-    ## STEP 1 — MANDATORY: JSON OUTPUT (output this BEFORE any HTML)
-    The trading engine reads this first. After all research below, output final bets here:
+    ## STEP 1 — RESEARCH & EDGE SCAN
+    For every market below, use Google Search to find: head-to-head record, recent form
+    (last 3–5 matches), roster changes, meta shifts, tournament context.
+
+    For each market:
+    A. Estimate TRUE probability from research (ignore market price). Round to 5%.
+    B. Rate evidence: HIGH (3+ recent credible sources) | MEDIUM (1-2 or older) | LOW (skip)
+    C. Edge = |true_prob − market_price|
+    D. Gate: ADVANCE only if evidence >= MEDIUM AND edge >= 0.10 AND price between 0.11–0.88
+
+    ---
+    ## STEP 2 — VALIDATION (for each ADVANCED bet)
+    - Counter-search: "why [Team] will lose [match]" — credible counter shifts prob >10%? DISCARD.
+    - BO1 format? Adjust true_prob down for favorite. Adjusted edge < 0.10? DISCARD.
+    - Kelly: f* = edge / (1 − market_price) × (0.30 if HIGH else 0.20). Cap at ${balance * 0.12:.2f}.
+
+    ---
+    ## STEP 3 — OUTPUT JSON (your entire response must be ONLY this, nothing else)
+    Output ONLY the JSON array below. No explanation, no HTML, no markdown.
 
     <JSON_DATA>
     [
@@ -135,203 +150,137 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
         "evidence_quality": "HIGH",
         "strategy": "Form Edge",
         "primary_backer": "Form Edge",
-        "rationale": "T1 on 8-match win streak, market slow to update after roster change"
+        "rationale": "T1 8-match win streak, market slow to update"
       }}
     ]
     </JSON_DATA>
 
-    If NO bets pass all filters: <JSON_DATA>[]</JSON_DATA>
+    If nothing qualifies: <JSON_DATA>[]</JSON_DATA>
 
-    "strategy" and "primary_backer" must be the SAME value, chosen from:
+    "strategy" and "primary_backer": same value from:
       "Form Edge" | "Mispriced Favorite" | "Underdog Value" | "Momentum" | "Contrarian" | "Information Edge"
-    "outcome" must be the EXACT string from the market data.
-    After the JSON block, write the full HTML report starting with <!DOCTYPE html>.
+    "outcome": EXACT string from market data. "bucket": "core" or "satellite".
+    Core: market_price 0.55–0.88, target 5–9 bets, max ${balance * 0.12:.2f} each, 85% of fund.
+    Satellite: market_price 0.11–0.40, target 2–3 bets, 15% of fund.
+    One bet per match. Category cap: max 35% per game (cs2/lol/valorant).
+    Total must equal exactly ${balance:.2f}.
 
-    ---
-    ## STEP 2 — MARKET OVERVIEW (HTML Section 1)
-    For each market in the data, use Google Search to find:
-    recent match results, head-to-head records, roster changes, patch notes, tournament standings.
-    Output a table per category:
-    | Resolves | Match | Category | Volume | Market Price | RSI | Sentiment (0-100) | Controversy (0-10) | Key Finding |
-    Sentiment: 0=Very Bearish, 100=Very Bullish. Controversy: 0=consensus, 10=sharp disagreement.
-    Format Resolves as "Mar 09 18:00 UTC".
-
-    ---
-    ## STEP 3 — EDGE SCANNING (HTML Section 2) — THE CRITICAL GATE
-    For every market, run this full pipeline. Only ADVANCE if it passes ALL checks.
-
-    **3A. Research** (Google Search for every match):
-    - Head-to-head record last 6 months
-    - Recent form: last 3–5 match results, map/game win rates
-    - Roster changes, stand-ins, bootcamp news
-    - Meta shifts (recent patch impact on playstyle)
-    - Tournament context: bracket pressure, travel schedule, prize stakes
-    - Any credible analyst predictions or community consensus
-
-    **3B. Estimate TRUE probability** from your research only — ignore the market price completely.
-    State your reasoning. Round to nearest 5%.
-
-    **3C. Rate evidence quality**:
-    - HIGH: 3+ credible recent sources (< 2 weeks old), consistent signal. Confident ±5%.
-    - MEDIUM: 1–2 sources, or mixed signals, or data > 2 weeks old. Confident ±15%.
-    - LOW: thin data, speculation, conflicting info → SKIP immediately.
-
-    **3D. Compute edge** = |true_prob − market_price|
-
-    **3E. Classify strategy**:
-    - "Form Edge": recent results not yet priced in
-    - "Mispriced Favorite": solid team priced too low by market
-    - "Underdog Value": upset potential, payout justifies risk
-    - "Momentum": RSI trend confirmed by external cause
-    - "Contrarian": market overreacted to recent bad news
-    - "Information Edge": roster/lineup info market hasn't priced in
-
-    **3F. Gate** — ADVANCE only if ALL true:
-    - evidence_quality >= MEDIUM
-    - edge >= 0.10
-    - market_price between 0.11 and 0.88
-    - There is a clear, specific reason the market price is wrong
-
-    Output table:
-    | Match | Outcome | True Prob | Market Price | Edge | Evidence | Strategy | Decision | Reason if Skipped |
-
-    ---
-    ## STEP 4 — VALIDATION CHECKLIST (HTML Section 3)
-    For each ADVANCED bet, run every check. One FAIL = DISCARD.
-
-    **Check 1 — Counter-research** (Google Search required):
-    Search: "why [Team] will lose [match]", "[Team] weaknesses", "upset pick [match]"
-    If a credible source shifts your true_prob estimate by > 10% → DISCARD.
-
-    **Check 2 — RSI overextension**:
-    RSI > 78 AND edge < 0.20? → Overbought, price may snap back before match → DISCARD.
-
-    **Check 3 — Contextual risk**:
-    BO1 format? (upsets much more likely than BO3) Travel disadvantage? Internal team issues?
-    Adjust true_prob accordingly. If adjusted edge drops below 0.15 → DISCARD.
-
-    **Check 4 — Kelly sizing**:
-    f* = edge / (1 − market_price) × (0.30 if HIGH evidence else 0.20)
-    Stake = f* × ${balance:.2f}
-    Cap at ${balance * 0.12:.2f}. If stake < min_bet for this market → SKIP.
-
-    Output table:
-    | Match | Check 1 Counter | Check 2 RSI | Check 3 Context | Check 4 Stake | Final: KEEP / DISCARD |
-
-    ---
-    ## STEP 5 — FINAL PORTFOLIO (HTML Section 4) — ${balance:.2f} Fund
-    Only bets that passed ALL Step 4 checks. Allocate exactly ${balance:.2f}.
-
-    **CORE BUCKET (85% = ${balance * 0.85:.2f})**: high-confidence mispriced markets
-    - market_price: 0.55–0.88 | edge >= 0.15 | evidence: HIGH or MEDIUM
-    - Strategies: Form Edge, Mispriced Favorite, Momentum, Information Edge
-    - Target 5–9 bets. No single bet > 12% of fund (${balance * 0.12:.2f}).
-
-    **SATELLITE BUCKET (15% = ${balance * 0.15:.2f})**: underdog value
-    - market_price: 0.11–0.40 | edge >= 0.15 | evidence: MEDIUM minimum
-    - Strategies: Underdog Value, Contrarian
-    - Target 2–3 bets.
-
-    **RULES:**
-    - One bet per match. No exceptions.
-    - CATEGORY CAP: max 35% (${balance * 0.35:.2f}) in any single category (cs2/lol/nba/mlb/etc.)
-    - Respect min_bets field — never go below it
-    - Fewer than 3 bets passing? Output empty portfolio. Do NOT force trades.
-
-    Output table:
-    | Bucket | Match | Outcome | Strategy | Resolves | True Prob | Market Price | Edge | Evidence | Stake |
-    Summary: Core = $X.XX | Satellite = $X.XX | Total = ${balance:.2f}
-
-    ---
-    ## STEP 6 — PROJECTED RETURNS (HTML Section 5)
-    | Bucket | Match | Outcome | Stake | Payout if Win | Net Profit | Win Prob | EV |
-    EV = (true_prob × net_profit) − ((1 − true_prob) × stake)
-    Totals: Best Case (all win) | EV-Weighted Return | Total Portfolio EV
-
-    ---
     Data:
     {json.dumps(optimized_data, indent=2)}
     """
 
-    try:
-        # Enable Google Search for live data retrieval
-        response = None
-        
-        # Configure the Google Search Tool using the new types
-        search_tool = types.Tool(google_search=types.GoogleSearch())
-        generate_config = types.GenerateContentConfig(
-            tools=[search_tool],
-            max_output_tokens=16000,
-        )
+    # ── PROMPT 2: HTML report (uses trade decisions from call 1) ────────────────
+    def build_html_prompt(trades, data):
+        trades_summary = json.dumps(trades, indent=2) if trades else "[]"
+        return f"""
+    You are generating an esports prediction market analysis report in HTML.
+    Color palette: Background #000000 | Accent #53277D | Secondary #00FFDD | Highlight #FFB300 | Text #FCFCFC
+    Return ONLY valid HTML starting with <!DOCTYPE html>. No markdown.
 
+    The trading engine already made these decisions (DO NOT change them):
+    {trades_summary}
+
+    Generate a report with these sections:
+
+    ### Section 1 — Market Overview
+    Table per category (cs2 / valorant / league-of-legends):
+    | Resolves | Match | Volume | Market Price | RSI | Sentiment (0-100) | Controversy (0-10) | Key Finding |
+    Use the data below. Format Resolves as "Mar 09 18:00 UTC".
+
+    ### Section 2 — Edge Analysis
+    For each market, show: True Prob (from trades if bet, otherwise your estimate) | Market Price | Edge | Evidence | Decision (BET/SKIP) | Reason
+
+    ### Section 3 — Final Portfolio
+    Table of all bets from the trades above:
+    | Bucket | Match | Outcome | Strategy | Resolves | True Prob | Market Price | Edge | Stake |
+    Core total | Satellite total | Grand total
+
+    ### Section 4 — Projected Returns
+    | Match | Outcome | Stake | Payout if Win | Net Profit | Win Prob | Expected Value |
+    EV = (true_prob × net_profit) − ((1 − true_prob) × stake)
+    Show: Best Case | EV-Weighted Return | Total EV
+
+    Market data:
+    {json.dumps(data, indent=2)}
+    """
+
+    def _call_gemini(client, prompt_text, config, label):
+        """Helper: call Gemini with retries, return raw text or empty string."""
+        response = None
         for attempt in range(1, 4):
             try:
                 response = client.models.generate_content(
                     model='gemini-2.5-flash',
-                    contents=prompt,
-                    config=generate_config
+                    contents=prompt_text,
+                    config=config,
                 )
                 break
             except Exception as e:
                 if "429" in str(e):
-                    print(f"\n⚠️ API Quota Hit. Waiting 10s... (Attempt {attempt}/3)")
+                    print(f"\n⚠️ API Quota Hit ({label}). Waiting 10s... (Attempt {attempt}/3)")
                     time.sleep(10)
                 else:
                     raise e
-        
+
         if not response:
-            print("Error: Failed to get response from Gemini after retries.")
-            return [], ""
+            print(f"Error: No response from Gemini ({label}) after retries.")
+            return ""
 
-        print("\n--- AI ANALYSIS COMPLETE ---\n")
-
-        # Safely extract text — response.text can be None when Google Search tool is used
-        raw_text = response.text
-        if not raw_text:
+        raw = response.text
+        if not raw:
             try:
                 parts = response.candidates[0].content.parts
-                raw_text = "".join(p.text for p in parts if hasattr(p, "text") and p.text)
+                raw = "".join(p.text for p in parts if hasattr(p, "text") and p.text)
             except Exception:
-                raw_text = ""
-        if not raw_text:
+                raw = ""
+
+        if not raw:
             for retry in range(2, 4):
-                print(f"⚠️ Gemini returned empty response. Retrying ({retry}/3)...")
+                print(f"⚠️ Gemini returned empty response ({label}). Retrying ({retry}/3)...")
                 time.sleep(5)
                 try:
                     response = client.models.generate_content(
                         model='gemini-2.5-flash',
-                        contents=prompt,
-                        config=generate_config
+                        contents=prompt_text,
+                        config=config,
                     )
-                    raw_text = response.text
-                    if not raw_text:
+                    raw = response.text
+                    if not raw:
                         try:
                             parts = response.candidates[0].content.parts
-                            raw_text = "".join(p.text for p in parts if hasattr(p, "text") and p.text)
+                            raw = "".join(p.text for p in parts if hasattr(p, "text") and p.text)
                         except Exception:
-                            raw_text = ""
-                    if raw_text:
+                            raw = ""
+                    if raw:
                         break
                 except Exception as e:
                     print(f"  Retry error: {e}")
 
-        if not raw_text:
-            print("Error: Gemini returned an empty response after 3 attempts.")
+        return raw or ""
+
+    try:
+        search_tool = types.Tool(google_search=types.GoogleSearch())
+
+        # ── CALL 1: Trades only (small token budget, focused JSON output) ──────
+        trades_config = types.GenerateContentConfig(
+            tools=[search_tool],
+            max_output_tokens=4000,
+        )
+        print("\n[1/2] Researching markets and selecting trades...")
+        trades_raw = _call_gemini(client, prompt_trades, trades_config, "trades")
+
+        if not trades_raw:
+            print("Error: Gemini returned an empty trades response after 3 attempts.")
             return [], ""
 
-        # Extract JSON from raw response BEFORE any cleanup
+        # Extract JSON portfolio from trades response
         portfolio_data = []
-        json_match = re.search(r'<JSON_DATA>(.*?)</JSON_DATA>', raw_text, re.DOTALL)
-
-        # Clean up potential markdown code blocks
-        html_content = raw_text.replace("```html", "").replace("```", "")
+        json_match = re.search(r'<JSON_DATA>(.*?)</JSON_DATA>', trades_raw, re.DOTALL)
         if json_match:
             try:
-                # Strip markdown code fences Gemini sometimes wraps around the JSON
                 raw = json_match.group(1).strip()
                 raw = re.sub(r'^```[a-z]*\n?', '', raw).rstrip('`').strip()
                 portfolio_data = json.loads(raw)
-                html_content = html_content.replace(json_match.group(0), "")
                 if not portfolio_data:
                     print("⚠️ Gemini returned empty portfolio [] — edge gate too strict or no mispriced markets today.")
                 else:
@@ -342,8 +291,19 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
                 print(f"Error parsing AI portfolio JSON: {e}")
                 print(f"Raw JSON received:\n{json_match.group(1)[:300]}")
         else:
-            print("⚠️ No <JSON_DATA> block found in AI response — no trades to execute.")
-        
+            print("⚠️ No <JSON_DATA> block found in trades response — no trades to execute.")
+
+        # ── CALL 2: HTML report (large token budget, no research needed) ────────
+        html_config = types.GenerateContentConfig(
+            max_output_tokens=32000,
+        )
+        print("\n[2/2] Generating HTML report...")
+        html_raw = _call_gemini(client, build_html_prompt(portfolio_data, optimized_data), html_config, "html")
+
+        html_content = html_raw.replace("```html", "").replace("```", "") if html_raw else "<html><body><p>Report generation failed.</p></body></html>"
+
+        print("\n--- AI ANALYSIS COMPLETE ---\n")
+
         # Write the latest report for browser preview (not archived yet)
         with open(HTML_FILENAME, "w", encoding="utf-8") as f:
             f.write(html_content)
@@ -353,7 +313,7 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
             webbrowser.open("file://" + os.path.abspath(HTML_FILENAME))
 
         return portfolio_data, html_content
-        
+
     except Exception as e:
         print(f"\nError communicating with Gemini: {e}")
         return [], ""
