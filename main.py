@@ -10,8 +10,9 @@ from results_tracker import get_performance_summary, record_bets
 from redeemer import redeem_winnings
 from emailer import send_report
 from eth_account import Account
-from config import PRIVATE_KEY, PURCHASE_PASSKEY, POLYMARKET_PROXY_ADDRESS, ODDS_API_KEY
+from config import PRIVATE_KEY, PURCHASE_PASSKEY, POLYMARKET_PROXY_ADDRESS, ODDS_API_KEY, PINNACLE_USERNAME
 from odds_fetcher import get_sharp_odds, ACTIVE_SPORTS
+from esports_odds_fetcher import get_esports_odds
 from market_matcher import match_markets
 
 AUTO_MODE = "--auto" in sys.argv
@@ -63,9 +64,16 @@ if __name__ == "__main__":
 
         # 1. Fetch sharp sportsbook odds and match to Polymarket markets
         arb_markets = []
-        if ODDS_API_KEY:
+        if ODDS_API_KEY or PINNACLE_USERNAME:
             print("\n--- SPORTSBOOK ARB SCAN ---")
-            sharp_odds = get_sharp_odds(list(ACTIVE_SPORTS.keys()))
+            sharp_odds = []
+            # Traditional sports via The Odds API
+            if ODDS_API_KEY:
+                sharp_odds += get_sharp_odds(list(ACTIVE_SPORTS.keys()))
+            # Esports via Pinnacle direct API
+            if PINNACLE_USERNAME:
+                print("  Fetching Pinnacle esports odds...")
+                sharp_odds += get_esports_odds()
             if sharp_odds:
                 # Debug: show what sports are in each dataset
                 pm_categories = set(m.get("category", "unknown") for m in markets)
