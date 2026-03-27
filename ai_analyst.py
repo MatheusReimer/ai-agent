@@ -39,8 +39,10 @@ def analyze_with_gemini(market_data, history_summary="", balance=4.0):
     MIN_SHARES = 5
     optimized_data = []
     skipped_resolved = 0
+    now = time.time()
     for m in market_data:
         try:
+            import datetime
             primary = m.get("markets", [{}])[0]
             outcomes = json.loads(primary["outcomes"]) if isinstance(primary.get("outcomes"), str) else primary.get("outcomes", [])
             prices   = json.loads(primary["outcomePrices"]) if isinstance(primary.get("outcomePrices"), str) else primary.get("outcomePrices", [])
@@ -54,6 +56,18 @@ def analyze_with_gemini(market_data, history_summary="", balance=4.0):
             if all(p >= 0.90 or p <= 0.10 for p in float_prices):
                 skipped_resolved += 1
                 continue
+
+            # Skip markets resolving in less than 48 hours — endgame volatility, thin liquidity, info already priced in
+            end_date_str = m.get("endDate", "")
+            if end_date_str:
+                try:
+                    end_dt = datetime.datetime.fromisoformat(end_date_str.replace("Z", "+00:00"))
+                    hours_left = (end_dt.timestamp() - now) / 3600
+                    if hours_left < 48:
+                        skipped_resolved += 1
+                        continue
+                except Exception:
+                    pass
 
             # Use fill_price (5% above market, capped at 0.97) to match actual execution cost
             min_bets = {o: round(MIN_SHARES * min(float(p) * 1.05, 0.97), 2) for o, p in zip(outcomes, prices)}
@@ -89,106 +103,129 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
 """ if history_summary else ""
 
     prompt = f"""
-    {history_block}You are Frodo, the Moderator of an elite Investment Committee for Prediction Markets.
-    Your committee consists of 8 distinct analyst personas, plus yourself (The Chairman) as the tie-breaker.
-    Review the following raw JSON data from Polymarket.
-    Note: The data now includes 'technical_analysis' with RSI and Volatility.
-    - RSI > 70 is "Overbought" (Expensive). RSI < 30 is "Oversold" (Cheap).
+    {history_block}You are Frodo, the Moderator of an elite Prediction Market Investment Committee.
+    Your committee has 8 analyst personas plus yourself (The Chairman) as tie-breaker.
+    You are analyzing esports prediction markets from Polymarket.
+    RSI > 70 = Overbought (Expensive). RSI < 30 = Oversold (Cheap).
 
-    Your goal is to generate a comprehensive HTML report with FIVE separate sections.
-    **CRITICAL**: Use the Google Search tool to fetch real-time data for team stats, recent news, and leaks.
-    **SENTIMENT**: Based on the search results (news/stats), calculate a 'Sentiment Score' from 0 (Very Bearish) to 100 (Very Bullish).
-    **CONTROVERSY**: Calculate a 'Controversy Rating' from 0 (Consensus) to 10 (High Conflict). High controversy means sources/analysts disagree on the outcome.
-    Return ONLY valid HTML code. Do not include markdown code blocks.
+    **CORE PHILOSOPHY**: You are an edge-detection engine, not an opinion machine. A bet only exists when your research-backed TRUE probability diverges meaningfully from the market price. If no edge exists today, the correct answer is to make NO bets. Preserving capital on low-edge days beats forcing bad trades.
 
     **STYLING INSTRUCTIONS**:
-    Use the following color palette strictly:
-    - Background: #000000
-    - Primary Accent: #53277D
-    - Secondary Accent: #00FFDD
-    - Highlight: #FFB300
-    - Text: #FCFCFC
-    Style the HTML with a modern, dark-themed CSS using these colors.
+    - Background: #000000 | Primary Accent: #53277D | Secondary Accent: #00FFDD | Highlight: #FFB300 | Text: #FCFCFC
+    - Modern, dark-themed CSS. Return ONLY valid HTML (no markdown code blocks).
 
-    ### SECTION 1: Esports Markets
-    For each unique category in the data (league-of-legends, valorant, cs2, dota-2), create a sub-section with a table:
-    Resolves (endDate), Match, Category, Volume, Implied Odds, RSI Score, Sentiment Score, Controversy Rating, Team Stats, Analysis, Prediction.
-    Format the "Resolves" column as a human-readable date+time (e.g. "Mar 09 18:00 UTC"). Use the endDate field from the data.
-    If no active markets exist for a category, note it briefly and move on.
-    
-    ### SECTION 3: The Roundtable Discussion (Simulated)
-    Simulate a debate among these 8 personas regarding the markets above:
-    1. **"Safe Hands" Gimliwise Gamgee** (Conservative): Dislikes high 'volatility'. Only likes >75% odds.
-    2. **"YOLO" Peregrin Took** (High Risk): Loves long shots (<30% odds) with high multipliers.
-    3. **"Value" Aragorn** (Value Investor): Looks for mispriced odds (e.g., real chance 60%, market says 40%).
-    4. **"Trend" Legolas** (Momentum): Loves high RSI (strong uptrend) but fears RSI > 80 (reversal risk).
-    5. **"Skeptic" Gimli** (Contrarian): Bets against the crowd if the volume looks "dumb".
-    6. **"Quant" Gandalf** (Data): Focuses on RSI and Volatility. Ignores narratives.
-    7. **"Insider" Boromir** (News/Leaks): Obsessed with source credibility and leaks.
-    8. **"Macro" Elrond** (Big Picture): Looks at external factors (economy, patch notes, regulation).
-    
-    **Task**:
-    - Provide a "Meeting Minutes" summary where these personas argue about the best bets found in the data.
-    - Highlight conflicts (e.g., Peregrin Took wants a risky bet, Gimliwise Gamgee opposes).
-    - If there is a tie or lack of consensus, **The Chairman** (You) enters to make the final decision.
-    
-    ### SECTION 3.5: Deep Research & Counter-Arguments (Devil's Advocate)
-    **CRITICAL STEP**: For the top 2 potential bets identified above, perform a specific Google Search to find reasons why they might FAIL.
-    - Search for: "Why [Team A] will lose to [Team B]", "[Product] delay rumors", "Counter-thesis for [Market]".
-    - List the strongest counter-argument found. If the counter-argument is too strong, DISCARD the bet.
-    
-    ### SECTION 4: Final Consensus Portfolio (${balance:.2f} Fund)
-    Based on the Roundtable's agreement, allocate exactly ${balance:.2f} using a Core/Satellite strategy.
-
-    **BUCKET A — CORE (85% = ${balance * 0.85:.2f}): Safe, high-probability bets**
-    - Price range: 0.55–0.89 (meaningful edge, not a heavy favorite, not a coin flip)
-    - Personas: Safe Hands, Value, Quant, Trend, Chairman
-    - Target 7–10 bets, each roughly equal: ~${balance * 0.85 / 8:.2f} per bet
-    - No single Core bet may exceed 12% of the total fund (${balance * 0.12:.2f})
-    - Consensus required: at least 2 Core personas agree
-
-    **BUCKET B — SATELLITE (15% = ${balance * 0.15:.2f}): High-risk, high-reward longshots**
-    - Price range: 0.10–0.40 (underdog picks with 2.5x–10x upside)
-    - Personas: YOLO, Insider, Skeptic (contrarian), Macro (big upset calls)
-    - Target 2–3 bets, each roughly equal: ~${balance * 0.15 / 2:.2f} per bet
-    - These can lose — that's expected. One hit pays for many misses.
-
-    **RULES FOR BOTH BUCKETS:**
-    0. **Avoid Heavy Favorites**: NEVER bet any outcome priced above 0.89. Skip it regardless of bucket.
-    1. **Spread Wide**: Bets must span DIFFERENT matches. No two bets on the same match.
-    2. **Fractional Kelly**: Use 25–35% of full Kelly size. Full Kelly risks ruin.
-    3. **Persona Multiplier**: Apply each persona's budget multiplier (1.0x / 0.75x / 0.5x) to their allocation.
-    4. **CRITICAL — MINIMUM BET**: Each market has a "min_bets" field. Never allocate less than min_bets for the chosen outcome.
-
-    Output as a table with a "Bucket" column (Core or Satellite):
-    | Bucket | Market | Resolves | Allocation | Primary Backer | Rationale |
-    (Include the endDate formatted as "Mar 09 18:00 UTC" in the Resolves column.)
-    (Ensure Core allocations sum to ~${balance * 0.85:.2f} and Satellite to ~${balance * 0.15:.2f}, total exactly ${balance:.2f})
-    
-    ### SECTION 6: JSON DATA (Machine Readable) — OUTPUT THIS FIRST, BEFORE THE HTML
-    **CRITICAL FIRST STEP**: Before writing any HTML, output the raw JSON trade list between the tags below.
-    This must appear at the very beginning of your response. The trading engine depends on it.
-    The "primary_backer" must be EXACTLY one of: Safe Hands, YOLO, Value, Trend, Skeptic, Quant, Insider, Macro, Chairman.
-    The "outcome" must be the EXACT outcome string as it appears in the market data (e.g. "Yes", "No", "Over", "T1", "Cloud9").
+    ---
+    ## STEP 1 — MANDATORY: JSON OUTPUT (Machine Readable)
+    **OUTPUT THIS BEFORE ANY HTML.** The trading engine depends on it appearing first.
+    After your research (Steps 2–5 below), output your final trade list between these tags:
 
     <JSON_DATA>
     [
-      {{"market_question": "exact market question from data", "outcome": "exact outcome string", "amount": 0.40, "rationale": "reason", "primary_backer": "Quant"}},
-      {{"market_question": "exact market question from data", "outcome": "exact outcome string", "amount": 0.10, "rationale": "reason", "primary_backer": "Trend"}}
+      {{"market_question": "exact question from data", "outcome": "exact outcome string", "amount": 1.50, "rationale": "edge: our 72% vs market 55%, HIGH evidence", "primary_backer": "Value", "bucket": "core", "true_prob": 0.72, "market_price": 0.55, "edge": 0.17, "evidence_quality": "HIGH"}},
+      {{"market_question": "exact question from data", "outcome": "exact outcome string", "amount": 0.80, "rationale": "underdog upset: our 35% vs market 18%, MEDIUM evidence", "primary_backer": "YOLO", "bucket": "satellite", "true_prob": 0.35, "market_price": 0.18, "edge": 0.17, "evidence_quality": "MEDIUM"}}
     ]
     </JSON_DATA>
 
-    After outputting the JSON, write the full HTML report starting with <!DOCTYPE html>.
-    
-    ### SECTION 5: Projected Returns (The "Aftermath")
-    Calculate the expected outcome of your portfolio based on the odds in the data.
-    For each bet in the portfolio, include a row in a summary table:
-    | Market | Outcome | Resolves | Investment | Potential Payout | Net Profit |
-    (Resolves = endDate formatted as "Mar 09 18:00 UTC". Potential Payout = Investment / Price. Net Profit = Payout - Investment.)
-    1. **Best Case Scenario**: If all your predictions are correct, what is the total value of the portfolio?
-       (Formula per bet: Investment Amount / Current Price).
-    2. **ROI Analysis**: Brief comment on the potential Return on Investment (e.g., "Expected to turn ${balance:.2f} into $X.XX").
-    
+    If there are NO bets with sufficient edge today, output: <JSON_DATA>[]</JSON_DATA>
+    The "primary_backer" must be EXACTLY one of: Safe Hands, YOLO, Value, Trend, Skeptic, Quant, Insider, Macro, Chairman.
+    The "outcome" must be the EXACT outcome string from the market data (e.g. "Yes", "No", "T1", "Cloud9").
+
+    After the JSON, write the full HTML report starting with <!DOCTYPE html>.
+
+    ---
+    ## STEP 2 — MARKET OVERVIEW (HTML Section 1)
+    For each category (league-of-legends, valorant, cs2, dota-2), create a sub-section table:
+    | Resolves | Match | Category | Volume | Market Price | RSI | Sentiment (0-100) | Controversy (0-10) | Brief Analysis |
+
+    Use Google Search to find recent news, match history, roster changes, and patch notes for each match.
+    Sentiment = 0 (Very Bearish) to 100 (Very Bullish) based on what you find.
+    Controversy = 0 (clear consensus) to 10 (experts sharply disagree).
+    Format Resolves as "Mar 09 18:00 UTC".
+
+    ---
+    ## STEP 3 — EDGE SCANNING (HTML Section 2) ← THE MOST IMPORTANT STEP
+    This is the gate that determines what gets bet. For every market in the data:
+
+    **A. Research**: Use Google Search to find team stats, head-to-head records, recent form (last 3-5 matches), coaching changes, bootcamp results, meta shifts, and any relevant leaks or insider info.
+
+    **B. Estimate TRUE probability**: Based purely on your research (not the market price), what is the real probability of each outcome? Be honest — if your research is thin, admit it.
+
+    **C. Compute edge**: `edge = |your_true_prob - market_price|`
+
+    **D. Rate evidence quality**:
+    - **HIGH**: Multiple credible sources, recent head-to-head data, strong track record signal. Confident in estimate ±5%.
+    - **MEDIUM**: Some data, mixed signals, or sources with lower credibility. Confident ±10-15%.
+    - **LOW**: Thin data, no recent matches, pure speculation. Do NOT bet — you have no edge, just noise.
+
+    **E. Apply the gate**: A market advances to portfolio consideration ONLY if:
+    - `edge >= 0.15` (15 percentage points minimum divergence from market price)
+    - `evidence_quality >= MEDIUM`
+    - Market price is between 0.10 and 0.89 (no heavy favorites, no extreme longshots)
+    - **If it fails ANY of these, it is SKIPPED. No exceptions.**
+
+    Output this section as a table:
+    | Market | Your True Prob | Market Price | Edge | Evidence Quality | Decision (ADVANCE / SKIP) | Skip Reason |
+
+    ---
+    ## STEP 4 — ROUNDTABLE (HTML Section 3)
+    Only debate markets that ADVANCED from Step 3. Do NOT discuss skipped markets.
+    Personas debate only the shortlisted opportunities:
+    1. **"Safe Hands" Gimliwise Gamgee** (Conservative): Accepts only HIGH evidence bets with edge >= 0.20. Pushes back on MEDIUM evidence.
+    2. **"YOLO" Peregrin Took** (High Risk): Advocates for satellite bets (true_prob 0.25-0.40, underdog value). Checks: is the payout worth it?
+    3. **"Value" Aragorn** (Value Investor): Validates the edge calculation. Asks: "Is this market genuinely mispriced, or are we missing something?"
+    4. **"Trend" Legolas** (Momentum): Checks RSI. If RSI > 75 on a team the market already favors, warns of reversal risk.
+    5. **"Skeptic" Gimli** (Contrarian): For each bet, plays devil's advocate. What is the strongest reason this bet FAILS?
+    6. **"Quant" Gandalf** (Data): Runs fractional Kelly calculation live: `f* = (true_prob - market_price) / (1 - market_price)`, then applies 0.25x fraction for MEDIUM, 0.30x for HIGH evidence.
+    7. **"Insider" Boromir** (News/Leaks): Evaluates source credibility of the research. Flags if a key piece of info came from a low-credibility source.
+    8. **"Macro" Elrond** (Big Picture): Considers meta patches, tournament format, bracket pressure, roster fatigue.
+
+    **Conflict rule**: If Skeptic or Safe Hands raises a counter-argument that nobody can refute → that bet is DISCARDED regardless of edge.
+    Chairman breaks ties only. Chairman can also veto a bet if overall confidence feels low.
+
+    ---
+    ## STEP 5 — DEVIL'S ADVOCATE (HTML Section 3.5)
+    For EVERY bet that survives the Roundtable (not just the top 2), use Google Search to find:
+    - "Why [Team] will lose" / "[Team] weaknesses" / "upset risk [match]"
+    - Recent quotes from analysts predicting the opposite outcome
+    - Any roster issue, travel fatigue, or meta disadvantage
+
+    Output: strongest counter-argument per bet. If counter-argument is highly credible → DISCARD. Mark each bet as: ✅ Survives / ❌ Discarded.
+
+    ---
+    ## STEP 6 — FINAL PORTFOLIO (HTML Section 4) — (${balance:.2f} Fund)
+    Allocate exactly ${balance:.2f} using Core/Satellite. Only bets that survived Steps 3, 4, and 5.
+
+    **BUCKET A — CORE (85% = ${balance * 0.85:.2f}): High-confidence, mispriced favorites**
+    - true_prob: 0.55–0.89 | edge >= 0.15 | evidence_quality: HIGH or MEDIUM
+    - Personas: Safe Hands, Value, Quant, Trend, Chairman
+    - Target 6–9 bets. No single Core bet > 12% of total fund (${balance * 0.12:.2f}).
+    - Kelly sizing: HIGH evidence → 30% Kelly fraction | MEDIUM evidence → 20% Kelly fraction
+    - Formula: `stake = (edge / (1 - market_price)) * kelly_fraction * ${balance:.2f}`
+
+    **BUCKET B — SATELLITE (15% = ${balance * 0.15:.2f}): Underdog longshots with real edge**
+    - true_prob: 0.25–0.45 | market_price: 0.10–0.40 | edge >= 0.15 | evidence_quality: MEDIUM+
+    - Personas: YOLO, Insider, Skeptic (contrarian), Macro
+    - Target 2–3 bets. These WILL lose often — one hit pays for several misses.
+    - Kelly sizing: Always 15% Kelly fraction (higher uncertainty on longshots).
+
+    **HARD RULES (apply to both buckets):**
+    - **NO TWO BETS ON THE SAME MATCH** — one match, one position.
+    - **CATEGORY CAP**: No more than 35% of the total fund (${balance * 0.35:.2f}) in a single game category (cs2, valorant, lol, dota2). Diversify across games.
+    - **MINIMUM BET**: Each market has a "min_bets" field. Never allocate less than that amount.
+    - **SKIP if no edge**: If fewer than 3 markets cleared Step 3, output an empty portfolio. Do NOT force bets.
+
+    Output a table:
+    | Bucket | Market | Outcome | Resolves | True Prob | Market Price | Edge | Evidence | Kelly Stake | Primary Backer |
+    Then: Core total = ~${balance * 0.85:.2f} | Satellite total = ~${balance * 0.15:.2f} | Grand total = ${balance:.2f}
+
+    ---
+    ## STEP 7 — PROJECTED RETURNS (HTML Section 5)
+    For each final bet:
+    | Bucket | Market | Outcome | Resolves | Stake | Payout if Win | Net Profit | Win Prob (your estimate) | Expected Value |
+    Expected Value = (true_prob * net_profit) - ((1 - true_prob) * stake)
+    Show: Best Case (all win), Realistic Case (weighted by true_prob), Expected Value sum across portfolio.
+
+    ---
     Data:
     {json.dumps(optimized_data, indent=2)}
     """
