@@ -97,18 +97,9 @@ def analyze_with_gemini(market_data, history_summary="", balance=4.0):
         print(f"  Filtered out {skipped_resolved} already-resolved markets before sending to Gemini.")
     print(f"  Sending {len(optimized_data)} markets to Gemini ({len(json.dumps(optimized_data))//1000}KB payload).")
 
-    history_block = f"""
-### BOT PERFORMANCE CONTEXT (Read Before Analyzing)
-Use this to calibrate your confidence — avoid repeating patterns that have historically lost.
-
-{history_summary}
-
----
-""" if history_summary else ""
-
     # ── PROMPT 1: trades only (no HTML, no fluff) ──────────────────────────────
     prompt_trades = f"""
-    {history_block}You are an elite Prediction Market Analyst specializing in esports markets (CS2, LoL, Valorant).
+    You are an elite Prediction Market Analyst specializing in esports markets (CS2, LoL, Valorant).
     You are an edge-detection engine. Use Google Search to research each match and estimate the TRUE
     probability of each outcome, then compare to the Polymarket price to find mispricing.
     RSI > 70 = Overbought. RSI < 30 = Oversold.
