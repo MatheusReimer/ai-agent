@@ -14,21 +14,21 @@ PURCHASE_PASSKEY = os.getenv("PURCHASE_PASSKEY")
 # (Optional) The Proxy Wallet Address if using Email/Magic Link login
 POLYMARKET_PROXY_ADDRESS = os.getenv("POLYMARKET_PROXY_ADDRESS")
 
-# Define categories and their specific filtering rules
-# tag_id values sourced directly from Polymarket /sports endpoint
+# Define categories and their specific filtering rules.
+# Use series_id (from Polymarket /sports endpoint "series" field) — more reliable than tag_id.
 CATEGORIES = [
     # --- Esports (LLM edge detection) ---
-    {"slug": "league-of-legends", "tag_id": 39,    "filter_match": True, "limit": 25},
-    {"slug": "cs2",               "tag_id": 37,    "filter_match": True, "limit": 30},
-    ## {"slug": "valorant",        "tag_id": 40,    "filter_match": True, "limit": 20},
-    ## {"slug": "dota2",           "tag_id": 38,    "filter_match": True, "limit": 20},
+    {"slug": "league-of-legends", "series_id": 10311, "filter_match": True, "limit": 25},
+    {"slug": "cs2",               "series_id": 10310, "filter_match": True, "limit": 30},
+    ## {"slug": "valorant",        "series_id": 10369, "filter_match": True, "limit": 20},
+    ## {"slug": "dota2",           "series_id": 10309, "filter_match": True, "limit": 20},
 
     # --- Traditional Sports (sportsbook arb via The Odds API) ---
-    {"slug": "mlb",  "tag_id": 8,  "filter_match": True, "limit": 15},
-    {"slug": "nba",  "tag_id": 34, "filter_match": True, "limit": 10},
-    {"slug": "epl",  "tag_id": 2,  "filter_match": True, "limit": 10},
-    {"slug": "mls",  "tag_id": 33, "filter_match": True, "limit": 10},
-    ## {"slug": "nfl", "tag_id": 10, "filter_match": True, "limit": 10},
+    {"slug": "mlb",  "series_id": 3,     "filter_match": True, "limit": 15},
+    {"slug": "nba",  "series_id": 10345, "filter_match": True, "limit": 10},
+    {"slug": "epl",  "series_id": 10188, "filter_match": True, "limit": 10},
+    {"slug": "mls",  "series_id": 10189, "filter_match": True, "limit": 10},
+    ## {"slug": "nfl", "series_id": 10187, "filter_match": True, "limit": 10},
 ]
 
 HTML_FILENAME = "esports_analysis.html"

@@ -121,27 +121,27 @@ def get_markets():
 
     for cat in CATEGORIES:
         slug = cat["slug"]
-        tag_id = cat.get("tag_id") or get_market_id(slug)
-        if not tag_id:
-            print(f"Skipping {slug}: Tag ID not found.")
+        series_id = cat.get("series_id")
+        if not series_id:
+            print(f"Skipping {slug}: series_id not configured.")
             continue
 
-        print(f"Fetching markets for: {slug} (tag_id={tag_id})")
-        
+        print(f"Fetching markets for: {slug} (series_id={series_id})")
+
         params = {
             "limit": cat["limit"] * 5,  # fetch extra to account for filtering
             "active": "true",
             "closed": "false",
             "ascending": "true",
             "order": "endDate",   # soonest-resolving first so today's matches appear early
-            "tag_id": tag_id
+            "series_id": series_id,
         }
 
         try:
             response = requests.get(url, params=params)
             response.raise_for_status()
             data = response.json()
-            print(f"  -> Found {len(data)} raw events for {slug}")
+            print(f"  -> Found {len(data)} raw events for {slug} (series_id={series_id})")
             
             deadline = datetime.now(timezone.utc) + timedelta(days=MAX_DAYS_TO_RESOLVE)
             count = 0
