@@ -75,12 +75,16 @@ if __name__ == "__main__":
                 print(f"  → Overlap possible only if categories match (e.g. both have MLB)")
 
                 arb_markets, markets = match_markets(markets, sharp_odds)
-                # Filter arb candidates: must have at least one outcome with edge >= 0.08
+                # Show what was matched and its best edge (for debugging)
+                for m in arb_markets:
+                    best = max(m["outcomes"], key=lambda o: o["edge"])
+                    print(f"  [{m['sport']:4s}] {m['title'][:55]} | best edge: {best['edge']:+.2%} ({best['outcome']} | sb={best['sportsbook_prob']:.2%} pm={best['polymarket_price']:.2%}) | book: {m['bookmaker']}")
+                # Filter arb candidates: edge >= 4% (Pinnacle vs Polymarket rarely exceeds 8%)
                 arb_markets = [
                     m for m in arb_markets
-                    if any(o["edge"] >= 0.08 for o in m["outcomes"])
+                    if any(o["edge"] >= 0.04 for o in m["outcomes"])
                 ]
-                print(f"  Arb candidates after edge filter (>=8%): {len(arb_markets)}")
+                print(f"  Arb candidates after edge filter (>=4%): {len(arb_markets)}")
         else:
             print("\n  ⚠️  ODDS_API_KEY not set — running in LLM-only mode.")
             print("     Add ODDS_API_KEY to .env to enable sportsbook arbitrage.")

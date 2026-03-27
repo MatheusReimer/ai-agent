@@ -131,7 +131,7 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
     - Use sportsbook_prob directly as true_prob in the JSON output
     - Classify strategy as "Sportsbook Arb" for all arb bets
     - Kelly: f* = (sportsbook_prob − polymarket_price) / (1 − polymarket_price), apply 0.35x fraction
-    - Minimum edge for a Core arb bet: 0.08 | Minimum for Satellite arb: 0.12 (higher payout needed)
+    - Minimum edge for a Core arb bet: 0.04 | Minimum for Satellite arb: 0.08 (higher payout needed)
     - DISCARD if match_confidence < 0.70 (team name match uncertain)
     - DISCARD if bookmaker lag is likely gone (high RSI already moved to match sportsbook line)
     ---
