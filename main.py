@@ -10,10 +10,7 @@ from results_tracker import get_performance_summary, record_bets
 from redeemer import redeem_winnings
 from emailer import send_report
 from eth_account import Account
-from config import PRIVATE_KEY, PURCHASE_PASSKEY, POLYMARKET_PROXY_ADDRESS, ODDS_API_KEY, PINNACLE_USERNAME
-from odds_fetcher import get_sharp_odds, ACTIVE_SPORTS
-from esports_odds_fetcher import get_esports_odds
-from market_matcher import match_markets
+from config import PRIVATE_KEY, PURCHASE_PASSKEY, POLYMARKET_PROXY_ADDRESS
 
 AUTO_MODE = "--auto" in sys.argv
 
@@ -62,42 +59,7 @@ if __name__ == "__main__":
     if markets:
         print(f"\n--- DATA FETCH COMPLETE: {len(markets)} MARKETS FOUND ---")
 
-        # 1. Fetch sharp sportsbook odds and match to Polymarket markets
-        arb_markets = []
-        if ODDS_API_KEY or PINNACLE_USERNAME:
-            print("\n--- SPORTSBOOK ARB SCAN ---")
-            sharp_odds = []
-            # Traditional sports via The Odds API
-            if ODDS_API_KEY:
-                sharp_odds += get_sharp_odds(list(ACTIVE_SPORTS.keys()))
-            # Esports via Pinnacle direct API
-            if PINNACLE_USERNAME:
-                print("  Fetching Pinnacle esports odds...")
-                sharp_odds += get_esports_odds()
-            if sharp_odds:
-                # Debug: show what sports are in each dataset
-                pm_categories = set(m.get("category", "unknown") for m in markets)
-                sb_sports = set(e["sport"] for e in sharp_odds)
-                print(f"  Polymarket categories: {pm_categories}")
-                print(f"  Sportsbook sports:     {sb_sports}")
-                print(f"  → Overlap possible only if categories match (e.g. both have MLB)")
-
-                arb_markets, markets = match_markets(markets, sharp_odds)
-                # Show what was matched and its best edge (for debugging)
-                for m in arb_markets:
-                    best = max(m["outcomes"], key=lambda o: o["edge"])
-                    print(f"  [{m['sport']:4s}] {m['title'][:55]} | best edge: {best['edge']:+.2%} ({best['outcome']} | sb={best['sportsbook_prob']:.2%} pm={best['polymarket_price']:.2%}) | book: {m['bookmaker']}")
-                # Filter arb candidates: edge >= 4% (Pinnacle vs Polymarket rarely exceeds 8%)
-                arb_markets = [
-                    m for m in arb_markets
-                    if any(o["edge"] >= 0.04 for o in m["outcomes"])
-                ]
-                print(f"  Arb candidates after edge filter (>=4%): {len(arb_markets)}")
-        else:
-            print("\n  ⚠️  ODDS_API_KEY not set — running in LLM-only mode.")
-            print("     Add ODDS_API_KEY to .env to enable sportsbook arbitrage.")
-
-        # 2. Load historical performance and pass to analyst
+        # 1. Load historical performance and pass to analyst
         history_summary = get_performance_summary()
         print(f"\n--- PERFORMANCE HISTORY ---\n{history_summary}\n")
         # Pass effective budget: divide by 1.05 to pre-account for the 5% fill_price premium
@@ -106,7 +68,6 @@ if __name__ == "__main__":
             markets,
             history_summary=history_summary,
             balance=effective_balance,
-            arb_markets=arb_markets if arb_markets else None,
         )
         
         # 2. Validate portfolio before asking user
