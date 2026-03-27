@@ -261,10 +261,10 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
     try:
         search_tool = types.Tool(google_search=types.GoogleSearch())
 
-        # ── CALL 1: Trades only (small token budget, focused JSON output) ──────
+        # ── CALL 1: Trades only (Google Search + JSON output) ───────────────────
         trades_config = types.GenerateContentConfig(
             tools=[search_tool],
-            max_output_tokens=4000,
+            max_output_tokens=12000,
         )
         print("\n[1/2] Researching markets and selecting trades...")
         trades_raw = _call_gemini(client, prompt_trades, trades_config, "trades")
@@ -273,25 +273,38 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
             print("Error: Gemini returned an empty trades response after 3 attempts.")
             return [], ""
 
+        # Debug: show tail of response to diagnose missing JSON_DATA block
+        print(f"  [debug] trades response length: {len(trades_raw)} chars")
+        print(f"  [debug] last 300 chars:\n{trades_raw[-300:]}")
+
         # Extract JSON portfolio from trades response
         portfolio_data = []
         json_match = re.search(r'<JSON_DATA>(.*?)</JSON_DATA>', trades_raw, re.DOTALL)
+        if not json_match:
+            # Fallback: try bare JSON array in case Gemini dropped the tags
+            json_match_bare = re.search(r'(\[[\s\S]*?\])', trades_raw)
+            if json_match_bare:
+                print("  [debug] No <JSON_DATA> tags — trying bare JSON array fallback.")
+                try:
+                    portfolio_data = json.loads(json_match_bare.group(1))
+                    print(f"  Fallback parse succeeded: {len(portfolio_data)} bet(s).")
+                except json.JSONDecodeError:
+                    pass
         if json_match:
             try:
                 raw = json_match.group(1).strip()
                 raw = re.sub(r'^```[a-z]*\n?', '', raw).rstrip('`').strip()
                 portfolio_data = json.loads(raw)
-                if not portfolio_data:
-                    print("⚠️ Gemini returned empty portfolio [] — edge gate too strict or no mispriced markets today.")
-                else:
-                    print(f"  Gemini selected {len(portfolio_data)} bet(s):")
-                    for b in portfolio_data:
-                        print(f"    {b.get('outcome','?'):15s} | edge={b.get('edge','?')} | ev={b.get('evidence_quality','?')} | ${b.get('amount','?')} | {b.get('market_question','')[:45]}")
             except json.JSONDecodeError as e:
                 print(f"Error parsing AI portfolio JSON: {e}")
                 print(f"Raw JSON received:\n{json_match.group(1)[:300]}")
+
+        if not portfolio_data:
+            print("⚠️ Gemini returned empty portfolio [] — edge gate too strict or no mispriced markets today.")
         else:
-            print("⚠️ No <JSON_DATA> block found in trades response — no trades to execute.")
+            print(f"  Gemini selected {len(portfolio_data)} bet(s):")
+            for b in portfolio_data:
+                print(f"    {b.get('outcome','?'):15s} | edge={b.get('edge','?')} | ev={b.get('evidence_quality','?')} | ${b.get('amount','?')} | {b.get('market_question','')[:45]}")
 
         # ── CALL 2: HTML report (large token budget, no research needed) ────────
         html_config = types.GenerateContentConfig(
