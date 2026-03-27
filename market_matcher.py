@@ -81,8 +81,14 @@ def match_markets(polymarket_markets: list, sportsbook_events: list) -> tuple[li
         best_match_score = 0.0
         best_outcome_map = {}  # {pm_outcome: sb_team_name}
 
+        pm_category = pm_event.get("category", "").lower()
+
         for i, sb_event in enumerate(sportsbook_events):
             if i in used_sb_events:
+                continue
+
+            # Only attempt to match events in the same sport — avoids cross-sport false positives
+            if sb_event.get("sport", "").lower() != pm_category:
                 continue
 
             sb_teams = list(sb_event["probabilities"].keys())

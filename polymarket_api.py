@@ -3,7 +3,7 @@ import time
 from datetime import datetime, timezone, timedelta
 from config import CATEGORIES
 
-MAX_DAYS_TO_RESOLVE = 1
+MAX_DAYS_TO_RESOLVE = 2
 
 def get_market_id(slug):
     """

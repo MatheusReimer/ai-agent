@@ -15,12 +15,20 @@ PURCHASE_PASSKEY = os.getenv("PURCHASE_PASSKEY")
 POLYMARKET_PROXY_ADDRESS = os.getenv("POLYMARKET_PROXY_ADDRESS")
 
 # Define categories and their specific filtering rules
-# tag_id values sourced directly from Polymarket /sports endpoint (sport.tags field)
+# tag_id values sourced directly from Polymarket /sports endpoint
 CATEGORIES = [
-    {"slug": "league-of-legends", "tag_id": 65,     "filter_match": True, "limit": 25},
-    ##{"slug": "valorant",          "tag_id": 101672,  "filter_match": True, "limit": 20},
-    {"slug": "cs2",               "tag_id": 100780,  "filter_match": True, "limit": 50},
-    ##{"slug": "dota-2",            "tag_id": 102366,  "filter_match": True, "limit": 50},
+    # --- Esports (LLM edge detection) ---
+    {"slug": "league-of-legends", "tag_id": 39,    "filter_match": True, "limit": 25},
+    {"slug": "cs2",               "tag_id": 37,    "filter_match": True, "limit": 30},
+    ## {"slug": "valorant",        "tag_id": 40,    "filter_match": True, "limit": 20},
+    ## {"slug": "dota2",           "tag_id": 38,    "filter_match": True, "limit": 20},
+
+    # --- Traditional Sports (sportsbook arb via The Odds API) ---
+    {"slug": "mlb",  "tag_id": 8,  "filter_match": True, "limit": 15},
+    {"slug": "nba",  "tag_id": 34, "filter_match": True, "limit": 10},
+    {"slug": "epl",  "tag_id": 2,  "filter_match": True, "limit": 10},
+    {"slug": "mls",  "tag_id": 33, "filter_match": True, "limit": 10},
+    ## {"slug": "nfl", "tag_id": 10, "filter_match": True, "limit": 10},
 ]
 
 HTML_FILENAME = "esports_analysis.html"

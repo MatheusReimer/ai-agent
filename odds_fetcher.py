@@ -18,17 +18,18 @@ ODDS_API_BASE = "https://api.the-odds-api.com/v4"
 # The free tier only covers traditional sports — those are enabled below.
 # If you upgrade your Odds API plan, uncomment the esports entries.
 ACTIVE_SPORTS = {
-    # --- Esports (paid tier only) ---
-    ## "esports_cs2":       "CS2",
-    ## "esports_lol":       "League of Legends",
-    ## "esports_dota2":     "Dota 2",
-    ## "esports_valorant":  "Valorant",
+    # --- Esports (requires paid Odds API tier — uncomment if upgraded) ---
+    ## "esports_cs2":       "cs2",
+    ## "esports_lol":       "league-of-legends",
+    ## "esports_dota2":     "dota2",
+    ## "esports_valorant":  "valorant",
     # --- Traditional Sports (free tier) ---
-    "baseball_mlb":              "MLB",
-    "basketball_nba":            "NBA",
-    "americanfootball_nfl":      "NFL",
-    "soccer_epl":                "EPL",
-    "soccer_usa_mls":            "MLS",
+    # sport key → must match the Polymarket category slug for team-name matching to work
+    "baseball_mlb":         "mlb",
+    "basketball_nba":       "nba",
+    "americanfootball_nfl": "nfl",
+    "soccer_epl":           "epl",
+    "soccer_usa_mls":       "mls",
 }
 
 # Preferred bookmakers in priority order (sharpest first)
