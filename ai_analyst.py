@@ -166,7 +166,7 @@ def analyze_with_gemini(market_data, history_summary="", balance=4.0):
     {json.dumps(optimized_data, indent=2)}
     """
 
-def _call_gemini(client, prompt_text, config, label):
+    def _call_gemini(prompt_text, config, label):
         """Helper: call Gemini with retries, return raw text or empty string."""
         response = None
         for attempt in range(1, 4):
@@ -229,7 +229,7 @@ def _call_gemini(client, prompt_text, config, label):
             max_output_tokens=12000,
         )
         print("\nResearching markets and selecting trades...")
-        trades_raw = _call_gemini(client, prompt_trades, trades_config, "trades")
+        trades_raw = _call_gemini(prompt_trades, trades_config, "trades")
 
         if not trades_raw:
             print("Error: Gemini returned an empty trades response after 3 attempts.")
