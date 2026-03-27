@@ -16,9 +16,17 @@ except ImportError:
 
 from config import GEMINI_API_KEY, HTML_FILENAME
 
-def analyze_with_gemini(market_data, history_summary="", balance=4.0):
+def analyze_with_gemini(market_data, history_summary="", balance=4.0, arb_markets=None):
     """
     Sends market data to Gemini for analysis and HTML generation.
+
+    Args:
+        market_data:    raw Polymarket markets (used for LLM-inference fallback)
+        history_summary: historical win/loss context string
+        balance:        available fund in USD
+        arb_markets:    pre-matched sportsbook arb opportunities from market_matcher.
+                        When provided, these are treated as the primary bet source —
+                        sportsbook probability IS the true probability, no LLM inference needed.
     """
     if not genai:
         print("Error: The 'google-genai' library is missing.")
@@ -102,19 +110,48 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
 ---
 """ if history_summary else ""
 
+    # Build the arb section of the prompt if sportsbook data is available
+    arb_block = ""
+    if arb_markets:
+        arb_block = f"""
+    ---
+    ## SPORTSBOOK ARB DATA (Primary Signal — Higher Priority Than LLM Inference)
+    The following markets have been matched to sharp sportsbook lines (Pinnacle/Betfair).
+    The sportsbook probability IS the true probability — these books have quant teams and
+    real-time feeds. Your job is NOT to re-estimate probability here. Use what's given.
+
+    Edge = sportsbook_prob − polymarket_price. Positive edge = Polymarket is underpricing this outcome.
+    Only bets with edge >= 0.08 AND polymarket_price between 0.06 and 0.93 are included below.
+
+    {json.dumps(arb_markets, indent=2)}
+
+    **ARB BET RULES:**
+    - Use sportsbook_prob directly as true_prob in the JSON output
+    - Classify strategy as "Sportsbook Arb" for all arb bets
+    - Kelly: f* = (sportsbook_prob − polymarket_price) / (1 − polymarket_price), apply 0.35x fraction
+    - Minimum edge for a Core arb bet: 0.08 | Minimum for Satellite arb: 0.12 (higher payout needed)
+    - DISCARD if match_confidence < 0.70 (team name match uncertain)
+    - DISCARD if bookmaker lag is likely gone (high RSI already moved to match sportsbook line)
+    ---
+"""
+
     prompt = f"""
-    {history_block}You are an elite Prediction Market Analyst specializing in esports markets.
-    You are an edge-detection engine — not an opinion generator.
-    A bet only exists when research-backed TRUE probability diverges meaningfully from market price.
-    If no clear edge exists today, the correct answer is NO BETS. Capital preservation beats forced trades.
+    {history_block}You are an elite Prediction Market Analyst.
+    You analyze both esports and sports markets on Polymarket.
+    Your primary edge source is sportsbook arbitrage: sharp books (Pinnacle, Betfair) are better
+    probability estimators than any LLM. When sportsbook data is available, use it. No guessing.
     RSI > 70 = Overbought. RSI < 30 = Oversold.
+
+    **CORE RULE**: A bet only exists when there is a measurable, data-backed edge.
+    No edge = no bet. Capital preservation on low-edge days beats forced trades.
 
     **STYLING**: Background #000000 | Accent #53277D | Secondary #00FFDD | Highlight #FFB300 | Text #FCFCFC
     Dark-themed CSS. Return ONLY valid HTML — no markdown code blocks.
 
+    {arb_block}
     ---
     ## STEP 1 — MANDATORY: JSON OUTPUT (output this BEFORE any HTML)
-    The trading engine reads this first. After completing all research steps below, output trades here:
+    The trading engine reads this first. Output ALL final bets (arb + LLM) here:
 
     <JSON_DATA>
     [
@@ -127,9 +164,9 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
         "market_price": 0.55,
         "edge": 0.17,
         "evidence_quality": "HIGH",
-        "strategy": "Form Edge",
-        "primary_backer": "Form Edge",
-        "rationale": "T1 on 8-match win streak, market slow to update after roster change"
+        "strategy": "Sportsbook Arb",
+        "primary_backer": "Sportsbook Arb",
+        "rationale": "Pinnacle: 72% | Polymarket: 55% | Edge: +17% | Bookmaker: Pinnacle"
       }}
     ]
     </JSON_DATA>
@@ -137,124 +174,103 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
     If NO bets pass all filters: <JSON_DATA>[]</JSON_DATA>
 
     "strategy" and "primary_backer" must be the SAME value, chosen from:
-      "Form Edge" | "Mispriced Favorite" | "Underdog Value" | "Momentum" | "Contrarian" | "Information Edge"
+      "Sportsbook Arb" | "Form Edge" | "Mispriced Favorite" | "Underdog Value" | "Momentum" | "Contrarian" | "Information Edge"
+    Prefer "Sportsbook Arb" for any bet sourced from the arb data above.
     "outcome" must be the EXACT string from the market data.
     After the JSON block, write the full HTML report starting with <!DOCTYPE html>.
 
     ---
-    ## STEP 2 — MARKET OVERVIEW (HTML Section 1)
-    For each game category in the data (cs2, valorant, league-of-legends, dota-2):
-    Use Google Search to find: recent match results, roster changes, patch notes, tournament standings.
-    Output a table per category:
-    | Resolves | Match | Volume | Market Price | RSI | Sentiment (0-100) | Controversy (0-10) | Key Finding |
-    Sentiment: 0=Very Bearish, 100=Very Bullish. Controversy: 0=clear consensus, 10=sharp disagreement.
+    ## STEP 2 — ARB OVERVIEW (HTML Section 1)
+    If sportsbook arb data was provided, show a table of all arb opportunities found:
+    | Sport | Match | Outcome | Sportsbook Prob | Polymarket Price | Edge | Bookmaker | Match Confidence | Decision |
+    Mark each as: ✅ BET (edge >= threshold, confidence >= 0.70) or ❌ SKIP (reason).
+    Show a count: "X arb opportunities found, Y meet threshold."
+
+    ---
+    ## STEP 3 — LLM MARKET OVERVIEW (HTML Section 2)
+    For markets WITHOUT sportsbook data (the unmatched ones in the raw data below),
+    use Google Search to find recent news, match results, roster changes, patch notes.
+    Output a table:
+    | Resolves | Match | Sport/Category | Volume | Market Price | RSI | Sentiment (0-100) | Key Finding |
     Format Resolves as "Mar 09 18:00 UTC".
 
     ---
-    ## STEP 3 — EDGE SCANNING (HTML Section 2) — THE CRITICAL GATE
-    For every market, run this pipeline. A market only advances if it passes ALL checks.
+    ## STEP 4 — LLM EDGE SCANNING (HTML Section 3) — for unmatched markets only
+    For each unmatched market (no sportsbook line available), run the edge pipeline.
+    Skip this section entirely if all markets were matched to sportsbook data.
 
-    **3A. Research** (use Google Search for each match):
-    - Head-to-head record (last 6 months)
-    - Recent form: last 3–5 match results, map win rates
-    - Roster changes, stand-ins, bootcamp news
-    - Meta shifts (recent patch impact on team playstyle)
-    - Tournament context (bracket pressure, travel schedule, prize pool stakes)
-    - Any credible analyst predictions or community consensus
+    **4A. Research** (Google Search): head-to-head record, recent form (last 3–5 matches),
+    roster changes, meta shifts, tournament context, analyst predictions.
 
-    **3B. Assign Evidence Quality**:
-    - HIGH: 3+ credible, recent (< 2 weeks), consistent sources. Estimate ±5% confident.
-    - MEDIUM: 1–2 sources, or mixed signals, or data > 2 weeks old. Estimate ±15% confident.
-    - LOW: No recent data, pure speculation, conflicting info → SKIP immediately, do not proceed.
+    **4B. Evidence quality**:
+    - HIGH: 3+ credible recent sources, confident ±5%
+    - MEDIUM: 1–2 sources or mixed signals, confident ±15%
+    - LOW: thin/speculative → SKIP immediately
 
-    **3C. Estimate TRUE probability** — based solely on your research, ignoring the market price.
-    State your reasoning explicitly. Round to nearest 5%.
+    **4C. Estimate TRUE probability** from research only (ignore market price). Round to 5%.
 
-    **3D. Compute edge** = |true_prob − market_price|
+    **4D. Edge** = |true_prob − market_price|. Classify strategy type:
+    "Form Edge" | "Mispriced Favorite" | "Underdog Value" | "Momentum" | "Contrarian" | "Information Edge"
 
-    **3E. Classify strategy type** (what is the source of the edge?):
-    - "Form Edge": team's recent form not yet reflected in market
-    - "Mispriced Favorite": solid team undervalued, market underconfident
-    - "Underdog Value": genuine upset potential, payout justifies risk
-    - "Momentum": strong RSI trend with confirmed external cause
-    - "Contrarian": market overreacted to recent bad news, overcorrected
-    - "Information Edge": credible roster/bootcamp/lineup info market hasn't priced in
-
-    **3F. Apply the gate** — ADVANCE only if ALL of the following are true:
-    ✅ evidence_quality is HIGH or MEDIUM
-    ✅ edge >= 0.15 (15 percentage points)
-    ✅ market_price is between 0.11 and 0.88
-    ✅ There IS a clear, articulable reason the market is wrong (not just "feels like it")
-    Otherwise: SKIP. Record the reason.
+    **4E. Gate** — ADVANCE only if: evidence >= MEDIUM AND edge >= 0.15 AND price in (0.11, 0.88)
 
     Output table:
-    | Match | Outcome | True Prob | Market Price | Edge | Evidence | Strategy | Decision | Reason |
+    | Match | Outcome | True Prob | Market Price | Edge | Evidence | Strategy | Decision |
 
     ---
-    ## STEP 4 — VALIDATION CHECKLIST (HTML Section 3)
-    For each ADVANCED market from Step 3, run every check. A single FAIL = bet is DISCARDED.
+    ## STEP 5 — VALIDATION CHECKLIST (HTML Section 4)
+    For every ADVANCED bet (both arb and LLM), run these checks. One FAIL = DISCARD.
 
-    **Check 1 — Counter-research** (Google Search required):
-    Search: "[Team] weaknesses", "why [Team] will lose [opponent]", "upset prediction [match]"
-    Find the strongest argument AGAINST your position. Is it credible? Does it change your true_prob estimate?
-    → If counter-argument is from a credible source and shifts true_prob by > 10% → DISCARD.
+    **Check 1 — Counter-research** (Google Search):
+    Search "why [Team] will lose [match]", "[Team] weaknesses [tournament]"
+    → Strong credible counter shifts true_prob > 10%? → DISCARD.
 
-    **Check 2 — Source credibility**:
-    Where did your key evidence come from? Twitter rumors = low. Official team statements = high. Liquipedia stats = high.
-    → If primary evidence source is low credibility → DISCARD or downgrade to LOW evidence → SKIP.
+    **Check 2 — RSI overextension**:
+    RSI > 78 AND edge < 0.15? → Market may already reflect sportsbook line → DISCARD.
 
-    **Check 3 — RSI overextension**:
-    If RSI > 78 for the favored team, the market may already be overbought — price will revert before match.
-    → If RSI > 78 AND edge < 0.20 → DISCARD (not enough edge to justify reversal risk).
+    **Check 3 — Contextual risk**:
+    BO1 format (upsets far more likely than BO3)? Travel disadvantage? Internal team issues?
+    → Adjust true_prob. If adjusted edge < threshold → DISCARD.
 
-    **Check 4 — Contextual risk**:
-    Is there: a travel schedule disadvantage? A BO1 vs BO3 format difference (upsets more likely in BO1)?
-    Any known internal team issues (drama, benching, boot camp skipped)?
-    → Flag and reduce true_prob accordingly. If adjusted edge falls below 0.15 → DISCARD.
-
-    **Check 5 — Kelly sanity check**:
-    Calculate: f* = (true_prob − market_price) / (1 − market_price)
-    Apply fraction: HIGH evidence = 0.30, MEDIUM evidence = 0.20
-    Stake = f* × fraction × ${balance:.2f}
-    → If calculated stake < min_bets for this market → SKIP (not worth minimum position).
-    → If calculated stake > 12% of fund (${balance * 0.12:.2f}) → cap at ${balance * 0.12:.2f}.
+    **Check 4 — Kelly sizing**:
+    Arb bets: f* = edge / (1 − market_price) × 0.35
+    LLM bets: f* = edge / (1 − market_price) × (0.30 if HIGH else 0.20)
+    → Stake = f* × ${balance:.2f}. Cap at ${balance * 0.12:.2f}. Below min_bet? → SKIP.
 
     Output table:
-    | Match | Check 1 Counter | Check 2 Sources | Check 3 RSI | Check 4 Context | Check 5 Kelly Stake | Final: ✅ KEEP / ❌ DISCARD |
+    | Match | Outcome | Source | Check 1 | Check 2 | Check 3 | Check 4 Stake | Final |
 
     ---
-    ## STEP 5 — FINAL PORTFOLIO (HTML Section 4) — ${balance:.2f} Fund
-    Only bets that passed ALL Step 4 checks. Allocate exactly ${balance:.2f}.
+    ## STEP 6 — FINAL PORTFOLIO (HTML Section 5) — ${balance:.2f} Fund
+    Allocate exactly ${balance:.2f} across all bets that passed Step 5.
 
-    **CORE BUCKET (85% = ${balance * 0.85:.2f})** — mispriced favorites, form edges, momentum plays
-    - market_price: 0.55–0.88 | true_prob: 0.60–0.89 | edge >= 0.15 | evidence: HIGH or MEDIUM
-    - Target 5–9 bets. No single bet > 12% of fund (${balance * 0.12:.2f}).
-    - Strategies: Form Edge, Mispriced Favorite, Momentum, Information Edge
+    **CORE BUCKET (85% = ${balance * 0.85:.2f})**: edge bets with market_price 0.50–0.90
+    - Arb bets: edge >= 0.08 | LLM bets: edge >= 0.15, evidence HIGH/MEDIUM
+    - No single bet > 12% of fund (${balance * 0.12:.2f})
+    - Target 5–10 bets
 
-    **SATELLITE BUCKET (15% = ${balance * 0.15:.2f})** — high-payout underdog value
-    - market_price: 0.11–0.40 | true_prob: 0.25–0.45 | edge >= 0.15 | evidence: MEDIUM minimum
-    - Target 2–3 bets. Sized smaller — one win covers several losses.
-    - Strategies: Underdog Value, Contrarian
+    **SATELLITE BUCKET (15% = ${balance * 0.15:.2f})**: underdogs with market_price 0.10–0.45
+    - Arb bets: edge >= 0.12 | LLM bets: edge >= 0.15, evidence MEDIUM+
+    - Target 2–3 bets
 
-    **PORTFOLIO RULES:**
-    - ONE bet per match maximum — no two positions on the same game
-    - CATEGORY CAP: max ${balance * 0.35:.2f} (35%) in any single game (cs2 / valorant / lol / dota2)
-    - MINIMUM BET: respect each market's min_bets field — never go below it
-    - NO EDGE = NO BET: if fewer than 3 markets survived Steps 3+4, output empty portfolio
+    **RULES:**
+    - One bet per match. No exceptions.
+    - SPORT/CATEGORY CAP: max 35% (${balance * 0.35:.2f}) in any single sport or category
+    - Respect min_bets field
+    - Fewer than 3 total bets passing? Output empty portfolio — do NOT force trades
 
     Output table:
-    | Bucket | Match | Outcome | Strategy | Resolves | True Prob | Market Price | Edge | Evidence | Stake |
-    Summary line: Core = $X.XX | Satellite = $X.XX | Total = ${balance:.2f}
+    | Bucket | Source | Match | Outcome | Strategy | Resolves | True Prob | Market Price | Edge | Stake |
+    Summary: Core = $X.XX | Satellite = $X.XX | Total = ${balance:.2f}
 
     ---
-    ## STEP 6 — PROJECTED RETURNS (HTML Section 5)
-    For each portfolio bet:
-    | Bucket | Match | Outcome | Stake | Payout if Win | Net Profit | True Win Prob | Expected Value |
+    ## STEP 7 — PROJECTED RETURNS (HTML Section 6)
+    | Bucket | Source | Match | Outcome | Stake | Payout if Win | Net Profit | Win Prob | EV |
     EV = (true_prob × net_profit) − ((1 − true_prob) × stake)
-    Show totals: Best Case (all win) | EV-Weighted Realistic Return | Total Portfolio EV
+    Totals: Best Case (all win) | EV-Weighted Return | Total EV
 
     ---
-    Data:
+    LLM Fallback Market Data (unmatched markets — use Google Search to evaluate):
     {json.dumps(optimized_data, indent=2)}
     """
 

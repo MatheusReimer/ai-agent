@@ -10,7 +10,9 @@ from results_tracker import get_performance_summary, record_bets
 from redeemer import redeem_winnings
 from emailer import send_report
 from eth_account import Account
-from config import PRIVATE_KEY, PURCHASE_PASSKEY, POLYMARKET_PROXY_ADDRESS
+from config import PRIVATE_KEY, PURCHASE_PASSKEY, POLYMARKET_PROXY_ADDRESS, ODDS_API_KEY
+from odds_fetcher import get_sharp_odds, ACTIVE_SPORTS
+from market_matcher import match_markets
 
 AUTO_MODE = "--auto" in sys.argv
 
@@ -58,12 +60,35 @@ if __name__ == "__main__":
 
     if markets:
         print(f"\n--- DATA FETCH COMPLETE: {len(markets)} MARKETS FOUND ---")
-        # 1. Load historical performance and pass to analyst
+
+        # 1. Fetch sharp sportsbook odds and match to Polymarket markets
+        arb_markets = []
+        if ODDS_API_KEY:
+            print("\n--- SPORTSBOOK ARB SCAN ---")
+            sharp_odds = get_sharp_odds(list(ACTIVE_SPORTS.keys()))
+            if sharp_odds:
+                arb_markets, markets = match_markets(markets, sharp_odds)
+                # Filter arb candidates: must have at least one outcome with edge >= 0.08
+                arb_markets = [
+                    m for m in arb_markets
+                    if any(o["edge"] >= 0.08 for o in m["outcomes"])
+                ]
+                print(f"  Arb candidates after edge filter (>=8%): {len(arb_markets)}")
+        else:
+            print("\n  ⚠️  ODDS_API_KEY not set — running in LLM-only mode.")
+            print("     Add ODDS_API_KEY to .env to enable sportsbook arbitrage.")
+
+        # 2. Load historical performance and pass to analyst
         history_summary = get_performance_summary()
         print(f"\n--- PERFORMANCE HISTORY ---\n{history_summary}\n")
         # Pass effective budget: divide by 1.05 to pre-account for the 5% fill_price premium
         effective_balance = round(balance / 1.05, 2)
-        portfolio, html_content = analyze_with_gemini(markets, history_summary=history_summary, balance=effective_balance)
+        portfolio, html_content = analyze_with_gemini(
+            markets,
+            history_summary=history_summary,
+            balance=effective_balance,
+            arb_markets=arb_markets if arb_markets else None,
+        )
         
         # 2. Validate portfolio before asking user
         portfolio = validate_portfolio(portfolio, markets)

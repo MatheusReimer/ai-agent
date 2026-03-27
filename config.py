@@ -4,6 +4,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+# The Odds API key — get a free key at https://the-odds-api.com
+# Free tier: 500 requests/month. Used to fetch sharp sportsbook lines as oracle truth.
+ODDS_API_KEY = os.getenv("ODDS_API_KEY")
 # Your Polymarket Private Key (Starts with 0x...)
 # This is the key used to sign transactions and access your Polymarket Proxy Wallet.
 PRIVATE_KEY = os.getenv("POLYMARKET_KEY")
