@@ -65,13 +65,15 @@ def analyze_with_gemini(market_data, history_summary="", balance=4.0, arb_market
                 skipped_resolved += 1
                 continue
 
-            # Skip markets resolving in less than 48 hours — endgame volatility, thin liquidity, info already priced in
+            # Skip markets that have already started (< 1 hour remaining)
+            # Note: esports matches are often scheduled 24-48h out so we can't use the
+            # 48h rule recommended for general prediction markets — it kills everything.
             end_date_str = m.get("endDate", "")
             if end_date_str:
                 try:
                     end_dt = datetime.datetime.fromisoformat(end_date_str.replace("Z", "+00:00"))
                     hours_left = (end_dt.timestamp() - now) / 3600
-                    if hours_left < 48:
+                    if hours_left < 1:
                         skipped_resolved += 1
                         continue
                 except Exception:

@@ -14,13 +14,16 @@ ODDS_API_BASE = "https://api.the-odds-api.com/v4"
 
 # The Odds API sport keys → human labels
 # Comment out any sport you don't want to query (saves API quota)
+# NOTE: Esports (CS2, LoL, Dota2, Valorant) requires a paid Odds API tier.
+# The free tier only covers traditional sports — those are enabled below.
+# If you upgrade your Odds API plan, uncomment the esports entries.
 ACTIVE_SPORTS = {
-    # --- Esports ---
-    "esports_cs2":       "CS2",
-    "esports_lol":       "League of Legends",
-    "esports_dota2":     "Dota 2",
-    "esports_valorant":  "Valorant",
-    # --- Traditional Sports ---
+    # --- Esports (paid tier only) ---
+    ## "esports_cs2":       "CS2",
+    ## "esports_lol":       "League of Legends",
+    ## "esports_dota2":     "Dota 2",
+    ## "esports_valorant":  "Valorant",
+    # --- Traditional Sports (free tier) ---
     "baseball_mlb":              "MLB",
     "basketball_nba":            "NBA",
     "americanfootball_nfl":      "NFL",
