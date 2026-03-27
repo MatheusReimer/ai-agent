@@ -13,7 +13,7 @@ try:
 except ImportError:
     genai = None
 
-from config import GEMINI_API_KEY, HTML_FILENAME
+from config import GEMINI_API_KEY
 
 def analyze_with_gemini(market_data, history_summary="", balance=4.0):
     """
