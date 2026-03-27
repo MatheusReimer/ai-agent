@@ -188,7 +188,7 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
 
     **3F. Gate** — ADVANCE only if ALL true:
     - evidence_quality >= MEDIUM
-    - edge >= 0.15
+    - edge >= 0.10
     - market_price between 0.11 and 0.88
     - There is a clear, specific reason the market price is wrong
 
@@ -332,6 +332,12 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
                 raw = re.sub(r'^```[a-z]*\n?', '', raw).rstrip('`').strip()
                 portfolio_data = json.loads(raw)
                 html_content = html_content.replace(json_match.group(0), "")
+                if not portfolio_data:
+                    print("⚠️ Gemini returned empty portfolio [] — edge gate too strict or no mispriced markets today.")
+                else:
+                    print(f"  Gemini selected {len(portfolio_data)} bet(s):")
+                    for b in portfolio_data:
+                        print(f"    {b.get('outcome','?'):15s} | edge={b.get('edge','?')} | ev={b.get('evidence_quality','?')} | ${b.get('amount','?')} | {b.get('market_question','')[:45]}")
             except json.JSONDecodeError as e:
                 print(f"Error parsing AI portfolio JSON: {e}")
                 print(f"Raw JSON received:\n{json_match.group(1)[:300]}")
