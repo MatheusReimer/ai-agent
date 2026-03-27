@@ -113,8 +113,9 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
     probability of each outcome, then compare to the Polymarket price to find mispricing.
     RSI > 70 = Overbought. RSI < 30 = Oversold.
 
-    **CORE RULE**: Only bet when research shows the market price is wrong by >= 10%.
+    **CORE RULE**: Only bet when research shows the market price is wrong by >= 7%.
     No edge = no bet. Return an empty array if nothing qualifies — that is a valid answer.
+    CS2 markets rarely misprice by more than 15%, so edges of 7–14% are the realistic sweet spot.
 
     ---
     ## STEP 1 — RESEARCH & EDGE SCAN
@@ -125,12 +126,12 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
     A. Estimate TRUE probability from research (ignore market price). Round to 5%.
     B. Rate evidence: HIGH (3+ recent credible sources) | MEDIUM (1-2 or older) | LOW (skip)
     C. Edge = |true_prob − market_price|
-    D. Gate: ADVANCE only if evidence >= MEDIUM AND edge >= 0.10 AND price between 0.11–0.88
+    D. Gate: ADVANCE only if evidence >= MEDIUM AND edge >= 0.07 AND price between 0.11–0.88
 
     ---
     ## STEP 2 — VALIDATION (for each ADVANCED bet)
-    - Counter-search: "why [Team] will lose [match]" — credible counter shifts prob >10%? DISCARD.
-    - BO1 format? Adjust true_prob down for favorite. Adjusted edge < 0.10? DISCARD.
+    - Counter-search: "why [Team] will lose [match]" — credible counter shifts prob >7%? DISCARD.
+    - BO1 format? Adjust true_prob down for favorite. Adjusted edge < 0.07? DISCARD.
     - Kelly: f* = edge / (1 − market_price) × (0.30 if HIGH else 0.20). Cap at ${balance * 0.12:.2f}.
 
     ---
