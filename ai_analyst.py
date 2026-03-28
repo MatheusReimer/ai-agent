@@ -58,6 +58,12 @@ def analyze_with_gemini(market_data, history_summary="", balance=4.0):
                 skipped_resolved += 1
                 continue
 
+            # Skip prop bets — only match/series winners are researchable
+            q = (primary.get("question") or m.get("title") or "").lower()
+            if any(kw in q for kw in ["odd/even", "total kills", "total rounds", "first kill", "first blood", "pistol round"]):
+                skipped_resolved += 1
+                continue
+
             # Skip markets that have already started (< 1 hour remaining)
             # Note: esports matches are often scheduled 24-48h out so we can't use the
             # 48h rule recommended for general prediction markets — it kills everything.
@@ -115,57 +121,26 @@ def analyze_with_gemini(market_data, history_summary="", balance=4.0):
     probability of each outcome, then compare to the Polymarket price to find mispricing.
     RSI > 70 = Overbought. RSI < 30 = Oversold.
 
-    **CORE RULE**: Only bet when research shows the market price is wrong by >= 7%.
-    No edge = no bet. Return an empty array if nothing qualifies — that is a valid answer.
+    **CORE RULE**: Only bet when your research shows the market price is wrong by >= 7%.
+    No edge = no bet. Lean toward betting — an empty slate means missed opportunity.
 
-    ## TOURNAMENT TIER STRATEGY
-    Look up the tournament on Liquipedia to classify its tier, then apply the matching strategy:
+    ## TOURNAMENT TIER (look up on Liquipedia)
+    S/A (BLAST, ESL Pro League, IEM, PGL Major, Champions/Masters/Worlds):
+      → Bet the FAVORITE. Kelly = 0.30 (HIGH) / 0.22 (MEDIUM).
+    B (Regional leagues, Challengers, LEC/LCS/LCK regular season):
+      → Bet either side on edge. Kelly = 0.25 (HIGH) / 0.18 (MEDIUM).
+    C/D (small online cups, amateur/semi-pro, unknown organizer):
+      → Bet the UNDERDOG only (price 0.11–0.45). Kelly = 0.18 (HIGH) / 0.12 (MEDIUM).
 
-    S/A-tier (BLAST Premier, ESL Pro League, IEM, PGL Major, VALORANT Champions/Masters, Worlds):
-    - Matches are predictable — top teams rarely get upset
-    - BET on the FAVORITE (market_price 0.55–0.88) when you find edge
-    - Larger Kelly fraction (0.30 if HIGH evidence, 0.22 if MEDIUM)
-    - Discard underdogs unless edge >= 0.20
+    ## RESEARCH (one search per match)
+    Find: recent form (last 3–5 matches), head-to-head, roster news.
+    Estimate true_prob. Edge = |true_prob − market_price|. Skip if edge < 0.07 or evidence LOW.
 
-    B-tier (Regional leagues, ESL Challenger, VCT Challengers, LEC/LCS/LCK regular season):
-    - Moderate predictability — standard approach
-    - Bet favorites OR underdogs based purely on edge quality
-    - Standard Kelly fraction (0.25 if HIGH, 0.18 if MEDIUM)
-
-    C/D-tier (small online cups, unknown organizers, amateur/semi-pro):
-    - Highly unpredictable — upsets are the norm, not the exception
-    - BET on the UNDERDOG (market_price 0.11–0.45) only
-    - SKIP favorites entirely — variance too high to trust them
-    - Smaller Kelly fraction (0.18 if HIGH, 0.12 if MEDIUM)
-    - Require edge >= 0.10 for underdogs at this tier
-
-    ---
-    ## STEP 1 — RESEARCH & EDGE SCAN
-    For every market, search: tournament name + "Liquipedia" to get the tier.
-    Then search: team names + recent form, head-to-head, roster changes.
-
-    For each market:
-    A. Classify tournament tier: S / A / B / C / D
-    B. Estimate TRUE probability from research (ignore market price). Round to 5%.
-    C. Rate evidence: HIGH (3+ recent credible sources) | MEDIUM (1-2 or older) | LOW (skip)
-    D. Edge = |true_prob − market_price|
-    E. Apply tier gate from above. SKIP if tier rule says so.
-
-    ---
-    ## STEP 2 — VALIDATION (for each ADVANCED bet)
-    - Counter-search: "why [Team] will lose" — credible counter shifts prob >7%? DISCARD.
-    - BO1 format? Adjust true_prob down for favorite. Adjusted edge < 0.07? DISCARD.
-    - Kelly: use tier-specific fraction above. Cap at ${balance * 0.12:.2f}.
-
-    ---
-    ## STEP 3 — OUTPUT JSON (your entire response must be ONLY this, nothing else)
-    Output ONLY the JSON array. No explanation, no markdown outside the array.
-
-    <JSON_DATA>
+    ## OUTPUT — respond with ONLY a JSON array, nothing else:
     [
       {{
         "market_question": "exact question from data",
-        "outcome": "exact outcome string (e.g. T1, Yes, Cloud9)",
+        "outcome": "exact outcome string from data",
         "amount": 1.50,
         "bucket": "core",
         "tournament_tier": "A",
@@ -175,19 +150,14 @@ def analyze_with_gemini(market_data, history_summary="", balance=4.0):
         "evidence_quality": "HIGH",
         "strategy": "Form Edge",
         "primary_backer": "Form Edge",
-        "rationale": "T1 8-match win streak, market slow to update"
+        "rationale": "one sentence reason"
       }}
     ]
-    </JSON_DATA>
 
     If nothing qualifies: []
-
-    "strategy" and "primary_backer": same value from:
-      "Form Edge" | "Mispriced Favorite" | "Underdog Value" | "Momentum" | "Contrarian" | "Information Edge"
-    "outcome": EXACT string from market data. "bucket": "core" or "satellite".
-    Core: high-confidence bets (S/A favs, B-tier any), 85% of fund, max ${balance * 0.12:.2f} each.
-    Satellite: underdog bets (C/D tier), 15% of fund, smaller stakes.
-    One bet per match. Total must equal exactly ${balance:.2f}.
+    "strategy"/"primary_backer": "Form Edge"|"Mispriced Favorite"|"Underdog Value"|"Momentum"|"Contrarian"|"Information Edge"
+    "bucket": "core" (S/A/B), "satellite" (C/D underdogs).
+    One bet per match. Max ${balance * 0.12:.2f} per bet. Total = ${balance:.2f}.
 
     Data:
     {json.dumps(optimized_data, indent=2)}
