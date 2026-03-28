@@ -101,6 +101,12 @@ def analyze_with_gemini(market_data, history_summary="", balance=4.0):
         optimized_data = optimized_data[:MAX_MARKETS]
         print(f"  Capped to {MAX_MARKETS} markets (soonest-resolving) to stay within API quota.")
     print(f"  Sending {len(optimized_data)} markets to Gemini ({len(json.dumps(optimized_data))//1000}KB payload).")
+    for i, m in enumerate(optimized_data, 1):
+        q = m.get("question") or m.get("title") or "?"
+        ends = m.get("endDate", "")[:10]
+        prices = m.get("prices", [])
+        price_str = " / ".join(f"{p:.0%}" for p in prices) if prices else "?"
+        print(f"  {i:2}. [{ends}] {q[:65]} ({price_str})")
 
     # ── PROMPT 1: trades only (no HTML, no fluff) ──────────────────────────────
     prompt_trades = f"""
