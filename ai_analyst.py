@@ -96,7 +96,7 @@ def analyze_with_gemini(market_data, history_summary="", balance=4.0):
         print(f"  Filtered out {skipped_resolved} already-resolved markets before sending to Gemini.")
 
     # Cap payload to avoid Gemini quota hits — pick the soonest-resolving markets first
-    MAX_MARKETS = 25
+    MAX_MARKETS = 15
     if len(optimized_data) > MAX_MARKETS:
         optimized_data = optimized_data[:MAX_MARKETS]
         print(f"  Capped to {MAX_MARKETS} markets (soonest-resolving) to stay within API quota.")
@@ -235,23 +235,33 @@ def analyze_with_gemini(market_data, history_summary="", balance=4.0):
             print("Error: Gemini returned an empty trades response after 3 attempts.")
             return [], ""
 
-        # Extract JSON portfolio — try tagged block first, then bare array
+        # Extract JSON portfolio — try tagged block first, then first bare array
         portfolio_data = []
         json_match = re.search(r'<JSON_DATA>(.*?)</JSON_DATA>', trades_raw, re.DOTALL)
         if json_match:
             raw = json_match.group(1).strip()
             raw = re.sub(r'^```[a-z]*\n?', '', raw).rstrip('`').strip()
         else:
-            # Gemini often drops the XML tags — grab the first JSON array in the response
-            bare = re.search(r'```(?:json)?\s*(\[[\s\S]*?\])\s*```|(\[[\s\S]*?\])', trades_raw)
+            # Take the FIRST JSON array only (response sometimes duplicates itself)
+            bare = re.search(r'```(?:json)?\s*(\[.*?\])\s*```|(\[.*?\])', trades_raw, re.DOTALL)
             raw = (bare.group(1) or bare.group(2)).strip() if bare else ""
 
         if raw:
+            # Strip Gemini citation tags — e.g. [cite: 1, 2\n3] — they embed newlines that break JSON
+            raw = re.sub(r'\s*\[cite:[^\]]*\]', '', raw, flags=re.DOTALL)
             try:
                 portfolio_data = json.loads(raw)
-            except json.JSONDecodeError as e:
-                print(f"Error parsing AI portfolio JSON: {e}")
-                print(f"Raw snippet:\n{raw[:300]}")
+            except json.JSONDecodeError:
+                # Truncated response: salvage complete objects before the break
+                truncated = re.sub(r',?\s*\{[^{}]*$', '', raw).rstrip(',').strip()
+                if not truncated.endswith(']'):
+                    truncated += ']'
+                try:
+                    portfolio_data = json.loads(truncated)
+                    print(f"  ⚠️ Response truncated — salvaged {len(portfolio_data)} complete bet(s).")
+                except json.JSONDecodeError as e:
+                    print(f"Error parsing AI portfolio JSON: {e}")
+                    print(f"Raw snippet:\n{raw[:300]}")
 
         if not portfolio_data:
             print("⚠️ Gemini returned empty portfolio [] — edge gate too strict or no mispriced markets today.")
