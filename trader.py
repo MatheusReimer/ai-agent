@@ -88,7 +88,13 @@ def validate_portfolio(portfolio, market_data_map):
             print(f"  ❌ SKIP  ${amount:.2f} on {outcome} | {question[:50]} → {reason}")
         else:
             valid.append(bet)
-            print(f"  ✅ OK    ${amount:.2f} on {outcome} | {question[:50]}")
+            tier = bet.get("tournament_tier", "")
+            edge = bet.get("edge", "")
+            rationale = bet.get("rationale", "")
+            meta = " | ".join(filter(None, [f"{tier}-tier" if tier else "", f"edge={edge}" if edge else ""]))
+            print(f"  ✅ OK    ${amount:.2f} on {outcome} | {question[:50]}" + (f" [{meta}]" if meta else ""))
+            if rationale:
+                print(f"           → {rationale}")
 
     print(f"\n  {len(valid)} valid / {len(skipped)} skipped out of {len(portfolio)} bets")
     return valid
