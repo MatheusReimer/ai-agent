@@ -5,7 +5,7 @@ from pathlib import Path
 
 HISTORY_FILE = "bet_history.json"
 
-PERSONAS = ["Form Edge", "Mispriced Favorite", "Underdog Value", "Momentum", "Contrarian", "Information Edge", "Unknown"]
+PERSONAS = ["Safe Hands", "YOLO", "Value", "Trend", "Skeptic", "Quant", "Insider", "Macro", "Chairman"]
 
 
 def _load():
@@ -194,10 +194,10 @@ def get_performance_summary():
         "",
     ]
 
-    # Strategy leaderboard
+    # Persona leaderboard
     pstats = _persona_stats(history)
     if pstats:
-        lines.append("=== STRATEGY LEADERBOARD (ranked by win rate) ===")
+        lines.append("=== PERSONA LEADERBOARD (ranked by win rate) ===")
         ranked = sorted(
             pstats.items(),
             key=lambda x: (x[1]["wins"] / max(1, x[1]["wins"] + x[1]["losses"])),
@@ -207,23 +207,25 @@ def get_performance_summary():
             total = s["wins"] + s["losses"]
             rate  = s["wins"] / total * 100 if total else 0
             if total < 3:
-                confidence = "insufficient data"
+                multiplier = "1.0x (insufficient data)"
             elif rate >= 60:
-                confidence = "PROVEN — lean into this strategy"
+                multiplier = "1.0x (trusted)"
             elif rate >= 40:
-                confidence = "NEUTRAL — use with caution"
+                multiplier = "0.75x (caution)"
             else:
-                confidence = "UNDERPERFORMING — reduce or avoid"
+                multiplier = "0.5x (struggling)"
             lines.append(
-                f"  {name:20s} | {s['wins']}W {s['losses']}L ({rate:.0f}%) | net ${s['net_profit']:+.2f} | {confidence}"
+                f"  {name:12s} | {s['wins']}W {s['losses']}L ({rate:.0f}%) | net ${s['net_profit']:+.2f} | budget multiplier: {multiplier}"
             )
         lines += [
             "",
-            "STRATEGY SIZING INSTRUCTIONS:",
-            "- Proven strategies (>60% win rate, 3+ bets): use full Kelly fraction.",
-            "- Neutral strategies (40-60%): apply 0.75x Kelly fraction.",
-            "- Underperforming strategies (<40%): apply 0.5x Kelly fraction or skip entirely.",
-            "- Prioritize proven strategies when multiple bets compete for the same slot.",
+            "PERSONA BET-SIZING INSTRUCTIONS:",
+            "- Each persona has a budget multiplier based on their track record.",
+            "- When sizing a bet championed by a persona, scale the Kelly allocation by their multiplier.",
+            "  Example: Kelly suggests $2.00, persona multiplier is 0.5x → cap at $1.00.",
+            "- TOP personas (1.0x trusted) can lead bets with full Kelly weight.",
+            "- Struggling personas (0.5x) still participate but with halved allocation.",
+            "  Do NOT exclude them — just reduce their stake. Small diversified bets are better than zero.",
         ]
 
     # Recent bets
