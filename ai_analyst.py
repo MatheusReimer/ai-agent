@@ -117,28 +117,49 @@ def analyze_with_gemini(market_data, history_summary="", balance=4.0):
 
     **CORE RULE**: Only bet when research shows the market price is wrong by >= 7%.
     No edge = no bet. Return an empty array if nothing qualifies — that is a valid answer.
-    CS2 markets rarely misprice by more than 15%, so edges of 7–14% are the realistic sweet spot.
+
+    ## TOURNAMENT TIER STRATEGY
+    Look up the tournament on Liquipedia to classify its tier, then apply the matching strategy:
+
+    S/A-tier (BLAST Premier, ESL Pro League, IEM, PGL Major, VALORANT Champions/Masters, Worlds):
+    - Matches are predictable — top teams rarely get upset
+    - BET on the FAVORITE (market_price 0.55–0.88) when you find edge
+    - Larger Kelly fraction (0.30 if HIGH evidence, 0.22 if MEDIUM)
+    - Discard underdogs unless edge >= 0.20
+
+    B-tier (Regional leagues, ESL Challenger, VCT Challengers, LEC/LCS/LCK regular season):
+    - Moderate predictability — standard approach
+    - Bet favorites OR underdogs based purely on edge quality
+    - Standard Kelly fraction (0.25 if HIGH, 0.18 if MEDIUM)
+
+    C/D-tier (small online cups, unknown organizers, amateur/semi-pro):
+    - Highly unpredictable — upsets are the norm, not the exception
+    - BET on the UNDERDOG (market_price 0.11–0.45) only
+    - SKIP favorites entirely — variance too high to trust them
+    - Smaller Kelly fraction (0.18 if HIGH, 0.12 if MEDIUM)
+    - Require edge >= 0.10 for underdogs at this tier
 
     ---
     ## STEP 1 — RESEARCH & EDGE SCAN
-    For every market below, use Google Search to find: head-to-head record, recent form
-    (last 3–5 matches), roster changes, meta shifts, tournament context.
+    For every market, search: tournament name + "Liquipedia" to get the tier.
+    Then search: team names + recent form, head-to-head, roster changes.
 
     For each market:
-    A. Estimate TRUE probability from research (ignore market price). Round to 5%.
-    B. Rate evidence: HIGH (3+ recent credible sources) | MEDIUM (1-2 or older) | LOW (skip)
-    C. Edge = |true_prob − market_price|
-    D. Gate: ADVANCE only if evidence >= MEDIUM AND edge >= 0.07 AND price between 0.11–0.88
+    A. Classify tournament tier: S / A / B / C / D
+    B. Estimate TRUE probability from research (ignore market price). Round to 5%.
+    C. Rate evidence: HIGH (3+ recent credible sources) | MEDIUM (1-2 or older) | LOW (skip)
+    D. Edge = |true_prob − market_price|
+    E. Apply tier gate from above. SKIP if tier rule says so.
 
     ---
     ## STEP 2 — VALIDATION (for each ADVANCED bet)
-    - Counter-search: "why [Team] will lose [match]" — credible counter shifts prob >7%? DISCARD.
+    - Counter-search: "why [Team] will lose" — credible counter shifts prob >7%? DISCARD.
     - BO1 format? Adjust true_prob down for favorite. Adjusted edge < 0.07? DISCARD.
-    - Kelly: f* = edge / (1 − market_price) × (0.30 if HIGH else 0.20). Cap at ${balance * 0.12:.2f}.
+    - Kelly: use tier-specific fraction above. Cap at ${balance * 0.12:.2f}.
 
     ---
     ## STEP 3 — OUTPUT JSON (your entire response must be ONLY this, nothing else)
-    Output ONLY the JSON array below. No explanation, no HTML, no markdown.
+    Output ONLY the JSON array. No explanation, no markdown outside the array.
 
     <JSON_DATA>
     [
@@ -147,6 +168,7 @@ def analyze_with_gemini(market_data, history_summary="", balance=4.0):
         "outcome": "exact outcome string (e.g. T1, Yes, Cloud9)",
         "amount": 1.50,
         "bucket": "core",
+        "tournament_tier": "A",
         "true_prob": 0.72,
         "market_price": 0.55,
         "edge": 0.17,
@@ -158,15 +180,14 @@ def analyze_with_gemini(market_data, history_summary="", balance=4.0):
     ]
     </JSON_DATA>
 
-    If nothing qualifies: <JSON_DATA>[]</JSON_DATA>
+    If nothing qualifies: []
 
     "strategy" and "primary_backer": same value from:
       "Form Edge" | "Mispriced Favorite" | "Underdog Value" | "Momentum" | "Contrarian" | "Information Edge"
     "outcome": EXACT string from market data. "bucket": "core" or "satellite".
-    Core: market_price 0.55–0.88, target 5–9 bets, max ${balance * 0.12:.2f} each, 85% of fund.
-    Satellite: market_price 0.11–0.40, target 2–3 bets, 15% of fund.
-    One bet per match. Category cap: max 35% per game (cs2/lol/valorant).
-    Total must equal exactly ${balance:.2f}.
+    Core: high-confidence bets (S/A favs, B-tier any), 85% of fund, max ${balance * 0.12:.2f} each.
+    Satellite: underdog bets (C/D tier), 15% of fund, smaller stakes.
+    One bet per match. Total must equal exactly ${balance:.2f}.
 
     Data:
     {json.dumps(optimized_data, indent=2)}
