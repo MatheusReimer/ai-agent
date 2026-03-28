@@ -84,11 +84,6 @@ def analyze_with_gemini(market_data, history_summary="", balance=4.0):
     if skipped_resolved:
         print(f"  Filtered out {skipped_resolved} already-resolved markets before sending to Gemini.")
 
-    # Cap payload to avoid Gemini quota/latency issues — soonest-resolving first
-    MAX_MARKETS = 15
-    if len(optimized_data) > MAX_MARKETS:
-        optimized_data = optimized_data[:MAX_MARKETS]
-        print(f"  Capped to {MAX_MARKETS} markets (soonest-resolving) to stay within API quota.")
     print(f"  Sending {len(optimized_data)} markets to Gemini ({len(json.dumps(optimized_data))//1000}KB payload).")
     for i, m in enumerate(optimized_data, 1):
         q = m.get("question") or m.get("title") or "?"
