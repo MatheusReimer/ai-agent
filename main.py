@@ -5,6 +5,7 @@ from trader import execute_portfolio, validate_portfolio
 from check_balance import check_usdc_balance
 from results_tracker import get_performance_summary, record_bets
 from redeemer import redeem_winnings
+from emailer import send_report
 from eth_account import Account
 from config import PRIVATE_KEY, PURCHASE_PASSKEY, POLYMARKET_PROXY_ADDRESS
 
@@ -105,5 +106,6 @@ if __name__ == "__main__":
                 placed = execute_portfolio(portfolio, markets, balance=balance)
                 if placed:
                     record_bets(placed, markets)
+                send_report(html_content, history_summary, placed or [])
             elif not AUTO_MODE:
                 print("Trading skipped.")
