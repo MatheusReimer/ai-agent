@@ -3,7 +3,7 @@ import time
 from datetime import datetime, timezone, timedelta
 from config import CATEGORIES
 
-MAX_DAYS_TO_RESOLVE = 1
+MAX_DAYS_TO_RESOLVE = 2
 
 def get_market_id(slug):
     """
@@ -159,7 +159,7 @@ def get_markets():
                 if end_date_str:
                     try:
                         end_date = datetime.fromisoformat(end_date_str.replace("Z", "+00:00"))
-                        game_start_estimate = end_date - timedelta(hours=2)
+                        game_start_estimate = end_date - timedelta(hours=8)
                         if game_start_estimate < now or end_date > deadline:
                             continue
                     except ValueError:
