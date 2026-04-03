@@ -167,7 +167,7 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
     ### SECTION 4: Final Consensus Portfolio (${balance:.2f} Fund)
     Based on the Roundtable's agreement, allocate exactly ${balance:.2f}.
     **Strategy**: Diversified Fractional Kelly.
-    1. **Spread Across Markets**: Target 10–15 bets across DIFFERENT matches and categories. Never put more than 15% of the fund into a single bet. More independent bets = lower variance = law of large numbers works in our favor. Small $2–$4 bets on decent opportunities are BETTER than skipping them — diversification is the goal.
+    1. **Spread Across Markets**: Target 10–15 bets across DIFFERENT matches and categories. Never put more than 10% of the fund into a single bet. More independent bets = lower variance = law of large numbers works in our favor. Small $2–$4 bets on decent opportunities are BETTER than skipping them — diversification is the goal.
     2. **Fractional Kelly**: Use 25–40% of the full Kelly-suggested size per bet. Full Kelly risks ruin on a bad day. Fractional Kelly preserves the bankroll long-term.
     3. **Persona Multiplier**: Each persona in the leaderboard has a budget multiplier (1.0x trusted, 0.75x caution, 0.5x struggling). Apply their multiplier to the Kelly allocation. Struggling personas still bet — just smaller. Do NOT skip their picks entirely; small diversified bets are better than zero exposure.
     4. **Consensus**: Only invest if at least 2 personas agreed (or Chairman overruled). For markets where only 1 persona is positive but there's no strong opposition, allocate a small exploratory bet ($2–$3) rather than skipping entirely.
