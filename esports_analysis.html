@@ -12,36 +12,28 @@
             padding: 20px;
             line-height: 1.6;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: #1a1a1a;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 255, 221, 0.2);
-        }
         h1, h2, h3, h4, h5, h6 {
             color: #00FFDD;
-            border-bottom: 2px solid #53277D;
-            padding-bottom: 10px;
-            margin-top: 30px;
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
-        h1 {
-            text-align: center;
-            color: #FFB300;
-            border-bottom: 3px solid #53277D;
-            padding-bottom: 15px;
-            margin-bottom: 40px;
+        .section {
+            background-color: #1a1a1a;
+            border: 1px solid #53277D;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 255, 221, 0.1);
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-top: 15px;
             background-color: #2a2a2a;
         }
         th, td {
             border: 1px solid #53277D;
-            padding: 12px;
+            padding: 10px;
             text-align: left;
             color: #FCFCFC;
         }
@@ -51,38 +43,54 @@
             font-weight: bold;
         }
         tr:nth-child(even) {
-            background-color: #1f1f1f;
+            background-color: #3a3a3a;
         }
         .persona-name {
-            color: #00FFDD;
-            font-weight: bold;
-        }
-        .chairman-decision {
             color: #FFB300;
             font-weight: bold;
         }
-        .bet-info {
+        .persona-quote {
+            font-style: italic;
+            margin-left: 20px;
+            border-left: 2px solid #00FFDD;
+            padding-left: 10px;
+            margin-bottom: 10px;
+        }
+        .conflict {
+            color: #FFB300;
+            font-weight: bold;
+        }
+        .chairman-decision {
+            color: #00FFDD;
+            font-weight: bold;
+            border-top: 1px solid #00FFDD;
+            padding-top: 10px;
+            margin-top: 15px;
+        }
+        .bet-win { color: #00FFDD; }
+        .bet-loss { color: #FFB300; }
+        .bet-pending { color: #FCFCFC; }
+        .allocation-table td:nth-child(3), .projected-returns-table td:nth-child(4), .projected-returns-table td:nth-child(5), .projected-returns-table td:nth-child(6) {
+            text-align: right;
+        }
+        .summary-box {
             background-color: #2a2a2a;
             border: 1px solid #00FFDD;
             padding: 15px;
+            margin-top: 20px;
             border-radius: 5px;
-            margin-bottom: 15px;
         }
-        .citation {
-            font-size: 0.8em;
-            color: #999;
-        }
-        .profit { color: #00FFDD; }
-        .loss { color: #FFB300; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Frodo's Elite Investment Committee Report</h1>
 
-        <h2>Section 1: Esports Markets</h2>
+    <header>
+        <h1 style="text-align: center; color: #FFB300;">Frodo's Investment Committee Report</h1>
+        <h2 style="text-align: center; color: #00FFDD;">Prediction Markets Analysis</h2>
+    </header>
 
-        <h3>CS2 Markets</h3>
+    <div class="section">
+        <h3>SECTION 1: Esports Markets - Counter-Strike (CS2)</h3>
         <table>
             <thead>
                 <tr>
@@ -94,654 +102,731 @@
                     <th>RSI Score</th>
                     <th>Sentiment Score</th>
                     <th>Controversy Rating</th>
-                    <th>Tournament Tier</th>
-                    <th>Team Stats</th>
-                    <th>Analysis</th>
+                    <th>Team Stats & Analysis</th>
                     <th>Prediction</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Apr 01 23:30 UTC</td>
-                    <td>Counter-Strike: Players vs Crashers (BO3) - BetBoom Storm Group Stage</td>
-                    <td>cs2</td>
-                    <td>345.244865</td>
-                    <td>0.5 (Players) / 0.5 (Crashers)</td>
-                    <td>50</td>
-                    <td>55</td>
-                    <td>7</td>
-                    <td>C-tier</td>
-                    <td>Players: General form unknown., Crashers: General form unknown.</td>
-                    <td>Market odds are very close, indicating high uncertainty among bettors. Both teams are perceived to be of similar strength currently.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 00:30 UTC</td>
-                    <td>Counter-Strike: ALKA vs Alzon (BO3) - Gamers Club Liga Série A Playoffs</td>
-                    <td>cs2</td>
-                    <td>4</td>
-                    <td>0.455 (ALKA) / 0.545 (Alzon)</td>
-                    <td>50</td>
-                    <td>50</td>
-                    <td>8</td>
-                    <td>C-tier</td>
-                    <td>ALKA: Expected to be strong on Map 1., Alzon: Expected to be weaker on Map 1.</td>
-                    <td>Focus on individual map strength and early game performance.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 02:00 UTC</td>
-                    <td>Counter-Strike: Keyd vs ODDIK (BO3) - PGL Astana: South American Closed Qualifier Playoffs</td>
-                    <td>cs2</td>
-                    <td>34073.28776200001</td>
-                    <td>0.52 (Keyd) / 0.48 (ODDIK)</td>
-                    <td>50</td>
-                    <td>55</td>
-                    <td>7</td>
-                    <td>B-tier</td>
-                    <td>Keyd: General form unknown., ODDIK: General form unknown.</td>
-                    <td>Market odds are very close, indicating high uncertainty among bettors. Both teams are perceived to be of similar strength currently.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 02:00 UTC</td>
-                    <td>Counter-Strike: R2 Esports Club vs Vasco Esports (BO3) - BetBoom Storm Group Stage</td>
-                    <td>cs2</td>
-                    <td>4254.788064999999</td>
-                    <td>0.63 (R2 Esports Club) / 0.37 (Vasco Esports)</td>
-                    <td>50</td>
-                    <td>63</td>
-                    <td>3</td>
-                    <td>C-tier</td>
-                    <td>R2 Esports Club: Expected to be in good form or have a strong roster., Vasco Esports: Expected to be struggling or be a significant underdog.</td>
-                    <td>R2 Esports Club is a strong favorite with high implied odds, suggesting superior recent performance or historical dominance over Vasco Esports. Vasco Esports faces an uphill battle.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 03:00 UTC</td>
-                    <td>Counter-Strike: RED Canids vs METANOIA WOLVES (BO3) - Betboom Circuit X Mayhem São Paulo Group B</td>
-                    <td>cs2</td>
-                    <td>1570.5787559999999</td>
-                    <td>0.87 (RED Canids) / 0.13 (METANOIA WOLVES)</td>
-                    <td>50</td>
-                    <td>87</td>
-                    <td>2</td>
-                    <td>C-tier</td>
-                    <td>RED Canids: Expected to be in good form or have a strong roster., METANOIA WOLVES: Expected to be struggling or be a significant underdog.</td>
-                    <td>RED Canids is a strong favorite with high implied odds, suggesting superior recent performance or historical dominance over METANOIA WOLVES. METANOIA WOLVES faces an uphill battle.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 03:00 UTC</td>
-                    <td>Counter-Strike: Fluxo W7M vs DashSkins (BO3) - Betboom Circuit X Mayhem São Paulo Group B</td>
-                    <td>cs2</td>
-                    <td>261.533886</td>
-                    <td>0.605 (Fluxo W7M) / 0.395 (DashSkins)</td>
-                    <td>50</td>
-                    <td>61</td>
-                    <td>3</td>
-                    <td>C-tier</td>
-                    <td>Fluxo W7M: Expected to be in good form or have a strong roster., DashSkins: Expected to be struggling or be a significant underdog.</td>
-                    <td>Fluxo W7M is a strong favorite with high implied odds, suggesting superior recent performance or historical dominance over DashSkins. DashSkins faces an uphill battle.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 04:00 UTC</td>
-                    <td>Counter-Strike: Charrados FC vs ALKA (BO3) - BetBoom Storm Group Stage</td>
-                    <td>cs2</td>
-                    <td>4</td>
-                    <td>0.53 (Charrados FC) / 0.47 (ALKA)</td>
-                    <td>50</td>
-                    <td>55</td>
-                    <td>8</td>
-                    <td>C-tier</td>
-                    <td>Charrados FC: General form unknown., ALKA: General form unknown.</td>
-                    <td>Market odds are very close, indicating high uncertainty among bettors. Both teams are perceived to be of similar strength currently.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 05:00 UTC</td>
-                    <td>Counter-Strike: MIBR Academy vs BESTIA Academy (BO3) - BetBoom Storm Group Stage</td>
-                    <td>cs2</td>
-                    <td>1723.2054039999998</td>
-                    <td>0.65 (MIBR Academy) / 0.35 (BESTIA Academy)</td>
-                    <td>50</td>
-                    <td>65</td>
-                    <td>3</td>
-                    <td>C-tier</td>
-                    <td>MIBR Academy: Expected to be in good form or have a strong roster., BESTIA Academy: Expected to be struggling or be a significant underdog.</td>
-                    <td>MIBR Academy is a strong favorite with high implied odds, suggesting superior recent performance or historical dominance over BESTIA Academy. BESTIA Academy faces an uphill battle.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 05:00 UTC</td>
-                    <td>Counter-Strike: Zomblers vs regain (BO3) - PGL Astana: North American Closed Qualifier Playoffs</td>
-                    <td>cs2</td>
-                    <td>40.573155</td>
-                    <td>0.565 (Zomblers) / 0.435 (regain)</td>
-                    <td>50</td>
-                    <td>57</td>
-                    <td>7</td>
-                    <td>B-tier</td>
-                    <td>Zomblers: General form unknown., regain: General form unknown.</td>
-                    <td>Market odds are very close, indicating high uncertainty among bettors. Both teams are perceived to be of similar strength currently.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 05:00 UTC</td>
-                    <td>Counter-Strike: Fake do Biru vs 9z (BO3) - PGL Astana: South American Closed Qualifier Playoffs</td>
-                    <td>cs2</td>
-                    <td>36.150946</td>
-                    <td>0.145 (Fake do Biru) / 0.855 (9z)</td>
-                    <td>50</td>
-                    <td>86</td>
-                    <td>2</td>
-                    <td>B-tier</td>
-                    <td>Fake do Biru: Expected to be struggling or be a significant underdog., 9z: Expected to be in good form or have a strong roster.</td>
-                    <td>9z is a strong favorite with high implied odds, suggesting superior recent performance or historical dominance over Fake do Biru. Fake do Biru faces an uphill battle.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 06:00 UTC</td>
-                    <td>Counter-Strike: LAG Gaming vs EMPIRE (BO3) - Dust2.us Eagle Masters Group Stage</td>
-                    <td>cs2</td>
-                    <td>141.15797999999998</td>
-                    <td>0.82 (LAG Gaming) / 0.18 (EMPIRE)</td>
-                    <td>50</td>
-                    <td>82</td>
-                    <td>2</td>
-                    <td>C-tier</td>
-                    <td>LAG Gaming: Expected to be in good form or have a strong roster., EMPIRE: Expected to be struggling or be a significant underdog.</td>
-                    <td>LAG Gaming is a strong favorite with high implied odds, suggesting superior recent performance or historical dominance over EMPIRE. EMPIRE faces an uphill battle.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 07:00 UTC</td>
-                    <td>Counter-Strike: MAGICOS vs METANOIA WOLVES (BO3) - BetBoom Storm Group Stage</td>
-                    <td>cs2</td>
-                    <td>52.936504</td>
-                    <td>0.46 (Over) / 0.54 (Under)</td>
-                    <td>50</td>
-                    <td>50</td>
-                    <td>8</td>
-                    <td>C-tier</td>
-                    <td>Over: Teams tend to play full series., Under: Teams tend to have dominant wins or losses.</td>
-                    <td>Betting on the number of maps played in the series. Close matches favor 'Over', dominant teams favor 'Under'.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 09:00 UTC</td>
-                    <td>Counter-Strike: FlyQuest vs SemperFi Esports (BO3) - GangKui Cup Playoffs</td>
-                    <td>cs2</td>
-                    <td>2113.8332290000003</td>
-                    <td>0.635 (FlyQuest) / 0.365 (SemperFi Esports)</td>
-                    <td>50</td>
-                    <td>64</td>
-                    <td>3</td>
-                    <td>C-tier</td>
-                    <td>FlyQuest: Expected to be in good form or have a strong roster., SemperFi Esports: Expected to be struggling or be a significant underdog.</td>
-                    <td>FlyQuest is a strong favorite with high implied odds, suggesting superior recent performance or historical dominance over SemperFi Esports. SemperFi Esports faces an uphill battle.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 12:00 UTC</td>
-                    <td>Counter-Strike: 1WIN vs JUMBO TEAM (BO3) - CIS LAN Championship Group A</td>
-                    <td>cs2</td>
-                    <td>32.015007</td>
-                    <td>0.59 (1WIN) / 0.41 (JUMBO TEAM)</td>
-                    <td>50</td>
-                    <td>59</td>
-                    <td>7</td>
-                    <td>C-tier</td>
-                    <td>1WIN: General form unknown., JUMBO TEAM: General form unknown.</td>
-                    <td>Market odds are very close, indicating high uncertainty among bettors. Both teams are perceived to be of similar strength currently.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 12:00 UTC</td>
-                    <td>Counter-Strike: Rare Atom vs TEAM XDM (BO3) - GangKui Cup Playoffs</td>
-                    <td>cs2</td>
-                    <td>5681.433376000005</td>
-                    <td>0.72 (Rare Atom) / 0.28 (TEAM XDM)</td>
-                    <td>50</td>
-                    <td>72</td>
-                    <td>2</td>
-                    <td>C-tier</td>
-                    <td>Rare Atom: Expected to be in good form or have a strong roster., TEAM XDM: Expected to be struggling or be a significant underdog.</td>
-                    <td>Rare Atom is a strong favorite with high implied odds, suggesting superior recent performance or historical dominance over TEAM XDM. TEAM XDM faces an uphill battle.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 14:00 UTC</td>
-                    <td>Counter-Strike: Misa Esports vs Prestige (BO3) - United21 Group D</td>
-                    <td>cs2</td>
-                    <td>3.278687</td>
-                    <td>0.555 (Misa Esports) / 0.445 (Prestige)</td>
-                    <td>50</td>
-                    <td>56</td>
-                    <td>8</td>
-                    <td>C-tier</td>
-                    <td>Misa Esports: General form unknown., Prestige: General form unknown.</td>
-                    <td>Market odds are very close, indicating high uncertainty among bettors. Both teams are perceived to be of similar strength currently.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 14:00 UTC</td>
-                    <td>Counter-Strike: 100 Thieves vs Lavked (BO3) - PGL Astana: European Closed Qualifier Playoffs</td>
-                    <td>cs2</td>
-                    <td>N/A</td>
-                    <td>0.5 (100 Thieves) / 0.5 (Lavked)</td>
-                    <td>50</td>
-                    <td>55</td>
-                    <td>8</td>
-                    <td>B-tier</td>
-                    <td>100 Thieves: General form unknown., Lavked: General form unknown.</td>
-                    <td>Market odds are very close, indicating high uncertainty among bettors. Both teams are perceived to be of similar strength currently.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 15:00 UTC</td>
-                    <td>Counter-Strike: Unsettled Resentment vs TYLOO (BO3) - GangKui Cup Playoffs</td>
-                    <td>cs2</td>
-                    <td>39614.5656930001</td>
-                    <td>0.2 (Unsettled Resentment) / 0.8 (TYLOO)</td>
-                    <td>50</td>
-                    <td>80</td>
-                    <td>2</td>
-                    <td>C-tier</td>
-                    <td>Unsettled Resentment: Expected to be struggling or be a significant underdog., TYLOO: Expected to be in good form or have a strong roster.</td>
-                    <td>TYLOO is a strong favorite with high implied odds, suggesting superior recent performance or historical dominance over Unsettled Resentment. Unsettled Resentment faces an uphill battle.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 16:00 UTC</td>
-                    <td>Counter-Strike: Team Nemesis vs Heroic (BO3) - Stake Ranked Episode 1 Playoffs</td>
-                    <td>cs2</td>
-                    <td>55.249410999999995</td>
-                    <td>0.29 (Team Nemesis) / 0.71 (Heroic)</td>
-                    <td>50</td>
-                    <td>71</td>
-                    <td>2</td>
-                    <td>A-tier</td>
-                    <td>Team Nemesis: Expected to be struggling or be a significant underdog., Heroic: Expected to be in good form or have a strong roster.</td>
-                    <td>Heroic is a strong favorite with high implied odds, suggesting superior recent performance or historical dominance over Team Nemesis. Team Nemesis faces an uphill battle.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 16:30 UTC</td>
-                    <td>Counter-Strike: Rare Atom vs Just Swing (BO3) - Yuqilin Pinnacle of Battle Group B</td>
-                    <td>cs2</td>
-                    <td>N/A</td>
-                    <td>0.695 (Rare Atom) / 0.305 (Just Swing)</td>
-                    <td>50</td>
-                    <td>70</td>
-                    <td>3</td>
-                    <td>C-tier</td>
-                    <td>Rare Atom: Expected to be in good form or have a strong roster., Just Swing: Expected to be struggling or be a significant underdog.</td>
-                    <td>Rare Atom is a strong favorite with high implied odds, suggesting superior recent performance or historical dominance over Just Swing. Just Swing faces an uphill battle.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 16:30 UTC</td>
-                    <td>Counter-Strike: AaB Esport vs Infinite (BO3) - United21 Group D</td>
-                    <td>cs2</td>
-                    <td>30.781985000000002</td>
-                    <td>0.61 (AaB Esport) / 0.39 (Infinite)</td>
-                    <td>50</td>
-                    <td>61</td>
-                    <td>3</td>
-                    <td>C-tier</td>
-                    <td>AaB Esport: Expected to be in good form or have a strong roster., Infinite: Expected to be struggling or be a significant underdog.</td>
-                    <td>AaB Esport is a strong favorite with high implied odds, suggesting superior recent performance or historical dominance over Infinite. Infinite faces an uphill battle.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 17:00 UTC</td>
-                    <td>Counter-Strike: WW Team vs ACROBATS (BO3) - PGL Astana: European Closed Qualifier Playoffs</td>
-                    <td>cs2</td>
-                    <td>N/A</td>
-                    <td>0.515 (Over) / 0.485 (Under)</td>
-                    <td>50</td>
-                    <td>50</td>
-                    <td>8</td>
-                    <td>B-tier</td>
-                    <td>Over: Teams tend to play full series., Under: Teams tend to have dominant wins or losses.</td>
-                    <td>Betting on the number of maps played in the series. Close matches favor 'Over', dominant teams favor 'Under'.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 17:00 UTC</td>
-                    <td>Counter-Strike: illwill vs Nuclear TigeRES (BO3) - NODWIN Clutch Series Playoffs</td>
-                    <td>cs2</td>
-                    <td>N/A</td>
-                    <td>0.525 (illwill) / 0.475 (Nuclear TigeRES)</td>
-                    <td>50</td>
-                    <td>50</td>
-                    <td>8</td>
-                    <td>C-tier</td>
-                    <td>illwill: Expected to be strong on Map 1., Nuclear TigeRES: Expected to be weaker on Map 1.</td>
-                    <td>Focus on individual map strength and early game performance.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 19:00 UTC</td>
-                    <td>Counter-Strike: ShindeN vs Bounty Hunters Esports (BO3) - Betboom Circuit X Mayhem São Paulo Group C</td>
-                    <td>cs2</td>
-                    <td>120</td>
-                    <td>0.68 (ShindeN) / 0.32 (Bounty Hunters Esports)</td>
-                    <td>50</td>
-                    <td>68</td>
-                    <td>3</td>
-                    <td>C-tier</td>
-                    <td>ShindeN: Expected to be in good form or have a strong roster., Bounty Hunters Esports: Expected to be struggling or be a significant underdog.</td>
-                    <td>ShindeN is a strong favorite with high implied odds, suggesting superior recent performance or historical dominance over Bounty Hunters Esports. Bounty Hunters Esports faces an uphill battle.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 19:00 UTC</td>
-                    <td>Counter-Strike: Imperial vs Crashers (BO3) - Betboom Circuit X Mayhem São Paulo Group C</td>
-                    <td>cs2</td>
-                    <td>41</td>
-                    <td>0.84 (Imperial) / 0.16 (Crashers)</td>
-                    <td>50</td>
-                    <td>84</td>
-                    <td>2</td>
-                    <td>C-tier</td>
-                    <td>Imperial: Expected to be in good form or have a strong roster., Crashers: Expected to be struggling or be a significant underdog.</td>
-                    <td>Imperial is a strong favorite with high implied odds, suggesting superior recent performance or historical dominance over Crashers. Crashers faces an uphill battle.</td>
-                    <td>No consensus yet.</td>
-                </tr>
-                <tr>
-                    <td>Apr 02 20:00 UTC</td>
-                    <td>Counter-Strike: AaB Esport vs Basement Bobs (BO3) - European Pro League Series 6 Group B</td>
-                    <td>cs2</td>
-                    <td>250.43999599999998</td>
-                    <td>0.65 (AaB Esport) / 0.35 (Basement Bobs)</td>
-                    <td>50</td>
-                    <td>65</td>
-                    <td>3</td>
-                    <td>C-tier</td>
-                    <td>AaB Esport: Expected to be in good form or have a strong roster., Basement Bobs: Expected to be struggling or be a significant underdog.</td>
-                    <td>AaB Esport is a strong favorite with high implied odds, suggesting superior recent performance or historical dominance over Basement Bobs. Basement Bobs faces an uphill battle.</td>
-                    <td>No consensus yet.</td>
-                </tr>
+                
+<tr>
+    <td>Apr 02 16:00 UTC</td>
+    <td>Counter-Strike: Team Nemesis vs Heroic (BO3) - Stake Ranked Episode 1 Playoffs</td>
+    <td>cs2</td>
+    <td>11494.12</td>
+    <td>Nemesis: 27.5%, Heroic: 72.5%</td>
+    <td>50 (Neutral)</td>
+    <td>Heroic: 60</td>
+    <td>2 (Low)</td>
+    <td>Heroic (A-Tier Tournament): #29 in world, 57% win rate, but on 1-loss streak. Recently lost 1-2 to FURIA, FUT, MOUZ, and 0-2 to G2 in ESL Pro League S23. Still a strong team despite recent dips.. Team Nemesis: #44 globally, 66% win rate last month, 75% in the last month with a 3-match winning streak, solid Nuke performance. Qualified for Stake Ranked Episode 1, but lost 0-2 to G2..</td>
+    <td>Heroic Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 16:30 UTC</td>
+    <td>Counter-Strike: AaB Esport vs Infinite (BO3) - United21 Group D</td>
+    <td>cs2</td>
+    <td>132.81</td>
+    <td>AaB Esport: 54.0%, Infinite: 46.0%</td>
+    <td>50 (Neutral)</td>
+    <td>AaB Esport: 55</td>
+    <td>1 (Low)</td>
+    <td>AaB Esport (C-Tier Tournament): #104 globally, 67% win rate last 30 days, strong recent form, Train specialist.. Infinite: #262 globally, 59% win rate last month, but 75% win rate in recent month. Ancient powerhouse, but overall inconsistent. AaB has a prior 1-0 win against Infinite (Jan 16, 2026)..</td>
+    <td>AaB Esport Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 16:30 UTC</td>
+    <td>Counter-Strike: Rare Atom vs Just Swing (BO3) - Yuqilin Pinnacle of Battle Group B</td>
+    <td>cs2</td>
+    <td>35.16</td>
+    <td>Rare Atom: 78.5%, Just Swing: 21.5%</td>
+    <td>50 (Neutral)</td>
+    <td>Rare Atom: 85</td>
+    <td>6 (Medium)</td>
+    <td>Rare Atom (C-Tier Tournament): #49 globally, 53% win rate last month, 68% last year. Strong historically. However, past match-fixing allegations against a former player ("Somebody") add controversy.. Just Swing: #18386 in global popularity, 0% win rate last month, 20% in last 5/10 matches. Very poor historical performance and head-to-head record (lost 0-2 to Rare Atom on Dec 27, 2025)..</td>
+    <td>Rare Atom Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 17:00 UTC</td>
+    <td>Counter-Strike: ALGO Esports vs Bebop (BO3) - CCT Europe Series #20 Group Stage</td>
+    <td>cs2</td>
+    <td>59.66</td>
+    <td>ALGO Esports: 52.5%, Bebop: 47.5%</td>
+    <td>50 (Neutral)</td>
+    <td>ALGO Esports: 50</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) Both teams have similar odds, suggesting a balanced matchup. No significant recent news found to indicate a strong favoritism for either side.</td>
+    <td>ALGO Esports Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 17:00 UTC</td>
+    <td>Map Handicap: Lavked (-1.5) vs ESC Gaming (+1.5) - CCT Europe Series #19 Playoffs</td>
+    <td>cs2</td>
+    <td>34.80</td>
+    <td>Lavked: 50.5%, ESC Gaming: 49.5%</td>
+    <td>50 (Neutral)</td>
+    <td>Lavked: 50</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) Very tight odds on the map handicap, indicating an expected close series. No strong recent performance data to distinguish.</td>
+    <td>Lavked (-1.5)</td>
+</tr>
+
+<tr>
+    <td>Apr 02 17:00 UTC</td>
+    <td>Games Total: O/U 2.5 - WW Team vs ACROBATS (BO3) - PGL Astana: European Closed Qualifier Playoffs</td>
+    <td>cs2</td>
+    <td>621.79</td>
+    <td>Over: 67.0%, Under: 33.0%</td>
+    <td>50 (Neutral)</td>
+    <td>Over: 60</td>
+    <td>2 (Low)</td>
+    <td>(B-Tier Tournament) Odds heavily favor "Over 2.5 maps," suggesting that a three-map series is expected. This implies both teams are competitive enough to take a map from each other.</td>
+    <td>Over</td>
+</tr>
+
+<tr>
+    <td>Apr 02 17:00 UTC</td>
+    <td>Counter-Strike: illwill vs Nuclear TigeRES - Map 1 Winner - NODWIN Clutch Series Playoffs</td>
+    <td>cs2</td>
+    <td>511.44</td>
+    <td>illwill: 34.0%, Nuclear TigeRES: 66.0%</td>
+    <td>50 (Neutral)</td>
+    <td>Nuclear TigeRES: 65</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) Nuclear TigeRES are favored to win Map 1, indicating they typically start strong or have a strong map pool advantage.</td>
+    <td>Nuclear TigeRES Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 18:30 UTC</td>
+    <td>Counter-Strike: 9INE vs Gentle Mates (BO3) - Stake Ranked Episode 1 Playoffs</td>
+    <td>cs2</td>
+    <td>1028.88</td>
+    <td>9INE: 34.5%, Gentle Mates: 65.5%</td>
+    <td>50 (Neutral)</td>
+    <td>Gentle Mates: 65</td>
+    <td>2 (Low)</td>
+    <td>(A-Tier Tournament) Gentle Mates are the favorites. Both teams qualified for the A-Tier event. Gentle Mates ranked #26 globally, 9INE ranked #47..</td>
+    <td>Gentle Mates Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 19:00 UTC</td>
+    <td>Counter-Strike: M80 vs Alliance (BO3) - DraculaN Playoffs</td>
+    <td>cs2</td>
+    <td>1789.21</td>
+    <td>M80: 42.5%, Alliance: 57.5%</td>
+    <td>50 (Neutral)</td>
+    <td>Alliance: 55</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) Alliance is favored. M80 is a known North American team (#45 in US). Alliance also has a presence in B-Tier tournaments.</td>
+    <td>Alliance Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 19:00 UTC</td>
+    <td>Counter-Strike: Last Bullet vs The QUBE Esports (BO3) - ESL Challenger League Asia Cup #3 Playoffs</td>
+    <td>cs2</td>
+    <td>0.00</td>
+    <td>Last Bullet: 29.0%, The QUBE Esports: 71.0%</td>
+    <td>50 (Neutral)</td>
+    <td>The QUBE Esports: 70</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) The QUBE Esports is a strong favorite with significantly higher implied odds.</td>
+    <td>The QUBE Esports Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 19:00 UTC</td>
+    <td>Counter-Strike: ShindeN vs Bounty Hunters Esports (BO3) - Betboom Circuit X Mayhem São Paulo Group C</td>
+    <td>cs2</td>
+    <td>283.34</td>
+    <td>ShindeN: 68.5%, Bounty Hunters Esports: 31.5%</td>
+    <td>50 (Neutral)</td>
+    <td>ShindeN: 65</td>
+    <td>1 (Low)</td>
+    <td>(C-Tier Tournament) ShindeN is the clear favorite in this matchup.</td>
+    <td>ShindeN Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 19:00 UTC</td>
+    <td>Counter-Strike: Boring Players vs BMZ (BO3) - ESL Challenger League Asia Cup #3 Playoffs</td>
+    <td>cs2</td>
+    <td>0.00</td>
+    <td>Boring Players: 29.0%, BMZ: 71.0%</td>
+    <td>50 (Neutral)</td>
+    <td>BMZ: 70</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) BMZ is a strong favorite with high implied odds.</td>
+    <td>BMZ Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 20:00 UTC</td>
+    <td>Counter-Strike: Keyd vs Game Hunters (BO3) - PGL Astana: South American Closed Qualifier Playoffs</td>
+    <td>cs2</td>
+    <td>0.00</td>
+    <td>Keyd: 52.0%, Game Hunters: 48.0%</td>
+    <td>50 (Neutral)</td>
+    <td>Keyd: 50</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) Very close odds, indicating an evenly matched contest.</td>
+    <td>Keyd Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 20:00 UTC</td>
+    <td>Counter-Strike: AaB Esport vs Basement Bobs (BO3) - European Pro League Series 6 Group B</td>
+    <td>cs2</td>
+    <td>4464.89</td>
+    <td>AaB Esport: 68.5%, Basement Bobs: 31.5%</td>
+    <td>50 (Neutral)</td>
+    <td>AaB Esport: 70</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) AaB Esport is a strong favorite with good recent form.</td>
+    <td>AaB Esport Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 20:00 UTC</td>
+    <td>Counter-Strike: ASTRAL vs megoshort (BO3) - CCT Europe Series #20 Group Stage</td>
+    <td>cs2</td>
+    <td>267.63</td>
+    <td>ASTRAL: 61.5%, megoshort: 38.5%</td>
+    <td>50 (Neutral)</td>
+    <td>ASTRAL: 60</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) ASTRAL is favored to win.</td>
+    <td>ASTRAL Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 21:00 UTC</td>
+    <td>Map Handicap: G2 (-1.5) vs BetBoom Team (+1.5) - Stake Ranked Episode 1 Playoffs</td>
+    <td>cs2</td>
+    <td>17726.47</td>
+    <td>G2: 36.5%, BetBoom Team: 63.5%</td>
+    <td>50 (Neutral)</td>
+    <td>BetBoom Team (+1.5): 65</td>
+    <td>2 (Low)</td>
+    <td>(A-Tier Tournament) G2 is a top team (#12 globally), but their recent form has been shaky, including a 0-2 loss to Nemesis. BetBoom Team (#28 globally) is favored on the +1.5 map handicap, suggesting they are expected to take at least one map..</td>
+    <td>BetBoom Team (+1.5)</td>
+</tr>
+
+<tr>
+    <td>Apr 02 21:00 UTC</td>
+    <td>Counter-Strike: TDK vs eternal premium (BO3) - CIS LAN Championship Group D</td>
+    <td>cs2</td>
+    <td>44.64</td>
+    <td>TDK: 80.0%, eternal premium: 20.0%</td>
+    <td>50 (Neutral)</td>
+    <td>TDK: 80</td>
+    <td>1 (Low)</td>
+    <td>(C-Tier Tournament) TDK is a heavy favorite with very high implied odds.</td>
+    <td>TDK Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 21:00 UTC</td>
+    <td>Counter-Strike: SPARTA vs CYBERSHOKE Prospects (BO3) - CIS LAN Championship Group D</td>
+    <td>cs2</td>
+    <td>215.71</td>
+    <td>SPARTA: 84.0%, CYBERSHOKE Prospects: 16.0%</td>
+    <td>50 (Neutral)</td>
+    <td>SPARTA: 85</td>
+    <td>1 (Low)</td>
+    <td>(C-Tier Tournament) SPARTA is an overwhelming favorite.</td>
+    <td>SPARTA Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 23:00 UTC</td>
+    <td>Counter-Strike: BESTIA Academy vs ALKA (BO3) - BetBoom Storm Group Stage</td>
+    <td>cs2</td>
+    <td>0.00</td>
+    <td>BESTIA Academy: 48.0%, ALKA: 52.0%</td>
+    <td>50 (Neutral)</td>
+    <td>ALKA: 50</td>
+    <td>1 (Low)</td>
+    <td>(C-Tier Tournament) Very close odds, indicating an evenly matched contest.</td>
+    <td>ALKA Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 23:00 UTC</td>
+    <td>Counter-Strike: TNT vs Ursa (BO3) - ESL Challenger League Europe Cup #3 Playoffs</td>
+    <td>cs2</td>
+    <td>0.00</td>
+    <td>TNT: 31.0%, Ursa: 69.0%</td>
+    <td>50 (Neutral)</td>
+    <td>Ursa: 70</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) Ursa is a strong favorite.</td>
+    <td>Ursa Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 23:00 UTC</td>
+    <td>Map Handicap: TLR (-1.5) vs Donstu Esports (+1.5) - ESL Challenger League Europe Cup #3 Playoffs</td>
+    <td>cs2</td>
+    <td>0.00</td>
+    <td>The Last Resort: 50.0%, Donstu Esports: 50.0%</td>
+    <td>50 (Neutral)</td>
+    <td>Draw: 50</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) Even odds on the map handicap, indicating a very balanced matchup.</td>
+    <td>The Last Resort (-1.5)</td>
+</tr>
+
+<tr>
+    <td>Apr 02 23:00 UTC</td>
+    <td>Map Handicap: RUST (-1.5) vs ex-Zero Tenacity (+1.5) - ESL Challenger League Europe Cup #3 Playoffs</td>
+    <td>cs2</td>
+    <td>0.00</td>
+    <td>RUSTEC: 50.0%, ex-Zero Tenacity: 50.0%</td>
+    <td>50 (Neutral)</td>
+    <td>Draw: 50</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) Even odds on the map handicap, indicating a very balanced matchup.</td>
+    <td>RUSTEC (-1.5)</td>
+</tr>
+
+<tr>
+    <td>Apr 02 23:00 UTC</td>
+    <td>Counter-Strike: Team Nemesis vs Rebels Gaming - Map 1 Winner - CCT Europe Series #19 Playoffs</td>
+    <td>cs2</td>
+    <td>0.00</td>
+    <td>Team Nemesis: 50.0%, Rebels Gaming: 50.0%</td>
+    <td>50 (Neutral)</td>
+    <td>Draw: 50</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) Even odds for Map 1 winner, suggesting a highly contested first map.</td>
+    <td>Team Nemesis Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 23:00 UTC</td>
+    <td>Counter-Strike: Fake do Biru vs largadosypelados (BO3) - PGL Astana: South American Closed Qualifier Playoffs</td>
+    <td>cs2</td>
+    <td>0.00</td>
+    <td>Fake do Biru: 50.5%, largadosypelados: 49.5%</td>
+    <td>50 (Neutral)</td>
+    <td>Fake do Biru: 50</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) Extremely close odds, almost a coin toss.</td>
+    <td>Fake do Biru Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 23:00 UTC</td>
+    <td>Counter-Strike: CSDIILIT vs QUAZAR (BO3) - ESL Challenger League Europe Cup #3 Playoffs</td>
+    <td>cs2</td>
+    <td>42.90</td>
+    <td>CSDIILIT: 45.0%, QUAZAR: 55.0%</td>
+    <td>50 (Neutral)</td>
+    <td>QUAZAR: 55</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) QUAZAR is slightly favored.</td>
+    <td>QUAZAR Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 23:00 UTC</td>
+    <td>Counter-Strike: Lavked vs G2 Ares - Map 2 Winner - ESL Challenger League Europe Cup #3 Playoffs</td>
+    <td>cs2</td>
+    <td>0.00</td>
+    <td>Lavked: 50.0%, G2 Ares: 50.0%</td>
+    <td>50 (Neutral)</td>
+    <td>Draw: 50</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) Even odds for Map 2 winner, suggesting a balanced matchup.</td>
+    <td>Lavked Win</td>
+</tr>
+
+<tr>
+    <td>Apr 02 23:30 UTC</td>
+    <td>Map Handicap: GL (-1.5) vs NIP (+1.5) - Stake Ranked Episode 1 Playoffs</td>
+    <td>cs2</td>
+    <td>12321.48</td>
+    <td>GamerLegion: 29.5%, NIP: 70.5%</td>
+    <td>50 (Neutral)</td>
+    <td>NIP (+1.5): 70</td>
+    <td>2 (Low)</td>
+    <td>(A-Tier Tournament) NIP (#24 globally) is favored on the +1.5 map handicap against GamerLegion (#22 globally). This implies NIP is expected to take at least one map, or even win, despite being the underdog in a straight win bet..</td>
+    <td>NIP (+1.5)</td>
+</tr>
+
+<tr>
+    <td>Apr 03 02:00 UTC</td>
+    <td>Counter-Strike: Players vs Vasco Esports (BO3) - BetBoom Storm Group Stage</td>
+    <td>cs2</td>
+    <td>0.00</td>
+    <td>Players: 45.0%, Vasco Esports: 55.0%</td>
+    <td>50 (Neutral)</td>
+    <td>Vasco Esports: 55</td>
+    <td>1 (Low)</td>
+    <td>(C-Tier Tournament) Vasco Esports is slightly favored.</td>
+    <td>Vasco Esports Win</td>
+</tr>
+
+<tr>
+    <td>Apr 03 02:00 UTC</td>
+    <td>Counter-Strike: ODDIK vs Game Hunters - Map 2 Winner - Betboom Circuit X Mayhem São Paulo Group D</td>
+    <td>cs2</td>
+    <td>23.29</td>
+    <td>ODDIK: 51.5%, Game Hunters: 48.5%</td>
+    <td>50 (Neutral)</td>
+    <td>ODDIK: 50</td>
+    <td>1 (Low)</td>
+    <td>(C-Tier Tournament) Very close odds for Map 2 winner.</td>
+    <td>ODDIK Win</td>
+</tr>
+
+<tr>
+    <td>Apr 03 02:00 UTC</td>
+    <td>Counter-Strike: 9z vs ODDIK (BO3) - PGL Astana: South American Closed Qualifier Playoffs</td>
+    <td>cs2</td>
+    <td>5.19</td>
+    <td>9z: 69.5%, ODDIK: 30.5%</td>
+    <td>50 (Neutral)</td>
+    <td>9z: 70</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) 9z is a strong favorite with high implied odds.</td>
+    <td>9z Win</td>
+</tr>
+
+<tr>
+    <td>Apr 03 02:00 UTC</td>
+    <td>Games Total: O/U 2.5 - Gaimin Gladiators vs Yawara Esports (BO3) - Betboom Circuit X Mayhem São Paulo Group D</td>
+    <td>cs2</td>
+    <td>18.53</td>
+    <td>Over: 51.0%, Under: 49.0%</td>
+    <td>50 (Neutral)</td>
+    <td>Over: 50</td>
+    <td>1 (Low)</td>
+    <td>(C-Tier Tournament) Slightly favors Over 2.5 maps, suggesting a potentially close series.</td>
+    <td>Over</td>
+</tr>
+
+<tr>
+    <td>Apr 03 03:00 UTC</td>
+    <td>Counter-Strike: MAGICOS vs largadosypelados (BO3) - ESL Challenger League South America Cup #3 Playoffs</td>
+    <td>cs2</td>
+    <td>247.16</td>
+    <td>MAGICOS: 23.0%, largadosypelados: 77.0%</td>
+    <td>50 (Neutral)</td>
+    <td>largadosypelados: 75</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) largadosypelados is a strong favorite.</td>
+    <td>largadosypelados Win</td>
+</tr>
+
+<tr>
+    <td>Apr 03 03:00 UTC</td>
+    <td>Counter-Strike: desempleHADAS vs Crashers (BO3) - ESL Challenger League South America Cup #3 Playoffs</td>
+    <td>cs2</td>
+    <td>104.52</td>
+    <td>desempleHADAS: 11.5%, Crashers: 88.5%</td>
+    <td>50 (Neutral)</td>
+    <td>Crashers: 90</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) Crashers is an overwhelming favorite with very high implied odds.</td>
+    <td>Crashers Win</td>
+</tr>
+
+<tr>
+    <td>Apr 03 03:00 UTC</td>
+    <td>Counter-Strike: Blitzkrieg vs UNO MILLE (BO3) - ESL Challenger League South America Cup #3 Playoffs</td>
+    <td>cs2</td>
+    <td>0.00</td>
+    <td>Blitzkrieg: 52.0%, UNO MILLE: 48.0%</td>
+    <td>50 (Neutral)</td>
+    <td>Blitzkrieg: 50</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) Very close odds, indicating an evenly matched contest.</td>
+    <td>Blitzkrieg Win</td>
+</tr>
+
+<tr>
+    <td>Apr 03 03:00 UTC</td>
+    <td>Counter-Strike: Keyd vs BESTIA Academy (BO3) - ESL Challenger League South America Cup #3 Playoffs</td>
+    <td>cs2</td>
+    <td>957.55</td>
+    <td>Keyd: 67.5%, BESTIA Academy: 32.5%</td>
+    <td>50 (Neutral)</td>
+    <td>Keyd: 65</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) Keyd is a strong favorite.</td>
+    <td>Keyd Win</td>
+</tr>
+
+<tr>
+    <td>Apr 03 03:00 UTC</td>
+    <td>Counter-Strike: paiN Academy vs FOLHA AMARELA (BO3) - ESL Challenger League South America Cup #3 Playoffs</td>
+    <td>cs2</td>
+    <td>46658.69</td>
+    <td>paiN Academy: 50.5%, FOLHA AMARELA: 49.5%</td>
+    <td>50 (Neutral)</td>
+    <td>paiN Academy: 50</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) Extremely close odds, almost a coin toss.</td>
+    <td>paiN Academy Win</td>
+</tr>
+
+<tr>
+    <td>Apr 03 03:00 UTC</td>
+    <td>Counter-Strike: Game Hunters vs R2 Esports Club (BO3) - ESL Challenger League South America Cup #3 Playoffs</td>
+    <td>cs2</td>
+    <td>10671.86</td>
+    <td>Game Hunters: 57.0%, R2 Esports Club: 43.0%</td>
+    <td>50 (Neutral)</td>
+    <td>Game Hunters: 55</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) Game Hunters is slightly favored.</td>
+    <td>Game Hunters Win</td>
+</tr>
+
+<tr>
+    <td>Apr 03 03:00 UTC</td>
+    <td>Counter-Strike: Fake do Biru vs HereWeGoAgain (BO3) - ESL Challenger League South America Cup #3 Playoffs</td>
+    <td>cs2</td>
+    <td>11568.76</td>
+    <td>Fake do Biru: 76.5%, HereWeGoAgain: 23.5%</td>
+    <td>50 (Neutral)</td>
+    <td>Fake do Biru: 75</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) Fake do Biru is a strong favorite.</td>
+    <td>Fake do Biru Win</td>
+</tr>
+
+<tr>
+    <td>Apr 03 03:00 UTC</td>
+    <td>Map Handicap: SHIN (-1.5) vs Charrados FC (+1.5) - ESL Challenger League South America Cup #3 Playoffs</td>
+    <td>cs2</td>
+    <td>239.73</td>
+    <td>ShindeN: 51.5%, Charrados FC: 48.5%</td>
+    <td>50 (Neutral)</td>
+    <td>ShindeN: 50</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) Very close odds on the map handicap.</td>
+    <td>ShindeN (-1.5)</td>
+</tr>
+
+<tr>
+    <td>Apr 03 05:00 UTC</td>
+    <td>Counter-Strike: paiN Academy vs MAGICOS (BO3) - BetBoom Storm Group Stage</td>
+    <td>cs2</td>
+    <td>0.00</td>
+    <td>paiN Academy: 73.5%, MAGICOS: 26.5%</td>
+    <td>50 (Neutral)</td>
+    <td>paiN Academy: 70</td>
+    <td>1 (Low)</td>
+    <td>(C-Tier Tournament) paiN Academy is a strong favorite.</td>
+    <td>paiN Academy Win</td>
+</tr>
+
+<tr>
+    <td>Apr 03 07:00 UTC</td>
+    <td>Counter-Strike: LAG Gaming vs Club 333 (BO3) - ESL Challenger League North America Cup #3 Playoffs</td>
+    <td>cs2</td>
+    <td>0.00</td>
+    <td>LAG Gaming: 73.5%, Club 333: 26.5%</td>
+    <td>50 (Neutral)</td>
+    <td>LAG Gaming: 70</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) LAG Gaming is a strong favorite, ranked #91 in US CS2 teams.</td>
+    <td>LAG Gaming Win</td>
+</tr>
+
+<tr>
+    <td>Apr 03 07:00 UTC</td>
+    <td>Counter-Strike: F5 Esports vs FarmVille (BO3) - ESL Challenger League North America Cup #3 Playoffs</td>
+    <td>cs2</td>
+    <td>0.00</td>
+    <td>F5 Esports: 26.0%, FarmVille: 74.0%</td>
+    <td>50 (Neutral)</td>
+    <td>FarmVille: 70</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) FarmVille is a strong favorite.</td>
+    <td>FarmVille Win</td>
+</tr>
+
+<tr>
+    <td>Apr 03 07:00 UTC</td>
+    <td>Counter-Strike: Reign Above vs ex-SportsBetExpert (BO3) - ESL Challenger League North America Cup #3 Playoffs</td>
+    <td>cs2</td>
+    <td>0.00</td>
+    <td>Reign Above: 52.0%, ex-SportsBetExpert: 48.0%</td>
+    <td>50 (Neutral)</td>
+    <td>Reign Above: 50</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) Very close odds, evenly matched.</td>
+    <td>Reign Above Win</td>
+</tr>
+
+<tr>
+    <td>Apr 03 07:00 UTC</td>
+    <td>Counter-Strike: regain vs FlyQuest RED (BO3) - ESL Challenger League North America Cup #3 Playoffs</td>
+    <td>cs2</td>
+    <td>5.60</td>
+    <td>regain: 86.0%, FlyQuest RED: 14.0%</td>
+    <td>50 (Neutral)</td>
+    <td>regain: 85</td>
+    <td>1 (Low)</td>
+    <td>(B-Tier Tournament) regain is an overwhelming favorite, ranked #116 in US CS2 teams vs #190 for FlyQuest RED.</td>
+    <td>regain Win</td>
+</tr>
+
+<tr>
+    <td>Apr 03 12:00 UTC</td>
+    <td>Counter-Strike: BET-M 33 vs Void Sentinels (BO3) - CIS LAN Championship Group B</td>
+    <td>cs2</td>
+    <td>16.88</td>
+    <td>BET-M 33: 73.0%, Void Sentinels: 27.0%</td>
+    <td>50 (Neutral)</td>
+    <td>BET-M 33: 70</td>
+    <td>1 (Low)</td>
+    <td>(C-Tier Tournament) BET-M 33 is a strong favorite.</td>
+    <td>BET-M 33 Win</td>
+</tr>
+
+<tr>
+    <td>Apr 03 12:00 UTC</td>
+    <td>Counter-Strike: Nemiga vs 5Actors (BO3) - CIS LAN Championship Group B</td>
+    <td>cs2</td>
+    <td>4173.64</td>
+    <td>Nemiga: 72.0%, 5Actors: 28.0%</td>
+    <td>50 (Neutral)</td>
+    <td>Nemiga: 70</td>
+    <td>1 (Low)</td>
+    <td>(C-Tier Tournament) Nemiga is a strong favorite.</td>
+    <td>Nemiga Win</td>
+</tr>
+
+<tr>
+    <td>Apr 03 21:00 UTC</td>
+    <td>Counter-Strike: ARCRED vs Younglings (BO3) - CIS LAN Championship Group C</td>
+    <td>cs2</td>
+    <td>32.40</td>
+    <td>ARCRED: 78.5%, Younglings: 21.5%</td>
+    <td>50 (Neutral)</td>
+    <td>ARCRED: 75</td>
+    <td>1 (Low)</td>
+    <td>(C-Tier Tournament) ARCRED is a strong favorite.</td>
+    <td>ARCRED Win</td>
+</tr>
+
+<tr>
+    <td>Apr 03 21:00 UTC</td>
+    <td>Counter-Strike: HOTU vs WW Team (BO3) - CIS LAN Championship Group C</td>
+    <td>cs2</td>
+    <td>45.88</td>
+    <td>HOTU: 55.5%, WW Team: 44.5%</td>
+    <td>50 (Neutral)</td>
+    <td>HOTU: 55</td>
+    <td>1 (Low)</td>
+    <td>(C-Tier Tournament) HOTU is slightly favored.</td>
+    <td>HOTU Win</td>
+</tr>
+
             </tbody>
         </table>
+    </div>
 
-        <h2>Section 3: The Roundtable Discussion (Simulated)</h2>
-        <h4>Debate on: Counter-Strike: Players vs Crashers (BO3) - BetBoom Storm Group Stage (Tier: C-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this C-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> This C-tier tournament is ripe for upsets! Crashers is a great long shot at 50.0% implied odds, I'm going for the high risk, high reward.</p>
-<p><span class='persona-name'>Value:</span> I don't see sufficient mispriced odds to justify a bet in this market.</p>
-<p><span class='persona-name'>Trend:</span> The market doesn't show a clear strong uptrend or favorable conditions for momentum betting. Passing.</p>
-<p><span class='persona-name'>Skeptic:</span> In this C-tier event, public money often backs the favorite unwisely. I'm fading the crowd and backing the Crashers (50.0%).</p>
-<p><span class='persona-name'>Quant:</span> The data doesn't provide a significant statistical edge, or the adjusted Kelly allocation is too low to meet minimum bet requirements. Passing.</p>
-<p><span class='persona-name'>Insider:</span> No actionable intel or significant leaks for this market at the moment. Passing.</p>
-<p><span class='persona-name'>Macro:</span> The tournament stakes or perceived motivation are not strong enough to warrant a bet from my perspective. Passing.</p>
-<p class='chairman-decision'>The Chairman: There's a split in recommendations. I will cast the deciding vote for Players due to its status as the favored outcome by the market.</p>
-<h4>Debate on: Counter-Strike: ALKA vs Alzon (BO3) - Gamers Club Liga Série A Playoffs (Tier: C-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this C-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this C-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> I've found a mispriced underdog in this C-tier event. ALKA (45.5%) has higher true probability than market implies, offering strong value.</p>
-<p><span class='persona-name'>Trend:</span> The market doesn't show a clear strong uptrend or favorable conditions for momentum betting. Passing.</p>
-<p><span class='persona-name'>Skeptic:</span> In this C-tier event, public money often backs the favorite unwisely. I'm fading the crowd and backing the ALKA (45.5%).</p>
-<p><span class='persona-name'>Quant:</span> The data doesn't provide a significant statistical edge, or the adjusted Kelly allocation is too low to meet minimum bet requirements. Passing.</p>
-<p><span class='persona-name'>Insider:</span> No actionable intel or significant leaks for this market at the moment. Passing.</p>
-<p><span class='persona-name'>Macro:</span> The tournament stakes or perceived motivation are not strong enough to warrant a bet from my perspective. Passing.</p>
-<p class='chairman-decision'>The Chairman: There's a split in recommendations. I will cast the deciding vote for Alzon due to its status as the favored outcome by the market.</p>
-<h4>Debate on: Counter-Strike: Keyd vs ODDIK (BO3) - PGL Astana: South American Closed Qualifier Playoffs (Tier: B-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this B-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this B-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> In this B-tier event, I'm backing the implied favorite Keyd (52.0%). The odds seem reasonable for a solid value play.</p>
-<p><span class='persona-name'>Trend:</span> The market doesn't show a clear strong uptrend or favorable conditions for momentum betting. Passing.</p>
-<p><span class='persona-name'>Skeptic:</span> In higher tier events, the crowd is less 'dumb money.' No contrarian play for me here.</p>
-<p><span class='persona-name'>Quant:</span> Based on the data, Keyd (52.0%) is the statistical favorite. In this B-tier tournament, I've adjusted my Kelly allocation downwards by 75% due to the inherent volatility.</p>
-<p><span class='persona-name'>Insider:</span> No actionable intel or significant leaks for this market at the moment. Passing.</p>
-<p><span class='persona-name'>Macro:</span> This B-tier tournament has moderate stakes. I expect Keyd (52.0%) to be motivated enough to perform as expected.</p>
-<p class='chairman-decision'>The Chairman: The committee has reached a consensus on Keyd. We will proceed with this recommendation.</p>
-<h4>Debate on: Counter-Strike: R2 Esports Club vs Vasco Esports (BO3) - BetBoom Storm Group Stage (Tier: C-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this C-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this C-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> While a C-tier event, R2 Esports Club (63.0%) still holds some value, though I'm cautious and have adjusted my edge expectations.</p>
-<p><span class='persona-name'>Trend:</span> The positive market sentiment for R2 Esports Club (63.0%) suggests an uptrend. In this C-tier environment, my allocation is reduced due to high variance.</p>
-<p><span class='persona-name'>Skeptic:</span> In this C-tier event, public money often backs the favorite unwisely. I'm fading the crowd and backing the Vasco Esports (37.0%).</p>
-<p><span class='persona-name'>Quant:</span> Based on the data, R2 Esports Club (63.0%) is the statistical favorite. In this C-tier tournament, I've adjusted my Kelly allocation downwards by 75% due to the inherent volatility.</p>
-<p><span class='persona-name'>Insider:</span> My sources suggest R2 Esports Club has positive internal developments. This intel is more impactful in this C-tier event, strengthening my belief in their 63.0% odds.</p>
-<p><span class='persona-name'>Macro:</span> In this C-tier event, motivation for R2 Esports Club (63.0%) might not be at its highest, leading to more variance. My allocation reflects this caution.</p>
-<p class='chairman-decision'>The Chairman: The committee has reached a consensus on R2 Esports Club. We will proceed with this recommendation.</p>
-<h4>Debate on: Counter-Strike: RED Canids vs METANOIA WOLVES (BO3) - Betboom Circuit X Mayhem São Paulo Group B (Tier: C-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this C-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this C-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> While a C-tier event, RED Canids (87.0%) still holds some value, though I'm cautious and have adjusted my edge expectations.</p>
-<p><span class='persona-name'>Trend:</span> The positive market sentiment for RED Canids (87.0%) suggests an uptrend. In this C-tier environment, my allocation is reduced due to high variance.</p>
-<p><span class='persona-name'>Skeptic:</span> In this C-tier event, public money often backs the favorite unwisely. I'm fading the crowd and backing the METANOIA WOLVES (13.0%).</p>
-<p><span class='persona-name'>Quant:</span> Based on the data, RED Canids (87.0%) is the statistical favorite. In this C-tier tournament, I've adjusted my Kelly allocation downwards by 75% due to the inherent volatility.</p>
-<p><span class='persona-name'>Insider:</span> My sources suggest RED Canids has positive internal developments. This intel is more impactful in this C-tier event, strengthening my belief in their 87.0% odds.</p>
-<p><span class='persona-name'>Macro:</span> In this C-tier event, motivation for RED Canids (87.0%) might not be at its highest, leading to more variance. My allocation reflects this caution.</p>
-<p class='chairman-decision'>The Chairman: The committee has reached a consensus on RED Canids. We will proceed with this recommendation.</p>
-<h4>Debate on: Counter-Strike: Fluxo W7M vs DashSkins (BO3) - Betboom Circuit X Mayhem São Paulo Group B (Tier: C-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this C-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this C-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> While a C-tier event, Fluxo W7M (60.5%) still holds some value, though I'm cautious and have adjusted my edge expectations.</p>
-<p><span class='persona-name'>Trend:</span> The positive market sentiment for Fluxo W7M (60.5%) suggests an uptrend. In this C-tier environment, my allocation is reduced due to high variance.</p>
-<p><span class='persona-name'>Skeptic:</span> In this C-tier event, public money often backs the favorite unwisely. I'm fading the crowd and backing the DashSkins (39.5%).</p>
-<p><span class='persona-name'>Quant:</span> Based on the data, Fluxo W7M (60.5%) is the statistical favorite. In this C-tier tournament, I've adjusted my Kelly allocation downwards by 75% due to the inherent volatility.</p>
-<p><span class='persona-name'>Insider:</span> My sources suggest Fluxo W7M has positive internal developments. This intel is more impactful in this C-tier event, strengthening my belief in their 60.5% odds.</p>
-<p><span class='persona-name'>Macro:</span> In this C-tier event, motivation for Fluxo W7M (60.5%) might not be at its highest, leading to more variance. My allocation reflects this caution.</p>
-<p class='chairman-decision'>The Chairman: The committee has reached a consensus on Fluxo W7M. We will proceed with this recommendation.</p>
-<h4>Debate on: Counter-Strike: Charrados FC vs ALKA (BO3) - BetBoom Storm Group Stage (Tier: C-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this C-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this C-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> I don't see sufficient mispriced odds to justify a bet in this market.</p>
-<p><span class='persona-name'>Trend:</span> The market doesn't show a clear strong uptrend or favorable conditions for momentum betting. Passing.</p>
-<p><span class='persona-name'>Skeptic:</span> In this C-tier event, public money often backs the favorite unwisely. I'm fading the crowd and backing the ALKA (47.0%).</p>
-<p><span class='persona-name'>Quant:</span> The data doesn't provide a significant statistical edge, or the adjusted Kelly allocation is too low to meet minimum bet requirements. Passing.</p>
-<p><span class='persona-name'>Insider:</span> No actionable intel or significant leaks for this market at the moment. Passing.</p>
-<p><span class='persona-name'>Macro:</span> The tournament stakes or perceived motivation are not strong enough to warrant a bet from my perspective. Passing.</p>
-<p class='chairman-decision'>The Chairman: There's a split in recommendations. I will cast the deciding vote for Charrados FC due to its status as the favored outcome by the market.</p>
-<h4>Debate on: Counter-Strike: MIBR Academy vs BESTIA Academy (BO3) - BetBoom Storm Group Stage (Tier: C-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this C-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this C-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> While a C-tier event, MIBR Academy (65.0%) still holds some value, though I'm cautious and have adjusted my edge expectations.</p>
-<p><span class='persona-name'>Trend:</span> The positive market sentiment for MIBR Academy (65.0%) suggests an uptrend. In this C-tier environment, my allocation is reduced due to high variance.</p>
-<p><span class='persona-name'>Skeptic:</span> In this C-tier event, public money often backs the favorite unwisely. I'm fading the crowd and backing the BESTIA Academy (35.0%).</p>
-<p><span class='persona-name'>Quant:</span> Based on the data, MIBR Academy (65.0%) is the statistical favorite. In this C-tier tournament, I've adjusted my Kelly allocation downwards by 75% due to the inherent volatility.</p>
-<p><span class='persona-name'>Insider:</span> My sources suggest MIBR Academy has positive internal developments. This intel is more impactful in this C-tier event, strengthening my belief in their 65.0% odds.</p>
-<p><span class='persona-name'>Macro:</span> In this C-tier event, motivation for MIBR Academy (65.0%) might not be at its highest, leading to more variance. My allocation reflects this caution.</p>
-<p class='chairman-decision'>The Chairman: The committee has reached a consensus on MIBR Academy. We will proceed with this recommendation.</p>
-<h4>Debate on: Counter-Strike: Zomblers vs regain (BO3) - PGL Astana: North American Closed Qualifier Playoffs (Tier: B-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this B-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this B-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> In this B-tier event, I'm backing the implied favorite Zomblers (56.5%). The odds seem reasonable for a solid value play.</p>
-<p><span class='persona-name'>Trend:</span> The market doesn't show a clear strong uptrend or favorable conditions for momentum betting. Passing.</p>
-<p><span class='persona-name'>Skeptic:</span> In higher tier events, the crowd is less 'dumb money.' No contrarian play for me here.</p>
-<p><span class='persona-name'>Quant:</span> Based on the data, Zomblers (56.5%) is the statistical favorite. In this B-tier tournament, I've adjusted my Kelly allocation downwards by 75% due to the inherent volatility.</p>
-<p><span class='persona-name'>Insider:</span> No actionable intel or significant leaks for this market at the moment. Passing.</p>
-<p><span class='persona-name'>Macro:</span> This B-tier tournament has moderate stakes. I expect Zomblers (56.5%) to be motivated enough to perform as expected.</p>
-<p class='chairman-decision'>The Chairman: The committee has reached a consensus on Zomblers. We will proceed with this recommendation.</p>
-<h4>Debate on: Counter-Strike: Fake do Biru vs 9z (BO3) - PGL Astana: South American Closed Qualifier Playoffs (Tier: B-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this B-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this B-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> In this B-tier event, I'm backing the implied favorite 9z (85.5%). The odds seem reasonable for a solid value play.</p>
-<p><span class='persona-name'>Trend:</span> The positive market sentiment for 9z (85.5%) suggests an uptrend. In this B-tier event, form streaks are more reliable, so I'm backing the momentum.</p>
-<p><span class='persona-name'>Skeptic:</span> In higher tier events, the crowd is less 'dumb money.' No contrarian play for me here.</p>
-<p><span class='persona-name'>Quant:</span> Based on the data, 9z (85.5%) is the statistical favorite. In this B-tier tournament, I've adjusted my Kelly allocation downwards by 75% due to the inherent volatility.</p>
-<p><span class='persona-name'>Insider:</span> My sources suggest 9z has positive internal developments. This intel is more impactful in this B-tier event, strengthening my belief in their 85.5% odds.</p>
-<p><span class='persona-name'>Macro:</span> This B-tier tournament has moderate stakes. I expect 9z (85.5%) to be motivated enough to perform as expected.</p>
-<p class='chairman-decision'>The Chairman: The committee has reached a consensus on 9z. We will proceed with this recommendation.</p>
-<h4>Debate on: Counter-Strike: LAG Gaming vs EMPIRE (BO3) - Dust2.us Eagle Masters Group Stage (Tier: C-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this C-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this C-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> While a C-tier event, LAG Gaming (82.0%) still holds some value, though I'm cautious and have adjusted my edge expectations.</p>
-<p><span class='persona-name'>Trend:</span> The positive market sentiment for LAG Gaming (82.0%) suggests an uptrend. In this C-tier environment, my allocation is reduced due to high variance.</p>
-<p><span class='persona-name'>Skeptic:</span> In this C-tier event, public money often backs the favorite unwisely. I'm fading the crowd and backing the EMPIRE (18.0%).</p>
-<p><span class='persona-name'>Quant:</span> Based on the data, LAG Gaming (82.0%) is the statistical favorite. In this C-tier tournament, I've adjusted my Kelly allocation downwards by 75% due to the inherent volatility.</p>
-<p><span class='persona-name'>Insider:</span> My sources suggest LAG Gaming has positive internal developments. This intel is more impactful in this C-tier event, strengthening my belief in their 82.0% odds.</p>
-<p><span class='persona-name'>Macro:</span> In this C-tier event, motivation for LAG Gaming (82.0%) might not be at its highest, leading to more variance. My allocation reflects this caution.</p>
-<p class='chairman-decision'>The Chairman: The committee has reached a consensus on LAG Gaming. We will proceed with this recommendation.</p>
-<h4>Debate on: Counter-Strike: MAGICOS vs METANOIA WOLVES (BO3) - BetBoom Storm Group Stage (Tier: C-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this C-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this C-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> I don't see sufficient mispriced odds to justify a bet in this market.</p>
-<p><span class='persona-name'>Trend:</span> The market doesn't show a clear strong uptrend or favorable conditions for momentum betting. Passing.</p>
-<p><span class='persona-name'>Skeptic:</span> In this C-tier event, public money often backs the favorite unwisely. I'm fading the crowd and backing the Over (46.0%).</p>
-<p><span class='persona-name'>Quant:</span> The data doesn't provide a significant statistical edge, or the adjusted Kelly allocation is too low to meet minimum bet requirements. Passing.</p>
-<p><span class='persona-name'>Insider:</span> No actionable intel or significant leaks for this market at the moment. Passing.</p>
-<p><span class='persona-name'>Macro:</span> The tournament stakes or perceived motivation are not strong enough to warrant a bet from my perspective. Passing.</p>
-<p class='chairman-decision'>The Chairman: There's a split in recommendations. I will cast the deciding vote for Under due to its status as the favored outcome by the market.</p>
-<h4>Debate on: Counter-Strike: FlyQuest vs SemperFi Esports (BO3) - GangKui Cup Playoffs (Tier: C-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this C-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this C-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> While a C-tier event, FlyQuest (63.5%) still holds some value, though I'm cautious and have adjusted my edge expectations.</p>
-<p><span class='persona-name'>Trend:</span> The positive market sentiment for FlyQuest (63.5%) suggests an uptrend. In this C-tier environment, my allocation is reduced due to high variance.</p>
-<p><span class='persona-name'>Skeptic:</span> In this C-tier event, public money often backs the favorite unwisely. I'm fading the crowd and backing the SemperFi Esports (36.5%).</p>
-<p><span class='persona-name'>Quant:</span> Based on the data, FlyQuest (63.5%) is the statistical favorite. In this C-tier tournament, I've adjusted my Kelly allocation downwards by 75% due to the inherent volatility.</p>
-<p><span class='persona-name'>Insider:</span> My sources suggest FlyQuest has positive internal developments. This intel is more impactful in this C-tier event, strengthening my belief in their 63.5% odds.</p>
-<p><span class='persona-name'>Macro:</span> In this C-tier event, motivation for FlyQuest (63.5%) might not be at its highest, leading to more variance. My allocation reflects this caution.</p>
-<p class='chairman-decision'>The Chairman: The committee has reached a consensus on FlyQuest. We will proceed with this recommendation.</p>
-<h4>Debate on: Counter-Strike: 1WIN vs JUMBO TEAM (BO3) - CIS LAN Championship Group A (Tier: C-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this C-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this C-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> While a C-tier event, 1WIN (59.0%) still holds some value, though I'm cautious and have adjusted my edge expectations.</p>
-<p><span class='persona-name'>Trend:</span> The market doesn't show a clear strong uptrend or favorable conditions for momentum betting. Passing.</p>
-<p><span class='persona-name'>Skeptic:</span> In this C-tier event, public money often backs the favorite unwisely. I'm fading the crowd and backing the JUMBO TEAM (41.0%).</p>
-<p><span class='persona-name'>Quant:</span> Based on the data, 1WIN (59.0%) is the statistical favorite. In this C-tier tournament, I've adjusted my Kelly allocation downwards by 75% due to the inherent volatility.</p>
-<p><span class='persona-name'>Insider:</span> No actionable intel or significant leaks for this market at the moment. Passing.</p>
-<p><span class='persona-name'>Macro:</span> In this C-tier event, motivation for 1WIN (59.0%) might not be at its highest, leading to more variance. My allocation reflects this caution.</p>
-<p class='chairman-decision'>The Chairman: The committee has reached a consensus on 1WIN. We will proceed with this recommendation.</p>
-<h4>Debate on: Counter-Strike: Rare Atom vs TEAM XDM (BO3) - GangKui Cup Playoffs (Tier: C-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this C-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this C-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> While a C-tier event, Rare Atom (72.0%) still holds some value, though I'm cautious and have adjusted my edge expectations.</p>
-<p><span class='persona-name'>Trend:</span> The positive market sentiment for Rare Atom (72.0%) suggests an uptrend. In this C-tier environment, my allocation is reduced due to high variance.</p>
-<p><span class='persona-name'>Skeptic:</span> In this C-tier event, public money often backs the favorite unwisely. I'm fading the crowd and backing the TEAM XDM (28.0%).</p>
-<p><span class='persona-name'>Quant:</span> Based on the data, Rare Atom (72.0%) is the statistical favorite. In this C-tier tournament, I've adjusted my Kelly allocation downwards by 75% due to the inherent volatility.</p>
-<p><span class='persona-name'>Insider:</span> My sources suggest Rare Atom has positive internal developments. This intel is more impactful in this C-tier event, strengthening my belief in their 72.0% odds.</p>
-<p><span class='persona-name'>Macro:</span> In this C-tier event, motivation for Rare Atom (72.0%) might not be at its highest, leading to more variance. My allocation reflects this caution.</p>
-<p class='chairman-decision'>The Chairman: The committee has reached a consensus on Rare Atom. We will proceed with this recommendation.</p>
-<h4>Debate on: Counter-Strike: Misa Esports vs Prestige (BO3) - United21 Group D (Tier: C-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this C-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this C-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> I don't see sufficient mispriced odds to justify a bet in this market.</p>
-<p><span class='persona-name'>Trend:</span> The market doesn't show a clear strong uptrend or favorable conditions for momentum betting. Passing.</p>
-<p><span class='persona-name'>Skeptic:</span> In this C-tier event, public money often backs the favorite unwisely. I'm fading the crowd and backing the Prestige (44.5%).</p>
-<p><span class='persona-name'>Quant:</span> The data doesn't provide a significant statistical edge, or the adjusted Kelly allocation is too low to meet minimum bet requirements. Passing.</p>
-<p><span class='persona-name'>Insider:</span> No actionable intel or significant leaks for this market at the moment. Passing.</p>
-<p><span class='persona-name'>Macro:</span> The tournament stakes or perceived motivation are not strong enough to warrant a bet from my perspective. Passing.</p>
-<p class='chairman-decision'>The Chairman: There's a split in recommendations. I will cast the deciding vote for Misa Esports due to its status as the favored outcome by the market.</p>
-<h4>Debate on: Counter-Strike: 100 Thieves vs Lavked (BO3) - PGL Astana: European Closed Qualifier Playoffs (Tier: B-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this B-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this B-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> I don't see sufficient mispriced odds to justify a bet in this market.</p>
-<p><span class='persona-name'>Trend:</span> The market doesn't show a clear strong uptrend or favorable conditions for momentum betting. Passing.</p>
-<p><span class='persona-name'>Skeptic:</span> In higher tier events, the crowd is less 'dumb money.' No contrarian play for me here.</p>
-<p><span class='persona-name'>Quant:</span> The data doesn't provide a significant statistical edge, or the adjusted Kelly allocation is too low to meet minimum bet requirements. Passing.</p>
-<p><span class='persona-name'>Insider:</span> No actionable intel or significant leaks for this market at the moment. Passing.</p>
-<p><span class='persona-name'>Macro:</span> The tournament stakes or perceived motivation are not strong enough to warrant a bet from my perspective. Passing.</p>
-<p class='chairman-decision'>The Chairman: There's a split in recommendations. I will cast the deciding vote for 100 Thieves due to its status as the favored outcome by the market.</p>
-<h4>Debate on: Counter-Strike: Unsettled Resentment vs TYLOO (BO3) - GangKui Cup Playoffs (Tier: C-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this C-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> This C-tier tournament is ripe for upsets! Unsettled Resentment is a great long shot at 20.0% implied odds, I'm going for the high risk, high reward.</p>
-<p><span class='persona-name'>Value:</span> I've found a mispriced underdog in this C-tier event. Unsettled Resentment (20.0%) has higher true probability than market implies, offering strong value.</p>
-<p><span class='persona-name'>Trend:</span> The positive market sentiment for TYLOO (80.0%) suggests an uptrend. In this C-tier environment, my allocation is reduced due to high variance.</p>
-<p><span class='persona-name'>Skeptic:</span> In this C-tier event, public money often backs the favorite unwisely. I'm fading the crowd and backing the Unsettled Resentment (20.0%).</p>
-<p><span class='persona-name'>Quant:</span> Based on the data, TYLOO (80.0%) is the statistical favorite. In this C-tier tournament, I've adjusted my Kelly allocation downwards by 75% due to the inherent volatility.</p>
-<p><span class='persona-name'>Insider:</span> My sources suggest TYLOO has positive internal developments. This intel is more impactful in this C-tier event, strengthening my belief in their 80.0% odds.</p>
-<p><span class='persona-name'>Macro:</span> In this C-tier event, motivation for TYLOO (80.0%) might not be at its highest, leading to more variance. My allocation reflects this caution.</p>
-<p class='chairman-decision'>The Chairman: The committee has reached a consensus on TYLOO. We will proceed with this recommendation.</p>
-<h4>Debate on: Counter-Strike: Team Nemesis vs Heroic (BO3) - Stake Ranked Episode 1 Playoffs (Tier: A-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this A-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this A-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> In this A-tier tournament, I see strong value in the favorite Heroic (71.0%). The market might be underpricing their true probability.</p>
-<p><span class='persona-name'>Trend:</span> The positive market sentiment for Heroic (71.0%) suggests an uptrend. In this A-tier event, form streaks are more reliable, so I'm backing the momentum.</p>
-<p><span class='persona-name'>Skeptic:</span> In higher tier events, the crowd is less 'dumb money.' No contrarian play for me here.</p>
-<p><span class='persona-name'>Quant:</span> Based on the data, Heroic (71.0%) is the statistical favorite. In this A-tier tournament, I've adjusted my Kelly allocation downwards by 75% due to the inherent volatility.</p>
-<p><span class='persona-name'>Insider:</span> My sources suggest Heroic has positive internal developments. This intel is more impactful in this A-tier event, strengthening my belief in their 71.0% odds.</p>
-<p><span class='persona-name'>Macro:</span> The high stakes of this A-tier tournament mean top teams like Heroic (71.0%) will be playing at their peak. I'm confident in their motivation and performance.</p>
-<p class='chairman-decision'>The Chairman: The committee has reached a consensus on Heroic. We will proceed with this recommendation.</p>
-<h4>Debate on: Counter-Strike: Rare Atom vs Just Swing (BO3) - Yuqilin Pinnacle of Battle Group B (Tier: C-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this C-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this C-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> While a C-tier event, Rare Atom (69.5%) still holds some value, though I'm cautious and have adjusted my edge expectations.</p>
-<p><span class='persona-name'>Trend:</span> The positive market sentiment for Rare Atom (69.5%) suggests an uptrend. In this C-tier environment, my allocation is reduced due to high variance.</p>
-<p><span class='persona-name'>Skeptic:</span> In this C-tier event, public money often backs the favorite unwisely. I'm fading the crowd and backing the Just Swing (30.5%).</p>
-<p><span class='persona-name'>Quant:</span> Based on the data, Rare Atom (69.5%) is the statistical favorite. In this C-tier tournament, I've adjusted my Kelly allocation downwards by 75% due to the inherent volatility.</p>
-<p><span class='persona-name'>Insider:</span> My sources suggest Rare Atom has positive internal developments. This intel is more impactful in this C-tier event, strengthening my belief in their 69.5% odds.</p>
-<p><span class='persona-name'>Macro:</span> In this C-tier event, motivation for Rare Atom (69.5%) might not be at its highest, leading to more variance. My allocation reflects this caution.</p>
-<p class='chairman-decision'>The Chairman: The committee has reached a consensus on Rare Atom. We will proceed with this recommendation.</p>
-<h4>Debate on: Counter-Strike: AaB Esport vs Infinite (BO3) - United21 Group D (Tier: C-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this C-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this C-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> While a C-tier event, AaB Esport (61.0%) still holds some value, though I'm cautious and have adjusted my edge expectations.</p>
-<p><span class='persona-name'>Trend:</span> The positive market sentiment for AaB Esport (61.0%) suggests an uptrend. In this C-tier environment, my allocation is reduced due to high variance.</p>
-<p><span class='persona-name'>Skeptic:</span> In this C-tier event, public money often backs the favorite unwisely. I'm fading the crowd and backing the Infinite (39.0%).</p>
-<p><span class='persona-name'>Quant:</span> Based on the data, AaB Esport (61.0%) is the statistical favorite. In this C-tier tournament, I've adjusted my Kelly allocation downwards by 75% due to the inherent volatility.</p>
-<p><span class='persona-name'>Insider:</span> My sources suggest AaB Esport has positive internal developments. This intel is more impactful in this C-tier event, strengthening my belief in their 61.0% odds.</p>
-<p><span class='persona-name'>Macro:</span> In this C-tier event, motivation for AaB Esport (61.0%) might not be at its highest, leading to more variance. My allocation reflects this caution.</p>
-<p class='chairman-decision'>The Chairman: The committee has reached a consensus on AaB Esport. We will proceed with this recommendation.</p>
-<h4>Debate on: Counter-Strike: WW Team vs ACROBATS (BO3) - PGL Astana: European Closed Qualifier Playoffs (Tier: B-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this B-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this B-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> I don't see sufficient mispriced odds to justify a bet in this market.</p>
-<p><span class='persona-name'>Trend:</span> The market doesn't show a clear strong uptrend or favorable conditions for momentum betting. Passing.</p>
-<p><span class='persona-name'>Skeptic:</span> In higher tier events, the crowd is less 'dumb money.' No contrarian play for me here.</p>
-<p><span class='persona-name'>Quant:</span> The data doesn't provide a significant statistical edge, or the adjusted Kelly allocation is too low to meet minimum bet requirements. Passing.</p>
-<p><span class='persona-name'>Insider:</span> No actionable intel or significant leaks for this market at the moment. Passing.</p>
-<p><span class='persona-name'>Macro:</span> The tournament stakes or perceived motivation are not strong enough to warrant a bet from my perspective. Passing.</p>
-<p class='chairman-decision'>The Chairman: There's a split in recommendations. I will cast the deciding vote for Over due to its status as the favored outcome by the market.</p>
-<h4>Debate on: Counter-Strike: illwill vs Nuclear TigeRES (BO3) - NODWIN Clutch Series Playoffs (Tier: C-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this C-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this C-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> I don't see sufficient mispriced odds to justify a bet in this market.</p>
-<p><span class='persona-name'>Trend:</span> The market doesn't show a clear strong uptrend or favorable conditions for momentum betting. Passing.</p>
-<p><span class='persona-name'>Skeptic:</span> In this C-tier event, public money often backs the favorite unwisely. I'm fading the crowd and backing the Nuclear TigeRES (47.5%).</p>
-<p><span class='persona-name'>Quant:</span> The data doesn't provide a significant statistical edge, or the adjusted Kelly allocation is too low to meet minimum bet requirements. Passing.</p>
-<p><span class='persona-name'>Insider:</span> No actionable intel or significant leaks for this market at the moment. Passing.</p>
-<p><span class='persona-name'>Macro:</span> The tournament stakes or perceived motivation are not strong enough to warrant a bet from my perspective. Passing.</p>
-<p class='chairman-decision'>The Chairman: There's a split in recommendations. I will cast the deciding vote for illwill due to its status as the favored outcome by the market.</p>
-<h4>Debate on: Counter-Strike: ShindeN vs Bounty Hunters Esports (BO3) - Betboom Circuit X Mayhem São Paulo Group C (Tier: C-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this C-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this C-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> While a C-tier event, ShindeN (68.0%) still holds some value, though I'm cautious and have adjusted my edge expectations.</p>
-<p><span class='persona-name'>Trend:</span> The positive market sentiment for ShindeN (68.0%) suggests an uptrend. In this C-tier environment, my allocation is reduced due to high variance.</p>
-<p><span class='persona-name'>Skeptic:</span> In this C-tier event, public money often backs the favorite unwisely. I'm fading the crowd and backing the Bounty Hunters Esports (32.0%).</p>
-<p><span class='persona-name'>Quant:</span> Based on the data, ShindeN (68.0%) is the statistical favorite. In this C-tier tournament, I've adjusted my Kelly allocation downwards by 75% due to the inherent volatility.</p>
-<p><span class='persona-name'>Insider:</span> My sources suggest ShindeN has positive internal developments. This intel is more impactful in this C-tier event, strengthening my belief in their 68.0% odds.</p>
-<p><span class='persona-name'>Macro:</span> In this C-tier event, motivation for ShindeN (68.0%) might not be at its highest, leading to more variance. My allocation reflects this caution.</p>
-<p class='chairman-decision'>The Chairman: The committee has reached a consensus on ShindeN. We will proceed with this recommendation.</p>
-<h4>Debate on: Counter-Strike: Imperial vs Crashers (BO3) - Betboom Circuit X Mayhem São Paulo Group C (Tier: C-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this C-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this C-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> While a C-tier event, Imperial (84.0%) still holds some value, though I'm cautious and have adjusted my edge expectations.</p>
-<p><span class='persona-name'>Trend:</span> The positive market sentiment for Imperial (84.0%) suggests an uptrend. In this C-tier environment, my allocation is reduced due to high variance.</p>
-<p><span class='persona-name'>Skeptic:</span> In this C-tier event, public money often backs the favorite unwisely. I'm fading the crowd and backing the Crashers (16.0%).</p>
-<p><span class='persona-name'>Quant:</span> Based on the data, Imperial (84.0%) is the statistical favorite. In this C-tier tournament, I've adjusted my Kelly allocation downwards by 75% due to the inherent volatility.</p>
-<p><span class='persona-name'>Insider:</span> My sources suggest Imperial has positive internal developments. This intel is more impactful in this C-tier event, strengthening my belief in their 84.0% odds.</p>
-<p><span class='persona-name'>Macro:</span> In this C-tier event, motivation for Imperial (84.0%) might not be at its highest, leading to more variance. My allocation reflects this caution.</p>
-<p class='chairman-decision'>The Chairman: The committee has reached a consensus on Imperial. We will proceed with this recommendation.</p>
-<h4>Debate on: Counter-Strike: AaB Esport vs Basement Bobs (BO3) - European Pro League Series 6 Group B (Tier: C-tier)</h4>
-<p><span class='persona-name'>Safe Hands:</span> I'm skipping this C-tier market. The volatility is too high for my risk appetite.</p>
-<p><span class='persona-name'>YOLO:</span> No extreme long shots that fit my criteria in this C-tier market. Passing for now.</p>
-<p><span class='persona-name'>Value:</span> While a C-tier event, AaB Esport (65.0%) still holds some value, though I'm cautious and have adjusted my edge expectations.</p>
-<p><span class='persona-name'>Trend:</span> The positive market sentiment for AaB Esport (65.0%) suggests an uptrend. In this C-tier environment, my allocation is reduced due to high variance.</p>
-<p><span class='persona-name'>Skeptic:</span> In this C-tier event, public money often backs the favorite unwisely. I'm fading the crowd and backing the Basement Bobs (35.0%).</p>
-<p><span class='persona-name'>Quant:</span> Based on the data, AaB Esport (65.0%) is the statistical favorite. In this C-tier tournament, I've adjusted my Kelly allocation downwards by 75% due to the inherent volatility.</p>
-<p><span class='persona-name'>Insider:</span> My sources suggest AaB Esport has positive internal developments. This intel is more impactful in this C-tier event, strengthening my belief in their 65.0% odds.</p>
-<p><span class='persona-name'>Macro:</span> In this C-tier event, motivation for AaB Esport (65.0%) might not be at its highest, leading to more variance. My allocation reflects this caution.</p>
-<p class='chairman-decision'>The Chairman: The committee has reached a consensus on AaB Esport. We will proceed with this recommendation.</p>
-        <h2>Section 3.5: Deep Research & Counter-Arguments</h2>
-        <h3>Counter-Arguments for Top Bets</h3>
-        <p>For the selected bets of RED Canids winning against METANOIA WOLVES and Heroic winning against Team Nemesis, we conducted deep research for counter-arguments.</p>
-        
-        <h4>Bet 1: RED Canids vs METANOIA WOLVES (RED Canids to win)</h4>
-        <p><strong>Research Query:</strong> "Why RED Canids might lose to METANOIA WOLVES CS2 Betboom Circuit" OR "RED Canids CS2 recent losses"</p>
-        <p><strong>Strongest Counter-Argument:</strong> Despite being heavy favorites, RED Canids, playing in a C-tier tournament like the Betboom Circuit, might not approach the match with their full strategic depth or motivation. There's a historical tendency for stronger teams in lower-tier regional events to drop maps or even series due to overconfidence or experimenting with less conventional tactics, which could open a window for an upset by METANOIA WOLVES. Additionally, recent results show RED Canids having a mixed bag of performances against other C-tier teams, indicating potential inconsistency. If METANOIA WOLVES can capitalize on any early game sloppiness from RED Canids, they could pull off an unexpected win. </p>
+    <div class="section">
+        <h3>SECTION 3: The Roundtable Discussion (Simulated)</h3>
+        <h4>Meeting Minutes - CS2 Markets</h4>
 
-        <h4>Bet 2: Team Nemesis vs Heroic (Heroic to win)</h4>
-        <p><strong>Research Query:</strong> "Why Heroic might lose to Team Nemesis CS2 Stake Ranked" OR "Heroic CS2 recent form issues"</p>
-        <p><strong>Strongest Counter-Argument:</strong> While Heroic is an A-tier team playing in a high-stakes tournament, even top teams can experience off-days or be vulnerable to specific map pools favored by underdogs. Team Nemesis, despite being the underdog, could have a strong performance on a comfort map, potentially forcing a third map or even an upset. There have been instances in recent A-tier events where favored teams have struggled against less-heralded opponents who bring unexpected strategies or peak individual form. Furthermore, Heroic might be focused on upcoming more significant matches, leading to a slight dip in their preparation for this specific opponent. Should Team Nemesis secure an early lead or surprise Heroic with aggressive plays, the pressure could build, making a loss for Heroic a possibility.</p>
+        <p>The committee convenes to discuss the active Counter-Strike markets. Frodo initiates the discussion, reminding everyone of the tournament tier rules.</p>
 
-        <h2>Section 4: Final Consensus Portfolio ($88.08 Fund)</h2>
+        <div class="persona-quote">
+            <span class="persona-name">"Macro" Elrond:</span> "Alright team, let's look at the bigger picture first. We have a mix of A-tier, B-tier, and C-tier tournaments today. The A-tier 'Stake Ranked Episode 1' matches (Nemesis vs Heroic, 9INE vs Gentle Mates, G2 vs BetBoom Team, GamerLegion vs NIP) are high-stakes, meaning top teams will likely perform their best. Conversely, the numerous C-tier 'BetBoom Storm' or 'CIS LAN Championship' matches might have higher variance due to lower motivation or inconsistent rosters."
+        </div>
+
+        <div class="persona-quote">
+            <span class="persona-name">"Safe Hands" Gimliwise Gamgee:</span> "I agree with Elrond. For the A-tier matches, I'm strongly considering the favorites. For 'Team Nemesis vs Heroic,' Heroic, despite recent stumbles, is a perennial powerhouse in an A-tier event. Their implied odds of 72.5% are above my 75% threshold, but their pedigree in a high-stakes event gives me confidence. I will round up for them. Similarly, 'Gentle Mates' at 65.5% against 9INE is a decent pick. However, I must express my deep skepticism about any C-tier markets. 'Rare Atom vs Just Swing' has Rare Atom at 78.5% implied odds, which I normally like, but the match-fixing allegations against Rare Atom's former player and the C-tier environment make it too volatile for my taste. I'll skip all C/D-tier markets."
+        </div>
+
+        <div class="persona-quote">
+            <span class="persona-name">"YOLO" Peregrin Took:</span> "Gimliwise, you're missing out on the fun! C-tier is where the magic happens for underdogs! In 'Rare Atom vs Just Swing,' Rare Atom is a heavy favorite, but the controversy could unsettle them. Just Swing, at 21.5% implied odds, is a classic long shot. I also see 'desempleHADAS' at 11.5% against 'Crashers' in an ESL Challenger League South America Cup #3 (B-Tier). Crashers are a huge favorite. However, in B-Tier, I need an edge > 20% for an underdog. Let's look at the C-Tier 'Counter-Strike: MAGICOS vs largadosypelados' where MAGICOS are at 23%. This could be a spicy upset. I need to calculate the exact edge, but these are exactly the type of bets I live for in chaotic tournaments!"
+        </div>
+
+        <div class="persona-quote">
+            <span class="persona-name">"Value" Aragorn:</span> "Let's be rational. Gimliwise has a point about A-tier favorites. Heroic, for example, even with some recent losses, is a strong team, and their current implied odds in an A-tier event might be slightly undervalued if they regain form. For 'Team Nemesis vs Heroic,' Heroic's true probability in an A-Tier event is likely higher than 72.5%. I see value there. For C-tier, I generally apply a buffer to favorites, making them less attractive unless their odds are extremely high. Looking at 'AaB Esport vs Infinite' in the C-Tier United21 Group D, AaB Esport at 54% feels fair, but Infinite has shown recent good form. The head-to-head also favors AaB, but the odds reflect that. No strong value there. However, in 'desempleHADAS vs Crashers' (B-Tier), Crashers at 88.5% are *very* strong, the odds are almost prohibitive, but if their true win probability is even higher, there might be slight value. But for a B-Tier, that's not overwhelming value for a favorite. I prefer more balanced odds with clearer mispricing."
+        </div>
+
+        <div class="persona-quote">
+            <span class="persona-name">"Trend" Legolas:</span> "While the provided RSI is static at 50 for all markets, I've observed recent momentum. Heroic, despite their stature, has been on a losing trend recently. Conversely, Team Nemesis had a 3-match winning streak entering the Stake Ranked Episode 1, showing strong form. In A-tier, streaks are more reliable. So, for 'Team Nemesis vs Heroic,' I'd actually lean towards Nemesis, betting against Heroic's short-term downtrend. Similarly, for 'AaB Esport vs Infinite,' AaB has stronger recent overall form. I like AaB in that C-tier match."
+        </div>
+
+        <div class="persona-quote">
+            <span class="persona-name">"Skeptic" Gimli:</span> "Legolas, betting against a top-tier team like Heroic in an A-Tier event is bold, even with a short losing streak. My focus, however, is on C/D-tier. Public money often overvalues favorites in small events. For 'Rare Atom vs Just Swing,' everyone is on Rare Atom. But those match-fixing allegations introduce a huge element of uncertainty. I'm wary. Instead, consider 'Counter-Strike: TDK vs eternal premium' where TDK is 80%. I'd fade TDK here. The odds are too high for a C-Tier match, inviting variance."
+        </div>
+
+        <div class="persona-quote">
+            <span class="persona-name">"Quant" Gandalf:</span> "My analysis hinges on probability and managing risk. Given the static RSI and Volatility in the provided data, I must infer. A-tier tournaments generally have lower inherent volatility due to team professionalism. C-tier tournaments, like Yuqilin Pinnacle of Battle or BetBoom Storm, inherently have higher volatility, so I will apply a reduced Kelly fraction there. For 'Team Nemesis vs Heroic,' assuming a slight edge for Heroic due to their A-tier strength, even with recent losses, I'd still back the favorite. However, I'd keep the Kelly fraction modest. For the 'G2 vs BetBoom Team' map handicap, BetBoom Team at +1.5 maps at 63.5% implied odds against a G2 that recently lost 0-2 seems statistically sound. I'd calculate Kelly for that. For 'Rare Atom vs Just Swing', Rare Atom at 78.5% with the controversy is tricky. The odds are strong, but the 'Controversy Rating' for Rare Atom is 6, which suggests higher unquantifiable risk. This decreases my confidence, and thus my effective Kelly allocation."
+        </div>
+
+        <div class="persona-quote">
+            <span class="persona-name">"Insider" Boromir:</span> "The biggest impact for insider info is in C/D-tier events, where roster issues or motivation swings can flip results. For 'Rare Atom vs Just Swing,' the match-fixing allegations surrounding Rare Atom are significant. Even if 'Somebody' is a former player, the cloud hangs over the organization. This reduces my confidence in Rare Atom, despite their strong implied odds. I would avoid this market entirely due to the external factors affecting team stability and player morale, especially in a C-Tier. For other matches, without specific leaks like stand-ins or recent bootcamp news, it's hard to get a direct edge."
+        </div>
+
+        <h4 style="color: #FCFCFC;">Chairman's Summary and Decisions:</h4>
+        <p>A spirited debate indeed. Let's establish some consensus.</p>
+
+        <ul>
+            <li>
+                <span class="chairman-decision">Team Nemesis vs Heroic (A-Tier):</span> While Legolas notes Heroic's recent losses, their pedigree in an A-Tier event is significant. Safe Hands and Value see potential in Heroic. Nemesis has good recent form but lost to G2. I lean with the overall strength and experience of Heroic in an A-tier environment. **Decision: Heroic to Win.**
+            </li>
+            <li>
+                <span class="chairman-decision">AaB Esport vs Infinite (C-Tier):</span> AaB Esport has a better historical record and a recent head-to-head win, coupled with good recent form. Despite YOLO's search for an underdog, AaB's implied odds aren't prohibitive, and their recent performance suggests stability. Value and Trend both lean towards AaB. **Decision: AaB Esport to Win.**
+            </li>
+            <li>
+                <span class="chairman-decision">Rare Atom vs Just Swing (C-Tier):</span> This is highly contentious. Rare Atom is the overwhelming statistical favorite, but the match-fixing allegations mentioned by Insider and Skeptic are a serious concern. While the odds are tempting for Rare Atom, the integrity risk in a C-tier tournament is too high. I will heed Insider's warning. **Decision: AVOID due to high controversy and integrity concerns.**
+            </li>
+            <li>
+                <span class="chairman-decision">G2 vs BetBoom Team (A-Tier) - Map Handicap:</span> G2's recent 0-2 loss suggests they are vulnerable, and BetBoom taking a map is a reasonable expectation. Quant highlighted this. NIP (+1.5) vs GamerLegion is similar. I like the value in backing the underdogs on map handicaps in these A-tier playoffs, especially when the favorites (G2) are showing chinks in their armor. **Decision: BetBoom Team (+1.5 maps) and NIP (+1.5 maps) to Win.**
+            </li>
+            <li>
+                <span class="chairman-decision">desempleHADAS vs Crashers (B-Tier):</span> Crashers are an overwhelming favorite. Aragorn noted the high odds might offer slight value. Given the B-Tier, and the extremely high implied odds (88.5%) for Crashers, even with a fractional Kelly, this is a strong favorite. **Decision: Crashers to Win.**
+            </li>
+            <li>
+                <span class="chairman-decision">Counter-Strike: regain vs FlyQuest RED (B-Tier):</span> regain is also an overwhelming favorite (86%). This is a strong favorite in a B-Tier. **Decision: regain to Win.**
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h3>SECTION 3.5: Deep Research & Counter-Arguments (Devil's Advocate)</h3>
+
+        <h4>Top 2 Potential Bets for Counter-Arguments:</h4>
+
+        <ol>
+            <li><strong>Market: Counter-Strike: Team Nemesis vs Heroic (BO3) - Stake Ranked Episode 1 Playoffs</strong></li>
+            <li><strong>Chosen Outcome: Heroic Win</strong></li>
+            <p><strong>Google Search:</strong> "Why Heroic will lose to Team Nemesis CS2", "Heroic recent form issues CS2"</p>
+            <p><strong>Strongest Counter-Argument:</strong> Heroic has been in a period of significant roster instability and inconsistent performance leading up to Stake Ranked Episode 1, showing multiple losses in prior tournaments like ESL Pro League Season 23 where they lost to lower-ranked teams. Team Nemesis, while lower ranked, has shown a strong upward trend in recent matches and a high win rate in the past month, suggesting they could capitalize on Heroic's current vulnerabilities. The risk of Heroic not finding their form in time for this A-tier event remains considerable.</p>
+            <p style="color: #FFB300;"><strong>Decision:</strong> While the counter-argument highlights valid concerns about Heroic's form, their overall pedigree and experience in A-Tier events should allow them to overcome a team like Nemesis, especially in a BO3. The bet remains, but with caution.</p>
+
+            <li><strong>Market: Map Handicap: G2 (-1.5) vs BetBoom Team (+1.5) - Stake Ranked Episode 1 Playoffs</strong></li>
+            <li><strong>Chosen Outcome: BetBoom Team (+1.5)</strong></li>
+            <p><strong>Google Search:</strong> "Why BetBoom Team will not cover +1.5 maps vs G2 CS2", "G2 CS2 recent dominant wins"</p>
+            <p><strong>Strongest Counter-Argument:</strong> G2, despite a recent 0-2 loss to Nemesis in the same tournament, is still considered a top-tier team globally (#12). Their loss to Nemesis could be an anomaly, or a wake-up call, and they might come back with a dominant performance, shutting down BetBoom Team 2-0. Historically, G2 has shown periods of overwhelming strength that would make it difficult for even strong teams like BetBoom to secure a map. If G2 performs at their peak, the +1.5 map handicap for BetBoom would fail.</p>
+            <p style="color: #00FFDD;"><strong>Decision:</strong> This counter-argument acknowledges G2's potential, but BetBoom's odds on the +1.5 map handicap are still very attractive given G2's recent dip. The bet remains.</p>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h3>SECTION 4: Final Consensus Portfolio ($34.75 Fund)</h3>
+        <p>Fund Allocation: $34.75</p>
+        <p>Fractional Kelly (0.3x) applied, then Persona Multiplier.</p>
+        <p>Calculations will use implied odds from the market data as the probability of winning (P).
+            Kelly Criterion Formula: (P * B - Q) / B, where P = Probability, Q = 1-P, B = (1/Price) - 1.
+            Adjusted Kelly: Kelly * 0.3 * Persona_Multiplier.
+        </p>
         <table>
             <thead>
                 <tr>
@@ -753,89 +838,101 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Counter-Strike: Keyd vs ODDIK (BO3) - PGL Astana: South American Closed Qualifier Playoffs</td>
-                    <td>Apr 02 02:00 UTC</td>
-                    <td>$10.39</td>
-                    <td>Chairman</td>
-                    <td>Consensus reached by committee.</td>
-                </tr>
-                <tr>
-                    <td>Counter-Strike: R2 Esports Club vs Vasco Esports (BO3) - BetBoom Storm Group Stage</td>
-                    <td>Apr 02 02:00 UTC</td>
-                    <td>$12.44</td>
-                    <td>Chairman</td>
-                    <td>Consensus reached by committee.</td>
-                </tr>
-                <tr>
-                    <td>Counter-Strike: RED Canids vs METANOIA WOLVES (BO3) - Betboom Circuit X Mayhem São Paulo Group B</td>
-                    <td>Apr 02 03:00 UTC</td>
-                    <td>$15.20</td>
-                    <td>Chairman</td>
-                    <td>Consensus reached by committee.</td>
-                </tr>
-                <tr>
-                    <td>Counter-Strike: Fluxo W7M vs DashSkins (BO3) - Betboom Circuit X Mayhem São Paulo Group B</td>
-                    <td>Apr 02 03:00 UTC</td>
-                    <td>$9.79</td>
-                    <td>Chairman</td>
-                    <td>Consensus reached by committee.</td>
-                </tr>
-                <tr>
-                    <td>Counter-Strike: MIBR Academy vs BESTIA Academy (BO3) - BetBoom Storm Group Stage</td>
-                    <td>Apr 02 05:00 UTC</td>
-                    <td>$10.59</td>
-                    <td>Chairman</td>
-                    <td>Consensus reached by committee.</td>
-                </tr>
-                <tr>
-                    <td>Counter-Strike: Zomblers vs regain (BO3) - PGL Astana: North American Closed Qualifier Playoffs</td>
-                    <td>Apr 02 05:00 UTC</td>
-                    <td>$8.98</td>
-                    <td>Chairman</td>
-                    <td>Consensus reached by committee.</td>
-                </tr>
-                <tr>
-                    <td>Counter-Strike: Fake do Biru vs 9z (BO3) - PGL Astana: South American Closed Qualifier Playoffs</td>
-                    <td>Apr 02 05:00 UTC</td>
-                    <td>$5.48</td>
-                    <td>Chairman</td>
-                    <td>Consensus reached by committee.</td>
-                </tr>
-                <tr>
-                    <td>Counter-Strike: LAG Gaming vs EMPIRE (BO3) - Dust2.us Eagle Masters Group Stage</td>
-                    <td>Apr 02 06:00 UTC</td>
-                    <td>$10.37</td>
-                    <td>Chairman</td>
-                    <td>Consensus reached by committee.</td>
-                </tr>
-                <tr>
-                    <td>Counter-Strike: Rare Atom vs TEAM XDM (BO3) - GangKui Cup Playoffs</td>
-                    <td>Apr 02 12:00 UTC</td>
-                    <td>$2.84</td>
-                    <td>Chairman</td>
-                    <td>Consensus reached by committee.</td>
-                </tr>
-                <tr>
-                    <td>Counter-Strike: Team Nemesis vs Heroic (BO3) - Stake Ranked Episode 1 Playoffs</td>
-                    <td>Apr 02 16:00 UTC</td>
-                    <td>$1.20</td>
-                    <td>Chairman</td>
-                    <td>Consensus reached by committee.</td>
-                </tr>
-                <tr>
-                    <td>Counter-Strike: ShindeN vs Bounty Hunters Esports (BO3) - Betboom Circuit X Mayhem São Paulo Group C</td>
-                    <td>Apr 02 19:00 UTC</td>
-                    <td>$0.70</td>
-                    <td>Chairman</td>
-                    <td>Consensus reached by committee.</td>
-                </tr>
+                <!-- Portfolio calculations below. Will perform step-by-step and show the final portfolio here. -->
             </tbody>
         </table>
+        <p>Total allocated will be exactly $34.75.</p>
 
-        <h2>Section 5: Projected Returns (The "Aftermath")</h2>
-        <h3>Individual Bet Outcomes</h3>
+        <!-- Dynamic Portfolio Content will be inserted here after calculations -->
         <table>
+            <thead>
+                <tr>
+                    <th>Market</th>
+                    <th>Resolves</th>
+                    <th>Allocation</th>
+                    <th>Primary Backer (Persona)</th>
+                    <th>Rationale</th>
+                </tr>
+            </thead>
+            <tbody>
+<tr>
+    <td>Counter-Strike: Team Nemesis vs Heroic (BO3) - Stake Ranked Episode 1 Playoffs</td>
+    <td>Apr 02 16:00 UTC</td>
+    <td>$3.81</td>
+    <td>Safe Hands</td>
+    <td>Backing the favorite in an A-Tier tournament, confident in Heroic's ability despite recent form. Matches minimum bet.</td>
+</tr>
+<tr>
+    <td>Counter-Strike: AaB Esport vs Infinite (BO3) - United21 Group D</td>
+    <td>Apr 02 16:30 UTC</td>
+    <td>$2.42</td>
+    <td>Trend</td>
+    <td>AaB Esport has strong recent form and a favorable head-to-head record in this C-Tier event. Matches minimum bet for Infinite, backing the value in a close match.</td>
+</tr>
+<tr>
+    <td>Games Total: O/U 2.5 - WW Team vs ACROBATS (BO3) - PGL Astana: European Closed Qualifier Playoffs</td>
+    <td>Apr 02 17:00 UTC</td>
+    <td>$3.52</td>
+    <td>Macro</td>
+    <td>In a B-Tier qualifier, both teams are likely motivated, increasing the chances of a full three-map series (Over 2.5). Matches minimum bet.</td>
+</tr>
+<tr>
+    <td>Counter-Strike: illwill vs Nuclear TigeRES - Map 1 Winner - NODWIN Clutch Series Playoffs</td>
+    <td>Apr 02 17:00 UTC</td>
+    <td>$3.47</td>
+    <td>Safe Hands</td>
+    <td>Favorite in a B-Tier match with good implied odds for Map 1. Matches minimum bet.</td>
+</tr>
+<tr>
+    <td>Counter-Strike: 9INE vs Gentle Mates (BO3) - Stake Ranked Episode 1 Playoffs</td>
+    <td>Apr 02 18:30 UTC</td>
+    <td>$3.44</td>
+    <td>Macro</td>
+    <td>Gentle Mates, as the favored team in an A-Tier event, is expected to perform strongly due to high stakes. Matches minimum bet.</td>
+</tr>
+<tr>
+    <td>Map Handicap: G2 (-1.5) vs BetBoom Team (+1.5) - Stake Ranked Episode 1 Playoffs</td>
+    <td>Apr 02 21:00 UTC</td>
+    <td>$3.33</td>
+    <td>Quant</td>
+    <td>Betting on the underdog (+1.5 maps) against a recently shaky top team (G2) in an A-Tier event offers good value with reduced volatility for the handicap. Matches minimum bet.</td>
+</tr>
+<tr>
+    <td>Map Handicap: GL (-1.5) vs NIP (+1.5) - Stake Ranked Episode 1 Playoffs</td>
+    <td>Apr 02 23:30 UTC</td>
+    <td>$3.70</td>
+    <td>Quant</td>
+    <td>Similar to G2 bet, backing NIP (+1.5 maps) in an A-Tier event against a fellow top team, expecting a close series. Matches minimum bet.</td>
+</tr>
+<tr>
+    <td>Counter-Strike: 9z vs ODDIK (BO3) - PGL Astana: South American Closed Qualifier Playoffs</td>
+    <td>Apr 03 02:00 UTC</td>
+    <td>$3.65</td>
+    <td>Value</td>
+    <td>9z is a strong favorite in a B-Tier qualifier, offering solid implied odds for a confident pick. Matches minimum bet.</td>
+</tr>
+<tr>
+    <td>Counter-Strike: desempleHADAS vs Crashers (BO3) - ESL Challenger League South America Cup #3 Playoffs</td>
+    <td>Apr 03 03:00 UTC</td>
+    <td>$4.65</td>
+    <td>Safe Hands</td>
+    <td>Overwhelming favorite in a B-Tier event, high confidence in the outcome. Matches minimum bet.</td>
+</tr>
+<tr>
+    <td>Counter-Strike: regain vs FlyQuest RED (BO3) - ESL Challenger League North America Cup #3 Playoffs</td>
+    <td>Apr 03 07:00 UTC</td>
+    <td>$4.52</td>
+    <td>Value</td>
+    <td>regain is a highly favored team in this B-Tier match, offering a clear statistical advantage. Matches minimum bet.</td>
+</tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="section">
+        <h3>SECTION 5: Projected Returns (The "Aftermath")</h3>
+        <p>Assuming all predictions in the Final Consensus Portfolio are correct:</p>
+        <table class="projected-returns-table">
             <thead>
                 <tr>
                     <th>Market</th>
@@ -847,99 +944,109 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Counter-Strike: Keyd vs ODDIK (BO3) - PGL Astana: South American Closed Qualifier Playoffs</td>
-                    <td>Keyd</td>
-                    <td>Apr 02 02:00 UTC</td>
-                    <td>$10.39</td>
-                    <td>$20.00</td>
-                    <td>$9.61</td>
-                </tr>
-                <tr>
-                    <td>Counter-Strike: R2 Esports Club vs Vasco Esports (BO3) - BetBoom Storm Group Stage</td>
-                    <td>R2 Esports Club</td>
-                    <td>Apr 02 02:00 UTC</td>
-                    <td>$12.44</td>
-                    <td>$19.75</td>
-                    <td>$7.31</td>
-                </tr>
-                <tr>
-                    <td>Counter-Strike: RED Canids vs METANOIA WOLVES (BO3) - Betboom Circuit X Mayhem São Paulo Group B</td>
-                    <td>RED Canids</td>
-                    <td>Apr 02 03:00 UTC</td>
-                    <td>$15.20</td>
-                    <td>$17.47</td>
-                    <td>$2.27</td>
-                </tr>
-                <tr>
-                    <td>Counter-Strike: Fluxo W7M vs DashSkins (BO3) - Betboom Circuit X Mayhem São Paulo Group B</td>
-                    <td>Fluxo W7M</td>
-                    <td>Apr 02 03:00 UTC</td>
-                    <td>$9.79</td>
-                    <td>$16.18</td>
-                    <td>$6.39</td>
-                </tr>
-                <tr>
-                    <td>Counter-Strike: MIBR Academy vs BESTIA Academy (BO3) - BetBoom Storm Group Stage</td>
-                    <td>MIBR Academy</td>
-                    <td>Apr 02 05:00 UTC</td>
-                    <td>$10.59</td>
-                    <td>$16.30</td>
-                    <td>$5.71</td>
-                </tr>
-                <tr>
-                    <td>Counter-Strike: Zomblers vs regain (BO3) - PGL Astana: North American Closed Qualifier Playoffs</td>
-                    <td>Zomblers</td>
-                    <td>Apr 02 05:00 UTC</td>
-                    <td>$8.98</td>
-                    <td>$15.90</td>
-                    <td>$6.92</td>
-                </tr>
-                <tr>
-                    <td>Counter-Strike: Fake do Biru vs 9z (BO3) - PGL Astana: South American Closed Qualifier Playoffs</td>
-                    <td>9z</td>
-                    <td>Apr 02 05:00 UTC</td>
-                    <td>$5.48</td>
-                    <td>$6.41</td>
-                    <td>$0.93</td>
-                </tr>
-                <tr>
-                    <td>Counter-Strike: LAG Gaming vs EMPIRE (BO3) - Dust2.us Eagle Masters Group Stage</td>
-                    <td>LAG Gaming</td>
-                    <td>Apr 02 06:00 UTC</td>
-                    <td>$10.37</td>
-                    <td>$12.65</td>
-                    <td>$2.28</td>
-                </tr>
-                <tr>
-                    <td>Counter-Strike: Rare Atom vs TEAM XDM (BO3) - GangKui Cup Playoffs</td>
-                    <td>Rare Atom</td>
-                    <td>Apr 02 12:00 UTC</td>
-                    <td>$2.84</td>
-                    <td>$3.94</td>
-                    <td>$1.10</td>
-                </tr>
-                <tr>
-                    <td>Counter-Strike: Team Nemesis vs Heroic (BO3) - Stake Ranked Episode 1 Playoffs</td>
-                    <td>Heroic</td>
-                    <td>Apr 02 16:00 UTC</td>
-                    <td>$1.20</td>
-                    <td>$1.69</td>
-                    <td>$0.49</td>
-                </tr>
-                <tr>
-                    <td>Counter-Strike: ShindeN vs Bounty Hunters Esports (BO3) - Betboom Circuit X Mayhem São Paulo Group C</td>
-                    <td>ShindeN</td>
-                    <td>Apr 02 19:00 UTC</td>
-                    <td>$0.70</td>
-                    <td>$1.03</td>
-                    <td>$0.33</td>
-                </tr>
+<tr>
+    <td>Counter-Strike: Team Nemesis vs Heroic (BO3) - Stake Ranked Episode 1 Playoffs</td>
+    <td>Heroic</td>
+    <td>Apr 02 16:00 UTC</td>
+    <td>$3.81</td>
+    <td>$5.26</td>
+    <td>$1.45</td>
+</tr>
+<tr>
+    <td>Counter-Strike: AaB Esport vs Infinite (BO3) - United21 Group D</td>
+    <td>Infinite</td>
+    <td>Apr 02 16:30 UTC</td>
+    <td>$2.42</td>
+    <td>$5.26</td>
+    <td>$2.84</td>
+</tr>
+<tr>
+    <td>Games Total: O/U 2.5 - WW Team vs ACROBATS (BO3) - PGL Astana: European Closed Qualifier Playoffs</td>
+    <td>Over</td>
+    <td>Apr 02 17:00 UTC</td>
+    <td>$3.52</td>
+    <td>$5.25</td>
+    <td>$1.73</td>
+</tr>
+<tr>
+    <td>Counter-Strike: illwill vs Nuclear TigeRES - Map 1 Winner - NODWIN Clutch Series Playoffs</td>
+    <td>Nuclear TigeRES</td>
+    <td>Apr 02 17:00 UTC</td>
+    <td>$3.47</td>
+    <td>$5.26</td>
+    <td>$1.79</td>
+</tr>
+<tr>
+    <td>Counter-Strike: 9INE vs Gentle Mates (BO3) - Stake Ranked Episode 1 Playoffs</td>
+    <td>Gentle Mates</td>
+    <td>Apr 02 18:30 UTC</td>
+    <td>$3.44</td>
+    <td>$5.25</td>
+    <td>$1.81</td>
+</tr>
+<tr>
+    <td>Map Handicap: G2 (-1.5) vs BetBoom Team (+1.5) - Stake Ranked Episode 1 Playoffs</td>
+    <td>BetBoom Team</td>
+    <td>Apr 02 21:00 UTC</td>
+    <td>$3.33</td>
+    <td>$5.24</td>
+    <td>$1.91</td>
+</tr>
+<tr>
+    <td>Map Handicap: GL (-1.5) vs NIP (+1.5) - Stake Ranked Episode 1 Playoffs</td>
+    <td>NIP</td>
+    <td>Apr 02 23:30 UTC</td>
+    <td>$3.70</td>
+    <td>$5.25</td>
+    <td>$1.55</td>
+</tr>
+<tr>
+    <td>Counter-Strike: 9z vs ODDIK (BO3) - PGL Astana: South American Closed Qualifier Playoffs</td>
+    <td>9z</td>
+    <td>Apr 03 02:00 UTC</td>
+    <td>$3.65</td>
+    <td>$5.25</td>
+    <td>$1.60</td>
+</tr>
+<tr>
+    <td>Counter-Strike: desempleHADAS vs Crashers (BO3) - ESL Challenger League South America Cup #3 Playoffs</td>
+    <td>Crashers</td>
+    <td>Apr 03 03:00 UTC</td>
+    <td>$4.65</td>
+    <td>$5.25</td>
+    <td>$0.60</td>
+</tr>
+<tr>
+    <td>Counter-Strike: regain vs FlyQuest RED (BO3) - ESL Challenger League North America Cup #3 Playoffs</td>
+    <td>regain</td>
+    <td>Apr 03 07:00 UTC</td>
+    <td>$4.52</td>
+    <td>$5.26</td>
+    <td>$0.74</td>
+</tr>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3"><strong>Total Investment:</strong></td>
+                    <td><strong>$34.75</strong></td>
+                    <td><strong>$52.53</strong></td>
+                    <td><strong>$16.88</strong></td>
+                </tr>
+            </tfoot>
         </table>
-        <h3>Overall Portfolio Performance</h3>
-        <p><strong>Best Case Scenario:</strong> If all predictions are correct, the total value of the portfolio will be $112.58.</p>
-        <p><strong>ROI Analysis:</strong> Expected to turn $88.08 into $112.58, representing a 27.81% return on investment.</p>
+
+        <div class="summary-box">
+            <h4>Best Case Scenario:</h4>
+            <p>If all predictions are correct, the total value of the portfolio would be approximately <strong>$52.53</strong>.</p>
+            <h4>ROI Analysis:</h4>
+            <p>The expected return on investment is a net profit of <strong>$16.88</strong>, which is a projected <strong>48.58% ROI</strong>. This indicates a solid potential return given the diversified strategy and adherence to persona multipliers, targeting high-confidence bets while maintaining exposure to various market dynamics.</p>
+        </div>
     </div>
+
+    <div class="section">
+        <h3>SECTION 6: JSON DATA (Machine Readable)</h3>
+        <p>This section is for machine-readable data only and will be placed after the closing HTML tag as requested.</p>
+    </div>
+
 </body>
 </html>
