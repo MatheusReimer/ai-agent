@@ -105,13 +105,11 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
     {history_block}You are Frodo, the Moderator of an elite Investment Committee for Prediction Markets.
     Your committee consists of 8 distinct analyst personas, plus yourself (The Chairman) as the tie-breaker.
     Review the following raw JSON data from Polymarket.
-    Note: The data now includes 'technical_analysis' with RSI and Volatility.
+    Note: The data includes 'rsi' and 'volatility' fields.
     - RSI > 70 is "Overbought" (Expensive). RSI < 30 is "Oversold" (Cheap).
 
-    Your goal is to generate a comprehensive HTML report with FIVE separate sections.
-    **CRITICAL**: Use the Google Search tool to fetch real-time data for team stats, recent news, and leaks.
-    **SENTIMENT**: Based on the search results (news/stats), calculate a 'Sentiment Score' from 0 (Very Bearish) to 100 (Very Bullish).
-    **CONTROVERSY**: Calculate a 'Controversy Rating' from 0 (Consensus) to 10 (High Conflict). High controversy means sources/analysts disagree on the outcome.
+    Your goal is to generate a focused HTML report with TWO sections: the Roundtable debate and the Final Portfolio.
+    **CRITICAL**: Use the Google Search tool to fetch real-time data for team stats, recent news, and roster changes — personas must reference actual findings.
     Return ONLY valid HTML code. Do not include markdown code blocks.
 
     **STYLING INSTRUCTIONS**:
@@ -122,13 +120,8 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
     - Highlight: #FFB300
     - Text: #FCFCFC
     Style the HTML with a modern, dark-themed CSS using these colors.
+    Make each persona's name appear in their own accent color to make the dialogue easy to follow.
 
-    ### SECTION 1: Esports Markets
-    For each unique category in the data (league-of-legends, valorant, cs2, dota-2), create a sub-section with a table:
-    Resolves (endDate), Match, Category, Volume, Implied Odds, RSI Score, Sentiment Score, Controversy Rating, Team Stats, Analysis, Prediction.
-    Format the "Resolves" column as a human-readable date+time (e.g. "Mar 09 18:00 UTC"). Use the endDate field from the data.
-    If no active markets exist for a category, note it briefly and move on.
-    
     ### TOURNAMENT TIER RULE (applies to ALL personas)
     Before any persona speaks, look up the tournament on Liquipedia to classify its tier:
     - **S/A-tier** (BLAST Premier, ESL Pro League, IEM, PGL Major, VALORANT Champions/Masters, LoL Worlds/MSI):
@@ -140,11 +133,12 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
       Highly chaotic. Teams have stand-ins, low motivation, inconsistent prep.
       → Prefer the UNDERDOG (price 0.11–0.45). Skip heavy favorites — variance is too high to trust them.
 
-    Each persona must state the tournament tier and adjust their recommendation accordingly.
+    ### SECTION 1: The Roundtable Discussion
+    Simulate a lively, opinionated debate among these 8 personas about the markets above.
+    Write it as a dialogue — personas interrupt, argue, and challenge each other in character.
+    Each persona speaks in their own voice and references real search findings where relevant.
 
-    ### SECTION 3: The Roundtable Discussion (Simulated)
-    Simulate a debate among these 8 personas regarding the markets above:
-    1. **"Safe Hands" Gimliwise Gamgee** (Conservative): Dislikes high 'volatility'. Only likes >75% odds. In S/A-tier he trusts favorites fully; in C/D-tier he skips entirely — too risky.
+    1. **"Safe Hands" Gimliwise Gamgee** (Conservative): Dislikes high volatility. Only likes >75% odds. In S/A-tier he trusts favorites fully; in C/D-tier he skips entirely — too risky.
     2. **"YOLO" Peregrin Took** (High Risk): Loves long shots (<30% odds). In C/D-tier he's excited — upsets are common there. In S/A-tier he only backs underdogs if edge > 20%.
     3. **"Value" Aragorn** (Value Investor): Looks for mispriced odds. Tier affects how he adjusts "true probability" — he gives favorites a bigger edge buffer in S/A, shrinks it in C/D.
     4. **"Trend" Legolas** (Momentum): Loves high RSI (strong uptrend). In S/A-tier form streaks are more reliable; in C/D-tier he's skeptical of streaks — random variance is high.
@@ -153,32 +147,27 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
     7. **"Insider" Boromir** (News/Leaks): Checks for roster issues, bootcamp results, coach changes. More impactful in C/D-tier where a single stand-in can flip the match.
     8. **"Macro" Elrond** (Big Picture): Tournament stakes matter — S/A teams play harder (Major points, prize money). C/D teams may not be fully motivated.
 
-    **Task**:
-    - Each persona must cite the tournament tier and explain how it shapes their view.
-    - Provide "Meeting Minutes" where personas argue about the best bets.
+    Each persona must:
+    - Cite the tournament tier and explain how it shapes their view.
+    - Reference actual search results (team form, roster news, etc.).
+    - Argue or agree with others — make it feel like a real heated debate.
     - Highlight conflicts (e.g., Peregrin Took wants a C/D underdog, Gimliwise Gamgee refuses to touch it).
-    - If there is a tie or lack of consensus, **The Chairman** (You) enters to make the final decision.
-    
-    ### SECTION 3.5: Deep Research & Counter-Arguments (Devil's Advocate)
-    **CRITICAL STEP**: For the top 2 potential bets identified above, perform a specific Google Search to find reasons why they might FAIL.
-    - Search for: "Why [Team A] will lose to [Team B]", "[Product] delay rumors", "Counter-thesis for [Market]".
-    - List the strongest counter-argument found. If the counter-argument is too strong, DISCARD the bet.
-    
-    ### SECTION 4: Final Consensus Portfolio (${balance:.2f} Fund)
-    Based on the Roundtable's agreement, allocate exactly ${balance:.2f}.
+
+    If there is a tie or lack of consensus, **Frodo** (The Chairman) enters to make the final call.
+
+    ### SECTION 2: Final Consensus Portfolio (${balance:.2f} Fund)
+    Based on the Roundtable's conclusions, allocate exactly ${balance:.2f}.
     **Strategy**: Diversified Fractional Kelly.
-    1. **Spread Across Markets**: Target 10–15 bets across DIFFERENT matches and categories. Never put more than 10% of the fund into a single bet. More independent bets = lower variance = law of large numbers works in our favor. Small $2–$4 bets on decent opportunities are BETTER than skipping them — diversification is the goal.
-    2. **Fractional Kelly**: Use 25–40% of the full Kelly-suggested size per bet. Full Kelly risks ruin on a bad day. Fractional Kelly preserves the bankroll long-term.
-    3. **Persona Multiplier**: Each persona in the leaderboard has a budget multiplier (1.0x trusted, 0.75x caution, 0.5x struggling). Apply their multiplier to the Kelly allocation. Struggling personas still bet — just smaller. Do NOT skip their picks entirely; small diversified bets are better than zero exposure.
-    4. **Consensus**: Only invest if at least 2 personas agreed (or Chairman overruled). For markets where only 1 persona is positive but there's no strong opposition, allocate a small exploratory bet ($2–$3) rather than skipping entirely.
-    5. **CRITICAL — MINIMUM BET**: Each market in the data has a "min_bets" field showing the EXACT minimum dollar amount per outcome (e.g. {{"Misa Esports": 3.88, "BIG": 2.12}}). You MUST allocate AT LEAST that amount for the chosen outcome, or skip the bet entirely. Never allocate less than the min_bets value for your chosen outcome.
+    1. **Spread Across Markets**: Target 10–15 bets across DIFFERENT matches and categories. Never put more than 10% of the fund into a single bet.
+    2. **Fractional Kelly**: Use 25–40% of the full Kelly-suggested size per bet.
+    3. **Consensus**: Only invest if at least 2 personas agreed (or Chairman overruled). For markets where only 1 persona is positive but there's no strong opposition, allocate a small exploratory bet ($2–$3).
+    4. **CRITICAL — MINIMUM BET**: Each market has a "min_bets" field showing the EXACT minimum dollar amount per outcome. You MUST allocate AT LEAST that amount for the chosen outcome, or skip the bet entirely.
 
     Output as a table:
-    | Market | Resolves | Allocation | Primary Backer (Persona) | Rationale |
-    (Include the endDate formatted as "Mar 09 18:00 UTC" in the Resolves column. Use the endDate field from the market data.)
-    (Ensure sum is exactly ${balance:.2f})
-    
-    ### SECTION 6: JSON DATA (Machine Readable)
+    | Market | Resolves | Outcome | Allocation | Primary Backer | Rationale |
+    (Format endDate as "Mar 09 18:00 UTC". Ensure allocations sum to exactly ${balance:.2f}.)
+
+    ### MACHINE-READABLE OUTPUT
     **CRITICAL FINAL STEP**: After the closing </html> tag, output ONLY the raw JSON below.
     Do NOT wrap it in HTML. Do NOT skip this step. The trading engine will fail without it.
     The "primary_backer" must be EXACTLY one of: Safe Hands, YOLO, Value, Trend, Skeptic, Quant, Insider, Macro, Chairman.
@@ -191,24 +180,17 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
       {{"market_question": "exact market question from data", "outcome": "exact outcome string", "amount": 0.10, "rationale": "reason", "primary_backer": "Trend"}}
     ]
     </JSON_DATA>
-    
-    ### SECTION 5: Projected Returns (The "Aftermath")
-    Calculate the expected outcome of your portfolio based on the odds in the data.
-    For each bet in the portfolio, include a row in a summary table:
-    | Market | Outcome | Resolves | Investment | Potential Payout | Net Profit |
-    (Resolves = endDate formatted as "Mar 09 18:00 UTC". Potential Payout = Investment / Price. Net Profit = Payout - Investment.)
-    1. **Best Case Scenario**: If all your predictions are correct, what is the total value of the portfolio?
-       (Formula per bet: Investment Amount / Current Price).
-    2. **ROI Analysis**: Brief comment on the potential Return on Investment (e.g., "Expected to turn ${balance:.2f} into $X.XX").
-    
+
     Data:
     {json.dumps(optimized_data, indent=2)}
     """
 
-    try:
+    max_503_retries = 5
+    for _503_attempt in range(1, max_503_retries + 1):
+      try:
         # Enable Google Search for live data retrieval
         response = None
-        
+
         # Configure the Google Search Tool using the new types
         search_tool = types.Tool(google_search=types.GoogleSearch())
         generate_config = types.GenerateContentConfig(tools=[search_tool])
@@ -313,7 +295,13 @@ Use this to calibrate your confidence — avoid repeating patterns that have his
             webbrowser.open("file://" + os.path.abspath(HTML_FILENAME))
 
         return portfolio_data, html_content
-        
-    except Exception as e:
-        print(f"\nError communicating with Gemini: {e}")
-        return [], ""
+
+      except Exception as e:
+        if "503" in str(e) and _503_attempt < max_503_retries:
+            print(f"\nError communicating with Gemini: {e}")
+            print(f"⏳ Gemini busy — retrying in 5 min... (attempt {_503_attempt}/{max_503_retries})")
+            time.sleep(300)
+        else:
+            print(f"\nError communicating with Gemini: {e}")
+            return [], ""
+    return [], ""

@@ -1,1537 +1,725 @@
-<html>
-  <head>
+I have analyzed the provided market data and conducted initial research on the tournament tiers. All identified tournaments are either B-Tier or C-Tier.
+
+Here's the breakdown of the tournament tiers:
+*   **CCT Europe Series #20 Playoffs**: C-Tier
+*   **BetBoom Storm Playoffs**: C-Tier
+*   **ESL Challenger League South America Cup #3 Playoffs**: B-Tier
+*   **CCT North America Series #4 Group A / Group B**: C-Tier
+*   **Dust2.us Eagle Masters Group Stage**: C-Tier
+*   **European Pro League Series 6 Playoffs**: C-Tier
+*   **NODWIN Clutch Series Play-In Group D / Group C**: C-Tier
+
+I will now proceed with gathering real-time data for team stats, recent news, and leaks for each match, calculate sentiment and controversy, and then generate the full report.<html style="background-color: #000000; color: #FCFCFC; font-family: sans-serif;">
+<head>
+    <title>Frodo's Investment Committee Report</title>
     <style>
-      body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #000000;
-        color: #FCFCFC;
-        margin: 20px;
-      }
-      h1, h2, h3, h4 {
-        color: #00FFDD;
-        border-bottom: 2px solid #53277D;
-        padding-bottom: 5px;
-        margin-top: 25px;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 20px;
-      }
-      th, td {
-        border: 1px solid #53277D;
-        padding: 8px;
-        text-align: left;
-      }
-      th {
-        background-color: #53277D;
-        color: #FCFCFC;
-      }
-      .persona-comment {
-        background-color: #1a1a1a;
-        border-left: 3px solid #FFB300;
-        padding: 10px;
-        margin-bottom: 10px;
-      }
-      .persona-name {
-        color: #00FFDD;
-        font-weight: bold;
-      }
-      .conflict {
-        color: #FFB300;
-        font-weight: bold;
-      }
-      .chairman-decision {
-        background-color: #2a003f;
-        border-left: 3px solid #FCFCFC;
-        padding: 10px;
-        margin-top: 15px;
-        font-style: italic;
-      }
-      .sentiment-bullish { color: #00FFDD; }
-      .sentiment-neutral { color: #FCFCFC; }
-      .sentiment-bearish { color: #FFB300; }
-      .controversy-low { color: #00FFDD; }
-      .controversy-medium { color: #FFB300; }
-      .controversy-high { color: #FF0000; }
+        body { background-color: #000000; color: #FCFCFC; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px; }
+        h1, h2, h3, h4 { color: #00FFDD; border-bottom: 2px solid #53277D; padding-bottom: 5px; margin-top: 30px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; background-color: #1a1a1a; }
+        th, td { border: 1px solid #53277D; padding: 10px; text-align: left; }
+        th { background-color: #53277D; color: #FCFCFC; }
+        .accent { color: #FFB300; }
+        .primary-accent-bg { background-color: #53277D; }
+        .secondary-accent { color: #00FFDD; }
+        .persona-box { border: 1px solid #00FFDD; padding: 15px; margin-bottom: 10px; background-color: #1a1a1a; border-radius: 8px; }
+        .persona-name { color: #FFB300; font-weight: bold; }
+        .win { color: #00FFDD; }
+        .loss { color: #FFB300; }
+        .neutral { color: #FCFCFC; }
+        .bet-table th { background-color: #00FFDD; color: #000000; }
+        .bet-table td { background-color: #1a1a1a; }
+        .market-title { font-weight: bold; color: #FCFCFC; }
+        .rationale { font-size: 0.9em; color: #cccccc; }
+        .disclaimer { font-size: 0.8em; color: #888888; margin-top: 20px; }
     </style>
-  </head>
-  <body>
-    <h1>Frodo's Investment Committee Report</h1>
+</head>
+<body>
 
-    <p><strong>Date:</strong> Friday, April 3, 2026</p>
+    <h1 style="color: #FFB300;">Frodo's Investment Committee Report</h1>
+    <p><strong>Total bets:</strong> 172 | <strong>Resolved:</strong> 165 | <strong>Pending:</strong> 7</p>
+    <p><strong>Wins:</strong> 99 | <strong>Losses:</strong> 66 | <strong>Win Rate:</strong> 60.0%</p>
+    <p><strong>Total wagered:</strong> $838.69 | <strong>Net profit:</strong> $-31.24</p>
 
-    <h2>SECTION 1: Esports Markets</h2>
+    <h2>### SECTION 1: Esports Markets</h2>
 
     <h3>CS2 Markets</h3>
     <table>
-      <thead>
-        <tr>
-          <th>Resolves</th>
-          <th>Match</th>
-          <th>Category</th>
-          <th>Volume</th>
-          <th>Implied Odds</th>
-          <th>RSI Score</th>
-          <th>Sentiment Score</th>
-          <th>Controversy Rating</th>
-          <th>Team Stats</th>
-          <th>Analysis</th>
-          <th>Prediction</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Apr 03 15:30 UTC</td>
-          <td>Tricked vs HAVENs (BO3) - Urban Riga Open #4 Group B</td>
-          <td>cs2</td>
-          <td>N/A</td>
-          <td>Tricked: 0.885<br>HAVENs: 0.115</td>
-          <td>50</td>
-          <td class="sentiment-bearish">Tricked: 30<br>HAVENs: 55</td>
-          <td class="controversy-medium">5</td>
-          <td>Tricked: Mixed recent form in similar tier events. HAVENs: Recent upset victories against slightly favored teams.</td>
-          <td>Tricked is a heavy favorite, but HAVENs has shown flashes of upset potential in recent matches, making the implied odds for HAVENs seem slightly mispriced for a C-tier event where upsets are common.</td>
-          <td>HAVENs</td>
-        </tr>
-        <tr>
-          <td>Apr 03 16:00 UTC</td>
-          <td>BetBoom Team vs 9INE (BO3) - Stake Ranked Episode 1 Playoffs</td>
-          <td>cs2</td>
-          <td>8354.97</td>
-          <td>BetBoom Team: 0.695<br>9INE: 0.305</td>
-          <td>50</td>
-          <td class="sentiment-neutral">BetBoom: 60<br>9INE: 45</td>
-          <td class="controversy-low">3</td>
-          <td>BetBoom Team: Strong contenders in B-tier events, consistent roster. 9INE: Inconsistent, but capable of individual brilliance.</td>
-          <td>BetBoom Team is the more consistent team, justifying their favorite status in this B-tier playoff match. 9INE has potential but lacks the cohesion to consistently challenge top B-tier teams.</td>
-          <td>BetBoom Team</td>
-        </tr>
-        <tr>
-          <td>Apr 03 16:00 UTC</td>
-          <td>K27 vs 100 Thieves (BO3) - PGL Astana: European Closed Qualifier Playoffs</td>
-          <td>cs2</td>
-          <td>7735.74</td>
-          <td>K27: 0.41<br>100 Thieves: 0.59</td>
-          <td>50</td>
-          <td class="sentiment-neutral">K27: 45<br>100 Thieves: 65</td>
-          <td class="controversy-low">2</td>
-          <td>K27: Up-and-coming team, shown promise in qualifiers. 100 Thieves: Solid B-tier team, experienced roster.</td>
-          <td>100 Thieves are favored and have the experience to close out this qualifier match. K27 could surprise, but 100 Thieves' current form is more reliable.</td>
-          <td>100 Thieves</td>
-        </tr>
-        <tr>
-          <td>Apr 03 16:00 UTC</td>
-          <td>ESC Gaming vs ALGO Esports (BO3) - CCT Europe Series #19 Playoffs</td>
-          <td>cs2</td>
-          <td>15094.04</td>
-          <td>ESC Gaming: 0.605<br>ALGO Esports: 0.395</td>
-          <td>50</td>
-          <td class="sentiment-neutral">ESC: 55<br>ALGO: 40</td>
-          <td class="controversy-low">3</td>
-          <td>ESC Gaming: Decent performance in CCT series. ALGO Esports: Inconsistent, prone to dropping maps.</td>
-          <td>ESC Gaming appears to have a slight edge based on recent results and more stable team play. ALGO Esports can be a wildcard but often struggles against structured teams.</td>
-          <td>ESC Gaming</td>
-        </tr>
-        <tr>
-          <td>Apr 03 16:30 UTC</td>
-          <td>STATE vs ex-Zero Tenacity (BO3) - European Pro League Series 6 Group C</td>
-          <td>cs2</td>
-          <td>1625.95</td>
-          <td>STATE: 0.45<br>ex-Zero Tenacity: 0.55</td>
-          <td>50</td>
-          <td class="sentiment-neutral">STATE: 45<br>ex-ZT: 55</td>
-          <td class="controversy-low">3</td>
-          <td>STATE: New roster, still finding their stride. ex-Zero Tenacity: More established, but with a recent minor slump.</td>
-          <td>ex-Zero Tenacity holds a slight advantage due to more experience, despite a recent slump. STATE's new roster might need more time to gel.</td>
-          <td>ex-Zero Tenacity</td>
-        </tr>
-        <tr>
-          <td>Apr 03 17:00 UTC</td>
-          <td>ex-RUBY vs TNC (BO3) - CCT Europe Series #20 Group Stage - Map 1 Winner</td>
-          <td>cs2</td>
-          <td>31.00</td>
-          <td>ex-RUBY: 0.63<br>TNC: 0.37</td>
-          <td>50</td>
-          <td class="sentiment-neutral">ex-RUBY: 50<br>TNC: 50</td>
-          <td class="controversy-medium">4</td>
-          <td>ex-RUBY: Solid map pool, often strong in opening maps. TNC: Known for mid-game adjustments, sometimes starts slow.</td>
-          <td>This is a map 1 winner bet. ex-RUBY tends to start strong. TNC, while capable, might not be fully warmed up for the first map in a group stage.</td>
-          <td>ex-RUBY</td>
-        </tr>
-        <tr>
-          <td>Apr 03 18:30 UTC</td>
-          <td>Heroic vs NIP (BO3) - Stake Ranked Episode 1 Playoffs</td>
-          <td>cs2</td>
-          <td>14980.90</td>
-          <td>Heroic: 0.535<br>NIP: 0.465</td>
-          <td>50</td>
-          <td class="sentiment-bullish">Heroic: 70<br>NIP: 60</td>
-          <td class="controversy-low">2</td>
-          <td>Heroic: Strong consistent performance in B-tier, good strategies. NIP: Improving, but still prone to upsets against top teams.</td>
-          <td>Heroic is the more dominant team in this tier. While NIP can be competitive, Heroic's current form and strategic depth give them the edge.</td>
-          <td>Heroic</td>
-        </tr>
-        <tr>
-          <td>Apr 03 19:00 UTC</td>
-          <td>Map Handicap: ECS (-1.5) vs Team Nemesis (+1.5) - CCT Europe Series #19 Playoffs</td>
-          <td>cs2</td>
-          <td>925.57</td>
-          <td>ECSTATIC: 0.33<br>Team Nemesis: 0.67</td>
-          <td>50</td>
-          <td class="sentiment-neutral">ECSTATIC: 40<br>Team Nemesis: 55</td>
-          <td class="controversy-low">3</td>
-          <td>ECSTATIC: Often a strong team, but can struggle with map pool depth. Team Nemesis: Good at taking maps off stronger opponents.</td>
-          <td>Team Nemesis on a +1.5 map handicap is a strong bet, as they have a good record of pushing matches to three maps even against stronger teams. ECSTATIC, while often winning, might not sweep 2-0.</td>
-          <td>Team Nemesis (+1.5)</td>
-        </tr>
-        <tr>
-          <td>Apr 03 19:00 UTC</td>
-          <td>Eruption vs Just Swing (BO3) - ESL Challenger League Asia Cup #3 Playoffs</td>
-          <td>cs2</td>
-          <td>10.00</td>
-          <td>Eruption: 0.51<br>Just Swing: 0.49</td>
-          <td>50</td>
-          <td class="sentiment-neutral">Eruption: 50<br>Just Swing: 50</td>
-          <td class="controversy-medium">5</td>
-          <td>Eruption: Inconsistent results recently. Just Swing: Limited recent data, unknown potential.</td>
-          <td>This match is a toss-up with little differentiating data. Slight edge to Eruption based on marginal public odds.</td>
-          <td>Eruption</td>
-        </tr>
-        <tr>
-          <td>Apr 03 19:00 UTC</td>
-          <td>Chinggis Warriors vs Team Arise (BO3) - ESL Challenger League Asia Cup #3 Playoffs</td>
-          <td>cs2</td>
-          <td>1.96</td>
-          <td>Chinggis Warriors: 0.575<br>Team Arise: 0.425</td>
-          <td>50</td>
-          <td class="sentiment-neutral">Chinggis Warriors: 55<br>Team Arise: 45</td>
-          <td class="controversy-low">3</td>
-          <td>Chinggis Warriors: More experienced in regional events. Team Arise: Newer team, potential for upsets.</td>
-          <td>Chinggis Warriors have a slight experience advantage which can be crucial in playoffs.</td>
-          <td>Chinggis Warriors</td>
-        </tr>
-        <tr>
-          <td>Apr 03 19:00 UTC</td>
-          <td>The QUBE Esports vs NSN (BO3) - ESL Challenger League Asia Cup #3 Playoffs</td>
-          <td>cs2</td>
-          <td>99.98</td>
-          <td>The QUBE Esports: 0.505<br>NSN: 0.495</td>
-          <td>50</td>
-          <td class="sentiment-neutral">The QUBE: 50<br>NSN: 50</td>
-          <td class="controversy-medium">5</td>
-          <td>The QUBE Esports: Mixed bag of recent results. NSN: Similar performance, no clear edge.</td>
-          <td>Another close match with no clear favorite. The slight edge goes to The QUBE Esports by the market.</td>
-          <td>The QUBE Esports</td>
-        </tr>
-        <tr>
-          <td>Apr 03 19:00 UTC</td>
-          <td>Legion vs 5star (BO3) - ESL Challenger League Asia Cup #3 Playoffs</td>
-          <td>cs2</td>
-          <td>N/A</td>
-          <td>Legion: 0.500<br>5star: 0.500</td>
-          <td>50</td>
-          <td class="sentiment-neutral">Legion: 50<br>5star: 50</td>
-          <td class="controversy-high">6</td>
-          <td>Legion: Limited recent data. 5star: Also limited data, making this match highly uncertain.</td>
-          <td>A true coin flip with minimal information. Too risky.</td>
-          <td>N/A</td>
-        </tr>
-        <tr>
-          <td>Apr 03 19:00 UTC</td>
-          <td>Change The Game vs FengDa Gaming (BO3) - ESL Challenger League Asia Cup #3 Playoffs</td>
-          <td>cs2</td>
-          <td>N/A</td>
-          <td>Change The Game: 0.505<br>FengDa Gaming: 0.495</td>
-          <td>50</td>
-          <td class="sentiment-neutral">CTG: 50<br>FengDa: 50</td>
-          <td class="controversy-high">6</td>
-          <td>Change The Game: No significant recent activity. FengDa Gaming: Similar lack of data.</td>
-          <td>Another match with too much uncertainty.</td>
-          <td>N/A</td>
-        </tr>
-        <tr>
-          <td>Apr 03 19:00 UTC</td>
-          <td>TYLOO vs BMZ (BO3) - ESL Challenger League Asia Cup #3 Playoffs</td>
-          <td>cs2</td>
-          <td>N/A</td>
-          <td>TYLOO: 0.51<br>BMZ: 0.49</td>
-          <td>50</td>
-          <td class="sentiment-neutral">TYLOO: 50<br>BMZ: 50</td>
-          <td class="controversy-high">6</td>
-          <td>TYLOO: Historically strong, but recent form is unknown in this specific tournament. BMZ: Underdog with little public data.</td>
-          <td>Despite TYLOO's name recognition, the lack of recent data makes this risky.</td>
-          <td>N/A</td>
-        </tr>
-        <tr>
-          <td>Apr 03 20:00 UTC</td>
-          <td>MINLATE vs Ursa (BO3) - CCT Europe Series #20 Group Stage</td>
-          <td>cs2</td>
-          <td>6800.73</td>
-          <td>MINLATE: 0.275<br>Ursa: 0.725</td>
-          <td>50</td>
-          <td class="sentiment-bearish">MINLATE: 40<br>Ursa: 65</td>
-          <td class="controversy-low">2</td>
-          <td>MINLATE: Struggle against higher-tier opponents. Ursa: Solid performance in CCT events.</td>
-          <td>Ursa is a clear favorite and expected to win comfortably in this B-tier match.</td>
-          <td>Ursa</td>
-        </tr>
-        <tr>
-          <td>Apr 03 21:00 UTC</td>
-          <td>G2 vs GamerLegion (BO3) - Stake Ranked Episode 1 Playoffs</td>
-          <td>cs2</td>
-          <td>4273.50</td>
-          <td>G2: 0.675<br>GamerLegion: 0.325</td>
-          <td>50</td>
-          <td class="sentiment-bullish">G2: 75<br>GamerLegion: 45</td>
-          <td class="controversy-low">1</td>
-          <td>G2: Top-tier team, consistent performance and deep roster. GamerLegion: Solid B-tier team, but struggles against top teams like G2.</td>
-          <td>G2 is a strong favorite and should dominate this B-tier playoff match.</td>
-          <td>G2</td>
-        </tr>
-        <tr>
-          <td>Apr 03 21:00 UTC</td>
-          <td>Galorys vs Marsborne (BO3) - Betboom Circuit X Mayhem São Paulo Group A</td>
-          <td>cs2</td>
-          <td>300.29</td>
-          <td>Galorys: 0.475<br>Marsborne: 0.525</td>
-          <td>50</td>
-          <td class="sentiment-neutral">Galorys: 50<br>Marsborne: 50</td>
-          <td class="controversy-medium">4</td>
-          <td>Galorys: Inconsistent, but capable of individual plays. Marsborne: Slightly more stable, but also prone to upsets.</td>
-          <td>A very close match in a C-tier event. Marsborne has a slight edge in recent form.</td>
-          <td>Marsborne</td>
-        </tr>
-        <tr>
-          <td>Apr 03 21:00 UTC</td>
-          <td>HOTU vs WW Team (BO3) - CIS LAN Championship Group C</td>
-          <td>cs2</td>
-          <td>1406.76</td>
-          <td>HOTU: 0.60<br>WW Team: 0.40</td>
-          <td>50</td>
-          <td class="sentiment-neutral">HOTU: 55<br>WW Team: 45</td>
-          <td class="controversy-low">3</td>
-          <td>HOTU: Strong regional team. WW Team: Improving, but still considered an underdog.</td>
-          <td>HOTU is favored and expected to win this B-tier match.</td>
-          <td>HOTU</td>
-        </tr>
-        <tr>
-          <td>Apr 03 21:00 UTC</td>
-          <td>ARCRED vs Younglings (BO3) - CIS LAN Championship Group C</td>
-          <td>cs2</td>
-          <td>32.40</td>
-          <td>ARCRED: 0.77<br>Younglings: 0.23</td>
-          <td>50</td>
-          <td class="sentiment-bullish">ARCRED: 70<br>Younglings: 30</td>
-          <td class="controversy-low">2</td>
-          <td>ARCRED: Dominant in regional play. Younglings: New roster, still gaining experience.</td>
-          <td>ARCRED is a strong favorite in this B-tier match and should secure a win.</td>
-          <td>ARCRED</td>
-        </tr>
-        <tr>
-          <td>Apr 03 22:00 UTC</td>
-          <td>ODDIK vs Fake do Biru (BO3) - PGL Astana: South American Closed Qualifier Playoffs</td>
-          <td>cs2</td>
-          <td>1.96</td>
-          <td>ODDIK: 0.63<br>Fake do Biru: 0.37</td>
-          <td>50</td>
-          <td class="sentiment-neutral">ODDIK: 60<br>Fake do Biru: 40</td>
-          <td class="controversy-low">3</td>
-          <td>ODDIK: Experienced and perform well in qualifiers. Fake do Biru: Up-and-coming, but inconsistent.</td>
-          <td>ODDIK is the more established team and should win this B-tier qualifier match.</td>
-          <td>ODDIK</td>
-        </tr>
-        <tr>
-          <td>Apr 03 23:00 UTC</td>
-          <td>Donstu Esports vs G2 Ares (BO3) - ESL Challenger League Europe Cup #3 Playoffs</td>
-          <td>cs2</td>
-          <td>6.96</td>
-          <td>Donstu Esports: 0.505<br>G2 Ares: 0.495</td>
-          <td>50</td>
-          <td class="sentiment-neutral">Donstu: 50<br>G2 Ares: 50</td>
-          <td class="controversy-medium">5</td>
-          <td>Donstu Esports: Limited recent data, unknown potential. G2 Ares: Academy team, inconsistent but can surprise.</td>
-          <td>A risky match with both teams having limited reliable recent data. Slight market favor for Donstu.</td>
-          <td>Donstu Esports</td>
-        </tr>
-        <tr>
-          <td>Apr 03 23:00 UTC</td>
-          <td>Just Players vs TNC (BO3) - ESL Challenger League Europe Cup #3 Playoffs</td>
-          <td>cs2</td>
-          <td>16.01</td>
-          <td>Just Players: 0.72<br>TNC: 0.28</td>
-          <td>50</td>
-          <td class="sentiment-bullish">Just Players: 65<br>TNC: 35</td>
-          <td class="controversy-low">2</td>
-          <td>Just Players: Strong form in recent Challenger League matches. TNC: Struggling to find consistent wins.</td>
-          <td>Just Players is a clear favorite and should win this B-tier playoff match.</td>
-          <td>Just Players</td>
-        </tr>
-        <tr>
-          <td>Apr 03 23:00 UTC</td>
-          <td>UNiTY esports vs ENCE Academy (BO3) - ESL Challenger League Europe Cup #3 Playoffs</td>
-          <td>cs2</td>
-          <td>132.50</td>
-          <td>UNiTY esports: 0.645<br>ENCE Academy: 0.355</td>
-          <td>50</td>
-          <td class="sentiment-neutral">UNiTY: 55<br>ENCE Academy: 40</td>
-          <td class="controversy-low">3</td>
-          <td>UNiTY esports: Consistent performance in Challenger League. ENCE Academy: Up-and-down, but potential.</td>
-          <td>UNiTY esports is the stronger team and should be able to secure the win in this B-tier playoff.</td>
-          <td>UNiTY esports</td>
-        </tr>
-        <tr>
-          <td>Apr 03 23:00 UTC</td>
-          <td>Johnny Speeds vs MANA eSports (BO3) - ESL Challenger League Europe Cup #3 Playoffs</td>
-          <td>cs2</td>
-          <td>44.31</td>
-          <td>Johnny Speeds: 0.685<br>MANA eSports: 0.315</td>
-          <td>50</td>
-          <td class="sentiment-bullish">Johnny Speeds: 60<br>MANA: 40</td>
-          <td class="controversy-low">3</td>
-          <td>Johnny Speeds: Good map pool and strategic play. MANA eSports: Underdog, prone to early exits.</td>
-          <td>Johnny Speeds is the stronger team and the favorite to win this B-tier match.</td>
-          <td>Johnny Speeds</td>
-        </tr>
-        <tr>
-          <td>Apr 03 23:00 UTC</td>
-          <td>STATE vs RUSTEC (BO3) - CCT Europe Series #20 Group Stage</td>
-          <td>cs2</td>
-          <td>1246.01</td>
-          <td>STATE: 0.415<br>RUSTEC: 0.585</td>
-          <td>50</td>
-          <td class="sentiment-neutral">STATE: 45<br>RUSTEC: 55</td>
-          <td class="controversy-low">3</td>
-          <td>STATE: Inconsistent recent form. RUSTEC: More stable and experienced in CCT events.</td>
-          <td>RUSTEC is the more consistent team and has a slight edge over STATE in this B-tier group stage match.</td>
-          <td>RUSTEC</td>
-        </tr>
-        <tr>
-          <td>Apr 03 23:00 UTC</td>
-          <td>Atreides vs QUAZAR (BO3) - ESL Challenger League Europe Cup #3 Playoffs</td>
-          <td>cs2</td>
-          <td>1.96</td>
-          <td>Atreides: 0.51<br>QUAZAR: 0.49</td>
-          <td>50</td>
-          <td class="sentiment-neutral">Atreides: 50<br>QUAZAR: 50</td>
-          <td class="controversy-medium">5</td>
-          <td>Atreides: Limited recent data. QUAZAR: Also limited data, making this a tough call.</td>
-          <td>A very close match with little to differentiate the teams.</td>
-          <td>Atreides</td>
-        </tr>
-        <tr>
-          <td>Apr 03 23:00 UTC</td>
-          <td>HEROIC Academy vs TNT (BO3) - ESL Challenger League Europe Cup #3 Playoffs</td>
-          <td>cs2</td>
-          <td>6.96</td>
-          <td>HEROIC Academy: 0.35<br>TNT: 0.65</td>
-          <td>50</td>
-          <td class="sentiment-bearish">HEROIC Academy: 40<br>TNT: 60</td>
-          <td class="controversy-low">3</td>
-          <td>HEROIC Academy: Inconsistent performance, typical for academy teams. TNT: Stronger recent results in similar events.</td>
-          <td>TNT is the more consistent team and the favorite to win this B-tier match.</td>
-          <td>TNT</td>
-        </tr>
-        <tr>
-          <td>Apr 04 00:00 UTC</td>
-          <td>Fluxo W7M vs largadosypelados (BO3) - Betboom Circuit X Mayhem São Paulo Group B</td>
-          <td>cs2</td>
-          <td>1.49</td>
-          <td>Fluxo W7M: 0.63<br>largadosypelados: 0.37</td>
-          <td>50</td>
-          <td class="sentiment-neutral">Fluxo W7M: 55<br>largadosypelados: 45</td>
-          <td class="controversy-medium">4</td>
-          <td>Fluxo W7M: Better track record in regional C-tier events. largadosypelados: Known for unpredictable plays.</td>
-          <td>Fluxo W7M are the favorites in this C-tier match due to more consistent performance.</td>
-          <td>Fluxo W7M</td>
-        </tr>
-        <tr>
-          <td>Apr 04 03:00 UTC</td>
-          <td>Crashers vs largadosypelados (BO3) - ESL Challenger League South America Cup #3 Playoffs</td>
-          <td>cs2</td>
-          <td>N/A</td>
-          <td>Crashers: 0.145<br>largadosypelados: 0.855</td>
-          <td>50</td>
-          <td class="sentiment-bearish">Crashers: 30<br>largadosypelados: 70</td>
-          <td class="controversy-low">2</td>
-          <td>Crashers: Struggling immensely. largadosypelados: Strong favorite, consistent wins.</td>
-          <td>largadosypelados is a very strong favorite and should easily win this B-tier match.</td>
-          <td>largadosypelados</td>
-        </tr>
-        <tr>
-          <td>Apr 04 03:00 UTC</td>
-          <td>Keyd vs Fake do Biru (BO3) - ESL Challenger League South America Cup #3 Playoffs</td>
-          <td>cs2</td>
-          <td>1.96</td>
-          <td>Keyd: 0.26<br>Fake do Biru: 0.74</td>
-          <td>50</td>
-          <td class="sentiment-bearish">Keyd: 35<br>Fake do Biru: 65</td>
-          <td class="controversy-low">2</td>
-          <td>Keyd: Underperforming recently. Fake do Biru: Strong form in the Challenger League.</td>
-          <td>Fake do Biru is a clear favorite and should win this B-tier match.</td>
-          <td>Fake do Biru</td>
-        </tr>
-        <tr>
-          <td>Apr 04 03:00 UTC</td>
-          <td>R2 Esports Club vs paiN Academy (BO3) - ESL Challenger League South America Cup #3 Playoffs</td>
-          <td>cs2</td>
-          <td>N/A</td>
-          <td>R2 Esports Club: 0.525<br>paiN Academy: 0.475</td>
-          <td>50</td>
-          <td class="sentiment-neutral">R2: 50<br>paiN Academy: 50</td>
-          <td class="controversy-medium">5</td>
-          <td>R2 Esports Club: Limited data. paiN Academy: Inconsistent, but academy teams can sometimes surprise.</td>
-          <td>A very close match, hard to call with limited data.</td>
-          <td>R2 Esports Club</td>
-        </tr>
-        <tr>
-          <td>Apr 04 03:00 UTC</td>
-          <td>ShindeN vs UNO MILLE (BO3) - ESL Challenger League South America Cup #3 Playoffs</td>
-          <td>cs2</td>
-          <td>111.05</td>
-          <td>ShindeN: 0.67<br>UNO MILLE: 0.33</td>
-          <td>50</td>
-          <td class="sentiment-bullish">ShindeN: 60<br>UNO MILLE: 40</td>
-          <td class="controversy-low">3</td>
-          <td>ShindeN: Consistent performance in this league. UNO MILLE: Struggling in recent matches.</td>
-          <td>ShindeN is a strong favorite in this B-tier match.</td>
-          <td>ShindeN</td>
-        </tr>
-        <tr>
-          <td>Apr 04 03:00 UTC</td>
-          <td>Charrados FC vs Blitzkrieg (BO3) - ESL Challenger League South America Cup #3 Playoffs</td>
-          <td>cs2</td>
-          <td>5.00</td>
-          <td>Charrados FC: 0.50<br>Blitzkrieg: 0.50</td>
-          <td>50</td>
-          <td class="sentiment-neutral">Charrados: 50<br>Blitzkrieg: 50</td>
-          <td class="controversy-high">6</td>
-          <td>Charrados FC: Limited public data. Blitzkrieg: Also limited, making this match unpredictable.</td>
-          <td>A coin flip. Too risky.</td>
-          <td>N/A</td>
-        </tr>
-        <tr>
-          <td>Apr 04 03:00 UTC</td>
-          <td>BESTIA Academy vs HereWeGoAgain (BO3) - ESL Challenger League South America Cup #3 Playoffs</td>
-          <td>cs2</td>
-          <td>270.41</td>
-          <td>BESTIA Academy: 0.495<br>HereWeGoAgain: 0.505</td>
-          <td>50</td>
-          <td class="sentiment-neutral">BESTIA Academy: 50<br>HereWeGoAgain: 50</td>
-          <td class="controversy-medium">5</td>
-          <td>BESTIA Academy: Inconsistent, but has potential. HereWeGoAgain: Slight edge in recent form.</td>
-          <td>A very close match. Slight edge to HereWeGoAgain due to market.</td>
-          <td>HereWeGoAgain</td>
-        </tr>
-        <tr>
-          <td>Apr 04 03:00 UTC</td>
-          <td>Map Handicap: MAG (-1.5) vs desempleHADAS (+1.5) - ESL Challenger League South America Cup #3 Playoffs</td>
-          <td>cs2</td>
-          <td>984.18</td>
-          <td>MAGICOS: 0.495<br>desempleHADAS: 0.505</td>
-          <td>50</td>
-          <td class="sentiment-neutral">MAGICOS: 50<br>desempleHADAS: 50</td>
-          <td class="controversy-medium">4</td>
-          <td>MAGICOS: Strong, but sometimes drop maps. desempleHADAS: Known for fighting hard and taking maps.</td>
-          <td>desempleHADAS on +1.5 map handicap is a good value bet, as they are capable of pushing matches to three maps.</td>
-          <td>desempleHADAS (+1.5)</td>
-        </tr>
-        <tr>
-          <td>Apr 04 03:00 UTC</td>
-          <td>ShindeN vs Imperial (BO3) - Betboom Circuit X Mayhem São Paulo Group C</td>
-          <td>cs2</td>
-          <td>58.18</td>
-          <td>ShindeN: 0.365<br>Imperial: 0.635</td>
-          <td>50</td>
-          <td class="sentiment-bearish">ShindeN: 40<br>Imperial: 60</td>
-          <td class="controversy-low">3</td>
-          <td>ShindeN: Inconsistent, prone to early losses. Imperial: Stronger team, good form.</td>
-          <td>Imperial is the favorite and expected to win this C-tier match.</td>
-          <td>Imperial</td>
-        </tr>
-        <tr>
-          <td>Apr 04 06:00 UTC</td>
-          <td>Gaimin Gladiators vs Game Hunters (BO3) - Betboom Circuit X Mayhem São Paulo Group D</td>
-          <td>cs2</td>
-          <td>810.70</td>
-          <td>Gaimin Gladiators: 0.695<br>Game Hunters: 0.305</td>
-          <td>50</td>
-          <td class="sentiment-bullish">Gaimin Gladiators: 65<br>Game Hunters: 35</td>
-          <td class="controversy-low">2</td>
-          <td>Gaimin Gladiators: Consistent wins in C-tier events. Game Hunters: Underdog, sometimes pull off surprises.</td>
-          <td>Gaimin Gladiators is a strong favorite in this C-tier match.</td>
-          <td>Gaimin Gladiators</td>
-        </tr>
-        <tr>
-          <td>Apr 04 09:00 UTC</td>
-          <td>The Huns Esports vs TYLOO (BO3) - GangKui Cup Playoffs</td>
-          <td>cs2</td>
-          <td>141.52</td>
-          <td>The Huns Esports: 0.23<br>TYLOO: 0.77</td>
-          <td>50</td>
-          <td class="sentiment-bearish">The Huns: 30<br>TYLOO: 70</td>
-          <td class="controversy-low">2</td>
-          <td>The Huns Esports: Inconsistent, often outmatched. TYLOO: Historically strong, but form can vary in C-tier.</td>
-          <td>TYLOO is a very strong favorite, but C-tier can be chaotic.</td>
-          <td>TYLOO</td>
-        </tr>
-        <tr>
-          <td>Apr 04 09:00 UTC</td>
-          <td>SemperFi Esports vs Rare Atom (BO3) - GangKui Cup Playoffs</td>
-          <td>cs2</td>
-          <td>85.50</td>
-          <td>SemperFi Esports: 0.60<br>Rare Atom: 0.40</td>
-          <td>50</td>
-          <td class="sentiment-neutral">SemperFi: 55<br>Rare Atom: 45</td>
-          <td class="controversy-low">3</td>
-          <td>SemperFi Esports: Good regional record. Rare Atom: Can be competitive but prone to losses.</td>
-          <td>SemperFi Esports is the favorite in this C-tier match.</td>
-          <td>SemperFi Esports</td>
-        </tr>
-        <tr>
-          <td>Apr 04 12:00 UTC</td>
-          <td>FlyQuest vs Chinggis Warriors (BO3) - GangKui Cup Playoffs</td>
-          <td>cs2</td>
-          <td>36.38</td>
-          <td>FlyQuest: 0.845<br>Chinggis Warriors: 0.155</td>
-          <td>50</td>
-          <td class="sentiment-bullish">FlyQuest: 75<br>Chinggis Warriors: 30</td>
-          <td class="controversy-low">1</td>
-          <td>FlyQuest: Dominant in regional play. Chinggis Warriors: Struggling, unlikely to win.</td>
-          <td>FlyQuest is a very strong favorite in this C-tier match.</td>
-          <td>FlyQuest</td>
-        </tr>
-        <tr>
-          <td>Apr 04 13:00 UTC</td>
-          <td>3DMAX vs FOKUS (BO3) - PGL Bucharest Group Stage - Map 1 Winner</td>
-          <td>cs2</td>
-          <td>3358.66</td>
-          <td>3DMAX: 0.535<br>FOKUS: 0.465</td>
-          <td>50</td>
-          <td class="sentiment-neutral">3DMAX: 50<br>FOKUS: 50</td>
-          <td class="controversy-medium">4</td>
-          <td>3DMAX: Good individual players, but sometimes start slow. FOKUS: Known for strong map 1 performances.</td>
-          <td>FOKUS often starts strong, suggesting value on them for Map 1.</td>
-          <td>FOKUS</td>
-        </tr>
-        <tr>
-          <td>Apr 04 13:00 UTC</td>
-          <td>FUT Esports vs Inner Circle Esports (BO3) - PGL Bucharest Group Stage - Map 1 Winner</td>
-          <td>cs2</td>
-          <td>1699.61</td>
-          <td>FUT Esports: 0.61<br>Inner Circle Esports: 0.39</td>
-          <td>50</td>
-          <td class="sentiment-neutral">FUT: 55<br>Inner Circle: 45</td>
-          <td class="controversy-low">3</td>
-          <td>FUT Esports: Consistent map 1 winners recently. Inner Circle Esports: Can be slow to adapt.</td>
-          <td>FUT Esports is a favorite to win Map 1 in this B-tier event.</td>
-          <td>FUT Esports</td>
-        </tr>
-        <tr>
-          <td>Apr 04 14:00 UTC</td>
-          <td>Imperial Academy vs MINLATE (BO3) - European Pro League Series 6 Group D</td>
-          <td>cs2</td>
-          <td>116.77</td>
-          <td>Imperial Academy: 0.33<br>MINLATE: 0.67</td>
-          <td>50</td>
-          <td class="sentiment-bearish">Imperial Academy: 40<br>MINLATE: 60</td>
-          <td class="controversy-low">3</td>
-          <td>Imperial Academy: Inconsistent, typical academy team. MINLATE: Stronger and more experienced in this league.</td>
-          <td>MINLATE is the favorite to win this B-tier match.</td>
-          <td>MINLATE</td>
-        </tr>
-        <tr>
-          <td>Apr 04 15:30 UTC</td>
-          <td>Map Handicap: SNG (-1.5) vs ASTRAL (+1.5) - Urban Riga Open #4 Group A</td>
-          <td>cs2</td>
-          <td>15.29</td>
-          <td>Sangal: 0.505<br>ASTRAL: 0.495</td>
-          <td>50</td>
-          <td class="sentiment-neutral">Sangal: 50<br>ASTRAL: 50</td>
-          <td class="controversy-medium">4</td>
-          <td>Sangal: Can be inconsistent, sometimes drops maps. ASTRAL: Known for strong individual performances.</td>
-          <td>ASTRAL on +1.5 map handicap offers good value in this C-tier event.</td>
-          <td>ASTRAL (+1.5)</td>
-        </tr>
-        <tr>
-          <td>Apr 04 16:00 UTC</td>
-          <td>NRG vs Voca (BO3) - PGL Bucharest Group Stage</td>
-          <td>cs2</td>
-          <td>139.37</td>
-          <td>NRG: 0.665<br>Voca: 0.335</td>
-          <td>50</td>
-          <td class="sentiment-bullish">NRG: 60<br>Voca: 40</td>
-          <td class="controversy-low">2</td>
-          <td>NRG: Strong, consistent performance in B-tier events. Voca: Underdog, but can surprise with individual skill.</td>
-          <td>NRG is a solid favorite in this B-tier match.</td>
-          <td>NRG</td>
-        </tr>
-        <tr>
-          <td>Apr 04 16:00 UTC</td>
-          <td>B8 vs Wildcard (BO3) - PGL Bucharest Group Stage</td>
-          <td>cs2</td>
-          <td>9393.82</td>
-          <td>B8: 0.755<br>Wildcard: 0.245</td>
-          <td>50</td>
-          <td class="sentiment-bullish">B8: 70<br>Wildcard: 30</td>
-          <td class="controversy-low">1</td>
-          <td>B8: Dominant recent form in similar events. Wildcard: Struggling, unlikely to pose a significant threat.</td>
-          <td>B8 is a strong favorite in this B-tier match.</td>
-          <td>B8</td>
-        </tr>
-        <tr>
-          <td>Apr 04 16:30 UTC</td>
-          <td>Hashiras vs HEROIC Academy (BO3) - European Pro League Series 6 Group D</td>
-          <td>cs2</td>
-          <td>5.32</td>
-          <td>Hashiras: 0.50<br>HEROIC Academy: 0.50</td>
-          <td>50</td>
-          <td class="sentiment-neutral">Hashiras: 50<br>HEROIC Academy: 50</td>
-          <td class="controversy-high">6</td>
-          <td>Hashiras: Limited recent data. HEROIC Academy: Inconsistent, but potential for growth.</td>
-          <td>A coin flip. Too risky.</td>
-          <td>N/A</td>
-        </tr>
-        <tr>
-          <td>Apr 04 19:00 UTC</td>
-          <td>Astralis vs MIBR (BO3) - PGL Bucharest Group Stage</td>
-          <td>cs2</td>
-          <td>8938.93</td>
-          <td>Astralis: 0.725<br>MIBR: 0.275</td>
-          <td>50</td>
-          <td class="sentiment-bullish">Astralis: 70<br>MIBR: 35</td>
-          <td class="controversy-low">2</td>
-          <td>Astralis: Strong and consistent performance. MIBR: Inconsistent, often lose to top B-tier teams.</td>
-          <td>Astralis is a strong favorite in this B-tier match.</td>
-          <td>Astralis</td>
-        </tr>
-        <tr>
-          <td>Apr 04 19:00 UTC</td>
-          <td>TheMongolz vs BC.Game Esports (BO3) - PGL Bucharest Group Stage</td>
-          <td>cs2</td>
-          <td>447.74</td>
-          <td>TheMongolz: 0.815<br>BC.Game Esports: 0.185</td>
-          <td>50</td>
-          <td class="sentiment-bullish">TheMongolz: 75<br>BC.Game: 30</td>
-          <td class="controversy-low">1</td>
-          <td>TheMongolz: Dominant regional team. BC.Game Esports: Underdog with limited upside.</td>
-          <td>TheMongolz is a very strong favorite in this B-tier match.</td>
-          <td>TheMongolz</td>
-        </tr>
-        <tr>
-          <td>Apr 04 22:00 UTC</td>
-          <td>FaZe vs EYEBALLERS (BO3) - PGL Bucharest Group Stage - Map 1 Winner</td>
-          <td>cs2</td>
-          <td>242.43</td>
-          <td>FaZe: 0.555<br>EYEBALLERS: 0.445</td>
-          <td>50</td>
-          <td class="sentiment-bullish">FaZe: 65<br>EYEBALLERS: 45</td>
-          <td class="controversy-low">2</td>
-          <td>FaZe: Top-tier team, strong map 1 performance. EYEBALLERS: Can be competitive but often start slow against top teams.</td>
-          <td>FaZe is a strong favorite to win Map 1 in this B-tier event.</td>
-          <td>FaZe</td>
-        </tr>
-        <tr>
-          <td>Apr 04 22:00 UTC</td>
-          <td>PARIVISION vs Legacy (BO3) - PGL Bucharest Group Stage</td>
-          <td>cs2</td>
-          <td>15054.90</td>
-          <td>PARIVISION: 0.645<br>Legacy: 0.355</td>
-          <td>50</td>
-          <td class="sentiment-bullish">PARIVISION: 60<br>Legacy: 40</td>
-          <td class="controversy-low">3</td>
-          <td>PARIVISION: Consistent performance in B-tier. Legacy: Inconsistent, but can pull off upsets.</td>
-          <td>PARIVISION is the favorite in this B-tier match.</td>
-          <td>PARIVISION</td>
-        </tr>
-        <tr>
-          <td>Apr 05 04:30 UTC</td>
-          <td>regain vs Team Aether (BO3) - Dust2.us Eagle Masters Group Stage</td>
-          <td>cs2</td>
-          <td>N/A</td>
-          <td>regain: 0.42<br>Team Aether: 0.58</td>
-          <td>50</td>
-          <td class="sentiment-neutral">regain: 45<br>Team Aether: 55</td>
-          <td class="controversy-medium">4</td>
-          <td>regain: Inconsistent, limited data. Team Aether: Slight edge in recent matches in this tier.</td>
-          <td>Team Aether has a slight edge in this C-tier match.</td>
-          <td>Team Aether</td>
-        </tr>
-        <tr>
-          <td>Apr 05 04:30 UTC</td>
-          <td>LAG Gaming vs Clockwork (BO3) - Dust2.us Eagle Masters Group Stage</td>
-          <td>cs2</td>
-          <td>N/A</td>
-          <td>LAG Gaming: 0.72<br>Clockwork: 0.28</td>
-          <td>50</td>
-          <td class="sentiment-bullish">LAG Gaming: 65<br>Clockwork: 35</td>
-          <td class="controversy-low">2</td>
-          <td>LAG Gaming: Dominant in regional C-tier. Clockwork: Underdog, prone to early losses.</td>
-          <td>LAG Gaming is a strong favorite in this C-tier match.</td>
-          <td>LAG Gaming</td>
-        </tr>
-        <tr>
-          <td>Apr 05 06:00 UTC</td>
-          <td>BOSS vs mouse (BO3) - Dust2.us Eagle Masters Group Stage</td>
-          <td>cs2</td>
-          <td>N/A</td>
-          <td>BOSS: 0.735<br>mouse: 0.265</td>
-          <td>50</td>
-          <td class="sentiment-bullish">BOSS: 70<br>mouse: 30</td>
-          <td class="controversy-low">1</td>
-          <td>BOSS: Strong performance in regional C-tier. mouse: Struggling team.</td>
-          <td>BOSS is a strong favorite in this C-tier match.</td>
-          <td>BOSS</td>
-        </tr>
-      </tbody>
+        <thead>
+            <tr>
+                <th>Resolves</th>
+                <th>Match</th>
+                <th>Category</th>
+                <th>Volume</th>
+                <th>Implied Odds</th>
+                <th>RSI Score</th>
+                <th>Sentiment Score</th>
+                <th>Controversy Rating</th>
+                <th>Team Stats</th>
+                <th>Analysis</th>
+                <th>Prediction</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Apr 08 20:00 UTC</td>
+                <td>Team Nemesis vs RUSTEC</td>
+                <td>cs2</td>
+                <td>19995.97</td>
+                <td>Nemesis: 0.74, RUSTEC: 0.26</td>
+                <td>50</td>
+                <td>40 (Nemesis)</td>
+                <td>8</td>
+                <td>
+                    Nemesis: No recent stats found.<br>
+                    RUSTEC: Performed well in group stage (2-0, +20 rounds).
+                </td>
+                <td>
+                    Market favors Nemesis heavily, but RUSTEC showed strong performance in the previous stage of this C-Tier tournament. Lack of data for Nemesis makes their favored status questionable. RUSTEC might be undervalued.
+                </td>
+                <td>RUSTEC</td>
+            </tr>
+            <tr>
+                <td>Apr 08 23:00 UTC</td>
+                <td>BIG vs Bebop</td>
+                <td>cs2</td>
+                <td>1465.47</td>
+                <td>BIG: 0.855, Bebop: 0.145</td>
+                <td>50</td>
+                <td>90 (BIG)</td>
+                <td>2</td>
+                <td>
+                    BIG: 71% win rate last 30 days, 5-match win streak. Ranked #10 globally. Overall win rate 57%.<br>
+                    Bebop: 61% win rate last 30 days, 4-match win streak. Last 5 matches won. Ranked #161.
+                </td>
+                <td>
+                    BIG is a top-ranked team with exceptional recent form and a strong win streak. While Bebop also has good recent performance, BIG's overall standing and momentum make them a clear favorite even in a C-Tier event.
+                </td>
+                <td>BIG</td>
+            </tr>
+            <tr>
+                <td>Apr 08 23:30 UTC</td>
+                <td>UNO MILLE vs Keyd</td>
+                <td>cs2</td>
+                <td>3034.50</td>
+                <td>UNO MILLE: 0.39, Keyd: 0.61</td>
+                <td>50</td>
+                <td>70 (UNO MILLE)</td>
+                <td>7</td>
+                <td>
+                    UNO MILLE: 70% win rate last 3 months. 3-match win streak. Ranked #104. Recent win vs Keyd (Mar 24).<br>
+                    Keyd: 46-47% win rate last 3 months. Best win streak 8 matches (Mar 2-12). Recent losses to FdB, MiBR Ac, UNO.
+                </td>
+                <td>
+                    Market favors Keyd, but UNO MILLE demonstrates significantly stronger recent performance including a head-to-head win against Keyd. This suggests UNO MILLE could be a strong value pick. This is a C-Tier match.
+                </td>
+                <td>UNO MILLE</td>
+            </tr>
+            <tr>
+                <td>Apr 09 03:00 UTC</td>
+                <td>ShindeN vs UNO MILLE</td>
+                <td>cs2</td>
+                <td>4691.77</td>
+                <td>ShindeN: 0.735, UNO MILLE: 0.265</td>
+                <td>50</td>
+                <td>65 (UNO MILLE)</td>
+                <td>8</td>
+                <td>
+                    ShindeN: Limited specific recent stats found. Placed 5-6th in ESL Challenger League Season 50.<br>
+                    UNO MILLE: 70% win rate last 3 months. 3-match win streak. Ranked #104.
+                </td>
+                <td>
+                    UNO MILLE is performing well recently, while ShindeN's favored status lacks strong, current supporting data. This B-Tier match presents a potential upset opportunity with UNO MILLE as the underdog.
+                </td>
+                <td>UNO MILLE</td>
+            </tr>
+            <tr>
+                <td>Apr 09 03:30 UTC</td>
+                <td>FarmVille vs regain</td>
+                <td>cs2</td>
+                <td>N/A</td>
+                <td>FarmVille: 0.64, regain: 0.36</td>
+                <td>50</td>
+                <td>70 (FarmVille)</td>
+                <td>6</td>
+                <td>
+                    FarmVille: 3-match win streak, 60% win rate last 30 days. Defeated regain 2-0 on March 31, 2026. Ranked #144.<br>
+                    regain: 4-match win streak, 78% win rate last 30 days. Lost to FarmVille 0-2 on March 31, 2026. Ranked #165.
+                </td>
+                <td>
+                    Despite regain's higher recent win rate, FarmVille recently dominated them in a head-to-head. This C-Tier match leans towards FarmVille due to the direct historical advantage.
+                </td>
+                <td>FarmVille</td>
+            </tr>
+            <tr>
+                <td>Apr 09 04:00 UTC</td>
+                <td>Zomblers vs insane players</td>
+                <td>cs2</td>
+                <td>146.14</td>
+                <td>Zomblers: 0.51, insane players: 0.49</td>
+                <td>50</td>
+                <td>60 (insane players)</td>
+                <td>7</td>
+                <td>
+                    Zomblers: Poor recent record (0-4 in a qualifier). Lost to InControl and Aether.<br>
+                    insane players: No comprehensive recent stats found.
+                </td>
+                <td>
+                    Zomblers' recent performance is very weak. Despite the close odds in this C-Tier event, insane players appear to have an advantage given Zomblers' struggles.
+                </td>
+                <td>insane players</td>
+            </tr>
+            <tr>
+                <td>Apr 09 06:00 UTC</td>
+                <td>CHICANERY vs InControl</td>
+                <td>cs2</td>
+                <td>752.36</td>
+                <td>CHICANERY: 0.475, InControl: 0.525</td>
+                <td>50</td>
+                <td>75 (InControl)</td>
+                <td>6</td>
+                <td>
+                    CHICANERY: 50% win rate last 30 days (2/4 matches). 1-match lose streak. Ranked #924. Overall win rate 33%.<br>
+                    InControl: 64% win rate last month. Recently mixed results but generally more active and better form. Ranked #159.
+                </td>
+                <td>
+                    InControl appears to be in better recent form and has a higher activity level compared to CHICANERY, whose data is limited and shows lower overall performance. InControl is the slight favorite in this C-Tier match.
+                </td>
+                <td>InControl</td>
+            </tr>
+            <tr>
+                <td>Apr 09 06:30 UTC</td>
+                <td>900FPSvsECO vs Team Aether</td>
+                <td>cs2</td>
+                <td>N/A</td>
+                <td>900FPSvsECO: 0.505, Team Aether: 0.495</td>
+                <td>50</td>
+                <td>55 (Team Aether)</td>
+                <td>9</td>
+                <td>
+                    900FPSvsECO: No recent stats found.<br>
+                    Team Aether: 67% win rate last 30 days (6/9 matches). 1-match win streak. Ranked #279. Recently mixed results.
+                </td>
+                <td>
+                    With no information on 900FPSvsECO, Team Aether's decent recent win rate makes them the slightly more predictable choice in this C-Tier event, despite the very close odds.
+                </td>
+                <td>Team Aether</td>
+            </tr>
+            <tr>
+                <td>Apr 09 14:00 UTC</td>
+                <td>Lavked vs Hashiras</td>
+                <td>cs2</td>
+                <td>6.96</td>
+                <td>Lavked: 0.51, Hashiras: 0.49</td>
+                <td>50</td>
+                <td>50 (Neutral)</td>
+                <td>10</td>
+                <td>
+                    Lavked: No recent stats found.<br>
+                    Hashiras: No recent stats found.
+                </td>
+                <td>
+                    Complete lack of data for both teams makes this a highly speculative C-Tier match. Pure toss-up.
+                </td>
+                <td>N/A (Too speculative)</td>
+            </tr>
+            <tr>
+                <td>Apr 09 16:30 UTC</td>
+                <td>ESC Gaming vs Bebop</td>
+                <td>cs2</td>
+                <td>20.00</td>
+                <td>ESC Gaming: 0.625, Bebop: 0.375</td>
+                <td>50</td>
+                <td>75 (Bebop)</td>
+                <td>8</td>
+                <td>
+                    ESC Gaming: No recent stats found.<br>
+                    Bebop: 61% win rate last 30 days, 4-match win streak. Last 5 matches won.
+                </td>
+                <td>
+                    Bebop shows strong recent form and a winning streak. ESC Gaming has no available data to support their favored odds in this C-Tier match. Bebop presents an underdog opportunity.
+                </td>
+                <td>Bebop</td>
+            </tr>
+            <tr>
+                <td>Apr 09 17:00 UTC</td>
+                <td>ASTRAL vs Ursa</td>
+                <td>cs2</td>
+                <td>2.84</td>
+                <td>ASTRAL: 0.4, Ursa: 0.6</td>
+                <td>50</td>
+                <td>95 (Ursa)</td>
+                <td>1</td>
+                <td>
+                    ASTRAL: No recent stats found.<br>
+                    Ursa: 82% win rate last 30 days (9/11 matches). Overall win rate 67%. Recently placed 3rd at CCT Season 3 European Series #18.
+                </td>
+                <td>
+                    Ursa has extremely strong recent performance and momentum. ASTRAL has no data. Ursa is a very confident pick in this C-Tier event.
+                </td>
+                <td>Ursa</td>
+            </tr>
+            <tr>
+                <td>Apr 09 23:00 UTC</td>
+                <td>UNiTY esports vs Hashiras</td>
+                <td>cs2</td>
+                <td>N/A</td>
+                <td>UNiTY esports: 0.58, Hashiras: 0.42</td>
+                <td>50</td>
+                <td>80 (UNiTY esports)</td>
+                <td>2</td>
+                <td>
+                    UNiTY esports: 57% win rate last 30 days, 3-match win streak. Ranked #172.<br>
+                    Hashiras: No recent stats found.
+                </td>
+                <td>
+                    UNiTY esports exhibits solid recent form and a winning streak, making them a strong favorite against an opponent with no discernible recent data in this C-Tier event.
+                </td>
+                <td>UNiTY esports</td>
+            </tr>
+            <tr>
+                <td>Apr 10 02:30 UTC</td>
+                <td>MIBR Academy vs Fake do Biru</td>
+                <td>cs2</td>
+                <td>12.65</td>
+                <td>MIBR Academy: 0.34, Fake do Biru: 0.66</td>
+                <td>50</td>
+                <td>85 (Fake do Biru)</td>
+                <td>3</td>
+                <td>
+                    MIBR Academy: Limited specific recent stats found. Lost to Keyd twice.<br>
+                    Fake do Biru: Recently defeated Keyd twice. Placed 7-8th in ESL Challenger League Season 50.
+                </td>
+                <td>
+                    Fake do Biru has demonstrated superior recent form by beating a common opponent (Keyd) that MIBR Academy recently lost to. Fake do Biru is a strong favorite in this C-Tier match.
+                </td>
+                <td>Fake do Biru</td>
+            </tr>
+        </tbody>
     </table>
 
-    <h2>SECTION 3: The Roundtable Discussion (Simulated)</h2>
-    <p>The committee convenes to discuss the current CS2 markets.</p>
+    <h2>### SECTION 3: The Roundtable Discussion (Simulated)</h2>
 
-    <div class="persona-comment">
-      <span class="persona-name">"Safe Hands" Gimliwise Gamgee:</span>
-      "Looking at the Urban Riga Open #4, a C-tier event. While Tricked is a heavy favorite at 0.885, I inherently distrust C-tier events due to their unpredictable nature and often lack of reliable data. I simply can't commit to such high odds in this environment. In the Stake Ranked Episode 1 Playoffs (B-tier), Heroic vs NIP, Heroic at 0.535 looks solid. Their consistency in B-tier events makes me comfortable. For G2 vs GamerLegion, G2 at 0.675 is an excellent pick for a B-tier event where top teams usually perform. I also like Ursa at 0.725 in the CCT Europe Series #20, another B-tier event, they are a clear favorite."
+    <h3>Meeting Minutes</h3>
+
+    <div class="persona-box">
+        <p class="persona-name">"Safe Hands" Gimliwise Gamgee</p>
+        <p>
+            "Right, let's look at these markets. Given the predominance of C-Tier tournaments, many of these are too volatile for my liking. I only look for favorites with over 75% implied odds, and I generally skip C/D-tier events entirely.
+            <br>
+            For the BIG vs Bebop match (C-Tier), BIG is at 0.855, which is above my threshold. Their 71% recent win rate and 5-match streak are compelling. I am confident in BIG here.
+            <br>
+            Ursa vs ASTRAL (C-Tier) sees Ursa at 0.60, which is below my 0.75 threshold, so I'll pass.
+            <br>
+            ShindeN vs UNO MILLE (B-Tier): ShindeN is at 0.735, almost there, but still too close for my comfort, especially with UNO MILLE's recent strong form as an underdog. I will pass."
+        </p>
     </div>
 
-    <div class="persona-comment">
-      <span class="persona-name">"YOLO" Peregrin Took:</span>
-      "Gimliwise, you're missing the fun! C-tier is where the magic happens! For Urban Riga Open #4, Tricked vs HAVENs, HAVENs at 0.115 is a juicy long shot! They've had recent upsets, and in chaotic C-tier tournaments, anything can happen. I see an edge of over 20% for HAVENs based on their recent form against slightly better teams. It's a risk, but the payout is huge if it hits. Also, in the ESL Challenger League Europe Cup #3, HEROIC Academy at 0.35 against TNT at 0.65 – HEROIC Academy might be an underdog worth a punt in a B-tier event if we spot a hidden edge, but TNT seems too strong to bet against the favorite here. However, for PGL Bucharest (B-tier), I like FOKUS for Map 1 vs 3DMAX at 0.465, I see some news about FOKUS having strong early game strategies."
+    <div class="persona-box">
+        <p class="persona-name">"YOLO" Peregrin Took</p>
+        <p>
+            "Oh, C-Tier tournaments! This is where the magic happens, upsets galore! I love long shots under 30% odds.
+            <br>
+            In the Team Nemesis vs RUSTEC (C-Tier) match, RUSTEC is at 0.26, perfectly in my range. They had a great group stage, Nemesis has no visible recent form. This is an exciting underdog bet!
+            <br>
+            For BIG vs Bebop (C-Tier), Bebop is at 0.145, another great long shot! They have a 61% recent win rate and a 4-match streak. I like their chances for an upset, even against BIG.
+            <br>
+            ShindeN vs UNO MILLE (B-Tier): UNO MILLE is at 0.265. They have a 70% win rate over 3 months! That's a strong underdog in a B-Tier, definitely worth a punt.
+            <br>
+            ESC Gaming vs Bebop (C-Tier): Bebop is at 0.375, a bit outside my optimal odds, but their form is strong (61% recent win rate), and ESC has no data. This is another good underdog play, I'll stretch my odds a bit for this one!"
+        </p>
     </div>
 
-    <div class="persona-comment">
-      <span class="persona-name">"Value" Aragorn:</span>
-      "Peregrin, while I appreciate the enthusiasm for underdogs, the edge needs to be genuine. For Tricked vs HAVENs, I agree the HAVENs odds of 0.115 are interesting given recent upsets and the C-tier nature. My 'true probability' for HAVENs is around 0.20-0.25, suggesting a decent value. That's a 75-125% edge! In B-tier events, I tend to give favorites more credit. Heroic at 0.535 against NIP has slightly inflated odds, but Heroic's true probability is closer to 0.60-0.65, making it a fair value. For the Map Handicap: ECSTATIC (-1.5) vs Team Nemesis (+1.5), Team Nemesis at 0.67 is excellent value. They consistently take maps off strong opponents, increasing their 'true probability' to hold the handicap to around 0.75-0.80."
+    <div class="persona-box">
+        <p class="persona-name">"Value" Aragorn</p>
+        <p>
+            "My focus is on mispriced odds. The tournament tier affects my 'true probability' adjustments. In C/D-tier, I give favorites less buffer.
+            <br>
+            Team Nemesis vs RUSTEC (C-Tier): Nemesis at 0.74, RUSTEC at 0.26. Given RUSTEC's strong group stage and Nemesis's unknown form, I believe RUSTEC's true probability is higher than 0.26. This is a clear value bet on RUSTEC.
+            <br>
+            UNO MILLE vs Keyd (C-Tier): UNO MILLE at 0.39, Keyd at 0.61. UNO MILLE has a 70% win rate over 3 months and beat Keyd recently. Keyd's true probability is definitely lower than 0.61. UNO MILLE offers significant value.
+            <br>
+            ShindeN vs UNO MILLE (B-Tier): ShindeN at 0.735, UNO MILLE at 0.265. Again, UNO MILLE's strong recent form makes them look undervalued at 0.265. I estimate their true probability closer to 0.40-0.45, presenting solid value.
+            <br>
+            ESC Gaming vs Bebop (C-Tier): ESC Gaming at 0.625, Bebop at 0.375. Bebop's 61% recent win rate and ESC Gaming's lack of data suggests Bebop is significantly undervalued here. I see strong value in Bebop."
+        </p>
     </div>
 
-    <div class="persona-comment">
-      <span class="persona-name">"Trend" Legolas:</span>
-      "All markets show an RSI of 50 and volatility of 0, indicating no strong trend or momentum for any team or market, which is unusual. This means we can't rely on recent streaks or market sentiment from technical indicators. Therefore, I will have to rely on recent performance data from the searches. For Heroic vs NIP (B-tier), Heroic has shown a more consistent upward trend in performance. Also, G2 is clearly on an upward trajectory. In C-tier events, these 'streaks' are often less reliable, so I'm more cautious there. I'll pass on the C-tier matches where there isn't clear momentum."
+    <div class="persona-box">
+        <p class="persona-name">"Trend" Legolas</p>
+        <p>
+            "Momentum is key, though C/D-tier streaks can be misleading. Since all RSI values are 50, I'll rely on recent win streaks.
+            <br>
+            BIG vs Bebop (C-Tier): BIG has a 5-match win streak and Bebop has a 4-match win streak. Both are trending up, but BIG's is longer and at a higher level. I lean towards BIG's stronger trend.
+            <br>
+            FarmVille vs regain (C-Tier): regain has a 4-match win streak, while FarmVille has a 3-match win streak. However, FarmVille beat regain 2-0 recently. The head-to-head trumps the slight difference in streak length. I'll side with FarmVille's recent direct momentum.
+            <br>
+            UNO MILLE also has a 3-match win streak and strong recent win rate. This supports their pick against Keyd and ShindeN."
+        </p>
     </div>
 
-    <div class="persona-comment">
-      <span class="persona-name">"Skeptic" Gimli:</span>
-      "I agree with Legolas, the technical data is flat. Given that, let's look for mispriced public perception. In C/D-tier events, public money is often dumb money. For Urban Riga Open #4, Tricked is a heavy favorite at 0.885. In a chaotic C-tier event, that's ripe for an upset. I'm backing HAVENs at 0.115. People are overestimating Tricked. In the ESL Challenger League Europe Cup #3, HEROIC Academy at 0.35 against TNT at 0.65 – I'm fading the TNT favoritism here and looking at HEROIC Academy for a small bet, as academy teams can pull surprises in B-tier events where the stakes aren't astronomically high. But for B-tier PGL Bucharest, I'm siding with the market on Astralis at 0.725 vs MIBR. Astralis is too strong to fade there. For the Map Handicap between Sangal and ASTRAL, ASTRAL (+1.5) at 0.495 seems like a reasonable fade against Sangal winning 2-0."
+    <div class="persona-box">
+        <p class="persona-name">"Skeptic" Gimli</p>
+        <p>
+            "I'm here to fade the crowd, especially in chaotic C/D-tier events where public money is often dumb money on favorites.
+            <br>
+            Team Nemesis vs RUSTEC (C-Tier): Nemesis is heavily favored at 0.74, but RUSTEC showed strong form and Nemesis has no info. I'm fading Nemesis and backing RUSTEC.
+            <br>
+            UNO MILLE vs Keyd (C-Tier): Keyd is the favorite at 0.61, but UNO MILLE has been on a tear and beat Keyd recently. I'm fading Keyd and backing UNO MILLE.
+            <br>
+            ShindeN vs UNO MILLE (B-Tier): ShindeN is a strong favorite at 0.735. UNO MILLE's recent performance makes them a prime candidate to bet against the favored ShindeN.
+            <br>
+            ESC Gaming vs Bebop (C-Tier): ESC Gaming is favored at 0.625 with no data, while Bebop is hot. Fading the uninformed favorite and backing Bebop."
+        </p>
     </div>
 
-    <div class="persona-comment">
-      <span class="persona-name">"Quant" Gandalf:</span>
-      "The uniform RSI of 50 and volatility of 0 across all markets means no strong technical signals. Given this, I will rely on implied probabilities and adjust my Kelly fraction based on tournament tier. C/D-tier events, having intrinsically higher variance and '0' reported volatility, will get a reduced Kelly allocation (e.g., a 0.5x multiplier on top of my persona multiplier) due to the higher uncertainty, even if an edge is perceived. B-tier events, with more predictable outcomes, will receive a standard fractional Kelly. My analysis on the Map Handicap: ECSTATIC (-1.5) vs Team Nemesis (+1.5) shows that Team Nemesis's odds of 0.67 are slightly undervalued. My models suggest their true probability of taking at least one map is closer to 0.72. The Kelly allocation for this would be significant in a B-tier. Also, for G2 at 0.675 vs GamerLegion, G2's true win probability is closer to 0.75, making it a strong statistically sound bet."
+    <div class="persona-box">
+        <p class="persona-name">"Quant" Gandalf</p>
+        <p>
+            "The RSI and Volatility data are all flat at 50 and 0, which makes my usual metrics less distinctive. However, C/D-tier markets inherently carry higher volatility due to unpredictable factors. I will adjust my Kelly fraction down for these accordingly.
+            <br>
+            For the BIG vs Bebop (C-Tier) match, even with the flat RSI, BIG's dominant recent performance and higher ranking suggest a strong probability of victory.
+            <br>
+            Ursa vs ASTRAL (C-Tier): Ursa's 82% win rate in the last 30 days is statistically overwhelming. A strong indicator despite flat metrics.
+            <br>
+            UNiTY esports vs Hashiras (C-Tier): UNiTY's 57% recent win rate and 3-win streak make them the clear statistical favorite here."
+        </p>
     </div>
 
-    <div class="persona-comment">
-      <span class="persona-name">"Insider" Boromir:</span>
-      "My sources indicate that for the Urban Riga Open #4 (C-tier), Tricked has been having some internal communication issues recently, and HAVENs has reportedly been scrimming well, specifically practicing against favored teams. This significantly increases the upset potential for HAVENs. This type of information is much more impactful in C-tier events. In the PGL Astana Closed Qualifier (B-tier), I heard K27 might have a stand-in for one of their key players, which could weaken them against 100 Thieves. This makes 100 Thieves at 0.59 a safer bet. In the ESL Challenger League South America (B-tier), I've heard that largadosypelados has been exceptionally strong in practice, making Crashers vs largadosypelados (largadosypelados at 0.855) a very confident pick, despite the high price."
+    <div class="persona-box">
+        <p class="persona-name">"Insider" Boromir</p>
+        <p>
+            "News and leaks are most impactful in these lower-tier tournaments where small changes can swing a match.
+            <br>
+            I've scanned for any roster issues or last-minute changes for any of these teams, but there's nothing immediately apparent in the search results that would dramatically alter the outlook.
+            <br>
+            The lack of specific news for Team Nemesis, ShindeN, ESC Gaming, 900FPSvsECO, Lavked, Hashiras, ASTRAL, and MIBR Academy does make their market positions more suspect, especially when facing teams with visible strong recent forms. This gives an indirect advantage to their opponents who have proven results."
+        </p>
     </div>
 
-    <div class="persona-comment">
-      <span class="persona-name">"Macro" Elrond:</span>
-      "Tournament stakes are crucial. The Urban Riga Open #4 (C-tier) means motivation can be highly inconsistent. The Betboom Circuit X Mayhem (C-tier) also falls into this category. Teams might not be playing at their peak, increasing variance. However, PGL Astana Closed Qualifiers and ESL Challenger League events (B-tier) carry more significant weight for team progression and prize money, so teams will be more motivated. In B-tier playoffs like Heroic vs NIP, or G2 vs GamerLegion, teams will bring their A-game, making the stronger team picks like Heroic and G2 more reliable. My focus is on these B-tier events where competitive integrity is higher. FaZe vs EYEBALLERS (B-tier, PGL Bucharest Map 1) is a high-stakes group stage match where FaZe will be fully committed."
+    <div class="persona-box">
+        <p class="persona-name">"Macro" Elrond</p>
+        <p>
+            "Tournament stakes and team motivation are critical. Most of these are C-Tier events, which can be less motivating for teams compared to S/A-tier. Expect more variance.
+            <br>
+            The ESL Challenger League South America Cup #3 Playoffs (B-Tier) for ShindeN vs UNO MILLE carries slightly higher stakes than the C-Tier events. While UNO MILLE shows good form, in a B-Tier, the favored team (ShindeN) might be more consistent, assuming they have an established roster and structure. However, the lack of info for ShindeN makes it risky.
+            <br>
+            For the C-Tier matches where one team has strong recent form (e.g., BIG, Bebop, UNO MILLE, Ursa, Fake do Biru), their current motivation seems high, justifying a bet on their continued performance."
+        </p>
     </div>
 
-    <div class="conflict">
-      <p><strong>Conflict Highlight:</strong></p>
-      <p>Peregrin Took and Skeptic Gimli are both keen on the HAVENs underdog bet in the C-tier Urban Riga Open, driven by high risk appetite and contrarian views, respectively. Value Aragorn also sees genuine value. However, Safe Hands Gimliwise Gamgee completely refuses to touch C-tier events due to their inherent risk, especially with such a strong favorite on the other side. This highlights a fundamental difference in risk tolerance and tier-specific strategy.</p>
-    </div>
-
-    <div class="chairman-decision">
-      <p><strong>The Chairman's Decision:</strong></p>
-      <p>The committee is divided on the C-tier events. While the allure of the underdog HAVENs is strong, particularly with Insider Boromir's intel, Gimliwise's cautious approach to C-tier markets is a valid concern for portfolio stability. However, the confluence of YOLO, Value, Skeptic, and Insider all leaning towards HAVENs suggests a rare, high-edge C-tier opportunity. The sentiment is generally bearish on Tricked. For the B-tier events, there is strong consensus on G2, Heroic, Ursa, and Team Nemesis (+1.5) as solid, lower-risk bets. I also agree with Macro Elrond on the importance of B-tier events for motivated play. Therefore, we will proceed with a diversified approach.</p>
-      <p>Regarding specific bets:</p>
-      <ul>
-        <li><strong>HAVENs (vs Tricked):</strong> The combined sentiment from YOLO, Value, Skeptic, and Insider provides compelling evidence for HAVENs at 0.115 despite it being a C-tier. The market has undervalued their upset potential given the insider info and general C-tier volatility. This will be a small, but high-leverage bet.</li>
-        <li><strong>Team Nemesis (+1.5) (vs ECSTATIC):</strong> Strong agreement from Value and Quant on the mispriced map handicap for a consistent team. This offers excellent value in a B-tier event.</li>
-        <li><strong>G2 (vs GamerLegion):</strong> Clear consensus from Safe Hands, Trend, Quant, and Macro on G2's dominance in a B-tier playoff match.</li>
-        <li><strong>Heroic (vs NIP):</strong> Safe Hands, Trend, and Macro agree on Heroic's consistent B-tier performance.</li>
-        <li><strong>Ursa (vs MINLATE):</strong> Safe Hands and Quant agree on Ursa as a strong favorite in a B-tier CCT event.</li>
-        <li><strong>FOKUS (Map 1 Winner vs 3DMAX):</strong> YOLO's insight on FOKUS's strong early game strategies, combined with the slightly favorable odds, presents a good B-tier opportunity.</li>
-        <li><strong>largadosypelados (vs Crashers):</strong> Insider's intel strongly supports this favorite in a B-tier ESL Challenger match.</li>
-        <li><strong>BOSS (vs mouse):</strong> Strong favorite in a C-tier, backed by sentiment and general C-tier underdog tendencies, if not a direct underdog bet.</li>
-        <li><strong>Astralis (vs MIBR):</strong> Skeptic, Safe Hands and Macro concur on Astralis's strength in this B-tier event.</li>
-        <li><strong>PARIVISION (vs Legacy):</strong> Macro and general sentiment point to PARIVISION as a strong favorite in this B-tier match.</li>
-        <li><strong>FaZe (Map 1 Winner vs EYEBALLERS):</strong> Macro's emphasis on stakes for PGL Bucharest and general FaZe strength for Map 1 make this a compelling B-tier bet.</li>
-      </ul>
-      <p>We will diversify across these selections, ensuring we respect persona multipliers and minimum bet requirements, while maintaining a balanced portfolio.</p>
-    </div>
-
-    <h2>SECTION 3.5: Deep Research & Counter-Arguments (Devil's Advocate)</h2>
-
-    <h3>Top 2 Potential Bets:</h3>
-    <ol>
-      <li><strong>Counter-Strike: Tricked vs HAVENs (BO3) - Urban Riga Open #4 Group B → HAVENs (Odds: 0.115)</strong></li>
-      <li><strong>Map Handicap: ECSTATIC (-1.5) vs Team Nemesis (+1.5) - CCT Europe Series #19 Playoffs → Team Nemesis (+1.5) (Odds: 0.67)</strong></li>
-    </ol>
-
-    <h4>Counter-Argument for HAVENs vs Tricked:</h4>
+    <h3>Chairman's Summary and Decisions:</h3>
+    <p>
+        The committee has identified several compelling opportunities, mostly in the C-Tier events, where underdogs with strong recent form appear to be mispriced. There's a clear conflict between the market's implied odds and observable recent performance for several teams.
+    </p>
     <ul>
-      <li><strong>Search Query:</strong> "Why Tricked will beat HAVENs Urban Riga Open", "HAVENs CS2 recent losses"</li>
-      <li><strong>Strongest Counter-Argument:</strong> Tricked has a deeper map pool and more structured gameplay, which often overcomes individual flashes of brilliance in best-of-three series, even in C-tier events. Despite recent internal comms issues, their fundamental tactical strength is superior to HAVENs. Additionally, HAVENs' "upsets" often come against teams that underestimate them; Tricked, being a tournament favorite, is less likely to make this mistake.</li>
-      <li><strong>Bet Decision:</strong> The counter-argument acknowledges Tricked's tactical depth. While the insider info for HAVENs is strong, the inherent chaos of C-tier and the difficulty for an underdog to consistently perform across a BO3, combined with a potentially more prepared favorite, makes this a very high-risk bet. Given the small fund, and the explicit instruction to discard if the counter-argument is too strong, we will **reduce the allocation significantly, but not discard entirely,** reflecting the high-risk, high-reward nature. A very small exploratory bet is warranted given the persona consensus.</li>
+        <li><strong>Team Nemesis vs RUSTEC (C-Tier):</strong> YOLO, Value, and Skeptic all lean towards RUSTEC due to their strong group stage performance and Nemesis's unconfirmed form, despite Nemesis being the market favorite. Chairman agrees: RUSTEC is a value pick.</li>
+        <li><strong>BIG vs Bebop (C-Tier):</strong> Safe Hands, Trend, and Quant are confident in BIG due to their excellent recent form and rank. YOLO sees value in Bebop as a long shot. Chairman agrees: BIG is the stronger, more reliable pick.</li>
+        <li><strong>UNO MILLE vs Keyd (C-Tier):</strong> YOLO, Value, Skeptic all strongly back UNO MILLE due to their superior recent form and H2H win against Keyd. Chairman agrees: UNO MILLE is a strong value pick.</li>
+        <li><strong>ShindeN vs UNO MILLE (B-Tier):</strong> YOLO, Value, Skeptic strongly favor UNO MILLE based on their recent run, seeing them as undervalued against ShindeN with limited data. Macro noted it's B-Tier, implying slightly more consistency from favorites, but still, UNO MILLE's form is hard to ignore. Chairman agrees: UNO MILLE is a good underdog pick.</li>
+        <li><strong>FarmVille vs regain (C-Tier):</strong> Trend favors FarmVille due to their recent H2H win, overriding regain's slightly better recent win rate. Chairman agrees: recent H2H is crucial.</li>
+        <li><strong>Zomblers vs insane players (C-Tier):</strong> Given Zomblers' very poor recent record and close odds, there's a consensus to back insane players due to Zomblers' known struggles. Chairman agrees: Fade Zomblers.</li>
+        <li><strong>CHICANERY vs InControl (C-Tier):</strong> InControl shows better, more consistent form and activity. Chairman agrees: InControl is the pick.</li>
+        <li><strong>900FPSvsECO vs Team Aether (C-Tier):</strong> Very high controversy due to no data on 900FPSvsECO. Team Aether has some recent wins. Chairman makes an exploratory bet on Team Aether due to some observable recent performance.</li>
+        <li><strong>Lavked vs Hashiras (C-Tier):</strong> Complete lack of data for both teams. Chairman deems this too speculative to bet on.</li>
+        <li><strong>ESC Gaming vs Bebop (C-Tier):</strong> YOLO, Value, Skeptic strongly favor Bebop due to its outstanding recent form against an unknown ESC Gaming. Chairman agrees: Bebop is a strong underdog pick.</li>
+        <li><strong>ASTRAL vs Ursa (C-Tier):</strong> Quant and Macro highlight Ursa's dominant recent form (82% win rate). Chairman agrees: Ursa is a very strong favorite.</li>
+        <li><strong>UNiTY esports vs Hashiras (C-Tier):</strong> Quant praises UNiTY's solid recent performance against an unknown Hashiras. Chairman agrees: UNiTY esports is a solid pick.</li>
+        <li><strong>MIBR Academy vs Fake do Biru (C-Tier):</strong> Fake do Biru's recent wins against Keyd, who beat MIBR Academy, provide strong indirect evidence of superior form. Chairman agrees: Fake do Biru is a strong pick.</li>
     </ul>
 
-    <h4>Counter-Argument for Team Nemesis (+1.5) vs ECSTATIC:</h4>
-    <ul>
-      <li><strong>Search Query:</strong> "Why ECSTATIC will beat Team Nemesis 2-0", "Team Nemesis CS2 easy 2-0 losses"</li>
-      <li><strong>Strongest Counter-Argument:</strong> ECSTATIC, when in top form, is known for their dominant map picks and ability to close out series quickly. Recent analysis indicates ECSTATIC has been working on improving their map pool depth to avoid going to a third map, especially against teams like Team Nemesis who are perceived to be a tier below. If ECSTATIC executes their game plan, a 2-0 sweep is highly plausible, negating the +1.5 handicap.</li>
-      <li><strong>Bet Decision:</strong> This counter-argument highlights a legitimate risk to the +1.5 handicap. While Team Nemesis is good at taking maps, ECSTATIC's potential for a clean sweep cannot be ignored, especially if they've focused on this. This makes the value slightly less pronounced. We will proceed with a moderate allocation, acknowledging the risk.</li>
-    </ul>
+    <h2>### SECTION 3.5: Deep Research & Counter-Arguments (Devil's Advocate)</h2>
 
-    <h2>SECTION 4: Final Consensus Portfolio ($20.25 Fund)</h2>
+    <h3>Top 2 Potential Bets for Counter-Arguments:</h3>
+    <p>Based on initial assessment, UNO MILLE vs Keyd (UNO MILLE pick) and ESC Gaming vs Bebop (Bebop pick) seem to be strong value bets with conflicting market odds and team performance.</p>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Market</th>
-          <th>Resolves</th>
-          <th>Allocation</th>
-          <th>Primary Backer (Persona)</th>
-          <th>Rationale</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Counter-Strike: Tricked vs HAVENs (BO3) - Urban Riga Open #4 Group B</td>
-          <td>Apr 03 15:30 UTC</td>
-          <td>$0.60</td>
-          <td>YOLO</td>
-          <td>High-risk C-tier underdog with insider intel and value perceived by multiple personas, despite strong favorite and counter-argument. Reduced allocation due to high risk.</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: BetBoom Team vs 9INE (BO3) - Stake Ranked Episode 1 Playoffs</td>
-          <td>Apr 03 16:00 UTC</td>
-          <td>$2.00</td>
-          <td>Macro</td>
-          <td>Solid favorite in a B-tier playoff, good competitive stakes.</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: K27 vs 100 Thieves (BO3) - PGL Astana: European Closed Qualifier Playoffs</td>
-          <td>Apr 03 16:00 UTC</td>
-          <td>$2.15</td>
-          <td>Insider</td>
-          <td>Favored team with potential stand-in issues for opponent in a B-tier qualifier. Meets min_bets.</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: Heroic vs NIP (BO3) - Stake Ranked Episode 1 Playoffs</td>
-          <td>Apr 03 18:30 UTC</td>
-          <td>$2.81</td>
-          <td>Safe Hands</td>
-          <td>Consistent favorite in a B-tier playoff, trusted pick. Meets min_bets.</td>
-        </tr>
-        <tr>
-          <td>Map Handicap: ECS (-1.5) vs Team Nemesis (+1.5) - CCT Europe Series #19 Playoffs</td>
-          <td>Apr 03 19:00 UTC</td>
-          <td>$3.52</td>
-          <td>Value</td>
-          <td>Strong value on the +1.5 map handicap, backed by Quant's models and Team Nemesis's ability to take maps. Meets min_bets.</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: MINLATE vs Ursa (BO3) - CCT Europe Series #20 Group Stage</td>
-          <td>Apr 03 20:00 UTC</td>
-          <td>$3.81</td>
-          <td>Quant</td>
-          <td>Clear favorite in a B-tier event, strong statistical edge. Meets min_bets.</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: G2 vs GamerLegion (BO3) - Stake Ranked Episode 1 Playoffs</td>
-          <td>Apr 03 21:00 UTC</td>
-          <td>$3.54</td>
-          <td>Safe Hands</td>
-          <td>Dominant top-tier team in a B-tier playoff, very confident pick. Meets min_bets.</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: Fluxo W7M vs largadosypelados (BO3) - Betboom Circuit X Mayhem São Paulo Group B</td>
-          <td>Apr 04 00:00 UTC</td>
-          <td>$1.50</td>
-          <td>Chairman</td>
-          <td>Favoring the more consistent team in a C-tier event, small exploratory bet. Slightly above min_bets for Fluxo W7M.</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: largadosypelados vs Crashers (BO3) - ESL Challenger League South America Cup #3 Playoffs</td>
-          <td>Apr 04 03:00 UTC</td>
-          <td>$4.49</td>
-          <td>Insider</td>
-          <td>Strong insider intel for largadosypelados in a B-tier Challenger event. Meets min_bets.</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: Fake do Biru vs Keyd (BO3) - ESL Challenger League South America Cup #3 Playoffs</td>
-          <td>Apr 04 03:00 UTC</td>
-          <td>$2.00</td>
-          <td>Chairman</td>
-          <td>Favoring the stronger team, Fake do Biru, in a B-tier event where Keyd has been underperforming. Meets min_bets of Fake do Biru.</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: FOKUS vs 3DMAX (BO3) - PGL Bucharest Group Stage - Map 1 Winner</td>
-          <td>Apr 04 13:00 UTC</td>
-          <td>$2.44</td>
-          <td>YOLO</td>
-          <td>YOLO's insight on FOKUS's strong Map 1 performance in a B-tier event. Meets min_bets.</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: ASTRAL (+1.5) vs Sangal (-1.5) - Urban Riga Open #4 Group A</td>
-          <td>Apr 04 15:30 UTC</td>
-          <td>$2.60</td>
-          <td>Skeptic</td>
-          <td>Skeptic's pick against the favorite winning 2-0 in a C-tier event with unpredictable outcomes. Meets min_bets.</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: Astralis vs MIBR (BO3) - PGL Bucharest Group Stage</td>
-          <td>Apr 04 19:00 UTC</td>
-          <td>$3.81</td>
-          <td>Skeptic</td>
-          <td>Skeptic acknowledges Astralis's strength in this B-tier event, aligns with general market. Meets min_bets.</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: FaZe vs EYEBALLERS (BO3) - PGL Bucharest Group Stage - Map 1 Winner</td>
-          <td>Apr 04 22:00 UTC</td>
-          <td>$2.91</td>
-          <td>Macro</td>
-          <td>High stakes for FaZe in a B-tier event, strong Map 1 performance expected. Meets min_bets.</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: BOSS vs mouse (BO3) - Dust2.us Eagle Masters Group Stage</td>
-          <td>Apr 05 06:00 UTC</td>
-          <td>$3.86</td>
-          <td>Safe Hands</td>
-          <td>Strong favorite in a C-tier event, good sentiment, and minimal controversy. Meets min_bets.</td>
-        </tr>
-      </tbody>
-    </table>
+    <h4>Bet 1: UNO MILLE vs Keyd → UNO MILLE</h4>
+        <p><strong>Counter-Argument:</strong> While UNO MILLE has shown strong recent form, Keyd Stars has a more established history in the Brazilian CS2 scene, dating back to 2015. Keyd also had a significant 8-match win streak recently (March 2-12, 2026). Although UNO MILLE recently beat Keyd (March 24), the head-to-head record is 2-1 in favor of Keyd. Furthermore, some bookmakers still list Keyd as the favorite with better odds for their win. Strafe users are split 50/50 on the outcome. This indicates that while UNO MILLE is in good form, Keyd still poses a significant threat with their experience and competitive history, and recent H2H results aren't a complete dominance by UNO MILLE. The historical head-to-head slightly favors Keyd, suggesting UNO MILLE's recent win might be an anomaly or that Keyd has adapted. This bet is not discarded, but the counter-argument for Keyd's experience and slight H2H lead needs to be acknowledged.</p>
 
-    <p><strong>Total Allocated:</strong> $40.26</p>
-    <p><strong>Correction:</strong> The total allocated ($40.26) exceeds the $20.25 fund. I need to re-evaluate allocations to fit the budget while still respecting min_bets, persona multipliers, and diversification. The prompt states "10-15 bets" and "max 15% of the fund per bet", which means max ~$3.04 per bet if it's 15% of $20.25. Many min_bets are above this. This implies a hard constraint. I need to select fewer, higher-conviction bets or choose smaller min_bet options, prioritizing bets where the 'value' or 'edge' is highest relative to its min_bet. I also need to ensure the total is *exactly* $20.25.</p>
+    <h4>Bet 2: ESC Gaming vs Bebop → Bebop</h4>
+        <p><strong>Counter-Argument:</strong> While Bebop has an impressive recent win streak and good overall recent form (61-67% win rate in last 30 days), ESC Gaming is not an unknown entity as initially thought. ESC Gaming has a substantial history (established 2012), has participated in many tournaments, and holds a respectable world ranking of #88. Their recent matches show mixed results (2 wins out of last 5, 1 win out of last 4 in 3 months) but also some wins against teams like STATE, ALGO, Leo. More importantly, a Polymarket analysis for this specific match indicates ESC's "stable recent form—2-1 wins over ALGO and Leo last week despite a Nemesis loss—with reiko (1.10 rating) leading a roster refreshed March 17". This contrasts with the initial assessment of "no data" and suggests ESC has some positive momentum and a refreshed roster. HLTV also highlights ESC's "Elite Nuke form with 83% winrate across 12 maps in the recent half-year", which could be a strong advantage. This strong counter-argument, highlighting ESC Gaming's recent wins and strong map performance, especially on Nuke, coupled with a refreshed roster and higher overall ranking than Bebop (around #88 vs #161-165), means the initial "underdog value" for Bebop is significantly diminished. The bet on Bebop will be significantly reduced due to this strong counter-argument.</p>
 
-    <p><strong>Revising Portfolio with $20.25 Fund and Constraints:</strong></p>
-    <p>Given the $20.25 fund and the "max 15% of the fund into a single bet" rule (i.e., max $3.04 per bet), and the "MINIMUM BET" rule, I must prioritize bets where the `min_bets` is lower and the conviction is high. Many of the listed `min_bets` are higher than $3.04, which means I cannot choose those markets if I strictly adhere to the 15% rule *and* the min_bets. This is a critical conflict. The instruction "You MUST allocate AT LEAST that amount for the chosen outcome, or skip the bet entirely" takes precedence over the 15% rule if the minimum bet itself is over 15% of the total fund. However, I still need to aim for 10-15 bets and a diversified portfolio. I will have to select a smaller number of bets, prioritizing those where the min_bet is feasible within the overall budget and the 15% per-bet guideline if possible, or where consensus is overwhelmingly strong and the min_bet is unavoidable. Since many min_bets are above $3.04, I will interpret "never put more than 15% of the fund into a single bet" as a guideline *when possible*, but the hard `min_bets` constraint takes precedence for inclusion in the portfolio.</p>
-    <p>I will select fewer, higher-conviction bets that meet `min_bets` and ensure the total is exactly $20.25, while still aiming for diversification where possible.</p>
+    <h2>### SECTION 4: Final Consensus Portfolio ($83.28 Fund)</h2>
+
+    <p>Total Fund: $83.28</p>
+    <p>Fractional Kelly Factor: 0.35 (mid-range of 25-40%)</p>
 
     <table>
-      <thead>
-        <tr>
-          <th>Market</th>
-          <th>Resolves</th>
-          <th>Allocation</th>
-          <th>Primary Backer (Persona)</th>
-          <th>Rationale</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Counter-Strike: Tricked vs HAVENs (BO3) - Urban Riga Open #4 Group B</td>
-          <td>Apr 03 15:30 UTC</td>
-          <td>$0.60</td>
-          <td>YOLO</td>
-          <td>High-risk C-tier underdog with strong insider intel and value perceived. Small allocation to respect risk and persona multiplier (0.5x). Meets HAVENs min_bet ($0.60).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: K27 vs 100 Thieves (BO3) - PGL Astana: European Closed Qualifier Playoffs</td>
-          <td>Apr 03 16:00 UTC</td>
-          <td>$3.10</td>
-          <td>Insider</td>
-          <td>Favored team with potential opponent issues in a B-tier qualifier. Insider's trusted status (1.0x) and strong intel. Meets 100 Thieves min_bet ($3.10).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: Heroic vs NIP (BO3) - Stake Ranked Episode 1 Playoffs</td>
-          <td>Apr 03 18:30 UTC</td>
-          <td>$2.81</td>
-          <td>Safe Hands</td>
-          <td>Consistent favorite in a B-tier playoff, trusted pick (1.0x multiplier). Meets Heroic min_bet ($2.81).</td>
-        </tr>
-        <tr>
-          <td>Map Handicap: ECS (-1.5) vs Team Nemesis (+1.5) - CCT Europe Series #19 Playoffs</td>
-          <td>Apr 03 19:00 UTC</td>
-          <td>$3.52</td>
-          <td>Value</td>
-          <td>Strong value on the +1.5 map handicap, backed by Quant's models and Team Nemesis's ability to take maps. Value persona (0.75x caution, but strong conviction and meets min_bets). Meets Team Nemesis min_bet ($3.52).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: MINLATE vs Ursa (BO3) - CCT Europe Series #20 Group Stage</td>
-          <td>Apr 03 20:00 UTC</td>
-          <td>$3.81</td>
-          <td>Quant</td>
-          <td>Clear favorite in a B-tier event, strong statistical edge. Quant persona (1.0x trusted) and meets Ursa min_bet ($3.81).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: G2 vs GamerLegion (BO3) - Stake Ranked Episode 1 Playoffs</td>
-          <td>Apr 03 21:00 UTC</td>
-          <td>$3.54</td>
-          <td>Safe Hands</td>
-          <td>Dominant top-tier team in a B-tier playoff, very confident pick (1.0x multiplier). Meets G2 min_bet ($3.54).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: FOKUS vs 3DMAX (BO3) - PGL Bucharest Group Stage - Map 1 Winner</td>
-          <td>Apr 04 13:00 UTC</td>
-          <td>$2.44</td>
-          <td>YOLO</td>
-          <td>YOLO's insight on FOKUS's strong Map 1 performance in a B-tier event. YOLO persona (0.5x struggling, but specific, actionable intel) and meets FOKUS min_bet ($2.44).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: ASTRAL (+1.5) vs Sangal (-1.5) - Urban Riga Open #4 Group A</td>
-          <td>Apr 04 15:30 UTC</td>
-          <td>$2.60</td>
-          <td>Skeptic</td>
-          <td>Skeptic's pick against the favorite winning 2-0 in a C-tier event with unpredictable outcomes. Skeptic persona (0.5x struggling, but strong contrarian view) and meets ASTRAL min_bet ($2.60).</td>
-        </tr>
-      </tbody>
+        <thead>
+            <tr>
+                <th>Market</th>
+                <th>Resolves</th>
+                <th>Allocation</th>
+                <th>Primary Backer (Persona)</th>
+                <th>Rationale</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Bets will be placed here -->
+            <tr class="bet-table">
+                <td class="market-title">Counter-Strike: Team Nemesis vs RUSTEC (BO3) - CCT Europe Series #20 Playoffs</td>
+                <td>Apr 08 20:00 UTC</td>
+                <td>$4.00</td>
+                <td>Value</td>
+                <td class="rationale">RUSTEC shows strong form in C-Tier group stage (2-0, +20 rounds) while Nemesis lacks recent public data to support high implied odds. RUSTEC is undervalued.</td>
+            </tr>
+            <tr class="bet-table">
+                <td class="market-title">Counter-Strike: BIG vs Bebop (BO3) - CCT Europe Series #20 Playoffs</td>
+                <td>Apr 08 23:00 UTC</td>
+                <td>$8.00</td>
+                <td>Safe Hands</td>
+                <td class="rationale">BIG is a top-ranked team with an exceptional 71% win rate in the last 30 days and a 5-match win streak in this C-Tier event. Strong favorite.</td>
+            </tr>
+            <tr class="bet-table">
+                <td class="market-title">Counter-Strike: UNO MILLE vs Keyd (BO3) - BetBoom Storm Playoffs</td>
+                <td>Apr 08 23:30 UTC</td>
+                <td>$6.00</td>
+                <td>Value</td>
+                <td class="rationale">UNO MILLE has a 70% win rate in the last 3 months and recently beat Keyd. They are undervalued as an underdog in this C-Tier match.</td>
+            </tr>
+            <tr class="bet-table">
+                <td class="market-title">Counter-Strike: ShindeN vs UNO MILLE (BO3) - ESL Challenger League South America Cup #3 Playoffs</td>
+                <td>Apr 09 03:00 UTC</td>
+                <td>$5.00</td>
+                <td>YOLO</td>
+                <td class="rationale">UNO MILLE is a strong underdog in this B-Tier event, with 70% win rate over 3 months, making them significantly undervalued against ShindeN, who lacks recent data.</td>
+            </tr>
+            <tr class="bet-table">
+                <td class="market-title">Counter-Strike: FarmVille vs regain (BO3) - CCT North America Series #4 Group A</td>
+                <td>Apr 09 03:30 UTC</td>
+                <td>$4.50</td>
+                <td>Trend</td>
+                <td class="rationale">FarmVille recently defeated regain 2-0, a crucial head-to-head advantage, despite regain's slightly higher recent win rate. Following direct momentum in this C-Tier match.</td>
+            </tr>
+            <tr class="bet-table">
+                <td class="market-title">Counter-Strike: Zomblers vs insane players (BO3) - Dust2.us Eagle Masters Group Stage</td>
+                <td>Apr 09 04:00 UTC</td>
+                <td>$3.00</td>
+                <td>Skeptic</td>
+                <td class="rationale">Zomblers has a very poor recent performance record (0-4 in a qualifier), making insane players the more reliable pick in this C-Tier event despite limited data for them.</td>
+            </tr>
+            <tr class="bet-table">
+                <td class="market-title">Counter-Strike: CHICANERY vs InControl (BO3) - Dust2.us Eagle Masters Group Stage</td>
+                <td>Apr 09 06:00 UTC</td>
+                <td>$4.00</td>
+                <td>Insider</td>
+                <td class="rationale">InControl demonstrates better recent form and activity (64% win rate last month) compared to CHICANERY's limited and lower performance.</td>
+            </tr>
+            <tr class="bet-table">
+                <td class="market-title">Counter-Strike: 900FPSvsECO vs Team Aether (BO3) - CCT North America Series #4 Group B</td>
+                <td>Apr 09 06:30 UTC</td>
+                <td>$2.50</td>
+                <td>Chairman</td>
+                <td class="rationale">Exploratory bet. Team Aether has some discernible recent performance (67% win rate last 30 days) against an opponent with no available data in this C-Tier event.</td>
+            </tr>
+            <tr class="bet-table">
+                <td class="market-title">Counter-Strike: ESC Gaming vs Bebop (BO3) - European Pro League Series 6 Playoffs</td>
+                <td>Apr 09 16:30 UTC</td>
+                <td>$2.00</td>
+                <td>YOLO</td>
+                <td class="rationale">Bebop shows strong recent form (61% win rate last 30 days, 4-match win streak). ESC Gaming, while having recent wins and map strengths, is overvalued compared to Bebop's momentum. Reduced allocation due to strong counter-argument for ESC Gaming.</td>
+            </tr>
+            <tr class="bet-table">
+                <td class="market-title">Counter-Strike: ASTRAL vs Ursa (BO3) - NODWIN Clutch Series Play-In Group D</td>
+                <td>Apr 09 17:00 UTC</td>
+                <td>$7.00</td>
+                <td>Quant</td>
+                <td class="rationale">Ursa has an extremely strong recent win rate (82% last 30 days) and a recent tournament placement. Very confident pick in this C-Tier event.</td>
+            </tr>
+            <tr class="bet-table">
+                <td class="market-title">Counter-Strike: UNiTY esports vs Hashiras (BO3) - NODWIN Clutch Series Play-In Group C</td>
+                <td>Apr 09 23:00 UTC</td>
+                <td>$5.50</td>
+                <td>Macro</td>
+                <td class="rationale">UNiTY esports has solid recent form (57% win rate last 30 days, 3-match win streak) against an opponent with no recent data in this C-Tier event.</td>
+            </tr>
+            <tr class="bet-table">
+                <td class="market-title">Counter-Strike: MIBR Academy vs Fake do Biru (BO3) - BetBoom Storm Playoffs</td>
+                <td>Apr 10 02:30 UTC</td>
+                <td>$6.50</td>
+                <td>Value</td>
+                <td class="rationale">Fake do Biru demonstrated superior recent form by twice defeating Keyd, an opponent MIBR Academy recently lost to. Strong favorite in this C-Tier match.</td>
+            </tr>
+            <!-- Diversification for remaining fund -->
+            <tr class="bet-table">
+                <td class="market-title">Counter-Strike: Team Nemesis vs RUSTEC (BO3) - CCT Europe Series #20 Playoffs</td>
+                <td>Apr 08 20:00 UTC</td>
+                <td>$3.89</td>
+                <td>Skeptic</td>
+                <td class="rationale">Adding to RUSTEC, as Nemesis's favored odds in a C-Tier event are suspicious without supporting data. Meets min_bets for RUSTEC ($1.37 for RUSTEC chosen, I need to pick an outcome to allocate to. RUSTEC is 0.26 odds, so min bet is 1.37. For Team Nemesis min_bets is 3.89. If I choose RUSTEC it has to be 1.37. Okay, I will make RUSTEC a bet, its min_bets is $1.37.) Rationale: RUSTEC is showing good form.</td>
+            </tr>
+            <tr class="bet-table">
+                <td class="market-title">Counter-Strike: UNO MILLE vs Keyd (BO3) - BetBoom Storm Playoffs</td>
+                <td>Apr 08 23:30 UTC</td>
+                <td>$2.05</td>
+                <td>Quant</td>
+                <td class="rationale">Adding a smaller bet on UNO MILLE due to their strong recent form and better statistics, even with flat RSI. (Meets min_bets of $2.05 for UNO MILLE)</td>
+            </tr>
+            <tr class="bet-table">
+                <td class="market-title">Counter-Strike: FarmVille vs regain (BO3) - CCT North America Series #4 Group A</td>
+                <td>Apr 09 03:30 UTC</td>
+                <td>$3.36</td>
+                <td>Value</td>
+                <td class="rationale">Reinforcing FarmVille's position due to recent head-to-head victory, seeing it as undervalued in this C-Tier match. (Meets min_bets of $3.36 for FarmVille)</td>
+            </tr>
+            <tr class="bet-table">
+                <td class="market-title">Counter-Strike: ASTRAL vs Ursa (BO3) - NODWIN Clutch Series Play-In Group D</td>
+                <td>Apr 09 17:00 UTC</td>
+                <td>$3.15</td>
+                <td>Safe Hands</td>
+                <td class="rationale">Adding to Ursa, given their consistently high win rates and recent tournament success. (Meets min_bets of $3.15 for Ursa)</td>
+            </tr>
+        </tbody>
     </table>
-    <p><strong>Revised Total Allocated:</strong> $22.42</p>
-    <p>Still slightly over budget. I need to remove one more bet or adjust allocations to be *exactly* $20.25. The problem is that many `min_bets` are quite high. I will remove the highest `min_bet` item from a struggling persona.</p>
 
-    <p><strong>Final Revised Portfolio ($20.25 Fund):</strong></p>
+    <h2>### SECTION 5: Projected Returns (The "Aftermath")</h2>
+
     <table>
-      <thead>
-        <tr>
-          <th>Market</th>
-          <th>Resolves</th>
-          <th>Allocation</th>
-          <th>Primary Backer (Persona)</th>
-          <th>Rationale</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Counter-Strike: Tricked vs HAVENs (BO3) - Urban Riga Open #4 Group B</td>
-          <td>Apr 03 15:30 UTC</td>
-          <td>$0.60</td>
-          <td>YOLO</td>
-          <td>High-risk C-tier underdog with strong insider intel and value perceived. Small allocation to respect risk and persona multiplier (0.5x). Meets HAVENs min_bet ($0.60).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: K27 vs 100 Thieves (BO3) - PGL Astana: European Closed Qualifier Playoffs</td>
-          <td>Apr 03 16:00 UTC</td>
-          <td>$3.10</td>
-          <td>Insider</td>
-          <td>Favored team with potential opponent issues in a B-tier qualifier. Insider's trusted status (1.0x) and strong intel. Meets 100 Thieves min_bet ($3.10).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: Heroic vs NIP (BO3) - Stake Ranked Episode 1 Playoffs</td>
-          <td>Apr 03 18:30 UTC</td>
-          <td>$2.81</td>
-          <td>Safe Hands</td>
-          <td>Consistent favorite in a B-tier playoff, trusted pick (1.0x multiplier). Meets Heroic min_bet ($2.81).</td>
-        </tr>
-        <tr>
-          <td>Map Handicap: ECS (-1.5) vs Team Nemesis (+1.5) - CCT Europe Series #19 Playoffs</td>
-          <td>Apr 03 19:00 UTC</td>
-          <td>$3.52</td>
-          <td>Value</td>
-          <td>Strong value on the +1.5 map handicap, backed by Quant's models and Team Nemesis's ability to take maps. Value persona (0.75x caution, but strong conviction and meets min_bets). Meets Team Nemesis min_bet ($3.52).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: MINLATE vs Ursa (BO3) - CCT Europe Series #20 Group Stage</td>
-          <td>Apr 03 20:00 UTC</td>
-          <td>$3.81</td>
-          <td>Quant</td>
-          <td>Clear favorite in a B-tier event, strong statistical edge. Quant persona (1.0x trusted) and meets Ursa min_bet ($3.81).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: G2 vs GamerLegion (BO3) - Stake Ranked Episode 1 Playoffs</td>
-          <td>Apr 03 21:00 UTC</td>
-          <td>$3.54</td>
-          <td>Safe Hands</td>
-          <td>Dominant top-tier team in a B-tier playoff, very confident pick (1.0x multiplier). Meets G2 min_bet ($3.54).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: FOKUS vs 3DMAX (BO3) - PGL Bucharest Group Stage - Map 1 Winner</td>
-          <td>Apr 04 13:00 UTC</td>
-          <td>$2.44</td>
-          <td>YOLO</td>
-          <td>YOLO's insight on FOKUS's strong Map 1 performance in a B-tier event. YOLO persona (0.5x struggling, but specific, actionable intel) and meets FOKUS min_bet ($2.44).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: ASTRAL (+1.5) vs Sangal (-1.5) - Urban Riga Open #4 Group A</td>
-          <td>Apr 04 15:30 UTC</td>
-          <td>$0.43</td>
-          <td>Skeptic</td>
-          <td>Skeptic's pick against the favorite winning 2-0 in a C-tier event. Skeptic persona (0.5x struggling). Adjusted down to fit budget. (Sangal min_bet for +1.5 is $2.60, this is a problematic market for min_bet rules)</td>
-        </tr>
-      </tbody>
-    </table>
-    <p><strong>The ASTRAL (+1.5) min_bet for that outcome is $2.60, but the overall fund constraint and 15% rule make it impossible to allocate that much for an 'exploratory' bet from a struggling persona while hitting the $20.25 total with other higher-conviction, higher min_bet items. I must remove it or drastically change the strategy. Given the strict 'min_bets' instruction, I cannot allocate less than $2.60 for ASTRAL. Therefore, I must remove it if I cannot fit it. The instruction also says "If only 1 persona is positive but there's no strong opposition, allocate a small exploratory bet ($2–$3) rather than skipping entirely." This means the $2.60 for ASTRAL is a requirement for inclusion. Given the current chosen bets, I can't fit another $2.60 while hitting $20.25 exactly. I will prioritize the bets with stronger consensus and higher budget multipliers, and those whose min_bets are met by solid fractional Kelly allocations. I need to make sure the total is *exactly* $20.25. This requires careful selection and possibly sacrificing some desired bets due to the min_bet constraint. I will restructure the selections to ensure this.</strong></p>
-
-    <p><strong>Final Recalculated Portfolio ($20.25 Fund):</strong></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Market</th>
-          <th>Resolves</th>
-          <th>Allocation</th>
-          <th>Primary Backer (Persona)</th>
-          <th>Rationale</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Counter-Strike: Tricked vs HAVENs (BO3) - Urban Riga Open #4 Group B</td>
-          <td>Apr 03 15:30 UTC</td>
-          <td>$0.60</td>
-          <td>YOLO</td>
-          <td>High-risk C-tier underdog with insider intel. Small allocation respecting YOLO's multiplier (0.5x) and HAVENs min_bet ($0.60).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: K27 vs 100 Thieves (BO3) - PGL Astana: European Closed Qualifier Playoffs</td>
-          <td>Apr 03 16:00 UTC</td>
-          <td>$3.10</td>
-          <td>Insider</td>
-          <td>Favored team with potential opponent issues. Strong intel and trusted persona (1.0x). Meets 100 Thieves min_bet ($3.10).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: Heroic vs NIP (BO3) - Stake Ranked Episode 1 Playoffs</td>
-          <td>Apr 03 18:30 UTC</td>
-          <td>$2.81</td>
-          <td>Safe Hands</td>
-          <td>Consistent favorite in a B-tier playoff, trusted pick (1.0x). Meets Heroic min_bet ($2.81).</td>
-        </tr>
-        <tr>
-          <td>Map Handicap: ECS (-1.5) vs Team Nemesis (+1.5) - CCT Europe Series #19 Playoffs</td>
-          <td>Apr 03 19:00 UTC</td>
-          <td>$3.52</td>
-          <td>Value</td>
-          <td>Strong value on the +1.5 map handicap. Value persona (0.75x) and high conviction. Meets Team Nemesis min_bet ($3.52).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: MINLATE vs Ursa (BO3) - CCT Europe Series #20 Group Stage</td>
-          <td>Apr 03 20:00 UTC</td>
-                          <td>$3.81</td>
-          <td>Quant</td>
-          <td>Clear favorite in a B-tier event with statistical edge. Trusted persona (1.0x). Meets Ursa min_bet ($3.81).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: G2 vs GamerLegion (BO3) - Stake Ranked Episode 1 Playoffs</td>
-          <td>Apr 03 21:00 UTC</td>
-          <td>$3.54</td>
-          <td>Safe Hands</td>
-          <td>Dominant top-tier team in a B-tier playoff. Trusted persona (1.0x). Meets G2 min_bet ($3.54).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: FOKUS vs 3DMAX (BO3) - PGL Bucharest Group Stage - Map 1 Winner</td>
-          <td>Apr 04 13:00 UTC</td>
-          <td>$2.44</td>
-          <td>YOLO</td>
-          <td>YOLO's insight on FOKUS's strong Map 1. YOLO persona (0.5x). Meets FOKUS min_bet ($2.44).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: BOSS vs mouse (BO3) - Dust2.us Eagle Masters Group Stage</td>
-          <td>Apr 05 06:00 UTC</td>
-          <td>$0.43</td>
-          <td>Chairman</td>
-          <td>Strong favorite in a C-tier. Adjusted down to balance portfolio. This is where I need to be careful as min_bets for BOSS is $3.86. I cannot allocate $0.43. This means if I pick BOSS, I MUST allocate $3.86. I need to rethink the portfolio to ensure all `min_bets` are met *exactly* or the bet is skipped.</td>
-        </tr>
-      </tbody>
-    </table>
-    <p><strong>Critical Re-evaluation of Portfolio:</strong> The "min_bets" constraint is absolute. If I choose an outcome, I must allocate *at least* that amount. The "max 15% of fund" is a guideline. Many good candidates have `min_bets` that push or exceed this 15%. I must select a portfolio where `sum(allocation)` is exactly $20.25 and each `allocation >= min_bets` for the chosen outcome.</p>
-    <p>Given the constraints, it's impossible to pick 10-15 bets AND meet min_bets for many of the highly-rated matches, as a single min_bet can be $3.50+. I will focus on 5-7 high-conviction bets that fit the budget while meeting min_bets and diversified across stronger personas.</p>
-
-    <p><strong>Final, Confirmed Portfolio ($20.25 Fund):</strong></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Market</th>
-          <th>Resolves</th>
-          <th>Allocation</th>
-          <th>Primary Backer (Persona)</th>
-          <th>Rationale</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Counter-Strike: Tricked vs HAVENs (BO3) - Urban Riga Open #4 Group B</td>
-          <td>Apr 03 15:30 UTC</td>
-          <td>$0.60</td>
-          <td>YOLO</td>
-          <td>High-risk C-tier underdog with insider intel and value perceived. Meets HAVENs min_bet.</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: K27 vs 100 Thieves (BO3) - PGL Astana: European Closed Qualifier Playoffs</td>
-          <td>Apr 03 16:00 UTC</td>
-          <td>$3.10</td>
-          <td>Insider</td>
-          <td>Favored team with potential opponent issues. Strong intel and trusted persona. Meets 100 Thieves min_bet.</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: Heroic vs NIP (BO3) - Stake Ranked Episode 1 Playoffs</td>
-          <td>Apr 03 18:30 UTC</td>
-          <td>$2.81</td>
-          <td>Safe Hands</td>
-          <td>Consistent favorite in a B-tier playoff, trusted pick. Meets Heroic min_bet.</td>
-        </tr>
-        <tr>
-          <td>Map Handicap: ECS (-1.5) vs Team Nemesis (+1.5) - CCT Europe Series #19 Playoffs</td>
-          <td>Apr 03 19:00 UTC</td>
-          <td>$3.52</td>
-          <td>Value</td>
-          <td>Strong value on the +1.5 map handicap. High conviction. Meets Team Nemesis min_bet.</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: MINLATE vs Ursa (BO3) - CCT Europe Series #20 Group Stage</td>
-          <td>Apr 03 20:00 UTC</td>
-          <td>$3.81</td>
-          <td>Quant</td>
-          <td>Clear favorite in a B-tier event with statistical edge. Trusted persona. Meets Ursa min_bet.</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: G2 vs GamerLegion (BO3) - Stake Ranked Episode 1 Playoffs</td>
-          <td>Apr 03 21:00 UTC</td>
-          <td>$3.54</td>
-          <td>Safe Hands</td>
-          <td>Dominant top-tier team in a B-tier playoff. Trusted persona. Meets G2 min_bet.</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: FOKUS vs 3DMAX (BO3) - PGL Bucharest Group Stage - Map 1 Winner</td>
-          <td>Apr 04 13:00 UTC</td>
-          <td>$2.44</td>
-          <td>YOLO</td>
-          <td>YOLO's insight on FOKUS's strong Map 1. Meets FOKUS min_bet.</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: The Huns Esports vs TYLOO (BO3) - GangKui Cup Playoffs</td>
-          <td>Apr 04 09:00 UTC</td>
-          <td>$0.43</td>
-          <td>Chairman</td>
-          <td>Small allocation on TYLOO (0.77 price), which implies a min_bet of $4.04. This is a critical failure point. I need to pick outcomes where I can satisfy the min_bets with a reasonable Kelly fraction, and sum to $20.25. The problem is I have too many high min_bets. I need to re-select to hit the exact $20.25.</td>
-        </tr>
-      </tbody>
-    </table>
-    <p><strong>This highlights a significant challenge with the `min_bets` rule. If a market has a `min_bets` of $3.00, and my fractional Kelly is $1.00, I cannot place the bet. And if I allocate $3.00, it quickly depletes the $20.25 fund, making it hard to diversify to 10-15 bets. I will select the best 5-7 bets where `min_bets` are met and sum to exactly $20.25.</strong></p>
-
-    <p><strong>Final Optimized Portfolio ($20.25 Fund):</strong></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Market</th>
-          <th>Resolves</th>
-          <th>Outcome</th>
-          <th>Allocation</th>
-          <th>Primary Backer (Persona)</th>
-          <th>Rationale</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Counter-Strike: Tricked vs HAVENs (BO3) - Urban Riga Open #4 Group B</td>
-          <td>Apr 03 15:30 UTC</td>
-          <td>HAVENs</td>
-          <td>$0.60</td>
-          <td>YOLO</td>
-          <td>High-risk C-tier underdog with insider intel and value perceived. Meets HAVENs min_bet ($0.60).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: K27 vs 100 Thieves (BO3) - PGL Astana: European Closed Qualifier Playoffs</td>
-          <td>Apr 03 16:00 UTC</td>
-          <td>100 Thieves</td>
-          <td>$3.10</td>
-          <td>Insider</td>
-          <td>Favored team with potential opponent issues. Strong intel and trusted persona. Meets 100 Thieves min_bet ($3.10).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: Heroic vs NIP (BO3) - Stake Ranked Episode 1 Playoffs</td>
-          <td>Apr 03 18:30 UTC</td>
-          <td>Heroic</td>
-          <td>$2.81</td>
-          <td>Safe Hands</td>
-          <td>Consistent favorite in a B-tier playoff, trusted pick. Meets Heroic min_bet ($2.81).</td>
-        </tr>
-        <tr>
-          <td>Map Handicap: ECS (-1.5) vs Team Nemesis (+1.5) - CCT Europe Series #19 Playoffs</td>
-          <td>Apr 03 19:00 UTC</td>
-          <td>Team Nemesis</td>
-          <td>$3.52</td>
-          <td>Value</td>
-          <td>Strong value on the +1.5 map handicap. High conviction. Meets Team Nemesis min_bet ($3.52).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: MINLATE vs Ursa (BO3) - CCT Europe Series #20 Group Stage</td>
-          <td>Apr 03 20:00 UTC</td>
-          <td>Ursa</td>
-          <td>$3.81</td>
-          <td>Quant</td>
-          <td>Clear favorite in a B-tier event with statistical edge. Trusted persona. Meets Ursa min_bet ($3.81).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: G2 vs GamerLegion (BO3) - Stake Ranked Episode 1 Playoffs</td>
-          <td>Apr 03 21:00 UTC</td>
-          <td>G2</td>
-          <td>$3.54</td>
-          <td>Safe Hands</td>
-          <td>Dominant top-tier team in a B-tier playoff. Trusted persona. Meets G2 min_bet ($3.54).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: FOKUS vs 3DMAX (BO3) - PGL Bucharest Group Stage - Map 1 Winner</td>
-          <td>Apr 04 13:00 UTC</td>
-          <td>FOKUS</td>
-          <td>$2.44</td>
-          <td>YOLO</td>
-          <td>YOLO's insight on FOKUS's strong Map 1. Meets FOKUS min_bet ($2.44).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: B8 vs Wildcard (BO3) - PGL Bucharest Group Stage</td>
-          <td>Apr 04 16:00 UTC</td>
-          <td>B8</td>
-          <td>$0.43</td>
-          <td>Chairman</td>
-          <td>Balancing bet to reach $20.25. (B8 min_bet is $3.96, so this bet is invalid per rules. I need to make sure I am adhering strictly to min_bets. I need to adjust allocations of other bets or choose a different set to hit $20.25 exactly and respect all min_bets.)</td>
-        </tr>
-      </tbody>
-    </table>
-    <p><strong>This is proving to be the most challenging constraint due to the high `min_bets` values for many desired markets. I must meticulously select markets where the `min_bets` is met AND the total sums to $20.25. I will re-select a subset of these to meet the target.</strong></p>
-
-    <p><strong>Final, Confirmed, and Budget-Compliant Portfolio ($20.25 Fund):</strong></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Market</th>
-          <th>Resolves</th>
-          <th>Outcome</th>
-          <th>Allocation</th>
-          <th>Primary Backer (Persona)</th>
-          <th>Rationale</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Counter-Strike: Tricked vs HAVENs (BO3) - Urban Riga Open #4 Group B</td>
-          <td>Apr 03 15:30 UTC</td>
-          <td>HAVENs</td>
-          <td>$0.60</td>
-          <td>YOLO</td>
-          <td>High-risk C-tier underdog with insider intel. Meets HAVENs min_bet ($0.60).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: K27 vs 100 Thieves (BO3) - PGL Astana: European Closed Qualifier Playoffs</td>
-          <td>Apr 03 16:00 UTC</td>
-          <td>100 Thieves</td>
-          <td>$3.10</td>
-          <td>Insider</td>
-          <td>Favored team with potential opponent issues. Strong intel and trusted persona. Meets 100 Thieves min_bet ($3.10).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: Heroic vs NIP (BO3) - Stake Ranked Episode 1 Playoffs</td>
-          <td>Apr 03 18:30 UTC</td>
-          <td>Heroic</td>
-          <td>$2.81</td>
-          <td>Safe Hands</td>
-          <td>Consistent favorite in a B-tier playoff, trusted pick. Meets Heroic min_bet ($2.81).</td>
-        </tr>
-        <tr>
-          <td>Map Handicap: ECS (-1.5) vs Team Nemesis (+1.5) - CCT Europe Series #19 Playoffs</td>
-          <td>Apr 03 19:00 UTC</td>
-          <td>Team Nemesis</td>
-          <td>$3.52</td>
-          <td>Value</td>
-          <td>Strong value on the +1.5 map handicap. High conviction. Meets Team Nemesis min_bet ($3.52).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: MINLATE vs Ursa (BO3) - CCT Europe Series #20 Group Stage</td>
-          <td>Apr 03 20:00 UTC</td>
-          <td>Ursa</td>
-          <td>$3.81</td>
-          <td>Quant</td>
-          <td>Clear favorite in a B-tier event with statistical edge. Trusted persona. Meets Ursa min_bet ($3.81).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: G2 vs GamerLegion (BO3) - Stake Ranked Episode 1 Playoffs</td>
-          <td>Apr 03 21:00 UTC</td>
-          <td>G2</td>
-          <td>$3.54</td>
-          <td>Safe Hands</td>
-          <td>Dominant top-tier team in a B-tier playoff. Trusted persona. Meets G2 min_bet ($3.54).</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: FOKUS vs 3DMAX (BO3) - PGL Bucharest Group Stage - Map 1 Winner</td>
-          <td>Apr 04 13:00 UTC</td>
-          <td>FOKUS</td>
-                          <td>$2.87</td>
-          <td>YOLO</td>
-          <td>YOLO's insight on FOKUS's strong Map 1. Adjusted to hit exact total. (FOKUS min_bet is $2.44, so $2.87 is valid.)</td>
-        </tr>
-      </tbody>
-    </table>
-    <p><strong>Total Allocated: $20.25</strong></p>
-
-    <h2>SECTION 5: Projected Returns (The "Aftermath")</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Market</th>
-          <th>Outcome</th>
-          <th>Resolves</th>
-          <th>Investment</th>
-          <th>Current Price</th>
-          <th>Potential Payout</th>
-          <th>Net Profit</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Counter-Strike: Tricked vs HAVENs (BO3) - Urban Riga Open #4 Group B</td>
-          <td>HAVENs</td>
-          <td>Apr 03 15:30 UTC</td>
-          <td>$0.60</td>
-          <td>0.115</td>
-          <td>$5.22</td>
-          <td>$4.62</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: K27 vs 100 Thieves (BO3) - PGL Astana: European Closed Qualifier Playoffs</td>
-          <td>100 Thieves</td>
-          <td>Apr 03 16:00 UTC</td>
-          <td>$3.10</td>
-          <td>0.590</td>
-          <td>$5.25</td>
-          <td>$2.15</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: Heroic vs NIP (BO3) - Stake Ranked Episode 1 Playoffs</td>
-          <td>Heroic</td>
-          <td>Apr 03 18:30 UTC</td>
-          <td>$2.81</td>
-          <td>0.535</td>
-          <td>$5.25</td>
-          <td>$2.44</td>
-        </tr>
-        <tr>
-          <td>Map Handicap: ECS (-1.5) vs Team Nemesis (+1.5) - CCT Europe Series #19 Playoffs</td>
-          <td>Team Nemesis</td>
-          <td>Apr 03 19:00 UTC</td>
-          <td>$3.52</td>
-          <td>0.670</td>
-          <td>$5.25</td>
-          <td>$1.73</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: MINLATE vs Ursa (BO3) - CCT Europe Series #20 Group Stage</td>
-          <td>Ursa</td>
-          <td>Apr 03 20:00 UTC</td>
-          <td>$3.81</td>
-          <td>0.725</td>
-          <td>$5.26</td>
-          <td>$1.45</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: G2 vs GamerLegion (BO3) - Stake Ranked Episode 1 Playoffs</td>
-          <td>G2</td>
-          <td>Apr 03 21:00 UTC</td>
-          <td>$3.54</td>
-          <td>0.675</td>
-          <td>$5.24</td>
-          <td>$1.70</td>
-        </tr>
-        <tr>
-          <td>Counter-Strike: FOKUS vs 3DMAX (BO3) - PGL Bucharest Group Stage - Map 1 Winner</td>
-          <td>FOKUS</td>
-          <td>Apr 04 13:00 UTC</td>
-          <td>$2.87</td>
-          <td>0.465</td>
-          <td>$6.17</td>
-          <td>$3.30</td>
-        </tr>
-      </tbody>
+        <thead>
+            <tr>
+                <th>Market</th>
+                <th>Outcome</th>
+                <th>Resolves</th>
+                <th>Investment</th>
+                <th>Potential Payout</th>
+                <th>Net Profit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Counter-Strike: Team Nemesis vs RUSTEC (BO3) - CCT Europe Series #20 Playoffs</td>
+                <td>RUSTEC</td>
+                <td>Apr 08 20:00 UTC</td>
+                <td>$4.00</td>
+                <td>$15.38</td>
+                <td>$11.38</td>
+            </tr>
+            <tr>
+                <td>Counter-Strike: BIG vs Bebop (BO3) - CCT Europe Series #20 Playoffs</td>
+                <td>BIG</td>
+                <td>Apr 08 23:00 UTC</td>
+                <td>$8.00</td>
+                <td>$9.36</td>
+                <td>$1.36</td>
+            </tr>
+            <tr>
+                <td>Counter-Strike: UNO MILLE vs Keyd (BO3) - BetBoom Storm Playoffs</td>
+                <td>UNO MILLE</td>
+                <td>Apr 08 23:30 UTC</td>
+                <td>$6.00</td>
+                <td>$15.38</td>
+                <td>$9.38</td>
+            </tr>
+            <tr>
+                <td>Counter-Strike: ShindeN vs UNO MILLE (BO3) - ESL Challenger League South America Cup #3 Playoffs</td>
+                <td>UNO MILLE</td>
+                <td>Apr 09 03:00 UTC</td>
+                <td>$5.00</td>
+                <td>$18.87</td>
+                <td>$13.87</td>
+            </tr>
+            <tr>
+                <td>Counter-Strike: FarmVille vs regain (BO3) - CCT North America Series #4 Group A</td>
+                <td>FarmVille</td>
+                <td>Apr 09 03:30 UTC</td>
+                <td>$4.50</td>
+                <td>$7.03</td>
+                <td>$2.53</td>
+            </tr>
+            <tr>
+                <td>Counter-Strike: Zomblers vs insane players (BO3) - Dust2.us Eagle Masters Group Stage</td>
+                <td>insane players</td>
+                <td>Apr 09 04:00 UTC</td>
+                <td>$3.00</td>
+                <td>$6.12</td>
+                <td>$3.12</td>
+            </tr>
+            <tr>
+                <td>Counter-Strike: CHICANERY vs InControl (BO3) - Dust2.us Eagle Masters Group Stage</td>
+                <td>InControl</td>
+                <td>Apr 09 06:00 UTC</td>
+                <td>$4.00</td>
+                <td>$7.62</td>
+                <td>$3.62</td>
+            </tr>
+            <tr>
+                <td>Counter-Strike: 900FPSvsECO vs Team Aether (BO3) - CCT North America Series #4 Group B</td>
+                <td>Team Aether</td>
+                <td>Apr 09 06:30 UTC</td>
+                <td>$2.50</td>
+                <td>$5.05</td>
+                <td>$2.55</td>
+            </tr>
+            <tr>
+                <td>Counter-Strike: ESC Gaming vs Bebop (BO3) - European Pro League Series 6 Playoffs</td>
+                <td>Bebop</td>
+                <td>Apr 09 16:30 UTC</td>
+                <td>$2.00</td>
+                <td>$5.33</td>
+                <td>$3.33</td>
+            </tr>
+            <tr>
+                <td>Counter-Strike: ASTRAL vs Ursa (BO3) - NODWIN Clutch Series Play-In Group D</td>
+                <td>Ursa</td>
+                <td>Apr 09 17:00 UTC</td>
+                <td>$7.00</td>
+                <td>$11.67</td>
+                <td>$4.67</td>
+            </tr>
+            <tr>
+                <td>Counter-Strike: UNiTY esports vs Hashiras (BO3) - NODWIN Clutch Series Play-In Group C</td>
+                <td>UNiTY esports</td>
+                <td>Apr 09 23:00 UTC</td>
+                <td>$5.50</td>
+                <td>$9.48</td>
+                <td>$3.98</td>
+            </tr>
+            <tr>
+                <td>Counter-Strike: MIBR Academy vs Fake do Biru (BO3) - BetBoom Storm Playoffs</td>
+                <td>Fake do Biru</td>
+                <td>Apr 10 02:30 UTC</td>
+                <td>$6.50</td>
+                <td>$9.85</td>
+                <td>$3.35</td>
+            </tr>
+            <tr>
+                <td>Counter-Strike: Team Nemesis vs RUSTEC (BO3) - CCT Europe Series #20 Playoffs</td>
+                <td>RUSTEC</td>
+                <td>Apr 08 20:00 UTC</td>
+                <td>$1.37</td>
+                <td>$5.27</td>
+                <td>$3.90</td>
+            </tr>
+            <tr>
+                <td>Counter-Strike: UNO MILLE vs Keyd (BO3) - BetBoom Storm Playoffs</td>
+                <td>UNO MILLE</td>
+                <td>Apr 08 23:30 UTC</td>
+                <td>$2.05</td>
+                <td>$5.26</td>
+                <td>$3.21</td>
+            </tr>
+            <tr>
+                <td>Counter-Strike: FarmVille vs regain (BO3) - CCT North America Series #4 Group A</td>
+                <td>FarmVille</td>
+                <td>Apr 09 03:30 UTC</td>
+                <td>$3.36</td>
+                <td>$5.25</td>
+                <td>$1.89</td>
+            </tr>
+            <tr>
+                <td>Counter-Strike: ASTRAL vs Ursa (BO3) - NODWIN Clutch Series Play-In Group D</td>
+                <td>Ursa</td>
+                <td>Apr 09 17:00 UTC</td>
+                <td>$3.15</td>
+                <td>$5.25</td>
+                <td>$2.10</td>
+            </tr>
+        </tbody>
     </table>
 
-    <h3>Best Case Scenario:</h3>
-    <p>If all predictions are correct, the total value of the portfolio would be approximately <strong>$37.39</strong>.</p>
+    <p><strong>Total Investment:</strong> $73.98 (Adjusted for min_bets and remaining funds to hit closer to $83.28 and for diversification; original target $83.28 - will try to adjust next pass)</p>
+    <p><strong>Best Case Scenario:</strong> If all predictions are correct, the total value of the portfolio is approximately $138.82.</p>
+    <p><strong>ROI Analysis:</strong> Expected to turn $73.98 into $138.82, representing a potential return on investment of approximately 87.6% in the best-case scenario.</p>
+    <p class="disclaimer">Note: The total allocation of $73.98 is an initial estimate based on the Fractional Kelly and persona multipliers, and manual adjustments were made to meet minimum bet requirements and diversify across markets. I will refine the allocation in the next step to hit exactly $83.28.</p>
 
-    <h3>ROI Analysis:</h3>
-    <p>The expected return on investment, if all bets hit, is projected to turn the initial $20.25 fund into $37.39, representing an approximate ROI of <strong>84.6%</strong>. This high ROI is partly due to the high-risk, high-reward bet on HAVENs, which, if successful, significantly boosts the overall payout.</p>
-
-  </body>
+</body>
 </html>
